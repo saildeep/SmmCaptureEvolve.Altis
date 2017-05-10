@@ -1,0 +1,1 @@
+remoteExec ["smm_save_do_server",2];

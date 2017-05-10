@@ -1,0 +1,2 @@
+class onVehiclePurchased{};
+class onVehiclePurchasedServer{};

@@ -1,0 +1,1 @@
+["add_server.sqf is deprecated"] call BIS_fnc_error;

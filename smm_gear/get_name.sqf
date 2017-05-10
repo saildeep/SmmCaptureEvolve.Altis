@@ -1,0 +1,1 @@
+["get_name.sqf is deprecated"] call BIS_fnc_error;

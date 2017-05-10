@@ -1,0 +1,1 @@
+["get_scope_classname.sqf is deprecated"] call BIS_fnc_error;

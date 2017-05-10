@@ -1,0 +1,46 @@
+#include "defines.hpp"
+#include "dialogs.hpp"
+//disableChannels[]={{0,true,true},{1,true,true},{2,true,true},{3,true,true},{4,false,false},{5,true,true},{6,false,false}};
+respawn = "BASE";
+respawnOnStart = 1;
+respawnDialog = 1;
+respawnTemplatesWest[] = {"Tickets","EndMission","MenuPosition"};
+respawnTemplatesGuer[] = {"Tickets","EndMission","MenuPosition"};
+
+corpseManagerMode = 1;
+corpseLimit = 60;
+corpseRemovalMinTime = 180;
+corpseRemovalMaxTime = 3600;
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 180;
+wreckRemovalMaxTime = 3600;
+class Params
+{
+    #include "params.hpp"
+    
+};
+
+class ACE_Settings {
+    
+    #include "ace_settings.hpp"
+};
+
+class CfgRemoteExec
+{        
+       // List of script functions allowed to be sent from client via remoteExec
+       class Functions
+       {
+             #include "remote_functions.hpp"
+       };        
+      
+};
+     
+class CfgFunctions{
+    #include "functions.hpp"
+};
+
+class CfgRespawnInventory{
+    #include "respawn_inventory.hpp"
+};
