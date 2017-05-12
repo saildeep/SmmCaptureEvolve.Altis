@@ -228,19 +228,19 @@ ai_infantry = [
 	[ 
 		["O_Survivor_F",10,{_this call O_nia_gear;_this call O_nia_primary; }],			["O_Survivor_F",25,{_this call O_nia_gear;_this call O_nia_backpack;_this call O_nia_primarylite;_this call Nia_launcher; }],
 		["O_Survivor_F",20,{_this call O_nia_gear;_this call O_nia_primaryheavy;_this call O_nia_backpack;}],			["O_Survivor_F",50,{_this call O_nia_gear;_this call O_nia_backpack;_this call Nia_gatling; }],
-		["O_Survivor_F",15,{_this call O_nia_gear; _this call O_nia_backpack, _this call Nia_gl_ammo, _this call O_nia_gl}]
+		["O_Survivor_F",15,{_this call O_nia_gear; _this call O_nia_backpack; _this call Nia_gl_ammo; _this call O_nia_gl;}]
 	],
 
 	[ 
 		["B_Survivor_F",10,{_this call B_nia_gear;_this call B_nia_primary; }],			["B_Survivor_F",25,{_this call B_nia_gear;_this call B_nia_backpack;_this call B_nia_primarylite;_this call Nia_launcher; }],
 		["B_Survivor_F",20,{_this call B_nia_gear;_this call B_nia_primaryheavy;_this call B_nia_backpack;}],			["B_Survivor_F",50,{_this call B_nia_gear;_this call B_nia_backpack;_this call Nia_gatling; }],
-		["B_Survivor_F",15,{_this call B_nia_gear; _this call B_nia_backpack, _this call Nia_gl_ammo, _this call B_nia_gl}]
+		["B_Survivor_F",15,{_this call B_nia_gear; _this call B_nia_backpack; _this call Nia_gl_ammo; _this call B_nia_gl;}]
 	],
 
 	[  
 		["I_Survivor_F",10,{_this call I_nia_gear;_this call I_nia_primary; }],			["I_Survivor_F",25,{_this call I_nia_gear;_this call I_nia_backpack;_this call I_nia_primarylite;_this call Nia_launcher; }],
 		["I_Survivor_F",20,{_this call I_nia_gear;_this call I_nia_primaryheavy;_this call I_nia_backpack;}],			["I_Survivor_F",50,{_this call I_nia_gear;_this call I_nia_backpack;_this call Nia_gatling; }],
-		["I_Survivor_F",15,{_this call I_nia_gear; _this call I_nia_backpack, _this call Nia_gl_ammo, _this call I_nia_gl}]
+		["I_Survivor_F",15,{_this call I_nia_gear; _this call I_nia_backpack; _this call Nia_gl_ammo; _this call I_nia_gl;}]
 	]
 
 			];
