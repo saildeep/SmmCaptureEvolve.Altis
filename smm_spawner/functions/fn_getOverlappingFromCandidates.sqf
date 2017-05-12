@@ -3,10 +3,12 @@ Calculates which zone candidates would overlap
 Input: Array of Candidates of type [position,name,size,importance]
 Output: Array of indices array :[[2,5,7],[],[1],...]
 */
+
+diag_log "Started generating overlap";
 private _doOverlap = {
 	private _firstCandidate = _this select 0;
 	private _secondCandidate = _this select 1;
-	private _summedDistance = (_firstCandidate select 2) + (_secondCandidate select 2);
+	private _summedDistance =  2*((_firstCandidate select 2) + (_secondCandidate select 2));
 	(((_firstCandidate select 0) distance (_secondCandidate select 0)) < _summedDistance)
 };
 private _out = [];
@@ -30,4 +32,5 @@ private _out = [];
 	}forEach _this;
 	_out set [_currentZoneIndex,_overlaps];
 }forEach _this;
+diag_log "Finished generating overlap";
 _out
