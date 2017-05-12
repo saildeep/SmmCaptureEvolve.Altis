@@ -3,14 +3,12 @@ Generates a huge number of possible zone candidates
 Those are return as an array of type [position,name,size,importance]
 The importance value may be used by further steps
 
-TODO check if position is suited for tent
-
 */
 
 diag_log "Starting searching for zone candidates";
 
-private _minSize = smm_spawner_max_zone_size;         
-private _maxSize = smm_spawner_min_zone_size;
+private _minSize = smm_spawner_min_zone_size;         
+private _maxSize = smm_spawner_max_zone_size;
 private _diffSize = _maxSize - _minSize;
 
 
@@ -67,10 +65,10 @@ Now get all hills, that are bigger than those nearby
 */
 
 private _nearbyHillRange = 1000;
-private _allHills = nearestLocations [[0,0,0],["Mount","Hill"],1000000000000];
+private _allHills = nearestLocations [[0,0,0],["Mount"],1000000000000];
 {
 	private _hillToCheckHeight = getTerrainHeightASL (getPos _x);
-	private _otherHills = nearestLocations[getPos _x,["Mount","Hill"],_nearbyHillRange] - [_x];
+	private _otherHills = nearestLocations[getPos _x,["Mount"],_nearbyHillRange] - [_x];
 	private _isCandidate = true;
 	{
 		private _otherHillHeight = getTerrainHeightASL (getPos _x);
@@ -80,7 +78,7 @@ private _allHills = nearestLocations [[0,0,0],["Mount","Hill"],1000000000000];
 	}forEach _otherHills;
 	if(_isCandidate)then{
 		private _candidate = [getPos _x,text _x,_minSize + (random (_diffSize *0.3)),4];
-		[getPos _x,30,"ColorGrey"] call smm_fnc_createDebugMarker;
+		[getPos _x,30,"ColorPink"] call smm_fnc_createDebugMarker;
 		_out pushBack _candidate;
 	};
 }forEach _allHills;
@@ -111,6 +109,9 @@ private _cleanedOut = [];
 }forEach _out;
 
 {
-	[_x select 0,20,"ColorBlue"] call smm_fnc_createDebugMarker;;
+	private _marker = [_x select 0,60,"ColorBlue"] call smm_fnc_createDebugMarker;
+	_marker setMarkerText ("I:" + (str (_x select 3)) + "_S:" + (str (_x select 2)));
 }forEach _cleanedOut;
+diag_log "Finished searching zone candidates";
+diag_log ("Found " + (str (count _cleanedOut)));
 _cleanedOut
