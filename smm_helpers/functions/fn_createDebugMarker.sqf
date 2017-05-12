@@ -1,3 +1,4 @@
+private _markerName = "";
 if(smm_debug)then{
 	private _pos = _this select 0;
 	private _timeout = _this select 1;
@@ -6,7 +7,7 @@ if(smm_debug)then{
 		debugMarkerCounter = 0;
 	};
 	debugMarkerCounter = debugMarkerCounter + 1;
-	private _markerName = "smm_debugmarker" + (str debugMarkerCounter);
+	_markerName = "smm_debugmarker" + (str debugMarkerCounter);
 	_markerName = createMarker[_markerName,_pos];
 	_markerName setMarkerShape "ICON";
 	_markerName setMarkerType "hd_dot";
@@ -18,3 +19,4 @@ if(smm_debug)then{
 		deleteMarker _marker;
 	};
 };
+_markerName
