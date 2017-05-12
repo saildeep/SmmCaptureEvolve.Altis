@@ -55,6 +55,7 @@ private _locationTypesWithImportance = [["NameCity",20],["NameCityCapital",35],[
 	private _locations = nearestLocations [[0,0,0], [_locationType],1000000000000];
 	{
 		private _candidate = [getPos _x,text _x,_minSize + (_locationImportance / _locationMaxImportance) * _diffSize,_locationImportance];
+		_out pushBack _candidate;
 		[getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
 	}forEach _locations;
 	
@@ -109,7 +110,7 @@ private _cleanedOut = [];
 }forEach _out;
 
 {
-	private _marker = [_x select 0,60,"ColorBlue"] call smm_fnc_createDebugMarker;
+	private _marker = [_x select 0,300,"ColorBlue"] call smm_fnc_createDebugMarker;
 	_marker setMarkerText ("I:" + (str (_x select 3)) + "_S:" + (str (_x select 2)));
 }forEach _cleanedOut;
 diag_log "Finished searching zone candidates";
