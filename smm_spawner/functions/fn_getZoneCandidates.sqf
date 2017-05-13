@@ -56,7 +56,8 @@ private _locationTypesWithImportance = [["NameCity",20],["NameCityCapital",35],[
 	{
 		private _candidate = [getPos _x,text _x,_minSize + (_locationImportance / _locationMaxImportance) * _diffSize,_locationImportance];
 		_out pushBack _candidate;
-		[getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
+		private _marker = [getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
+		_marker setMarkerText (_locationType);
 	}forEach _locations;
 	
 }forEach _locationTypesWithImportance;
@@ -79,7 +80,8 @@ private _allHills = nearestLocations [[0,0,0],["Mount"],1000000000000];
 	}forEach _otherHills;
 	if(_isCandidate)then{
 		private _candidate = [getPos _x,text _x,_minSize + (random (_diffSize *0.3)),4];
-		[getPos _x,30,"ColorPink"] call smm_fnc_createDebugMarker;
+		private _marker = [getPos _x,30,"ColorPink"] call smm_fnc_createDebugMarker;
+		_marker setMarkerText "Mount";
 		_out pushBack _candidate;
 	};
 }forEach _allHills;

@@ -12,7 +12,9 @@ private _overlaps = _candidates call smm_fnc_getOverlappingFromCandidates;
 
 private _set = [];
 private _importance = 0;
-for [{_a=0}, {_a < 10}, {_a = _a + 1}] do {
+private _numIterations = if(smm_debug)then{1}else{15};
+diag_log ("Finding independent set with " + (str _numIterations) + " iterations");
+for [{_a=0}, {_a < _numIterations}, {_a = _a + 1}] do {
 	//calculate overall importance value of previous
 	
 
@@ -29,5 +31,9 @@ for [{_a=0}, {_a < 10}, {_a = _a + 1}] do {
 	};
 	
 };
-
-_set
+_chosenCandidates = [];
+{
+	_chosenCandidates pushBack (_candidates select _x);
+}forEach _set;
+private _triangulation = _chosenCandidates call smm_fnc_triangulateCandidates;
+_chosenCandidates

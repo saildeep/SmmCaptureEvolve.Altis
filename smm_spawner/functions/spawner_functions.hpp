@@ -6,3 +6,4 @@ class getZoneCandidates{};
 class getOverlappingFromCandidates{};
 class advancedZoneGenerator{};
 class getIndependentSetFromCandidates{};
+class triangulateCandidates{};
