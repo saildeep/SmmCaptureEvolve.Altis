@@ -41,13 +41,15 @@ Comparable to https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/K4_plana
 Therefore sort them by direction, but first get the directions.
 Be carefull, the middle element has also a direction to itself, which is always 0
 */
+
+//stores the directions in format [originalIndex, direction]
 private _directions = [];
 {
-	_directions set [_forEachIndex,_middlePos getDir (_x select 0)];
+	_directions set [_forEachIndex,[_forEachIndex,_middlePos getDir (_x select 0)]];
 }forEach _this;
-
-private _order = _directions sort true;
-
+diag_log ("Directions are " + (str _directions));
+private _sorted = [_directions,[],{_x select 1},"ASCEND"] call BIS_fnc_sortBy;
+diag_log ("Sorted is " + (str _sorted));
 //initialy fill connections array
 private _connections = [];
 {
@@ -57,11 +59,11 @@ private _connections = [];
 
 // do not use _x or _forEachIndex as this is remapped through order
 {
-	private _index = _order select _forEachIndex;
-	private _nextElementIndex = (_order select ((_forEachIndex + 1) mod (count _this) ));
+	private _index = _x select 0;
+	private _nextElementIndex = (_sorted select ((_forEachIndex + 1) mod (count _this) )) select 0;
 	//in case the next element is the middle element take this on for connecting
-	private _nextAfterNextElementIndex = (_order select ((_forEachIndex + 2) mod (count _this) ));
-	private _realX = _this select _realForEachIndex;
+	private _nextAfterNextElementIndex = (_sorted select ((_forEachIndex + 2) mod (count _this) )) select 0;
+	private _realX = _x select 1;
 	//skip middle candidate
 	if(_index != _middleCandidateIndex)then{
 		//connect to middle 
@@ -73,7 +75,44 @@ private _connections = [];
 		(_connections select _index) pushBack _connectTo;
 		(_connections select _connectTo) pushBack _index;
 	};
-}forEach _this;
+}forEach _sorted;
+
+/**
+Setup debug drawing of triangulation
+*/
+
+private _drawTriangulation = {
+/**
+Input: [candidates,connections]
+*/
+	private _candidates = _this select 0;
+	private _connections = _this select 1;
+	private _markers = [];
+	{
+		//draw marker for zone
+		[_x select 0,30,"ColorOrange"] call smm_fnc_createDebugMarker;
+		private _cConnections = _connections select _forEachIndex;
+		private _currentCandidate = _x;
+		{
+			private _otherCandidate = _candidates select _x;
+			_markers pushBack ([_currentCandidate select 0, _otherCandidate select 0,30,"ColorOrange"] call smm_fnc_createDebugLine);
+		}forEach _cConnections;
+	}forEach _candidates;
+	_markers
+};
+
+private _removeDrawing = {
+/**
+Input marker array
+*/
+	{
+		deleteMarker _x;
+	}forEach _this;
+};
+
+private _drawing = [_this,_connections] call _drawTriangulation;
+
+
 
 
 diag_log "Finished triangulation";

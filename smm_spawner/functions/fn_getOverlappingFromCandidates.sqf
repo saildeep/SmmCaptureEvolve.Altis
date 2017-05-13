@@ -8,7 +8,7 @@ diag_log "Started generating overlap";
 private _doOverlap = {
 	private _firstCandidate = _this select 0;
 	private _secondCandidate = _this select 1;
-	private _summedDistance =  2*((_firstCandidate select 2) + (_secondCandidate select 2));
+	private _summedDistance = 250 + 1.1*((_firstCandidate select 2) + (_secondCandidate select 2));
 	(((_firstCandidate select 0) distance (_secondCandidate select 0)) < _summedDistance)
 };
 private _out = [];
@@ -26,7 +26,7 @@ private _out = [];
 		if((_otherZoneIndex != _currentZoneIndex) && [_currentZone,_otherZone] call _doOverlap)then{
 			_overlaps pushBack _otherZoneIndex;
 			private _inBetween = [(((_currentZone select 0) select 0) + ((_otherZone select 0) select 0))/2,(((_currentZone select 0) select 1) + ((_otherZone select 0) select 1))/2];
-			[_inBetween,120,"ColorGrey"] call smm_fnc_createDebugMarker;
+			[(_currentZone select 0),(_otherZone select 0),120,"ColorGrey"] call smm_fnc_createDebugLine;
 		};
 		
 	}forEach _this;
