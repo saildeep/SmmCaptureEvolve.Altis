@@ -43,7 +43,7 @@ ai_vehicles = [
 		["O_MRAP_02_gmg_F",150],["O_MRAP_02_hmg_F",160],["O_APC_Wheeled_02_rcws_F",220],["O_T_LSV_02_armed_F",120],["O_MBT_02_arty_F",280],["O_APC_Tracked_02_cannon_F",270],["O_APC_Tracked_02_AA_F",320],["O_MBT_02_cannon_F",350],["O_Heli_Attack_02_F",370]
 	],
 	[
-		["B_MRAP_01_gmg_F",150],["B_MRAP_01_hmg_F",160],["B_APC_Wheeled_01_cannon_F",220],["B_T_LSV_01_armed_F",110],["B_APC_Tracked_01_CRV_F",250],["B_APC_Tracked_01_AA_F",300],["B_APC_Tracked_01_rcws_F",240],["B_MBT_01_cannon_F",350],["B_MBT_01_arty_F",300],["B_MBT_01_mlrs_F",280]
+		["B_MRAP_01_gmg_F",150],["B_MRAP_01_hmg_F",160],["B_APC_Wheeled_01_cannon_F",220],["B_T_LSV_01_armed_F",110],["B_APC_Tracked_01_CRV_F",250],["B_APC_Tracked_01_AA_F",300],["B_APC_Tracked_01_rcws_F",240],["B_MBT_01_cannon_F",350],["B_MBT_01_arty_F",300],["B_MBT_01_mlrs_F",280],["B_Heli_Attack_01_F",370]
 	],
 	[
 		["I_APC_Wheeled_03_cannon_F",230],["I_APC_tracked_03_cannon_F",280],["I_MBT_03_cannon_F",400],["I_G_Offroad_01_armed_F",80],["I_MRAP_03_hmg_F",140],["I_MRAP_03_gmg_F",130]
