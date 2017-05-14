@@ -194,8 +194,14 @@ if(smm_cup)then{
 respawnVehicles = ["B_Truck_01_medical_F","I_Truck_02_medical_F"];
 
 diag_log "TODO remove 0";
-if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{diag_log "TODO remove 1";
+if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{diag_log "load NIA";
 	call compile preprocessFileLineNumbers "smm_config\units_niarsenal.sqf";
+	
+};
+
+
+if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{diag_log "load RHS";
+	call compile preprocessFileLineNumbers "smm_config\units_rhsarsenal.sqf";
 	
 };
 
