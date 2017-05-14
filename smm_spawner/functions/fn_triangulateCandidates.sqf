@@ -7,69 +7,7 @@ Input: Array of candidates in format [position,name,size,importance]
 */
 diag_log "Starting triangulation";
 //determine map center by taking average position from all points
-private _mapCenterX =0;
-private _mapCenterY =0;
-{
-	_mapCenterX = _mapCenterX + ((_x select 0) select 0);
-	_mapCenterY = _mapCenterY + ((_x select 0) select 1);
-}forEach _this;
 
-private _mapCenter = [_mapCenterX / (count _this),_mapCenterY/(count _this),0];
-diag_log ("Determined candidates center: " + (str _mapCenter));
-private _centerMarker = [_mapCenter,120,"ColorOrange"] call smm_fnc_createDebugMarker;
-_centerMarker setMarkerText "Center";
-
-//search for candidate that is the nearest from the center of all points
-private _middleCandidateIndex = 0;
-private _shortestFoundDistance = worldSize;
-{
-	private _candidatePos = _x select 0;
-	private _distanceToCenter = _mapCenter distance _candidatePos;
-	if(_distanceToCenter < _shortestFoundDistance)then{
-		_middleCandidateIndex = _forEachIndex;
-		_shortestFoundDistance = _distanceToCenter;
-	};
-}forEach _this;
-private _middlePos = (_this select _middleCandidateIndex)select 0;
-private _middleElementMarker = [_middlePos,120,"ColorOrange"] call smm_fnc_createDebugMarker; 
-_middleElementMarker setMarkerText "Middle";
-
-
-/**
-Generate initial triangulation
-
-make connection from middle to each other in clockwise orientation and connect the "outer circle".
-Comparable to https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/K4_planar.svg/220px-K4_planar.svg.png
-Therefore sort them by direction, but first get the directions.
-Be carefull, the middle element has also a direction to itself, which is always 0
-*/
-
-//stores the directions in format [originalIndex, direction]
-private _directions = [];
-{
-	_directions set [_forEachIndex,[_forEachIndex,_middlePos getDir (_x select 0)]];
-}forEach _this;
-diag_log ("Directions are " + (str _directions));
-private _sorted = [_directions,[],{_x select 1},"ASCEND"] call BIS_fnc_sortBy;
-diag_log ("Sorted is " + (str _sorted));
-//initialy the current triangulation state is stored here
-private _triangles = [];
-
-
-// do not use _x or _forEachIndex as this is remapped through order
-{
-	private _index = _x select 0;
-	private _nextElementIndex = (_sorted select ((_forEachIndex + 1) mod (count _this) )) select 0;
-	//in case the next element is the middle element take this on for connecting
-	private _nextAfterNextElementIndex = (_sorted select ((_forEachIndex + 2) mod (count _this) )) select 0;
-	private _realX = _x select 1;
-	//skip middle candidate
-	if(_index != _middleCandidateIndex)then{
-	
-		private _connectTo = if(_nextElementIndex == _middleCandidateIndex)then{_nextAfterNextElementIndex}else{_nextElementIndex};
-		_triangles pushBack [_middleCandidateIndex,_index,_connectTo];
-	};
-}forEach _sorted;
 
 /**
 Setup debug drawing of triangulation
@@ -111,6 +49,169 @@ Input marker array
 		deleteMarker _x;
 	}forEach _this;
 };
+
+
+/**
+Generate initial triangulation
+make connection from middle to each other in clockwise orientation and connect the "outer circle".
+Comparable to https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/K4_planar.svg/220px-K4_planar.svg.png
+Therefore sort them by direction, but first get the directions.
+Be carefull, the middle element has also a direction to itself, which is always 0
+*/
+
+//initialy the current triangulation state is stored here
+private _triangles = [];
+
+
+private _getConvexHull = {
+/*
+	Get the convex hull according to https://en.wikipedia.org/wiki/Gift_wrapping_algorithm
+	Input [candidates,[index1,index2,...]]
+	Output [[index 1], index2,..]
+	
+**/
+
+	private _candidates = _this select 0;
+	private _indeces = _this select 1;
+	private _leftMostIndex = _indeces select 0;
+	{
+		private _leftMostX = ((_candidates select _leftMostIndex) select 0) select 0;
+		private _myX = ((_candidates select _x) select 0) select 0;
+		if(_myX < _leftMostX)then{
+			_leftMostIndex = _x;
+		};
+	}forEach _indeces;
+	
+	private _hull = [];
+	private _searchPoint = _leftMostIndex;
+	//use this to succesfully find first element again and not overdue to 360 degree
+	private _minAngle = 0;
+	private _debugLines = [];
+	diag_log ("Leftmost is " + (str _leftMostIndex) + " for indeces " + (str _indeces));
+	diag_log ("And candidates" + str(_candidates));
+	while{!(_leftMostIndex in _hull) }do{
+	
+		private _pos = (_candidates select _searchPoint) select 0;
+		//set initial value, will most likely be overwriten
+		private _bestIndex = _leftMostIndex;
+		private _bestDir = 365;
+		{
+			private _myDir = _pos getDir ((_candidates select _x) select 0);
+			if((_x != _searchPoint) && (!(_x in _hull)) && (_myDir > _minAngle) && (_myDir < _bestDir))then{
+				_bestIndex = _x;
+				_bestDir = _myDir;
+			};
+			
+		}forEach _indeces;
+		
+		_minAngle = _pos getDir ((_candidates select _bestIndex) select 0);
+		
+		_debugLines pushBack ([(_candidates select _searchPoint) select 0,(_candidates select _bestIndex) select 0,10,"ColorGreen"] call smm_fnc_createDebugLine);
+		_searchPoint = _bestIndex;
+		_hull pushBack _searchPoint;
+		
+	};
+	
+	{
+		deleteMarker _x;
+	}forEach _debugLines;
+	diag_log ("Returning Hull" + (str _hull));
+	_hull
+};
+
+// store elements as [position, originalindex]
+private _allPositions =  [];
+{
+	_allPositions pushBack [_x select 0, _forEachIndex];
+}forEach _this;
+_allPositions = [_allPositions,[],{(_x select 0) distance [worldSize , worldSize]},"ASCEND"] call BIS_fnc_sortBy;
+private _index = 3;
+
+//initial triangle
+
+_triangles pushBack [(_allPositions select 0) select 1,(_allPositions select 1) select 1,(_allPositions select 2) select 1];
+private _drawingInitials = [_this,_triangles] call _drawTriangulation;
+private _hull = [_this,[(_allPositions select 0) select 1,(_allPositions select 1) select 1,(_allPositions select 2) select 1]] call _getConvexHull;
+
+while{_index < (count _allPositions)}do{
+	diag_log "Iteration initial triangle stuff";
+	private _currentPosition = (_allPositions select _index) select 0;
+	private _currentIndex = (_allPositions select _index) select 1;
+	private _hullWithPositions = _hull apply {[(_this select _x) select 0,_x]}; //[pos, index];
+	private _sortedHullWithPositions = [_hullWithPositions,[],{_currentPosition distance (_x select 0)},"ASCEND"] call BIS_fnc_sortBy;
+	_triangles pushBack [(_sortedHullWithPositions select 0) select 1,(_sortedHullWithPositions select 1) select 1,_currentIndex];
+	_drawingInitials call _removeDrawing;
+	_drawingInitials = [_this,_triangles] call _drawTriangulation;
+
+	_hull pushBack _currentIndex;
+	_hull = [_this,_hull] call _getConvexHull;
+	_index = _index + 1;
+	
+
+};
+diag_log ("Finished initial creation with " + (str (count _triangles)) + " triangles");
+diag_log (str _triangles);
+/*
+//determine map center by taking average position from all points
+private _mapCenterX =0;
+private _mapCenterY =0;
+{
+	_mapCenterX = _mapCenterX + ((_x select 0) select 0);
+	_mapCenterY = _mapCenterY + ((_x select 0) select 1);
+}forEach _this;
+
+private _mapCenter = [_mapCenterX / (count _this),_mapCenterY/(count _this),0];
+diag_log ("Determined candidates center: " + (str _mapCenter));
+private _centerMarker = [_mapCenter,120,"ColorOrange"] call smm_fnc_createDebugMarker;
+_centerMarker setMarkerText "Center";
+
+//search for candidate that is the nearest from the center of all points
+private _middleCandidateIndex = 0;
+private _shortestFoundDistance = worldSize;
+{
+	private _candidatePos = _x select 0;
+	private _distanceToCenter = _mapCenter distance _candidatePos;
+	if(_distanceToCenter < _shortestFoundDistance)then{
+		_middleCandidateIndex = _forEachIndex;
+		_shortestFoundDistance = _distanceToCenter;
+	};
+}forEach _this;
+private _middlePos = (_this select _middleCandidateIndex)select 0;
+private _middleElementMarker = [_middlePos,120,"ColorOrange"] call smm_fnc_createDebugMarker; 
+_middleElementMarker setMarkerText "Middle";
+
+
+
+
+//stores the directions in format [originalIndex, direction]
+private _directions = [];
+{
+	_directions set [_forEachIndex,[_forEachIndex,_middlePos getDir (_x select 0)]];
+}forEach _this;
+diag_log ("Directions are " + (str _directions));
+private _sorted = [_directions,[],{_x select 1},"ASCEND"] call BIS_fnc_sortBy;
+diag_log ("Sorted is " + (str _sorted));
+//initialy the current triangulation state is stored here
+private _triangles = [];
+
+
+// do not use _x or _forEachIndex as this is remapped through order
+{
+	private _index = _x select 0;
+	private _nextElementIndex = (_sorted select ((_forEachIndex + 1) mod (count _this) )) select 0;
+	//in case the next element is the middle element take this on for connecting
+	private _nextAfterNextElementIndex = (_sorted select ((_forEachIndex + 2) mod (count _this) )) select 0;
+	private _realX = _x select 1;
+	//skip middle candidate
+	if(_index != _middleCandidateIndex)then{
+	
+		private _connectTo = if(_nextElementIndex == _middleCandidateIndex)then{_nextAfterNextElementIndex}else{_nextElementIndex};
+		_triangles pushBack [_middleCandidateIndex,_index,_connectTo];
+	};
+}forEach _sorted;
+
+*/
+
 
 /**
 Setup helper methods for generating a delauny triangulation from the existing one
@@ -279,16 +380,19 @@ while{_runsWithoutFlip < (count _triangles)}do{
 		
 		};
 	}forEach _commonEdges;
-	if(_continue)then{
-		if(_i mod 3 == 0)then{
+	_i = (_i + 1) mod (count _triangles);
+	if(_i  == 0)then{
+		_currentTriangleDrawing call _removeDrawing;
+		_currentTriangleDrawing = [_this,[_triangles select _i],"ColorGreen"] call _drawTriangulation;
 		_drawing call _removeDrawing;
 		_drawing = [_this,_triangles] call _drawTriangulation;
-		};
-		_i = _i + 1 mod (count _triangles);
+	};
+	if(_continue)then{
+	
+		
 		_runsWithoutFlip = _runsWithoutFlip +1;
 		diag_log ("Delauny switching to triangle " + (str _i));
-		_currentTriangleDrawing call _removeDrawing;
-		_currentTriangleDrawing = [_this,[_triangles select _i],"ColorRed"] call _drawTriangulation;
+		
 	};
 	
 	
