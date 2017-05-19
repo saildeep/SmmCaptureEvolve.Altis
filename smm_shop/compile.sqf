@@ -23,8 +23,11 @@ smm_shop_string = {
 	_out
 };
 smm_shop_create_vehicle = {
-	private _classname = _this;
+	private _classname = _this select 0;
 	private _pos = (getPos player) findEmptyPosition [0,100,_classname];
+	if((count _this) > 1)then{
+		_pos = _this select 1;
+	};
 	private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
 	clearWeaponCargoGlobal _veh;
 	clearMagazineCargoGlobal _veh;
@@ -43,6 +46,7 @@ smm_shop_open = {
 smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
 	private ["_classname","_price","_name","_displayText"];
 	private _zone = _this select 3;
+	smm_shop_last_zone_point = _zone;
 	private _showEquipment = false;
 	private _showVehicles = false;
 	if(_zone <0)then{
@@ -102,12 +106,12 @@ smm_shop_on_vehicle = {
 		private _classname = lbData [smm_shop_vehicle_handle,_curSelId];
 		if(_price call smm_buy) then {
 			if(_classname in (4 call smm_fnc_getGear))then{
-				_veh = _classname call smm_shop_create_vehicle;
+				private _veh = [_classname] call smm_shop_create_vehicle;
 				assert !(isNil "_veh");
 				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
 			}else{
 				[_classname,sav_vehicles] call smm_fnc_addItem;
-				closeDialog 2;
+				//closeDialog 2;
 				_out = false;
 			};
 			
@@ -117,6 +121,67 @@ smm_shop_on_vehicle = {
 		};
 	};
 	_out
+};
+
+// buy vehicle and manual position it 
+
+smm_shop_on_vehicle_pos = {
+	
+	private _curSelId 			= lbCurSel smm_shop_vehicle_handle;
+	private _out 				= false;
+	
+	diag_log "Clicked Button for vehicle pos";
+	
+	if(_curSelId>-1)then{
+		
+		private _price			= lbValue [smm_shop_vehicle_handle,_curSelId];
+		private _classname 		= lbData [smm_shop_vehicle_handle,_curSelId];
+		smm_shop_on_vehicle_pos_price 		= _price;
+		smm_shop_on_vehicle_pos_classname 	= _classname;
+		if(_classname in (4 call smm_fnc_getGear))then{
+		// select pos
+			closeDialog 2;
+			hint str_hint_buy_and_place;
+			openMap [true,true];
+			handle1 = addMissionEventHandler ["MapSingleClick",{diag_log "click map";(_this select 1) call smm_shop_on_vehicle_pos_place ;openMap [false,false];removeMissionEventHandler ["MapSingleClick", handle1];}];
+			
+		}else{
+			if(_price call smm_buy) then {
+				[_classname,sav_vehicles] call smm_fnc_addItem;
+				//closeDialog 2;
+				_out = false;
+			}else{
+				_out = true;
+			};
+		};
+			
+			
+		
+	};
+	_out
+};
+smm_shop_on_vehicle_pos_place = {
+	private _clickpos 	= _this;
+	private _tentpos  	= smm_shop_last_zone_point call getPosition;
+	private _range 		= smm_shop_last_zone_point call getSize;
+	private _isInRange 	= (_clickpos distance _tentpos) < _range;
+	private _price 		= smm_shop_on_vehicle_pos_price;
+	private _classname	= smm_shop_on_vehicle_pos_classname; 	 
+	
+	
+	if(_isInRange)then{
+		if(_price call smm_buy)then{
+			private _veh = [_classname,_clickpos] call smm_shop_create_vehicle;
+			assert !(isNil "_veh");
+			[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+		}else {
+			titleText [str_insufficient, "PLAIN"];
+		};
+	}else{
+		titleText [str_out_of_range,"PLAIN"];
+	};
+
+
 };
 
 
