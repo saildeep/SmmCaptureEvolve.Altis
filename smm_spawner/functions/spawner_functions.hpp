@@ -7,3 +7,4 @@ class getOverlappingFromCandidates{};
 class advancedZoneGenerator{};
 class getIndependentSetFromCandidates{};
 class triangulateCandidates{};
+class dijekstra{};
