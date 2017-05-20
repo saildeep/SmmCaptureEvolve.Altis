@@ -66,25 +66,37 @@ private _locationTypesWithImportance = [["NameCity",20],["NameCityCapital",35],[
 Now get all hills, that are bigger than those nearby
 */
 
-private _nearbyHillRange = 1000;
+private _nearbyHillRange = 2000;
 private _allHills = nearestLocations [[0,0,0],["Mount"],1000000000000];
-{
-	private _hillToCheckHeight = getTerrainHeightASL (getPos _x);
-	private _otherHills = nearestLocations[getPos _x,["Mount"],_nearbyHillRange] - [_x];
-	private _isCandidate = true;
+_allHills = _allHills select {(random 1) < 0.1};
+while{(count _allHills) > 0}do{
+	private _hillToCheck = _allHills deleteAt 0;
+	private _hillToCheckHeight = getTerrainHeightASL (getPos _hillToCheck);
+	private _otherHills = _allHills;
+	private _isHighest = true;
+	private _hillsToRemove = [];
 	{
-		private _otherHillHeight = getTerrainHeightASL (getPos _x);
-		if(_otherHillHeight > _hillToCheckHeight)then{
-			_isCandidate = false;
+		
+		if(((getPos _x) distance (getPos _hillToCheck)) < _nearbyHillRange)then{
+			private _otherHillHeight = getTerrainHeightASL (getPos _x);
+			if(_otherHillHeight > _hillToCheckHeight)then{
+				_isHighest = false;
+			}else{
+				_hillsToRemove pushBack _x;
+			};
 		};
 	}forEach _otherHills;
-	if(_isCandidate)then{
-		private _candidate = [getPos _x,text _x,_minSize + (random (_diffSize *0.3)),4];
-		private _marker = [getPos _x,30,"ColorPink"] call smm_fnc_createDebugMarker;
+	if(_isHighest)then{
+		private _candidate = [getPos _hillToCheck,text _hillToCheck,_minSize + (random (_diffSize *0.3)),4];
+		private _marker = [getPos _hillToCheck,30,"ColorPink"] call smm_fnc_createDebugMarker;
 		_marker setMarkerText "Mount";
 		_out pushBack _candidate;
 	};
-}forEach _allHills;
+	_allHills = _allHills - _hillsToRemove;
+	diag_log ("Processing Hills, " + (str (count _allHills)) + " candidates left");
+	
+};
+
 
 
 
