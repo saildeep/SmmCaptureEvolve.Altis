@@ -20,7 +20,7 @@ ai_infantry = [
 	[  
 		["rhssaf_army_m10_para_rifleman_hk416",10],["rhssaf_army_m10_para_gl_m320",15],["rhssaf_army_m10_para_mgun_m84",20],
 		["rhssaf_army_m10_para_spec_at",25],["rhssaf_army_m10_para_sniper_m76",20],["rhssaf_army_m10_para_sq_lead",10],
-		["rhssaf_army_m10_para_spec_aa"25,],["rhssaf_army_m10_para_medic",10],["rhssaf_army_m10_para_sniper_m82a1",20],
+		["rhssaf_army_m10_para_spec_aa",25],["rhssaf_army_m10_para_medic",10],["rhssaf_army_m10_para_sniper_m82a1",20],
 		["rhssaf_army_m10_para_officer",10]
 	]
 
