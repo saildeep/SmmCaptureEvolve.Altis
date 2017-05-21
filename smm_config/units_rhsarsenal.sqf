@@ -11,7 +11,7 @@ ai_infantry = [
 		
 	[ 
 		["rhsusf_army_ocp_rifleman_m4",10], ["rhsusf_army_ocp_grenadier",15], ["rhsusf_army_ocp_machinegunner",20],
-		["rhsusf_army_ocp_javelin"25,], ["rhsusf_army_ocp_marksman",20],["rhsusf_army_ocp_squadleader",10], 
+		["rhsusf_army_ocp_javelin",25], ["rhsusf_army_ocp_marksman",20],["rhsusf_army_ocp_squadleader",10], 
 		["rhsusf_army_ocp_aa",25],["rhsusf_army_ocp_medic",10],["rhsusf_army_ocp_sniper",20], 
 		["rhsusf_army_ocp_combatcrewman",10]
 		
