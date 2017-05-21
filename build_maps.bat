@@ -1,5 +1,5 @@
 @echo off
-SET maps=Tanoa Stratis Chernarus Takistan
+SET maps=Tanoa Stratis Chernarus Takistan Australia
 for %%a in (.) do set currentfolder=%%~na
 echo "%currentfolder%"
 (for %%a in (%maps%) do (
