@@ -50,16 +50,18 @@ class shop_listbox2: RscListbox
 };
 class shop_button1: RscButton
 {
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
 	idc = 1600;
 	text = "BUY"; //--- ToDo: Localize;
 	x = 0.62375 * safezoneW + safezoneX;
 	y = 0.302 * safezoneH + safezoneY;
 	w = 0.0360937 * safezoneW;
-	h = 0.165 * safezoneH;
+	h = 0.0825 * safezoneH;
 	onButtonClick = "_this spawn smm_shop_on_vehicle;false";
 };
 class shop_button2: RscButton
-{
+{	
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
 	idc = 1601;
 	text = "BUY"; //--- ToDo: Localize;
 	x = 0.62375 * safezoneW + safezoneX;
@@ -67,6 +69,19 @@ class shop_button2: RscButton
 	w = 0.0360937 * safezoneW;
 	h = 0.154 * safezoneH;
 	onButtonClick = "_this spawn smm_shop_on_pack;false";
+};
+class shop_button3: RscButton
+{
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
+	idc = 1602;
+	style = 18;
+	text = "Place" //--- ToDo: Localize;	
+	x = 0.62375 * safezoneW + safezoneX;
+	y = 0.390 * safezoneH + safezoneY;
+	w = 0.0360937 * safezoneW;
+	h = 0.0825 * safezoneH;
+	lineSpacing = 1;
+	onButtonClick = "_this spawn smm_shop_on_vehicle_pos;false";
 };
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT END
