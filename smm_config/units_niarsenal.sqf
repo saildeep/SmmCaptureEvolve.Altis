@@ -79,7 +79,7 @@ O_nia_primarylite={
 O_nia_primaryheavy={
 	
 	private _weaponSet = selectRandom[["hlc_rifle_RPK12","hlc_60Rnd_545x39_t_rpk",4],			["hlc_rifle_rpk74n","hlc_60Rnd_545x39_t_rpk",4],			["hlc_rifle_SLRchopmod","hlc_20Rnd_762x51_B_fal",5,["hlc_optic_suit"]],
-									  ["hlc_rifle_FAL5000","hlc_20Rnd_762x51_B_fal",5,"[hlc_optic_suit]"],			["hlc_lmg_minimi","hlc_200rnd_556x45_M_SAW",3],			["hlc_lmg_mg42kws_b","hlc_100Rnd_792x57_B_MG42",3]];
+									  ["hlc_rifle_FAL5000","hlc_20Rnd_762x51_B_fal",5,["hlc_optic_suit"]],			["hlc_lmg_minimi","hlc_200rnd_556x45_M_SAW",3],			["hlc_lmg_mg42kws_b","hlc_100Rnd_792x57_B_MG42",3]];
 	[_this,_weaponSet] call Nia_load_weapons_ammo;
 
 };
