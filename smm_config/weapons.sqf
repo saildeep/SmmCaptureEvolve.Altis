@@ -178,6 +178,27 @@ rand_backpacks = [
 					"B_ViperLightHarness_hex_F","B_ViperLightHarness_khk_F","B_ViperLightHarness_oli_F"
 				];
 				
+
+if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{
+	call compile preprocessFileLineNumbers "smm_config\weapons_niarsenal.sqf";
+};
+
+if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{
+	call compile preprocessFileLineNumbers "smm_config\weapons_rhs.sqf";
+};
+
+//load ace stuff
+if(isClass(configfile >> "CfgPatches" >> "ace_medical"))then{
+	call compile preprocessFileLineNumbers "smm_config\weapons_ace.sqf";
+};
+
+if(isClass(configfile >> "CfgPatches" >>"task_force_radio" ))then{
+	call compile preprocessFileLineNumbers "smm_config\weapons_tfar.sqf";
+};
+
+smm_gear_start = [startItems,startWeapons,startMagazines,startBackpacks,[]];
+
+
 // Items by faction
 if(playerside == west)then{
 	rand_backpacks append 	[
@@ -246,22 +267,3 @@ if(playerside == independent)then{
 							"I_UavTerminal"
 							];						
 };
-
-if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{
-	call compile preprocessFileLineNumbers "smm_config\weapons_niarsenal.sqf";
-};
-
-if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{
-	call compile preprocessFileLineNumbers "smm_config\weapons_rhs.sqf";
-};
-
-//load ace stuff
-if(isClass(configfile >> "CfgPatches" >> "ace_medical"))then{
-	call compile preprocessFileLineNumbers "smm_config\weapons_ace.sqf";
-};
-
-if(isClass(configfile >> "CfgPatches" >>"task_force_radio" ))then{
-	call compile preprocessFileLineNumbers "smm_config\weapons_tfar.sqf";
-};
-
-smm_gear_start = [startItems,startWeapons,startMagazines,startBackpacks,[]];
