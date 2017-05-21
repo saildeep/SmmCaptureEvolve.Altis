@@ -205,7 +205,6 @@ if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{diag_log "load N
 
 if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{diag_log "load RHS";
 	call compile preprocessFileLineNumbers "smm_config\units_rhsarsenal.sqf";
-	
 };
 
 buy_units = [buy_units,[],{_x select 1},"ASCEND"] call BIS_fnc_sortBy;

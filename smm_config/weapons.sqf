@@ -251,6 +251,10 @@ if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{
 	call compile preprocessFileLineNumbers "smm_config\weapons_niarsenal.sqf";
 };
 
+if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{
+	call compile preprocessFileLineNumbers "smm_config\weapons_rhs.sqf";
+};
+
 //load ace stuff
 if(isClass(configfile >> "CfgPatches" >> "ace_medical"))then{
 	call compile preprocessFileLineNumbers "smm_config\weapons_ace.sqf";
