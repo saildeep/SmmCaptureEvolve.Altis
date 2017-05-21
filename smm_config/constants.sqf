@@ -35,5 +35,5 @@ smm_garbage_collector_vehicle_timeout = 60*60*2;
 //intervall in frames
 smm_save_interval = 50 * 60 * 30;
 
-smm_money_start = 100;
+smm_money_start = 250;
 smm_money_all_uid = [];
