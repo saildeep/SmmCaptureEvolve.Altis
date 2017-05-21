@@ -32,7 +32,7 @@ ai_vehicles = [
 		["rhs_tigr_sts_msv",160], ["rhs_btr60_msv",220], ["rhs_bmd1k",110], ["rhs_zsu234_aa",300], ["rhs_t90a_tv",280], ["rhs_2s3_tv",300], ["rhs_Ka52_vvsc",370]
 	],
 	[
-		["rhsusf_m1025_d_m2",150], ["rhsusf_m1025_d_Mk19",160], ["rhsusf_M1117_D",220], ["rhsusf_"m113d_usarmy,110], ["rhsusf_cdf_b_zsu234",300], ["rhsusf_m1a2sep1tuskid_usarmy",280], ["rhsusf_m109d_usarmy",300],["rhsusf_AH64D",370]
+		["rhsusf_m1025_d_m2",150], ["rhsusf_m1025_d_Mk19",160], ["rhsusf_M1117_D",220], ["rhsusf_m113d_usarmy",110], ["rhsusf_cdf_b_zsu234",300], ["rhsusf_m1a2sep1tuskid_usarmy",280], ["rhsusf_m109d_usarmy",300],["rhsusf_AH64D",370]
 	],
 	[
 		["rhsgref_cdf_reg_uaz_dshkm",150], ["rhsgref_cdf_reg_uaz_ags",160], ["rhsgref_cdf_reg_uaz_spg9",170], ["rhsgref_BRDM2",220], ["rhsgref_BRD2_ATGM",110], ["rhsgref_ins_g_zsu_234",300], ["rhsgref_cdf_t80bv_tv",280], ["rhsgref_cdf_Mi35",370]
