@@ -17,7 +17,9 @@ smm_spawner_min_zone_size                = "minZoneSize" call BIS_fnc_getParamVa
 smm_spawner_neighbour_range              = "maxZoneDistance" call BIS_fnc_getParamValue;
 smm_spawner_connection_cleaner_use_angle = ("maxZoneAngle" call BIS_fnc_getParamValue)>0;
 smm_spawner_connection_cleaner_max_angle = "maxZoneAngle" call BIS_fnc_getParamValue;
-smm_spawner_use_roads                    = (0<("zoneGenerator" call BIS_fnc_getParamValue) );
+smm_spawner_use_roads                    = (1<("zoneGenerator" call BIS_fnc_getParamValue));
+smm_spawner_use_cities                   = (0 == ("zoneGenerator" call BIS_fnc_getParamValue));
+smm_spawner_use_advanced				 = (1 == ("zoneGenerator" call BIS_fnc_getParamValue));
 smm_spawner_k                            = "zoneGenerator" call BIS_fnc_getParamValue;
 
 smm_start_tickets = [100,100,100,100];

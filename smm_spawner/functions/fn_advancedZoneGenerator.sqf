@@ -39,7 +39,7 @@ private _connections = _chosenCandidates call smm_fnc_triangulateCandidates;
 //convert to spawnlocs format now [position,hash,size,owner,connections,name]
 private _out = [];
 {
-	private _c = [_x select 0, str (_x select 0),_x select 2,smm_spawner_default_owner,_x select 3,_x select 1];
+	private _c = [_x select 0, str (_x select 0),_x select 2,smm_spawner_default_owner,_connections select _forEachIndex,_x select 1];
 	_out pushBack _c;
 }forEach _chosenCandidates;
 _out

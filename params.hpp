@@ -117,14 +117,14 @@
         title = "Minimal Zone size";
         texts[] = {"50","100","150","200","250"};
         values[] = {50,100,150,200,250};
-        default = 50;
+        default = 150;
     };
     class maxZoneSize
     {
         title = "Maximal Zone size";
         texts[] = {"250","300","350","400","500","600","750"};
         values[] = {250,300,350,400,500,600,750};
-        default = 500;
+        default = 600;
     };
     class maxZoneDistance
     {
@@ -143,9 +143,9 @@
     class zoneGenerator
     {
         title = "Zone Generator";
-        texts[] = {"Cities","10-Roads","20-Roads","30-Roads","40-Roads","50-Roads","60-Roads","75-Roads","100-Roads"};
-        values[] = {0,10,20,30,40,50,60,75,100};
-        default = 75;
+        texts[] = {"Advanced Zone Generator","Cities","10-Roads","20-Roads","30-Roads","40-Roads","50-Roads","60-Roads","75-Roads","100-Roads"};
+        values[] = {1,0,10,20,30,40,50,60,75,100};
+        default = 1;
     };
    
   

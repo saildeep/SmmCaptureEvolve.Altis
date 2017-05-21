@@ -10,37 +10,41 @@ if(isServer)then{
         spawnLocs = sav_centers call smm_get;
     }else{
         _desiredNumZones = smm_spawner_k;
-        //initial creation
-        if(smm_spawner_use_roads)then{
-            spawnLocs = [_desiredNumZones] call compile preprocessFileLineNumbers "smm_spawner\zone_generators\roads.sqf";
+		
+		if(smm_spawner_use_roads || smm_spawner_use_cities)then{
+			//initial creation
+			if(smm_spawner_use_roads)then{
+				spawnLocs = [_desiredNumZones] call compile preprocessFileLineNumbers "smm_spawner\zone_generators\roads.sqf";
+			}else{
+			spawnLocs = [] call compile preprocessFileLineNumbers "smm_spawner\zone_generators\cities.sqf";
+			
+			};
+		//      spawnLocs = spawnLocs call BIS_fnc_arrayShuffle;
+			spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\overlapping_zones_cleaner.sqf";
+			spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\simple_connection_creator.sqf";
+			if(smm_spawner_connection_cleaner_use_angle)then{
+			spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\connection_cleaner.sqf";
+			}else{
+			spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\spanning_tree.sqf";
+			};
+			while{!([spawnLocs,0] call smm_spawner_is_fully_connected)}do{
+			_desiredNumZones                         = _desiredNumZones + 5;
+			smm_spawner_neighbour_range              = smm_spawner_neighbour_range    *1.2;
+			smm_spawner_connection_cleaner_max_angle = smm_spawner_connection_cleaner_max_angle/1.2;
+			if(smm_spawner_use_roads)then{
+				spawnLocs = [_desiredNumZones] call compile preprocessFileLineNumbers "smm_spawner\zone_generators\roads.sqf";
+			}else{
+				spawnLocs = call compile preprocessFile "smm_spawner\zone_generators\cities.sqf";
+			
+			};
+			spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\overlapping_zones_cleaner.sqf";
+			spawnLocs = spawnLocs call compile preprocessFile "smm_spawner\zone_generators\simple_connection_creator.sqf";
+			//  spawnLocs = spawnLocs call compile preprocessFile "smm_spawner\zone_generators\connection_cleaner.sqf";
+			
+			};
         }else{
-        spawnLocs = [] call compile preprocessFileLineNumbers "smm_spawner\zone_generators\cities.sqf";
-        
-        };
-    //      spawnLocs = spawnLocs call BIS_fnc_arrayShuffle;
-        spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\overlapping_zones_cleaner.sqf";
-        spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\simple_connection_creator.sqf";
-        if(smm_spawner_connection_cleaner_use_angle)then{
-        spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\connection_cleaner.sqf";
-        }else{
-        spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\spanning_tree.sqf";
-        };
-        while{!([spawnLocs,0] call smm_spawner_is_fully_connected)}do{
-        _desiredNumZones                         = _desiredNumZones + 5;
-        smm_spawner_neighbour_range              = smm_spawner_neighbour_range    *1.2;
-        smm_spawner_connection_cleaner_max_angle = smm_spawner_connection_cleaner_max_angle/1.2;
-        if(smm_spawner_use_roads)then{
-            spawnLocs = [_desiredNumZones] call compile preprocessFileLineNumbers "smm_spawner\zone_generators\roads.sqf";
-        }else{
-            spawnLocs = call compile preprocessFile "smm_spawner\zone_generators\cities.sqf";
-        
-        };
-        spawnLocs = spawnLocs call compile preprocessFileLineNumbers "smm_spawner\zone_generators\overlapping_zones_cleaner.sqf";
-        spawnLocs = spawnLocs call compile preprocessFile "smm_spawner\zone_generators\simple_connection_creator.sqf";
-        //  spawnLocs = spawnLocs call compile preprocessFile "smm_spawner\zone_generators\connection_cleaner.sqf";
-        
-        }
-        
+			spawnLocs = [] call smm_fnc_advancedZoneGenerator;
+		};
     };
     publicVariable "spawnLocs";
 };
