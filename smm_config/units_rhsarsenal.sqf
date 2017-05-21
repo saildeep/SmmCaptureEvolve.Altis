@@ -81,3 +81,33 @@ if(playerSide == west)then{
 		["O_T_VTOL_02_infantry_dynamicLoadout_F",410]		
 	];
 };
+
+if(playerSide == independent)then{
+	buy_units = [
+		["rhsgref_cdf_zsu234",3500],
+		["rhsgref_cdf_btr60",2000],
+		["rhsgref_cdf_btr70",2500],
+		["rhsgref_cdf_reg_uaz_ags",350],
+		["rhsgref_cdf_reg_uaz_dshkm",300],
+		["rhsgref_cdf_reg_uaz_open",100],
+		["rhsgref_cdf_reg_uaz_spg9",400],
+		["rhsgref_cdf_bmp1",1100],
+		["rhsgref_BRDM2",800],
+		["rhsgref_BRDM2_ATGM",1200],
+		["rhsgref_BRDM2UM",800],
+		["rhsgref_cdf_t80bv_tv",4500],
+		["rhsgref_cdf_gaz66",200],
+		["rhsgref_cdf_gaz66_ammo",500],
+		["rhsgref_cdf_gaz66_zu23",700],
+		["rhsgref_cdf_ural_fuel",500],
+		["I_Truck_02_medical_F",500],
+		["rhsgref_cdf_Mi24D",1600],
+		["rhsgref_cdf_reg_Mi17Sh_UPK",1300],
+		["rhssaf_airforce_ht48",1100],
+		["RHS_AN2",900],
+		["rhsgref_cdf_su25",2300]
+		
+		
+			
+	];
+};
