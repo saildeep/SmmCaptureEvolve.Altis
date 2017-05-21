@@ -38,3 +38,19 @@ ai_vehicles = [
 		["rhsgref_cdf_reg_uaz_dshkm",150], ["rhsgref_cdf_reg_uaz_ags",160], ["rhsgref_cdf_reg_uaz_spg9",170], ["rhsgref_BRDM2",220], ["rhsgref_BRD2_ATGM",110], ["rhsgref_ins_g_zsu_234",300], ["rhsgref_cdf_t80bv_tv",280], ["rhsgref_cdf_Mi35",370]
 	]
 ];
+
+buy_units = [];
+if(playerSide == west)then{
+	buy_units = [
+		["rhsusf_m1025_w_m2",  400],
+		["rhsusf_m1025_w_mk19",500],
+		["rhsusf_m1025_w",200],
+		["rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",300],
+		["rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy",300],
+		["rhsusf_m998_w_2dr",150],
+		["rhsusf_M1117_D",900],
+		["rhsusf_M1237_M2_usarmy_d",550],
+		["rhsusf_M1237_MK19_usarmy_d",600]
+		
+	];
+};
