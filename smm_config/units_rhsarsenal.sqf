@@ -106,7 +106,8 @@ if(playerSide == independent)then{
 		["rhsgref_cdf_reg_Mi17Sh_UPK",1300],
 		["rhssaf_airforce_ht48",1100],
 		["RHS_AN2",900],
-		["rhsgref_cdf_su25",2300]
+		["rhsgref_cdf_su25",2300],
+		["B_Boat_Transport_01_F",70]
 		
 		
 			
