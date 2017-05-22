@@ -78,7 +78,8 @@ if(playerSide == west)then{
 		["RHS_A10",2900],
 		["RHS_C130J",1730],
 		["rhsusf_f22",2750],
-		["O_T_VTOL_02_infantry_dynamicLoadout_F",410]		
+		["rhsusf_mkvsoc",410],
+		["B_Boat_Transport_01_F",130]
 	];
 };
 
