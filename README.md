@@ -5,6 +5,7 @@ This mission is based on the player capturing zones.
 * ACE3 + CBA
 * TFAR
 * NIArsenal
+* RHS
 
 
 ## Modules
