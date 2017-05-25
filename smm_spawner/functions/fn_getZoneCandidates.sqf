@@ -124,7 +124,7 @@ private _cleanedOut = [];
 }forEach _out;
 
 {
-	private _marker = [_x select 0,300,"ColorBlue"] call smm_fnc_createDebugMarker;
+	private _marker = [_x select 0,30,"ColorBlue"] call smm_fnc_createDebugMarker;
 	_marker setMarkerText ("I:" + (str (_x select 3)) + "_S:" + (str (_x select 2)));
 }forEach _cleanedOut;
 diag_log "Finished searching zone candidates";

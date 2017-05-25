@@ -304,7 +304,7 @@ smm_spawner_conquer = {
         if(_zoneSide == civilian)then{
             [_zone,playerSide] remoteExec ["smm_change_owner",2,false];
             private _money =  (_zone call getSize)*4;
-            [_money,playerSide] call smm_add_money_side;
+            [_money,playerSide] call smm_fnc_addMoneySide;
         }else{
             hint str_no_permission;
         };

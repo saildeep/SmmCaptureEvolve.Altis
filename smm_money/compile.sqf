@@ -1,4 +1,4 @@
-smm_buy = {
+/*smm_buy = {
 	private ["_price","_out"];
 	_price = _this;
 	_out = false;
@@ -120,4 +120,4 @@ smm_money_transfer_100 = {
 smm_money_transfer_all = {
 	[call smm_get_balance,_this select 0] call smm_money_transfer;
 };
-
+*/

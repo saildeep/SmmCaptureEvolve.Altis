@@ -1,0 +1,1 @@
+[call smm_fnc_getBalance,_this select 0] call smm_fnc_moneyTransfer;

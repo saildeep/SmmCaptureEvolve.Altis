@@ -5,7 +5,7 @@ _isCounterAttack = _unit getVariable "counter";
 _group = group _unit;
 _killerSide = side _killer;
 _money = floor (random 9);
-[_money,_killerSide] call smm_add_money_side;
+[_money,_killerSide] call smm_fnc_addMoneySide;
 
 _countAlive = 0;
 _units = zoneNoToUnits select _zoneNo;

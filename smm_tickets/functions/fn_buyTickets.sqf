@@ -1,4 +1,4 @@
-_canBuy = smm_ticket_price call smm_buy;
+_canBuy = smm_ticket_price call smm_fnc_buy;
 if(_canBuy)then{
 	[playerSide,smm_ticket_amount] call BIS_fnc_respawnTickets;
 };

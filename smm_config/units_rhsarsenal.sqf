@@ -45,8 +45,8 @@ if(playerSide == west)then{
 		["rhsusf_m1025_w_m2",  400],
 		["rhsusf_m1025_w_mk19",500],
 		["rhsusf_m1025_w",200],
-		["rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",300],
-		["rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy",300],
+		//["rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",300],	//unfinished prototype
+		//["rhsusf_M1078A1P2_B_M2_d_fmtv_usarmy",300],	//unfinished prototype
 		["rhsusf_m998_w_2dr",150],
 		["rhsusf_M1117_D",900],
 		["rhsusf_M1237_M2_usarmy_d",550],
@@ -55,8 +55,8 @@ if(playerSide == west)then{
 		["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd",700],
 		["rhsusf_M978A4_usarmy_wd",630],
 		["rhsusf_mrzr4_d",130],
-		["rhsusf_rg33_usmc_d",330],
-		["rhsusf_rg33_m2_usmc_d",490],
+		//["rhsusf_rg33_usmc_d",330],					//unfinished prototype
+		//["rhsusf_rg33_m2_usmc_d",490],				//unfinished prototype
 		["rhsusf_m113_usarmy_supply",880],
 		["rhsusf_m113_usarmy_medical",950],
 		["rhsusf_m113_usarmy_MK19",920],

@@ -1,0 +1,1 @@
+hint ("You have " + str(call smm_fnc_getBalance) + "$");

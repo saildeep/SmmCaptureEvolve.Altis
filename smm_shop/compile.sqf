@@ -104,18 +104,16 @@ smm_shop_on_vehicle = {
 		
 		private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
 		private _classname = lbData [smm_shop_vehicle_handle,_curSelId];
-		if(_price call smm_buy) then {
+		if(_price call smm_fnc_buy) then {
 			if(_classname in (4 call smm_fnc_getGear))then{
 				private _veh = [_classname] call smm_shop_create_vehicle;
 				assert !(isNil "_veh");
 				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
 			}else{
 				[_classname,sav_vehicles] call smm_fnc_addItem;
-				//closeDialog 2;
+				closeDialog 2;
 				_out = false;
 			};
-			
-			
 		}else{
 			_out = true;
 		};
@@ -146,17 +144,14 @@ smm_shop_on_vehicle_pos = {
 			handle1 = addMissionEventHandler ["MapSingleClick",{diag_log "click map";(_this select 1) call smm_shop_on_vehicle_pos_place ;openMap [false,false];removeMissionEventHandler ["MapSingleClick", handle1];}];
 			
 		}else{
-			if(_price call smm_buy) then {
+			if(_price call smm_fnc_buy) then {
 				[_classname,sav_vehicles] call smm_fnc_addItem;
-				//closeDialog 2;
+				closeDialog 2;
 				_out = false;
 			}else{
 				_out = true;
 			};
-		};
-			
-			
-		
+		};	
 	};
 	_out
 };
@@ -170,7 +165,7 @@ smm_shop_on_vehicle_pos_place = {
 	
 	
 	if(_isInRange)then{
-		if(_price call smm_buy)then{
+		if(_price call smm_fnc_buy)then{
 			private _veh = [_classname,_clickpos] call smm_shop_create_vehicle;
 			assert !(isNil "_veh");
 			[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
@@ -238,7 +233,7 @@ smm_shop_on_pack = {
 	private _price = _pack select 1;
 	private _set = _pack select 2;
 	
-	if(_price call smm_buy) then {
+	if(_price call smm_fnc_buy) then {
 		private _weps = (_set select 0) call getRandWeapons;
 		private _mags = (_set select 1) call getRandMagazines;
 		private _itms1 = (_set select 2) call getRandItemsTier1;

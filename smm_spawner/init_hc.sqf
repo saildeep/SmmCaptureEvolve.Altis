@@ -152,7 +152,7 @@ while{true}do{
             };
         }forEach spawnLocs;
         _addMoney = floor (_overallMoney / _currentDivider);
-        [_addMoney,_currentFaction] call smm_add_money_side;
+        [_addMoney,_currentFaction] call smm_fnc_addMoneySide;
     
     }forEach smm_spawner_all_factions ;
 

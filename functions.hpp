@@ -30,4 +30,9 @@ class smm{
 		file = "smm_helpers\functions";
 		#include "smm_helpers\functions\helper_functions.hpp"
 	}
+	
+	class money{
+		file = "smm_money\functions";
+		#include "smm_money\functions\money_functions.hpp"
+	}
 };

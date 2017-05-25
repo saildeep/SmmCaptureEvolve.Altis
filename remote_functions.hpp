@@ -26,13 +26,13 @@
                       jip = 0; 
 			   };
 			   
-			   class smm_buy_server
+			   class smm_fnc_buyServer
 			   {
 					allowedTargets = 2;
 					jip = 0;
 			   };
 			   
-			   class smm_add_money_server
+			   class smm_fnc_addMoneyServer
 			   {
 					allowedTargets = 2;
 					jip = 0;
@@ -47,7 +47,7 @@
 					allowedTargets = 2;
 					jip = 0;
 			   };
-			   class smm_register_uid
+			   class smm_fnc_registerUid
 			   {
 					allowedTargets = 2;
 					jip = 0;
@@ -67,7 +67,7 @@
 				    allowedTargets = 2;
 					jip = 0; 
 			   };
-			   class smm_add_money_side
+			   class smm_fnc_addMoneySide
 			   {
 				    allowedTargets = 2;
 					jip = 0; 
@@ -78,7 +78,7 @@
 				   jip = 0;
 				   
 			   };
-			   class smm_money_transfer_server
+			   class smm_fnc_moneyTransferServer
 			   {
 				   allowedTargets = 2;
 				   jip = 0;

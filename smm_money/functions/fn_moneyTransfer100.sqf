@@ -1,0 +1,1 @@
+[100,_this select 0] call smm_fnc_moneyTransfer;
