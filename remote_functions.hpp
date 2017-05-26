@@ -42,7 +42,7 @@
 					allowedTargets = 0;
 					jip = 0;
 			   };
-			   class smm_garbage_collector_observe_vehicle_server
+			   class smm_fnc_garbageCollectorObserveVehicleServer
 			   {
 					allowedTargets = 2;
 					jip = 0;

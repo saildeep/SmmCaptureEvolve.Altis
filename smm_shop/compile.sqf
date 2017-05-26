@@ -34,7 +34,7 @@ smm_shop_create_vehicle = {
 	clearItemCargoGlobal _veh;
 	clearBackpackCargoGlobal _veh;
 	_veh disableTIEquipment true;
-	_veh spawn smm_garbage_collector_observe_vehicle_client;
+	_veh spawn smm_fnc_garbageCollectorObserveVehicleClient;
 	
 	//Create crew for UAV
 	if(getNumber(configFile >> "CfgVehicles" >> typeof _veh >> "isUav")==1) then {

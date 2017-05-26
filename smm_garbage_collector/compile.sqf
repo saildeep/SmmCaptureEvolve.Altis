@@ -1,4 +1,5 @@
 sav_timeout = "timeout";
+/*
 smm_garbage_collector_reset = {
 	private _object = _this;
 
@@ -48,3 +49,4 @@ smm_garbage_collector_delete = {
 	};
 
 };
+*/

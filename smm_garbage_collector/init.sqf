@@ -6,24 +6,24 @@ if(isServer)then{
             _weaponHolders = nearestObjects [[0,0,0],["WeaponHolderSimulated","GroundWeaponHolder"],100000000];
             {
                 _timeout = _x getVariable ["timeout",-1];
-                if(!(_x call smm_garbage_collector_has_timeout))then{
-                    _x call smm_garbage_collector_reset;
+                if(!(_x call smm_fnc_garbageCollectorHasTimeout))then{
+                    _x call smm_fnc_garbageCollectorReset;
                 }else{
-                    _x call smm_garbage_collector_delete;
+                    _x call smm_fnc_garbageCollectorDelete;
                 };
             }forEach _weaponHolders;
             
             
             _allVehicles = vehicles;
             {
-                if(_x call smm_garbage_collector_has_timeout)then{
+                if(_x call smm_fnc_garbageCollectorHasTimeout)then{
                     if((count(crew _x)) == 0)then
                     {
                         
-                        _x call smm_garbage_collector_delete;
+                        _x call smm_fnc_garbageCollectorDelete;
                     
                     }else{
-                        _x call smm_garbage_collector_reset_vehicle;
+                        _x call smm_fnc_garbageCollectorResetVehicle;
                     };  
                 };  
             }forEach _allVehicles;
