@@ -7,7 +7,7 @@ independent setFriend [east,0];
 if(isServer)then{
     spawnLocs = [];
     if(smm_load)then{
-        spawnLocs = sav_centers call smm_get;
+        spawnLocs = sav_centers call smm_fnc_get;
     }else{
         _desiredNumZones = smm_spawner_k;
 		

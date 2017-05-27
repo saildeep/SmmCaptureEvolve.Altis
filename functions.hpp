@@ -25,7 +25,10 @@ class smm{
 		file = "smm_money\functions";
 		#include "smm_money\functions\money_functions.hpp"
 	}
-	//save
+	class save{
+		file = "smm_save\functions";
+		#include "smm_save\functions\save_functions.hpp"
+	};
 	class shop{
 		file = "smm_shop\functions";
 		#include "smm_shop\functions\shop_functions.hpp"

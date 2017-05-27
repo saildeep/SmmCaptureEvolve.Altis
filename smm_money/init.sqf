@@ -3,9 +3,9 @@ if(hasInterface)then{
     (getPlayerUID player) remoteExec ["smm_fnc_registerUid",2,false];
 };
 if(isServer && smm_load)then{
-        smm_money_all_uid = (sav_uid call smm_get);
+        smm_money_all_uid = (sav_uid call smm_fnc_get);
         {
-            _money = (sav_money + _x) call smm_get;
+            _money = (sav_money + _x) call smm_fnc_get;
             [_money,_x] call smm_fnc_setBalanceServer;
         }forEach smm_money_all_uid;
 };

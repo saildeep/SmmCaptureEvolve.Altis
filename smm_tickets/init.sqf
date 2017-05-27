@@ -2,7 +2,7 @@
 if(isServer)then{
 	if(smm_load)then{
 		
-		smm_start_tickets = sav_tickets call smm_get;
+		smm_start_tickets = sav_tickets call smm_fnc_get;
 		diag_log "Loading ticket state";
 	}else{
 		diag_log "Not loading ticket state";

@@ -1,8 +1,8 @@
 
 if(isServer && smm_load)then{
-    smm_money_all_uid = (sav_uid call smm_get);
+    smm_money_all_uid = (sav_uid call smm_fnc_get);
     {
-        _gear = (_x call smm_fnc_getGearString) call smm_get;
+        _gear = (_x call smm_fnc_getGearString) call smm_fnc_get;
         [_gear,_x] call smm_fnc_setGearServer;
     }forEach smm_money_all_uid;
 };
