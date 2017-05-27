@@ -1,1 +1,2 @@
 class handleLocalRespawn{};
+class onUnconscious{};

@@ -6,7 +6,7 @@ if(smm_ace) then{
 		[] spawn{
 			waitUntil{!isNil "medical_onUnconscious"};
 			diag_log "Adding ACE onconscious event handler";
-			["medical_onUnconscious",{_this spawn smm_on_unconscious;}] call  ace_common_fnc_addEventHandler;
+			["medical_onUnconscious",{_this spawn smm_fnc_onUnconscious;}] call  ace_common_fnc_addEventHandler;
 		};
 	};
 };

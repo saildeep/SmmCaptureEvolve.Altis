@@ -1,3 +1,4 @@
+/*
 smm_on_unconscious = {
 	diag_log ((str _this)  + " is unconscious");
 	private _unit = _this select 0;
@@ -14,3 +15,4 @@ smm_on_unconscious = {
 
 
 };
+*/
