@@ -45,8 +45,8 @@ _marker = createMarker [_c select 1 ,_c select 0];
     _entertrg = createTrigger ["EmptyDetector",_c select 0,false];
     _entertrg setTriggerArea [_triggersize,_triggersize,0,false];
     _entertrg setTriggerActivation [str _x,"PRESENT",true];
-    diag_log (format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call macros_to_config_side]);
-    _entertrg setTriggerStatements["this",format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call macros_to_config_side],""];
+    diag_log (format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide]);
+    _entertrg setTriggerStatements["this",format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide],""];
     
     _allEnterTriggers append [_entertrg];
 }forEach smm_spawner_player_factions; 

@@ -5,13 +5,13 @@ _rand_weapons = [];
 		_rand_weapons pushBack _x;
 	};
 }forEach rand_weapons;
-_niweapons = "(_x call macros_isgood) && (_x call macros_isweapon) && (count (configName _x) > 3) && (((configName _x) select [0,3]) == 'hlc')" configClasses (configFile >> "CfgWeapons");
+_niweapons = "(_x call smm_fnc_macrosIsGood) && (_x call smm_fnc_macrosIsWeapon) && (count (configName _x) > 3) && (((configName _x) select [0,3]) == 'hlc')" configClasses (configFile >> "CfgWeapons");
 {
 	_rand_weapons pushBack (configName _x);
 }forEach _niweapons;
 rand_weapons = _rand_weapons;
 
-_niitems = "(_x call macros_isgood) and (_x call macros_isitem) and (_x call smm_is_not_thermal) && (count (configName _x) > 3) && ((configName _x) select [0,3]) == 'hlc'" configClasses (configFile >> "CfgWeapons");
+_niitems = "(_x call smm_fnc_macrosIsGood) and (_x call smm_fnc_macrosIsItem) and (_x call smm_is_not_thermal) && (count (configName _x) > 3) && ((configName _x) select [0,3]) == 'hlc'" configClasses (configFile >> "CfgWeapons");
 {
 	rand_items_two pushBack (configName _x);
 }forEach _niitems;

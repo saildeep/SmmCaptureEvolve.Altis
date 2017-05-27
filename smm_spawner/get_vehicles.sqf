@@ -1,5 +1,5 @@
 _side = _this select 1;
-_sideNo = _side call macros_to_config_side;
+_sideNo = _side call smm_fnc_macrosToConfigSide;
 _allVehicles = ai_vehicles select _sideNo; //TOTEST
 _money = floor((_this select 0)*2);
 _counter = 0;

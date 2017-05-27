@@ -12,7 +12,10 @@ class smm{
 		#include "smm_helpers\functions\helper_functions.hpp"
 	}
 	//helper
-	//macro
+	class macros{
+		file = "smm_macros\functions";
+		#include "smm_macros\functions\macros_functions.hpp"
+	}
 	//marker_tracker
 	class medic{
 		file = "smm_medic\functions";

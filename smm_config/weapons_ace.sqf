@@ -61,7 +61,7 @@ startItems append 		[
 						"ACE_EarPlugs",
 						"ACE_morphine"
 						];						
-rand_items_one append ((call macros_ace_items) - (_aceScopes + _aceWeaponAttachments + _aceUselessStuff));
+rand_items_one append ((call smm_fnc_macrosAceItems) - (_aceScopes + _aceWeaponAttachments + _aceUselessStuff));
 
 // warning hack
 rand_items_one = rand_items_one - ["FirstAidKit","Medikit"];

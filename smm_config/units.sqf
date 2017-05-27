@@ -4,9 +4,9 @@
 if(smm_cup)then{
 ai_infantry = [
 	
-		east call macros_mod_units
-	   ,west call macros_mod_units
-	   ,independent call macros_mod_units
+		east call smm_fnc_macrosModUnits
+	   ,west call smm_fnc_macrosModUnits
+	   ,independent call smm_fnc_macrosModUnits
 ];
 }else{
 ai_infantry = [

@@ -1,3 +1,4 @@
+/*
 macros_isgood = {
 (getNumber (_this >> "scope") == 2)
 };
@@ -226,3 +227,4 @@ macros_mod_units = {
 	}forEach _candidates;
 	_out
 };
+*/

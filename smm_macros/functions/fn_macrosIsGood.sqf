@@ -1,0 +1,1 @@
+(getNumber (_this >> "scope") == 2)

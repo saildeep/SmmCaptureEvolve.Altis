@@ -1,5 +1,5 @@
 _no =_this select 0;
-_sideEntered = (_this select 1) call macros_from_config_side;
+_sideEntered = (_this select 1) call smm_fnc_macrosFromConfigSide;
 
 //return if zone is not a target
 if!([_no,_sideEntered] call smm_is_target) exitWith {};

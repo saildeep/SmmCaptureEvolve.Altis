@@ -7,7 +7,7 @@ Returns an array of [unit,price,script] objects, which should be spawned for the
 */
 
 private _side = _this select 1;
-private _sideNo = _side call macros_to_config_side;
+private _sideNo = _side call smm_fnc_macrosToConfigSide;
 private _allUnits = ai_infantry select _sideNo; //TOTEST
 
 private _money = floor((_this select 0)*2);
