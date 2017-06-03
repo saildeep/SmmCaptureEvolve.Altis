@@ -79,7 +79,8 @@ if(playerSide == west)then{
 		["RHS_C130J",1730],
 		["rhsusf_f22",2750],
 		["rhsusf_mkvsoc",410],
-		["B_Boat_Transport_01_F",130]
+		["B_Boat_Transport_01_F",130],
+		["rhsgref_cdf_b_zsu234",2000]
 	];
 };
 
