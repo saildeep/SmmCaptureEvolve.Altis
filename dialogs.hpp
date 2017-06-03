@@ -74,13 +74,11 @@ class shop_button3: RscButton
 {
 	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
 	idc = 1602;
-	style = 18;
 	text = "Place"; //--- ToDo: Localize;	
 	x = 0.62375 * safezoneW + safezoneX;
 	y = 0.390 * safezoneH + safezoneY;
 	w = 0.0360937 * safezoneW;
 	h = 0.0825 * safezoneH;
-	lineSpacing = 1;
 	onButtonClick = "_this spawn smm_shop_on_vehicle_pos;false";
 };
 ////////////////////////////////////////////////////////
