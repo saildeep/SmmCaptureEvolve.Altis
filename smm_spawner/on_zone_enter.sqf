@@ -47,17 +47,31 @@ if!(zoneActive select _no) then{
                 };
 				_randPos = [_randGroupPos,_size/3] call getPosNear;
 				[_randPos,60,"ColorRed"] call smm_fnc_createDebugMarker;
-                 diag_log (format ["Spawning %1 at %2 in group %3",_x,_randPos,_currentGroup]);
-                 _unit = (_x select 0) createUnit [_randPos,_currentGroup,"newUnit = this",smm_skill,"PRIVATE"];
-                 _unit = newUnit;
+				diag_log (format ["Spawning %1 at %2 in group %3",_x,_randPos,_currentGroup]);
+				
+				// this "createUnit" function return "Nothing", ... 
+				(_x select 0) createUnit [_randPos,_currentGroup,"newUnit = this",smm_skill,"PRIVATE"];
+				// ... so the last createUnit must select manually
+				_unit =  (( units _currentGroup )select ((count (units _currentGroup))-1)) ;
+				
+				// set Unit Pos on surface
+				[_unit,_randPos] call smm_fnc_setPosAGLS;
+				
+				// kill Unit which spawn near the origin of the map
+				if( (_unit distance [0,0]) < 100)then{
+					diag_log (format ["Unit %1 spawn in origin of the map, setDamage 1",_x]);
+					_unit setDamage 1;
+				};
+			
+                _unit = newUnit;
                 
 				//if units has script, which should be executed after spawning, execute it now
 				if((count _x) > 2)then{
 					_unit spawn (_x select 2); 
 				};
-				
-                 _allUnits pushBack _unit;
+				_allUnits pushBack _unit;
             }forEach _units;
+			
 			diag_log "Finished generating infantry";
             //Finished creating infantry
             _buildings = (zoneNoToBuildings select _no);
@@ -82,6 +96,7 @@ if!(zoneActive select _no) then{
                 
             }forEach (zoneNoToBuildings select _no);
             };
+			
             //Create vehicles
 			diag_log ("Getting vehicles for zone " + (str _no) + " from side " + (str _zoneSide) + " for " + (str _vehicleMoney) + "$");
             _vehicles = [_vehicleMoney,_zoneSide] call getVehicles;
@@ -96,6 +111,7 @@ if!(zoneActive select _no) then{
                 };
                 _randPos = [_pos,_size] call getPosNear;
                 _veh = [_x,_randPos] call smm_fnc_createVehicle;
+				[_veh,_randPos] call smm_fnc_setPosAGLS;
                 [_no,_veh] call smm_fnc_addVehicle;
                 _vehUnits = [_zoneSide,_veh,_currentGroup] call smm_fnc_fillVehicle;
                 _allUnits append _vehUnits;
