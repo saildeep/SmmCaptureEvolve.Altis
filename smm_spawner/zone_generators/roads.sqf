@@ -60,7 +60,7 @@ _out             = [];
 {
     _num   = _forEachIndex;
     _pos   = getMarkerPos _x;
-    _hash  = _pos call smm_hash;
+    _hash  = _pos call smm_fnc_hash;
     _size  = (random [0,0.25,1]) * _zoneSizeVariety + smm_spawner_min_zone_size;
     _owner = smm_spawner_default_owner;
     _c     = [_pos,_hash,_size,_owner];

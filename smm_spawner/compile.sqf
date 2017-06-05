@@ -2,7 +2,8 @@ zoneNoToVehicle = [];
 //indexing according to allFactions
 //always contains the areas the current faction can attack, not those that are owned by the faction
 
-get_multiple_random = {
+/*
+smm_fnc_getMultipleRandom = {
     private _num = _this select 0;
     assert (typeName _num == "SCALAR");
     private _array = _this select 1;
@@ -14,38 +15,41 @@ get_multiple_random = {
     _newarray = _array - _out;
     assert (typeName _newarray == "ARRAY");
     _newnum = _num -1;
-    _newout = _out + ([_newnum,_newarray] call get_multiple_random);
+    _newout = _out + ([_newnum,_newarray] call smm_fnc_getMultipleRandom);
     _out= + _newout;
     };
     assert (typeName _out == "ARRAY");
     _out
 };
 
-zoneEquals = {
-    ((_this select 0) call getHash) == ((_this select 1) call getHash)
+smm_fnc_zoneEquals = {
+    ((_this select 0) call smm_fnc_getHash) == ((_this select 1) call smm_fnc_getHash)
 };
 
-getPosition = {
+smm_fnc_getPosition = {
     private _zone = _this call getZone;
     (_zone select 0)
 };
-getSize = {
+
+smm_fnc_getSize = {
     private _zone = _this call getZone;
     (_zone select 2)
 };
-getSide = {
+smm_fnc_getSide = {
     private _zone = _this call getZone;
     (_zone select 3)
 };
-getHash = {
+
+smm_fnc_getHash = {
     private _zone = _this call getZone;
     (_zone select 1)
 };
-getNeighbours = {
+
+smm_fnc_getNeighbours = {
     private _zone = _this call getZone;
     (_zone select 4)
 };
-
+*/
 getNeighboursFromMultiple = {
     diag_log "@Deprecated";
 };
@@ -53,7 +57,10 @@ getNeighboursFromMultiple = {
 filterZonesForSide = {
     diag_log "@Deprecated";
 };
-smm_hash = {
+/*
+
+
+smm_fnc_hash = {
     private ["_res"];
     _res = "";
     {
@@ -61,7 +68,9 @@ smm_hash = {
     }forEach _this;
     _res
 };
-smm_change_owner = {
+
+
+smm_fnc_changeOwner = {
     private ["_no","_side","_zone","_hash"];
     _no = _this select 0;
     _side = _this select 1;
@@ -69,10 +78,10 @@ smm_change_owner = {
     _zone set [3,_side];
     _hash = _zone select 1;
     _hash setMarkerColor (_side call getColor);
-    private _markerName = "respawn_" + (_side call smm_get_side_name) + "_" + (_zone select 1);
+    private _markerName = "respawn_" + (_side call smm_fnc_getSideName) + "_" + (_zone select 1);
     {
         //delete respawn markers from other teams
-        private _mn = "respawn_" + (_x call smm_get_side_name) + "_" + (_zone select 1);
+        private _mn = "respawn_" + (_x call smm_fnc_getSideName) + "_" + (_zone select 1);
         if (getMarkerColor _mn == "") then {
             deleteMarker _mn;
         };
@@ -82,14 +91,15 @@ smm_change_owner = {
     }else{
         deleteMarker _markerName;
     };
-    [] call smm_spawner_update_targets;
-    [] remoteExec ["smm_spawner_update_marker_alpha",0,false];
+    [] call smm_fnc_spawnerUpdateTargets;
+    [] remoteExec ["smm_fnc_spawnerUpdateMarkerAlpha",0,false];
     
     //send only to all
     publicVariable "spawnLocs";
 };
 
-smm_get_side_name = {
+
+smm_fnc_getSideName = {
     private _side = _this;
     private _out = "";
     if(_side == east)then{
@@ -107,7 +117,7 @@ smm_get_side_name = {
     _out
 };
 
-smm_get_neighbour = {
+smm_fnc_getNeighbour = {
     private ["_side","_zoneNo","_zone","_out","_otherZone","_distNow","_newDist","_bestDist"];
     _zoneNo = _this select 0;
     _side = _this select 1;
@@ -126,17 +136,20 @@ smm_get_neighbour = {
     }forEach (_zone select 4);
     _out
 };
+*/
 
 if(isNil "activeTargets")then{
     activeTargets   = [[],[],[],[]];
 };
-smm_get_targets = {
+
+/*
+smm_fnc_getTargets = {
     assert (typeName _this == "SIDE");
     private _playerSideIndex = smm_spawner_all_factions find (_this);
     activeTargets select _playerSideIndex
 };
 
-smm_set_targets = {
+smm_fnc_setTargets = {
     private _side = _this select 0;
     private _data = _this select 1;
     assert(typeName _side == "SIDE");
@@ -145,7 +158,7 @@ smm_set_targets = {
     activeTargets set [_playerSideIndex,_data];
 };
 
-smm_is_target = {
+smm_fnc_isTarget = {
     private _out = false;
     private _zoneNo = _this select 0;
     private _side = _this select 1;
@@ -190,7 +203,7 @@ smm_get_transport_vehicle = {
     (_cur select 0)
 };
 
-smm_remove_vehicle = {
+smm_fnc_removeVehicle = {
         private _no = _this;
         private _vehs = zoneNoToVehicle select _no;
         {
@@ -198,13 +211,14 @@ smm_remove_vehicle = {
         }forEach _vehs;
         zoneNoToVehicle set [_no,[]];
 };
-smm_add_vehicle = {
+
+smm_fnc_addVehicle = {
         private _veh = _this select 1;
         private _zone = _this select 0;
         (zoneNoToVehicle select _zone) append [_veh];
 };
 
-smm_is_air = {
+smm_fnc_isAir = {
     private _vehClassname = _this;
     private _cfgEntry = configFile >> "CfgVehicles" >> _vehClassname;
     private _result = false;
@@ -214,13 +228,13 @@ smm_is_air = {
     _result
 };
 
-smm_create_vehicle = {
+smm_fnc_createVehicle = {
     private _vehType = _this select 0;
     private _pos = _this select 1;
     private _range = 100;
     private _numPlaces = 0;
     private _spawnPos = [];
-    private _isAir = _vehType call smm_is_air;
+    private _isAir = _vehType call smm_fnc_isAir;
     private _randomPos = [_pos,_range] call getPosNear;
     private _dir = 0;
     if(_isAir) then{
@@ -251,7 +265,9 @@ smm_create_vehicle = {
     
     
 };
-smm_get_random_unit = {
+
+
+smm_fnc_getRandomUnit = {
     private _side = _this select 0;
     private _group = _this select 1;
     private _sideNo = _side call smm_fnc_macrosToConfigSide;
@@ -262,48 +278,52 @@ smm_get_random_unit = {
 	if((count _unitWrappedType) > 2)then{
 		_unit spawn (_unitWrappedType select 2);
 	};
-    _unit call smm_spawner_set_skill;
+    _unit call smm_fnc_spawnerSetSkill;
 
     _unit
     
 };
 
-smm_fill_vehicle = {
+
+smm_fnc_fillVehicle = {
     private _side = _this select 0;
     private _units = [];
     private _unit = [];
     private _veh = _this select 1;
     private _group = _this select 2;
     if((_veh emptyPositions "Driver")>0)then{
-        _unit = [_side,_group] call smm_get_random_unit;
+        _unit = [_side,_group] call smm_fnc_getRandomUnit;
         _unit moveInDriver _veh;
         _unit assignAsDriver _veh;
         _units pushBack _unit;
     };
     if((_veh emptyPositions "Gunner")>0)then{
-        _unit = [_side,_group] call smm_get_random_unit;
+        _unit = [_side,_group] call smm_fnc_getRandomUnit;
         _unit moveInGunner _veh;
         _unit assignAsGunner _veh;
         _units pushBack _unit;
     };
     if((_veh emptyPositions "Commander")>0)then{
-        _unit = [_side,_group] call smm_get_random_unit;
+        _unit = [_side,_group] call smm_fnc_getRandomUnit;
         _unit moveInCommander _veh;
         _unit assignAsCommander _veh;
         _units pushBack _unit;
     };
     _units
 };
-smm_spawner_conquer = {
+
+
+
+smm_fnc_spawnerConquer = {
     private _zone = _this select 3;
-    private _zoneSide = _zone call getSide;
-    if!([_zone,playerSide] call smm_is_target)exitWith{hint str_no_permission};
+    private _zoneSide = _zone call smm_fnc_getSide;
+    if!([_zone,playerSide] call smm_fnc_isTarget)exitWith{hint str_no_permission};
     if(_zoneSide == (playerSide))then{
         hint str_own_zone;
     }else{
         if(_zoneSide == civilian)then{
-            [_zone,playerSide] remoteExec ["smm_change_owner",2,false];
-            private _money =  (_zone call getSize)*4;
+            [_zone,playerSide] remoteExec ["smm_fnc_changeOwner",2,false];
+            private _money =  (_zone call smm_fnc_getSize)*4;
             [_money,playerSide] call smm_fnc_addMoneySide;
         }else{
             hint str_no_permission;
@@ -311,39 +331,42 @@ smm_spawner_conquer = {
     };
     
 };
-smm_spawner_update_marker_alpha = {
+
+
+
+smm_fnc_spawnerUpdateMarkerAlpha = {
     if(!hasInterface)exitWith{};
-    private _targetZones = ((playerSide)call smm_get_targets);
+    private _targetZones = ((playerSide)call smm_fnc_getTargets);
     if(!(isNil "spawner_init_finished"))then{
         {
             //zonemarkers
-            private _isVisible = (_x call getSide) == (playerSide);
-            _isVisible = _isVisible || (([_x,playerSide] call smm_get_neighbour) != -1);
+            private _isVisible = (_x call smm_fnc_getSide) == (playerSide);
+            _isVisible = _isVisible || (([_x,playerSide] call smm_fnc_getNeighbour) != -1);
             if(_isVisible)then{
                 
                 private _isTarget = false;
                 private _nb = _x;
                 {
-                    _isTarget = _isTarget || ([_x,_nb] call zoneEquals);
+                    _isTarget = _isTarget || ([_x,_nb] call smm_fnc_zoneEquals);
                 }forEach _targetZones;
                 
                 if(_isTarget)then{
-                    (_x call getHash) setMarkerBrushLocal "SolidBorder";
-                    (_x call getHash) setMarkerAlphaLocal 1;
+                    (_x call smm_fnc_getHash) setMarkerBrushLocal "SolidBorder";
+                    (_x call smm_fnc_getHash) setMarkerAlphaLocal 1;
                 }else{
-                (_x call getHash) setMarkerBrushLocal "GRID";
-                (_x call getHash) setMarkerAlphaLocal 0.3;
+                (_x call smm_fnc_getHash) setMarkerBrushLocal "GRID";
+                (_x call smm_fnc_getHash) setMarkerAlphaLocal 0.3;
                 };
             }else{
-                (_x call getHash) setMarkerAlphaLocal 0;
+                (_x call smm_fnc_getHash) setMarkerAlphaLocal 0;
             };
             private _currentZoneNo = _forEachIndex;
-            private _nbs = _x call getNeighbours;
+            private _nbs = _x call smm_fnc_getNeighbours;
             //connection
             {
                 if(_x <  _currentZoneNo)then{
-                    private _markerName = (_x call getHash) + "_" +(_currentZoneNo call getHash);
-                    if(((_x call getSide) == (playerSide))|| ((_currentZoneNo call getSide) == (playerSide)) )then{
+                    private _markerName = (_x call smm_fnc_getHash) + "_" +(_currentZoneNo call smm_fnc_getHash);
+                    if(((_x call smm_fnc_getSide) == (playerSide))|| ((_currentZoneNo call smm_fnc_getSide) == (playerSide)) )then{
                             _markerName setMarkerAlphaLocal 1;
                     }else{
                             _markerName setMarkerAlphaLocal 0;
@@ -355,7 +378,7 @@ smm_spawner_update_marker_alpha = {
     };
 };
 
-smm_spawner_set_skill = {
+smm_fnc_spawnerSetSkill = {
     private _unit = _this;
     _unit setSkill ["aimingAccuracy",0.7];
     _unit setSkill ["aimingShake",0.8];
@@ -367,6 +390,8 @@ smm_spawner_set_skill = {
     _unit setSkill ["spotTime",0.8];
     _unit
 };
+
+
 
 smm_spawner_patrol = {
     private _zone = _this select 0;
@@ -382,17 +407,21 @@ smm_spawner_patrol = {
         sleep (random [60,200,300]);
     };
     if!(isNull _grp)then{
-        private _defWP = _grp addWaypoint[_zone call getPosition,10];
+        private _defWP = _grp addWaypoint[_zone call smm_fnc_getPosition,10];
         _defWP setWaypointType "HOLD";
         _grp setCurrentWaypoint _defWP;
     };
     
 };
+*/
+
 smm_spawner_cleanup_targets = {
     diag_log "@Deprecated";
 };
+/*
 
-smm_spawner_determine_possible_targets = {
+
+smm_fnc_SpawnerDeterminePossibleTargets = {
     assert (typeName _this == "ARRAY");
     private _side = _this select 0;
     private _targets = ([_side,spawnLocs] call smm_fnc_filterZonesFromSide);
@@ -405,27 +434,27 @@ smm_spawner_determine_possible_targets = {
     _possibleTargets
 };
 
-smm_spawner_update_targets = {
+smm_fnc_spawnerUpdateTargets = {
     {
         if(isNil "spawner_init_finished")exitWith{false};
         [] call smm_fnc_cleanupTargets;
         private _currentSide = _x;
         private _maxTargets = smm_spawner_max_targets select _forEachIndex;
-        private _currentTargets = (_currentSide call smm_get_targets);
+        private _currentTargets = (_currentSide call smm_fnc_getTargets);
        assert (typeName _currentSide == "SIDE");
        assert(typeName _maxTargets == "SCALAR");
        assert(typeName _currentTargets == "ARRAY");
-       private _ccand = [_currentSide] call smm_spawner_determine_possible_targets;
+       private _ccand = [_currentSide] call smm_fnc_SpawnerDeterminePossibleTargets;
        private _cand = _ccand - _currentTargets;
        private _neededTargets = _maxTargets - (count _currentTargets);
        _cand resize _neededTargets;
-       [_currentSide, _currentTargets + _cand] call smm_set_targets;
+       [_currentSide, _currentTargets + _cand] call smm_fnc_setTargets;
         
     }forEach smm_spawner_all_factions;
     publicVariable "activeTargets";
-    [] remoteExec ["smm_spawner_update_marker_alpha",0,false];
+    [] remoteExec ["smm_fnc_spawnerUpdateMarkerAlpha",0,false];
 };
-
+*/
 
 
 call compile preprocessFile "smm_spawner\zone_generators\compile.sqf";

@@ -21,7 +21,7 @@ _marker = createMarker [_c select 1 ,_c select 0];
  _marker setMarkerShape "ELLIPSE";
  _marker setMarkerAlpha 0;
  
- [_forEachIndex,_c select 3] call smm_change_owner;
+ [_forEachIndex,_c select 3] call smm_fnc_changeOwner;
  _zoneNumber = _forEachIndex;
  
  //get buildings with positions;
@@ -40,7 +40,7 @@ _marker = createMarker [_c select 1 ,_c select 0];
  //Create Triggers for enter zone
  _allEnterTriggers = [];
 {
-    _triggersize = (_c call getSize) + smm_spawner_spawn_range;
+    _triggersize = (_c call smm_fnc_getSize) + smm_spawner_spawn_range;
     //create activation triggers 
     _entertrg = createTrigger ["EmptyDetector",_c select 0,false];
     _entertrg setTriggerArea [_triggersize,_triggersize,0,false];
@@ -72,7 +72,7 @@ _pos = _c select 0;
          _meanPos = [_pos,_nbPos] call getMean;
          _markerSize = (_pos distance _meanPos)*0.9;
          _angle = [_pos,_meanPos] call BIS_fnc_dirTo;
-         _markerName = (_x call getHash) + "_" + (_cId call getHash);
+         _markerName = (_x call smm_fnc_getHash) + "_" + (_cId call smm_fnc_getHash);
          _mark = createMarker [_markerName,_meanPos];
          _mark setMarkerShape "RECTANGLE";
          _mark setMarkerSize [10,_markerSize];
@@ -87,7 +87,7 @@ _pos = _c select 0;
 
 }forEach spawnLocs;
 _d = [];
-{       _position = (_x call getPosition) findEmptyPosition [0,_x call getSize,smm_spawner_interaction_object];
+{       _position = (_x call smm_fnc_getPosition) findEmptyPosition [0,_x call smm_fnc_getSize,smm_spawner_interaction_object];
         _flag = smm_spawner_interaction_object createVehicle _position;
         _d append [_flag];
         _flag allowDamage false;
@@ -131,14 +131,14 @@ _directionOfStartZones     = [_directionOfFirstStartZone,_directionOfFirstStartZ
             floor (random (count spawnLocs));
         };
         
-        [_startZone,_currentFaction]  call smm_change_owner;
+        [_startZone,_currentFaction]  call smm_fnc_changeOwner;
         
     };
 }forEach smm_spawner_player_factions;
 
 spawner_init_finished = 100;
 publicVariable "spawner_init_finished";
-[]call smm_spawner_update_targets;
+[]call smm_fnc_spawnerUpdateTargets;
 while{true}do{
     sleep 300;
     _currentDivider = random [20,40,100];
@@ -147,8 +147,8 @@ while{true}do{
         _currentFaction = _x;
         _overallMoney = 0;
         {
-            if(_currentFaction == (_x call getSide))then{
-                _overallMoney = _overallMoney + (_x call getSize);
+            if(_currentFaction == (_x call smm_fnc_getSide))then{
+                _overallMoney = _overallMoney + (_x call smm_fnc_getSize);
             };
         }forEach spawnLocs;
         _addMoney = floor (_overallMoney / _currentDivider);

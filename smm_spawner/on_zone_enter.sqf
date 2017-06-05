@@ -2,7 +2,7 @@ _no =_this select 0;
 _sideEntered = (_this select 1) call smm_fnc_macrosFromConfigSide;
 
 //return if zone is not a target
-if!([_no,_sideEntered] call smm_is_target) exitWith {};
+if!([_no,_sideEntered] call smm_fnc_isTarget) exitWith {};
 
 //only activate inactive zones
 if!(zoneActive select _no) then{
@@ -12,12 +12,12 @@ if!(zoneActive select _no) then{
         _sideEntered = _this select 1;
         _zone        = _no call getZone;
         
-        _pos = _zone call getPosition;
-        _size = _zone call getSize;
-        _zoneSide = _zone call getSide;
+        _pos = _zone call smm_fnc_getPosition;
+        _size = _zone call smm_fnc_getSize;
+        _zoneSide = _zone call smm_fnc_getSide;
         if(_zoneSide != _sideEntered && _zoneSide != civilian )then{
             zoneActive set [_no,true];
-            _marker = _no call getHash;
+            _marker = _no call smm_fnc_getHash;
             
             //modify size according to player count
 			//use player count for scalability
@@ -69,7 +69,7 @@ if!(zoneActive select _no) then{
                     _currentGroup = _allGroups select _forEachIndex;
                     _units = units _currentGroup;
                     _currentGroup setVariable ["urban",true];
-                    _positions = [count _units,_buildingPos] call get_multiple_random;
+                    _positions = [count _units,_buildingPos] call smm_fnc_getMultipleRandom;
                     {
                             _unit = _units select _forEachIndex;
                             _unit setPos (_x);
@@ -77,7 +77,7 @@ if!(zoneActive select _no) then{
                         //  _unit setUnitPos "UP";
                             _unit setDir (random 360);
                     }forEach _positions;
-                    [_no,_currentGroup] spawn smm_spawner_patrol;
+                    [_no,_currentGroup] spawn smm_fnc_spawnerPatrol;
                 };
                 
             }forEach (zoneNoToBuildings select _no);
@@ -95,9 +95,9 @@ if!(zoneActive select _no) then{
                     _allGroups pushBack _currentGroup;
                 };
                 _randPos = [_pos,_size] call getPosNear;
-                _veh = [_x,_randPos] call smm_create_vehicle;
-                [_no,_veh] call smm_add_vehicle;
-                _vehUnits = [_zoneSide,_veh,_currentGroup] call smm_fill_vehicle;
+                _veh = [_x,_randPos] call smm_fnc_createVehicle;
+                [_no,_veh] call smm_fnc_addVehicle;
+                _vehUnits = [_zoneSide,_veh,_currentGroup] call smm_fnc_fillVehicle;
                 _allUnits append _vehUnits;
                 _allVehicles pushBack _veh;
             }forEach _vehicles;
@@ -132,7 +132,7 @@ if!(zoneActive select _no) then{
                  _x setVariable["zone",_no,false];
                  _x setVariable["counter",false,false];
                  _x addEventHandler ["killed", "_this spawn onAiKilled"];
-                 _x call smm_spawner_set_skill;
+                 _x call smm_fnc_spawnerSetSkill;
             }forEach _allUnits;
             zoneNoToUnits set [_no,_allUnits];
                 

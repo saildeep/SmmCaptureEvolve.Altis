@@ -87,7 +87,7 @@ diag_log ("Started spawner with autodetectHeadless=" + (str autodetectHeadless)+
     waitUntil{alive player};
     sleep 30;
     {
-        _x addAction [str_conquer,smm_spawner_conquer,_forEachIndex];
+        _x addAction [str_conquer,smm_fnc_spawnerConquer,_forEachIndex];
     }forEach interaction_points;
-    [] call smm_spawner_update_marker_alpha;
+    [] call smm_fnc_spawnerUpdateMarkerAlpha;
 };

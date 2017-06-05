@@ -57,12 +57,12 @@
 				  allowedTargets = 2;
 				  jip = 0; 
 			   };
-			   class smm_get_neighbour
+			   class smm_fnc_getNeighbour
 			   {
 				    allowedTargets = 2;
 					jip = 0; 
 			   };
-			   class smm_change_owner
+			   class smm_fnc_changeOwner
 			   {
 				    allowedTargets = 2;
 					jip = 0; 
@@ -72,7 +72,7 @@
 				    allowedTargets = 2;
 					jip = 0; 
 			   };
-			   class smm_spawner_update_marker_alpha
+			   class smm_fnc_spawnerUpdateMarkerAlpha
 			   {
 				   allowedTargets = 0;
 				   jip = 0;

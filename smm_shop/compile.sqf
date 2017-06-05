@@ -157,8 +157,8 @@ smm_shop_on_vehicle_pos = {
 };
 smm_shop_on_vehicle_pos_place = {
 	private _clickpos 	= _this;
-	private _tentpos  	= smm_shop_last_zone_point call getPosition;
-	private _range 		= smm_shop_last_zone_point call getSize;
+	private _tentpos  	= smm_shop_last_zone_point call smm_fnc_getPosition;
+	private _range 		= smm_shop_last_zone_point call smm_fnc_getSize;
 	private _isInRange 	= (_clickpos distance _tentpos) < _range;
 	private _price 		= smm_shop_on_vehicle_pos_price;
 	private _classname	= smm_shop_on_vehicle_pos_classname; 	 

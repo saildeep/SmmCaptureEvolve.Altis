@@ -3,7 +3,7 @@ private _zones = _this select 1;
 assert (typeName _side == "SIDE");
 private _out = [];
 {
-    if((_x call getSide) == _side)then{
+    if((_x call smm_fnc_getSide) == _side)then{
         _out pushBack _x;
     };
 }forEach _zones;
