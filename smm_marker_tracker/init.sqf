@@ -3,7 +3,7 @@ _marker = _this select 1;
 if(isServer)then{
 	while{false} do {
 		
-		_marker setMarkerPos (getPos _obj);
+		_marker setMarkerPos (getPosWorld _obj);
 		sleep 15;
 	};
 };

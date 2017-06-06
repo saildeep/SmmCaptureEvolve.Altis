@@ -73,7 +73,9 @@ if!(zoneActive select _no) then{
             }forEach _units;
 			
 			diag_log "Finished generating infantry";
+			
             //Finished creating infantry
+			
             _buildings = (zoneNoToBuildings select _no);
             if((count _buildings)> (count _allGroups) )then{
             {
