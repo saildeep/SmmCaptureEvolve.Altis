@@ -7,7 +7,7 @@ private _isAir = _vehType call smm_fnc_isAir;
 private _randomPos = [_pos,_range] call getPosNear;
 private _dir = 0;
 if(_isAir) then{
-	_spawnPos = [_randomPos select 0,(_randomPos select 1) + 500,_randomPos select 2];
+	_spawnPos = [_randomPos select 0,_randomPos select 1,(_randomPos select 2) + 500];
 }else{
 //  _spawnPos = [(sizeOf _vehType) min 10,_randomPos,0,100,1,0.5,0,false] call getVehiclePos;
 
