@@ -5,4 +5,4 @@ do
     name=$(echo $name| tr -d '\15\32')
     rm -r $DIR/../$name
     cp -r $DIR $DIR/../SmmCaptureEvolve.$name
-done < maps.txt
+done < $DIR/maps.txt
