@@ -46,7 +46,15 @@
         
     };
 	
-
+	class ReviveMode
+	{
+			title="Vanilla Revive";
+			texts[]={"Disabled","Enabled"};
+			values[]={0,1};
+			default=0;
+			isGlobal=1;
+	};
+	
 	
 	class aceMedic
     {
