@@ -23,7 +23,6 @@ class Params
 };
 
 class ACE_Settings {
-    
     #include "ace_settings.hpp"
 };
 

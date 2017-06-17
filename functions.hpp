@@ -10,12 +10,12 @@ class smm{
 	class helpers{
 		file = "smm_helpers\functions";
 		#include "smm_helpers\functions\helper_functions.hpp"
-	}
+	};
 	//helper
 	class macros{
 		file = "smm_macros\functions";
 		#include "smm_macros\functions\macros_functions.hpp"
-	}
+	};
 	//marker_tracker
 	class medic{
 		file = "smm_medic\functions";
@@ -24,7 +24,7 @@ class smm{
 	class money{
 		file = "smm_money\functions";
 		#include "smm_money\functions\money_functions.hpp"
-	}
+	};
 	class save{
 		file = "smm_save\functions";
 		#include "smm_save\functions\save_functions.hpp"

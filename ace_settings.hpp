@@ -915,4 +915,4 @@ class ace_advanced_ballistics_simulationRadius {
     value = 3000;
     typeName = "SCALAR";
     force = 1;
-}
+};

@@ -1,3 +1,5 @@
+#define false 0
+#define true 1
 class shop_dialog{
 	idd=-1;
 	movingenable=false;
