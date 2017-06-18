@@ -37,8 +37,15 @@ private _aceUselessStuff = 			[
 									"ACE_Banana"
 									"ACE_gunbag"
 									];									
+	rand_weapons append [
 						
-rand_magazines append 	[
+						"ACE_VMM3",
+						"ACE_VHM3"
+	
+						];					
+
+						
+	rand_magazines append 	[
 						"ACE_HandFlare_White","ACE_HandFlare_Red",
 						"ACE_HandFlare_Green","ACE_HandFlare_Yellow","ACE_M84","ACE_M14","ACE_HuntIR_M203","ACE_SpareBarrel","30Rnd_65x39_caseless_green_Tracer",
 						"hlc_30rnd_68x43_FMJ","hlc_30rnd_68x43_OTM","hlc_30rnd_68x43_Tracer","hlc_30rnd_68x43_MIRDIM","hlc_30rnd_68x43_MFMJ","hlc_30rnd_68x43_IRDIM",
