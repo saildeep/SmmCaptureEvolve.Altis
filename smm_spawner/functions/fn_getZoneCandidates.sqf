@@ -36,7 +36,7 @@ diag_log ("Found " + str (count _allRoads) + " roads");
 			};
 		}else{
 			[getPos _x,30,"ColorOrange"] call smm_fnc_createDebugMarker;
-			private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),random[_minSizem,_minSize + 0.1* _diffSize,_maxSize],3];
+			private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),random[_minSize,_minSize + 0.1* _diffSize,_maxSize],3];
 		};
 		
 	};
