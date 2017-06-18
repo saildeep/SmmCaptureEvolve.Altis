@@ -36,7 +36,7 @@ diag_log ("Found " + str (count _allRoads) + " roads");
 			};
 		}else{
 			[getPos _x,30,"ColorOrange"] call smm_fnc_createDebugMarker;
-			private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),_minSize + 0.3* _diffSize,3];
+			private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),random[_minSizem,_minSize + 0.1* _diffSize,_maxSize],3];
 		};
 		
 	};
@@ -47,14 +47,13 @@ diag_log ("Found " + str (count _allRoads) + " roads");
 Now get all locations
 */ 
 
-private _locationMaxImportance = 70;
-private _locationTypesWithImportance = [["NameCity",20],["NameCityCapital",35],["NameVillage",15],["NameLocal",60],["Airport",70]];
+private _locationTypesWithImportance = [["NameCity",0.25],["NameCityCapital",0.5],["NameVillage",0.15],["NameLocal",0.7],["Airport",1.0]];
 {
 	private _locationType = _x select 0;
 	private _locationImportance = _x select 1;
 	private _locations = nearestLocations [[0,0,0], [_locationType],1000000000000];
 	{
-		private _candidate = [getPos _x,text _x,_minSize + (_locationImportance / _locationMaxImportance) * _diffSize,_locationImportance];
+		private _candidate = [getPos _x,text _x,random[_minSize,_minSize + _diffSize * _locationImportance,_minSize + _diffSize],_locationImportance * 12];
 		_out pushBack _candidate;
 		private _marker = [getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
 		_marker setMarkerText (_locationType);
