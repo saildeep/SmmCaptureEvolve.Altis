@@ -35,6 +35,7 @@ private _aceUselessStuff = 			[
 									"ACE_key_indp",
 									"ACE_key_civ",
 									"ACE_Banana"
+									"ACE_gunbag"
 									];									
 						
 rand_magazines append 	[
@@ -68,4 +69,4 @@ rand_items_one = rand_items_one - ["FirstAidKit","Medikit"];
 //
 
 rand_items_two append (_aceScopes +_aceWeaponAttachments)  ;
-rand_backpacks append ["ACE_gunbag","ACE_NonSteerableParachute","ACE_TacticalLadder_Pack"];
+rand_backpacks append ["ACE_NonSteerableParachute","ACE_TacticalLadder_Pack"];
