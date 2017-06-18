@@ -16,6 +16,8 @@ wreckManagerMode = 1;
 wreckLimit = 10;
 wreckRemovalMinTime = 180;
 wreckRemovalMaxTime = 3600;
+
+ReviveMode = 0;
 class Params
 {
     #include "params.hpp"
