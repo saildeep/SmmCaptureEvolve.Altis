@@ -34,7 +34,7 @@ private _aceUselessStuff = 			[
 									"ACE_key_east",
 									"ACE_key_indp",
 									"ACE_key_civ",
-									"ACE_Banana"
+									"ACE_Banana",
 									"ACE_gunbag"
 									];									
 	rand_weapons append [
