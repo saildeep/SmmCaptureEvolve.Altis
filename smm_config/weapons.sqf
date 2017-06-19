@@ -1,6 +1,6 @@
 startWeapons   = ["hgun_ACPC2_F","SMG_05_F","arifle_AKM_F","SMG_02_F","launch_RPG7_F"];
 startMagazines = ["9Rnd_45ACP_Mag","30Rnd_9x21_Mag_SMG_02_Tracer_Green","30Rnd_762x39_Mag_Tracer_Green_F","30Rnd_9x21_Mag_SMG_02","RPG7_F"];
-startItems     = ["ItemGPS","FirstAidKit"];
+startItems     = ["ItemGPS","FirstAidKit","ToolKit"];
 startBackpacks = ["B_Bergen_rgr"];
 
 //vanilla stuff goes here

@@ -517,7 +517,7 @@ class ace_repair_repairDamageThreshold_engineer {
     force = 1;
 };
 class ace_repair_consumeItem_toolKit {
-    value = 1;
+    value = 0;
     typeName = "SCALAR";
     force = 1;
 };

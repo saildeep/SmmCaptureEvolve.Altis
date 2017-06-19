@@ -1,2 +1,2 @@
-class handleLocalRespawn{};
+class medicHandleLocalRespawn{};
 class onUnconscious{};
