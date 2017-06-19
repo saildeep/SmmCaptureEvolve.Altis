@@ -1,4 +1,4 @@
-startWeapons   = ["rhsusf_weap_MP7A2","rhs_weap_m38","rhs_weap_M136"];
+startWeapons   = ["rhsusf_weap_MP7A2","rhs_weap_m38","rhs_weap_kar98k","rhs_weap_M136"];
 startMagazines = [];
 startItems     = ["ItemGPS","FirstAidKit","ToolKit"];
 startBackpacks = [];
