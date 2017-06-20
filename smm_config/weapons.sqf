@@ -16,8 +16,8 @@ buy_packs = [
 ];
 
 rand_weapons = 		[
-					"launch_NLAW_F","launch_RPG32_F","launch_B_Titan_F","launch_I_Titan_F","launch_O_Titan_F","launch_B_Titan_short_F","launch_I_Titan_short_F",
-					"launch_O_Titan_short_F","srifle_DMR_01_F","srifle_EBR_F","srifle_GM6_F","srifle_GM6_camo_F","srifle_LRR_F","srifle_LRR_camo_F","LMG_Mk200_F","LMG_Zafir_F",
+										
+					"srifle_DMR_01_F","srifle_EBR_F","srifle_GM6_F","srifle_GM6_camo_F","srifle_LRR_F","srifle_LRR_camo_F","LMG_Mk200_F","LMG_Zafir_F",
 					"hgun_ACPC2_F","hgun_P07_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F","hgun_Rook40_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F",
 					"arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_MXC_F","arifle_MX_F",
 					"arifle_MX_GL_F","arifle_MX_SW_F","arifle_MXM_F","arifle_SDAR_F","arifle_TRG21_F","arifle_TRG20_F","arifle_TRG21_GL_F","hgun_PDW2000_F","SMG_01_F","SMG_02_F",
@@ -25,7 +25,8 @@ rand_weapons = 		[
 					"srifle_DMR_03_woodland_F","srifle_DMR_04_F","srifle_DMR_04_Tan_F","srifle_DMR_05_blk_F","srifle_DMR_05_hex_F","srifle_DMR_05_tan_f","srifle_DMR_06_camo_F",
 					"srifle_DMR_06_olive_F","srifle_DMR_06_camo_khs_F","LMG_Mk200_BI_F","MMG_01_hex_F","MMG_01_tan_F","MMG_02_camo_F","MMG_02_black_F","MMG_02_sand_F",
 					"arifle_MX_khk_F","arifle_MX_GL_khk_F","arifle_MX_SW_khk_F","arifle_MXC_khk_F","arifle_MXM_khk_F","srifle_LRR_tna_F","srifle_GM6_ghex_F","hgun_P07_khk_F",
-					"launch_RPG32_ghex_F","launch_RPG7_F","launch_B_Titan_tna_F","launch_B_Titan_short_tna_F","launch_O_Titan_ghex_F","launch_O_Titan_short_ghex_F","srifle_DMR_07_blk_F",
+					
+					"srifle_DMR_07_blk_F",
 					"srifle_DMR_07_hex_F","srifle_DMR_07_ghex_F","LMG_03_F","hgun_Pistol_01_F","arifle_AK12_F","arifle_AK12_GL_F","arifle_AKM_F","arifle_AKS_F","arifle_ARX_blk_F",
 					"arifle_ARX_ghex_F","arifle_ARX_hex_F","arifle_CTAR_blk_F","arifle_CTAR_hex_F","arifle_CTAR_ghex_F","arifle_CTAR_GL_blk_F","arifle_CTAR_GL_hex_F","arifle_CTAR_GL_ghex_F",
 					"arifle_CTARS_blk_F","arifle_CTARS_hex_F","arifle_CTARS_ghex_F","arifle_SPAR_01_blk_F","arifle_SPAR_01_khk_F","arifle_SPAR_01_snd_F","arifle_SPAR_01_GL_blk_F",
@@ -149,7 +150,7 @@ rand_items_one = 	[
 					"H_Cap_blk_Raven","H_Cap_police","H_Cap_marshal",
 					"H_RacingHelmet_1_orange_F",
 					"H_Helmet_Skate"
-					];
+				];
 
 //weapon attachments
 rand_items_two = [
@@ -166,7 +167,8 @@ rand_items_two = [
 					"acc_flashlight","acc_pointer_IR",
 					
 					"bipod_01_F_snd","bipod_01_F_blk","bipod_01_F_mtp","bipod_02_F_blk","bipod_02_F_tan","bipod_02_F_hex","bipod_03_F_blk","bipod_03_F_oli","bipod_01_F_khk"
-];
+				];
+					
 rand_backpacks = [
 					"B_AssaultPack_khk","B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk",
 					"B_AssaultPack_cbr","B_AssaultPack_mcamo","B_AssaultPack_ocamo","B_Kitbag_rgr","B_Kitbag_mcamo","B_Kitbag_sgg","B_Kitbag_cbr",
@@ -178,26 +180,50 @@ rand_backpacks = [
 					"B_ViperLightHarness_hex_F","B_ViperLightHarness_khk_F","B_ViperLightHarness_oli_F"
 				];
 				
+rand_launcher = [
+					// javelin
+					"launch_B_Titan_short_F","launch_I_Titan_short_F","launch_O_Titan_short_F","launch_Titan_short_F","launch_B_Titan_short_tna_F","launch_O_Titan_short_ghex_F",
 
+					// normal luncher
+					"launch_RPG32_F","launch_RPG32_ghex_F","launch_RPG7_F","launch_NLAW_F",
+
+					// AA Luncher 
+					"launch_B_Titan_F","launch_I_Titan_F","launch_O_Titan_F","launch_Titan_F","launch_B_Titan_tna_F","launch_O_Titan_ghex_F"
+				];
+				
+rand_javelinLauncher =	[
+							"launch_B_Titan_short_F","launch_I_Titan_short_F","launch_O_Titan_short_F","launch_Titan_short_F","launch_B_Titan_short_tna_F","launch_O_Titan_short_ghex_F"
+						];
+// load niarms stuff
 if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{
 	call compile preprocessFileLineNumbers "smm_config\weapons_niarsenal.sqf";
 };
 
+// load rhs stuff
+rand_rhsLauncher 		=[];
+rand_rhsJavelinLauncher	=[];
 if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{
 	call compile preprocessFileLineNumbers "smm_config\weapons_rhs.sqf";
 };
 
-//load ace stuff
+// load ace stuff
 if(isClass(configfile >> "CfgPatches" >> "ace_medical"))then{
 	call compile preprocessFileLineNumbers "smm_config\weapons_ace.sqf";
 };
 
+// load tfar stuff
 if(isClass(configfile >> "CfgPatches" >>"task_force_radio" ))then{
 	call compile preprocessFileLineNumbers "smm_config\weapons_tfar.sqf";
 };
 
+// set start items (depend on mods)
 smm_gear_start = [startItems,startWeapons,startMagazines,startBackpacks,[]];
 
+// add launchers (vanila + rhs )
+rand_launcher append rand_rhsLauncher;
+
+// *TODO maybe: set a parameter for this*. Subtract the Javelin launcher (ACE3 AMG reason)
+rand_launcher = rand_launcher - (rand_javelinLauncher + rand_rhsJavelinLauncher);
 
 // Items by faction
 if(playerside == west)then{

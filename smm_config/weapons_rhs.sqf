@@ -106,9 +106,8 @@ rand_weapons = [
 					"rhs_weap_makarov_pm",
 					"rhs_weap_pkp",
 					"rhs_weap_pkm",
-					"rhs_weap_rpg26",
 					"rhs_weap_rshg2",
-					"rhs_weap_rpg7",
+
 					"rhs_weap_igla",
 					"rhs_weap_kar98k",
 					"rhs_weap_m38",
@@ -206,14 +205,9 @@ rand_weapons = [
 					"rhsusf_weap_MP7A2_winter",
 					"rhsusf_weap_MP7A2_desert",
 					"rhsusf_weap_MP7A2_aor1",
-					"rhs_weap_smaw",
-					"rhs_weap_smaw_green",
-					"rhs_weap_M136",
-					"rhs_weap_M136_hedp",
-					"rhs_weap_M136_hp",
-					"rhs_weap_m72a7",
+
+
 					"rhs_weap_fim92",
-					"rhs_weap_fgm148",
 					"rhsusf_weap_m1911a1",
 					"rhsusf_weap_glock17g4",
 					"rhsusf_weap_m9",
@@ -225,6 +219,22 @@ rand_weapons = [
 					"rhs_weap_minimi_para_railed"
 				];
 				
+rand_rhsLauncher = [
+						// Javelin
+						"rhs_weap_fgm148",
+
+						// normal launcher
+						"rhs_weap_rpg26","rhs_weap_rshg2","rhs_weap_rpg7","rhs_weap_smaw","rhs_weap_smaw_green","rhs_weap_M136","rhs_weap_M136_hedp","rhs_weap_M136_hp","rhs_weap_m72a7",
+
+						// AA launchers
+						"rhs_weap_igla","rhs_weap_fim92"
+					];
+
+rand_rhsJavelinLauncher =	[
+								"rhs_weap_fgm148"
+							];
+
+
 rand_items_two append ("(_x call smm_fnc_macrosIsGood) and (_x call smm_fnc_macrosIsItem) and (_x call smm_is_not_thermal) && (count (configName _x) > 3) && (toLower ((configName _x) select [0,3])) == 'rhs' && (isNumber (_x >> 'ItemInfo' >> 'type' )) && (getNumber (_x >> 'ItemInfo' >> 'type') in [101, 201, 301, 302])" configClasses (configFile >> "CfgWeapons") apply {configName _x});
 rand_items_one append (("(_x call smm_fnc_macrosIsGood) and (_x call smm_fnc_macrosIsItem) and (_x call smm_is_not_thermal) && (count (configName _x) > 3) && (toLower ((configName _x) select [0,3])) == 'rhs' && !(isText (_x >> 'ItemInfo' >> 'uniformClass'))" configClasses (configFile >> "CfgWeapons") apply {configName _x}) - rand_items_two);
 rand_backpacks = "(_x call smm_fnc_macrosIsGood) and (_x call smm_fnc_macrosIsBackpack) && (count (configName _x) > 3) && (toLower ((configName _x) select [0,3])) == 'rhs'" configClasses (configFile >> "CfgVehicles") apply {configName _x};
