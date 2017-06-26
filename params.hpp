@@ -1,4 +1,6 @@
-
+/*
+	TODO maybe: Set a parameter to add (or not) ACE Javelin to game (see config/WEapons.sqf).
+*/
 	class delimiterServer
     {
         title="====================================Server Settings=====================================";

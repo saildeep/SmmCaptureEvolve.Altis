@@ -184,7 +184,7 @@ getRandWeapons = {
 	private _out = [];
 	for [{private _i=0}, {_i<_this}, {_i=_i+1}] do
 	{
-		_out append [selectRandom (rand_weapons - (1 call smm_fnc_getGear))];
+		_out append [ [ (selectRandom (rand_weapons		- (1 call smm_fnc_getGear))),(selectRandom (rand_launcher 	- (1 call smm_fnc_getGear))) ] select (round (random [0,0.15,1]) )];
 	};
 	_out
 };

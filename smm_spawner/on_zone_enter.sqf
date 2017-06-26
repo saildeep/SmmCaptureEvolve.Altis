@@ -60,7 +60,7 @@ if!(zoneActive select _no) then{
 				// kill Unit which spawn near the origin of the map
 				if( (_unit distance [0,0]) < 100)then{
 					diag_log (format ["Unit %1 spawn in origin of the map, setDamage 1",_x]);
-					_unit setDamage 1;
+					_unit setDamage 1; 	
 				};
 			
                 _unit = newUnit;
@@ -134,11 +134,11 @@ if!(zoneActive select _no) then{
             _startWP setWaypointBehaviour "SAFE";
             _startWP setWaypointFormation "STAG COLUMN";
             if!(_grp getVariable ["is_static",false])then{
-            {
-                 private _wpPos = [_pos,_size] call getPosNear;
-                 private _nextWp = _grp addWaypoint [_wpPos,0];
-                 private _nextWp setWaypointType "MOVE";
-                }forEach [1,2,3,4,5,6,7,8,9];
+				{
+					private _wpPos = [_pos,_size] call getPosNear;
+					private _nextWp = _grp addWaypoint [_wpPos,0];
+					_nextWp setWaypointType "MOVE";
+				}forEach [1,2,3,4,5,6,7,8,9];
                 
                 private _endWP = _grp addWaypoint [_pos,0];
                 _endWP setWaypointType "CYCLE";

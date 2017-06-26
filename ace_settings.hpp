@@ -381,6 +381,12 @@ class ace_medical_painIsOnlySuppressed {
     typeName = "BOOL";
     force = 1;
 };
+// ace update 22.06.2017
+class ace_medical_painEffectType {
+	value = 0;
+	typeName = "SCALAR";
+	force = 1;
+};
 class ace_medical_allowUnconsciousAnimationOnTreatment {
     value = 1;
     typeName = "BOOL";
@@ -461,6 +467,24 @@ class ace_nightvision_disableNVGsWithSights {
     typeName = "BOOL";
     force = 1;
 };
+// ace update 22.06.2017
+class ace_overheating_displayTextOnJam {
+	value = 1;
+	typeName = "BOOL";
+	force = 1;
+};
+// ace update 22.06.2017
+class ace_overheating_showParticleEffects {
+	value = 1;
+	typeName = "BOOL";
+	force = 1;
+};
+// ace update 22.06.2017
+class ace_overheating_showParticleEffectsForEveryone {
+	value = 0;
+	typeName = "BOOL";
+	force = 1;
+};
 class ace_overheating_overheatingDispersion {
     value = 1;
     typeName = "BOOL";
@@ -486,8 +510,33 @@ class ace_overpressure_distanceCoefficient {
     typeName = "SCALAR";
     force = 1;
 };
+// ace update 22.06.2017
+class ace_quickmount_enabled {
+	value = 0;
+	typeName = "BOOL";
+	force = 1;
+};
+// ace update 22.06.2017
+class ace_quickmount_distance {
+	value = 3;
+	typeName = "SCALAR";
+	force = 1;
+};
+// ace update 22.06.2017
+class ace_quickmount_speed {
+	value = 18;
+	typeName = "SCALAR";
+	force = 1;
+};
+// ace update 22.06.2017
+class ace_quickmount_priority {
+	value = 0;
+	typeName = "SCALAR";
+	force = 1;
+};
+// 0= entire vehicle, 1=entire magazine, 2= amount based on caliber
 class ace_rearm_level {
-    value = 0;
+    value = 2;
     typeName = "SCALAR";
     force = 1;
 };
@@ -495,6 +544,13 @@ class ace_refuel_rate {
     value = 1;
     typeName = "SCALAR";
     force = 1;
+};
+// ace update 22.06.2017
+// 0= unlimited ammo supply, 1=limited ammo supply based on caliber, 2= only specific magazines
+class ace_rearm_supply {
+	value = 0;
+	typeName = "SCALAR";
+	force = 1;
 };
 class ace_repair_engineerSetting_repair {
     value = 1;

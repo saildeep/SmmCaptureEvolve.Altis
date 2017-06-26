@@ -40,7 +40,7 @@ private _aceUselessStuff = 			[
 	rand_weapons append [
 						
 						"ACE_VMM3",
-						"ACE_VHM3"
+						"ACE_VMH3"
 	
 						];					
 
