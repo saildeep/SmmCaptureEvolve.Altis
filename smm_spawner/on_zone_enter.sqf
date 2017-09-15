@@ -109,6 +109,7 @@ if!(zoneActive select _no) then{
                 if((_forEachIndex % smm_spawner_vehicles_per_group) == 0)then{
                     _currentGroup = createGroup _zoneSide;
                     _currentGroup setVariable  ["ace_headless_blacklist", true, true];
+                    _currentGroup allowFleeing 0;
                     _allGroups pushBack _currentGroup;
                 };
                 _randPos = [_pos,_size] call getPosNear;
