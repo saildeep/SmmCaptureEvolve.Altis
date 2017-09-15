@@ -3,7 +3,7 @@ if(isServer)then{
 	private _side = _this select 1;
 	private _players = allPlayers - entities "HeadlessClient_F";
 	{
-		if((side _x) == _side)then{
+		if((side (group _x)) == _side)then{
 			[_amount,getPlayerUID _x] call smm_fnc_addMoney;
 		};
 	}forEach _players;
