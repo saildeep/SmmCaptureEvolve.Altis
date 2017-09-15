@@ -1,7 +1,7 @@
 smm_spawner_center = [0,0,0];
 smm_spawner_range = 100000;
 smm_spawner_types = ["NameVillage","NameCity","NameCityCapital","Airport"];
-smm_spawner_spawn_range = 800;
+smm_spawner_spawn_range = 200;
 smm_spawner_despawn_range = 2000;
 
 smm_spawner_zone_scan_size = 100;
