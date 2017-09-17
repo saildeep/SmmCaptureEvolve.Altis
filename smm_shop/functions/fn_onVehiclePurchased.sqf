@@ -6,3 +6,11 @@ assert (!isNil "_handle");
 _vehicleObject setVehicleReportOwnPosition true;
 _vehicleObject setVehicleReportRemoteTargets true;
 _vehicleObject setVehicleReceiveRemoteTargets true;
+
+//equip fries/fastropting
+if(smm_ace)then{
+	private _config = configFile >> "CfgVehicles" >> typeof _vehicleObject;
+	if(isNumber (_config >> "ace_fastroping_enabled"))then{
+		[_vehicleObject] call ace_fastroping_fnc_equipFRIES;
+	};
+};
