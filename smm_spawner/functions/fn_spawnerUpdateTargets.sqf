@@ -10,6 +10,7 @@
 	private _ccand = [_currentSide] call smm_fnc_SpawnerDeterminePossibleTargets;
 	private _cand = _ccand - _currentTargets;
 	private _neededTargets = _maxTargets - (count _currentTargets);
+	diag_log ("Candidates are " + (str _cand) + " for " + (str _currentSide) );
 	_cand resize _neededTargets;
 	[_currentSide, _currentTargets + _cand] call smm_fnc_setTargets;
 
