@@ -121,6 +121,23 @@
         isGlobal=1;
         
     };
+
+    class targetsBLUFOR
+    {
+        title="Targets zones for BLUFOR";
+        texts[] = {"0","1","2","3","4","5","Unlimited"};
+        values[] = {0,1,2,3,4,5,300};
+        default = 1;
+    };
+
+    class targetsINDEPENDENT
+    {
+        title="Targets zones for Independent";
+        texts[] = {"0","1","2","3","4","5","Unlimited"};
+        values[] = {0,1,2,3,4,5,300};
+        default = 1;
+    };
+
    
     class minZoneSize
     {
