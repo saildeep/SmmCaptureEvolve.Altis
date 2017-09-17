@@ -19,3 +19,4 @@ class macrosWeapons{};
 class macrosAceItems{};
 class macrosBackpacks{};
 class macrosFromConfigSide{};
+class macrosGraphAnalysis{};
