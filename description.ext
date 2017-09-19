@@ -42,6 +42,12 @@ class CfgFunctions{
     #include "functions.hpp"
 };
 
+#include "smm_oo\definitions.hpp"
+
+class OOTypes{
+    #include "types.hpp"
+};
+
 class CfgRespawnInventory{
     #include "respawn_inventory.hpp"
 };

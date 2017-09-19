@@ -50,8 +50,8 @@ class smm{
 		#include "smm_tickets\functions\ticket_functions.hpp"
 	};
 	class oo{
-		file = "smm_oo\functions";
-		#include "smm_oo\functions\oo_functions.hpp"
-	};
+        file = "smm_oo\functions";
+        #include "smm_oo\functions\oo_functions.hpp"
+    };
 	
 };
