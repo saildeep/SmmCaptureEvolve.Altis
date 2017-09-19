@@ -1,0 +1,1 @@
+#define OO_NAMESPACE missionNamespace

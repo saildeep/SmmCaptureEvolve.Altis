@@ -1,7 +1,9 @@
+#define OO_CONFIGFILE missionConfigFile
+#define OO_NAMESPACE missionNamespace
 class OOType{};
 class OOVar{
     typeName = "ARRAY";
-    default = "";
-    get="{_x}";
-    set="{_x}";
+    get="_this";
+    set="_this";
+    typeCheck = "true";//use _v
 };
