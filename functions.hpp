@@ -49,5 +49,9 @@ class smm{
 		file = "smm_tickets\functions";
 		#include "smm_tickets\functions\ticket_functions.hpp"
 	};
-	//time
+	class oo{
+		file = "smm_oo\functions";
+		#include "smm_oo\functions\oo_functions.hpp"
+	};
+	
 };
