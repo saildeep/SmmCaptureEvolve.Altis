@@ -16,6 +16,9 @@ parameterConfig = compileFinal preprocessFileLineNumbers "smm_config\parameters.
 macrosFunctions = compileFinal preprocessFileLineNumbers "smm_macros\compile.sqf";
 gcFunctions = compileFinal preprocessFileLineNumbers "smm_garbage_collector\compile.sqf";
 
+//compile OO files
+call smm_fnc_parseTypes;
+
 //exec config files
 call compile preprocessFileLineNumbers "smm_config\mod_detector.sqf";
 call compile preprocessFileLineNumbers "smm_thermal_blocker\compile.sqf";
