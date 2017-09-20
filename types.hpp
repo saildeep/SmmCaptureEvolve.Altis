@@ -21,3 +21,5 @@ class Zone:OOType{
         typeName = "STRING";
     };
 };
+
+#include "smm_config\types.hpp"
