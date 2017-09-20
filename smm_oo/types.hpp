@@ -17,6 +17,9 @@ class EventDistributor:OOType{
     class AddEventListenerSpawn:OOFunction{
         code = "([_this select 0] call EventDistributor_get_EventListenersSpawn) pushBack (_this select 1);";
     };
+    class Trigger:OOFunction{
+        code = "params['_object','_params'];{ _params call _x; }forEach ([_object] call EventDistributor_get_EventListenersCall);{ _params spawn _x; }forEach ([_object] call EventDistributor_get_EventListenersSpawn);"
+    };
 };
 
 class EventManager:OOType{
@@ -26,10 +29,7 @@ class EventManager:OOType{
     class AddListener:OOFunction{
         file="smm_oo\EventManager\AddListener.sqf";
     };
-};
-
-class EventListener:OOType{
-    class Function:OOVar{
-        typeName="CODE";
+    class Trigger:OOFunction{
+        file="smm_oo\EventManager\Trigger.sqf";
     };
 };
