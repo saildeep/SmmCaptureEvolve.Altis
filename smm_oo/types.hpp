@@ -4,12 +4,32 @@ class EventDistributor:OOType{
         typeName="STRING";
     };
 
-    class EventListeners:OOVar{
+    class EventListenersCall:OOVar{
         typeName="[EventListener]";
     };
-    class AddEventListener:OOFunction{
-        code = "([_this select 0] call EventDistributor_get_EventListeners) pushBack (_this select 1);";
+
+    class EventListenersSpawn:OOVar{
+        typeName="[EventListener]";
+    };
+    class AddEventListenerCall:OOFunction{
+        code = "([_this select 0] call EventDistributor_get_EventListenersCall) pushBack (_this select 1);";
+    };
+    class AddEventListenerSpawn:OOFunction{
+        code = "([_this select 0] call EventDistributor_get_EventListenersSpawn) pushBack (_this select 1);";
     };
 };
 
-class EventListener:OOType{};
+class EventManager:OOType{
+    class Events:OOVar{
+        typeName="[EventDistributor]";
+    };
+    class AddListener:OOFunction{
+        file="smm_oo\EventManager\AddListener.sqf";
+    };
+};
+
+class EventListener:OOType{
+    class Function:OOVar{
+        typeName="CODE";
+    };
+};

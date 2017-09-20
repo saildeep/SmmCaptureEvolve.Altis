@@ -10,7 +10,7 @@ assert((typeName _wrappedVar) == "ARRAY");
 	}else{
 		//handle custom type
 		[_x] call (OO_NAMESPACE getVariable TYPE_CHECK_NAME(_typeName));
-	}
+	};
 	assert(_x call _typeCheckFn);
 	
 } forEach _wrappedVar;

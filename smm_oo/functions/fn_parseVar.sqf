@@ -9,7 +9,7 @@ assert(isText _typeNameConfig);
 
 //Build check for type
 //Type can be either NATIVE, CUSTOM,[NATIVE],[CUSTOM]
-private _nativeTypes = ["BOOL","LOCATION","SCALAR","SCRIPT","SIDE","STRING","TEXT"];
+private _nativeTypes = ["BOOL","LOCATION","SCALAR","SCRIPT","SIDE","STRING","TEXT","CODE"];
 private _allSimpleTypes = _nativeTypes + _customTypes;
 private _allArrayTypes = _allSimpleTypes apply {"[" + _x + "]"};
 private _allTypes = _allSimpleTypes + _allArrayTypes;
