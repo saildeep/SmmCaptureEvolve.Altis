@@ -5,11 +5,11 @@ class EventDistributor:OOType{
     };
 
     class EventListenersCall:OOVar{
-        typeName="[EventListener]";
+        typeName="[CODE]";
     };
 
     class EventListenersSpawn:OOVar{
-        typeName="[EventListener]";
+        typeName="[CODE]";
     };
     class AddEventListenerCall:OOFunction{
         code = "([_this select 0] call EventDistributor_get_EventListenersCall) pushBack (_this select 1);";
