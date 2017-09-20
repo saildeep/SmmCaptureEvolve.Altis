@@ -10,5 +10,6 @@ class OOVar{
 
 class OOFunction{
     code = "";
+    file= "";
 };
 
