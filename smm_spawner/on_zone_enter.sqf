@@ -22,7 +22,7 @@ if!(zoneActive select _no) then{
             //modify size according to player count
 			//use player count for scalability
 			private _justPlayers = call BIS_fnc_listPlayers;
-			private _money =floor( _size * (sqrt (count _justPlayers)));
+			private _money = smm_spawner_money_cap min floor( _size * (sqrt (count _justPlayers)));
 			private _vehicleMoney = _money;
             //Creating infantry units
 			diag_log ("Spawning  units in zone " + (str _no) +" with " + (str _money) + "$ and " + (str _size ) + " size");
