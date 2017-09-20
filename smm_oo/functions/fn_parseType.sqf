@@ -18,5 +18,5 @@ private _varSets = [];
 
 } forEach _vars;
 
-private _constructor = compile (format ["[%1,%2,%3,_this] call smm_fnc_innerConstructor",configName _object,_varChecks,_varSets]);
+private _constructor = compile (format ["['%1',%2,%3,_this] call smm_fnc_innerConstructor",configName _object,_varChecks,_varSets]);
 OO_NAMESPACE setVariable [(configName _object) + "_create",_constructor];
