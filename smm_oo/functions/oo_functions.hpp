@@ -1,7 +1,9 @@
 class parseTypes{};
 class parseType{};
 class parseVar{};
+class parseFunction{};
 class innerVarCheck{};
 class innerVarGet{};
 class innerVarSet{};
 class innerConstructor{};
+class innerFunctionCall{};

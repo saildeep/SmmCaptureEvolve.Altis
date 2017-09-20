@@ -22,4 +22,24 @@ class Zone:OOType{
     };
 };
 
+class EventDistributor:OOType{
+    class EventListeners:OOVar{
+        typeName="[EventListener]";
+    };
+    class AddEventListener:OOFunction{
+        code = "([_this select 0] call EventDistributor_get_EventListeners) append (_this select 1);";
+    };
+};
+
+class EventListener:OOType{};
+
+class RandomDataset:OOType{
+    class Data:OOVar{
+        typeName = "[SCALAR]";
+    };
+    class Add:OOFunction{
+        code = "((_this select 0) call RandomDataset_get_Data) pushBack (random 1.0)";
+    };
+};
+
 #include "smm_config\types.hpp"

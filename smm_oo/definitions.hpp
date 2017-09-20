@@ -7,3 +7,8 @@ class OOVar{
     set="_this";
     typeCheck = "true";//use _v
 };
+
+class OOFunction{
+    code = "";
+};
+
