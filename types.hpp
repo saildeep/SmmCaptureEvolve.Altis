@@ -38,7 +38,7 @@ class RandomDataset:OOType{
         typeName = "[SCALAR]";
     };
     class Add:OOFunction{
-        code = "((_this select 0) call RandomDataset_get_Data) pushBack (random 1.0)";
+        code = "([_this select 0] call RandomDataset_get_Data) pushBack (random 1);";
     };
 };
 
