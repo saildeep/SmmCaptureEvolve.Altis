@@ -1,6 +1,6 @@
 class Zone:OOType{
     class Position:OOVar{
-        typeName = "ARRAY";
+        typeName = "[SCALAR]";
         typeCheck = "(count _this) == 3";
     };
     class Hash:OOVar{
@@ -15,7 +15,7 @@ class Zone:OOType{
         typeName = "SIDE";
     };
     class Neighbours:OOVar{
-        typeName = "ARRAY";
+        typeName = "[SCALAR]";
     };
     class DisplayName:OOVar{
         typeName = "STRING";
