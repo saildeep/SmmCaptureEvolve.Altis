@@ -2,9 +2,9 @@
 #include "values.hpp"
 
 params["_typename","_functionConfig","_index"];
-
+private _tn = _typename;
 private _fnName = configName _functionConfig;
-diag_log (_fnName + " for " +  _typename + " is being generated" );
+diag_log (" -|>Func:" + _fnName);
 assert(isText (_functionConfig>>"code"));
 assert(isText (_functionConfig>>"file"));
 private _fnCode = getText (_functionConfig >> "code");
@@ -16,7 +16,7 @@ if(_fnCode == "")then{
 private _functionCompiled = compile _fnCode;
 
 private _fnCall = format ["[_this select 0,'%1' ,_this select [1,(count _this) -1],%2 ] call smm_fnc_innerFunctionCall",_typename,_functionCompiled];
-
+diag_log ("  |->call:"+_fnCall);
 
 OO_NAMESPACE setVariable [TYPE_FUNCTION_NAME(_typename,_fnName),compile _fnCall];
 _fnCall

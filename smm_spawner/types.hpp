@@ -35,4 +35,13 @@ class ZoneState:OOType{
     class Units:OOVar{
         typeName="[OBJECT]";
     };
+    class Vehicles:OOVar{
+        typeName="[OBJECT]";
+    };
+    class Buildings:OOVar{
+        typeName="[OBJECT]";
+    };
+    class Marker:OOVar{
+        typeName="STRING";
+    };
 };

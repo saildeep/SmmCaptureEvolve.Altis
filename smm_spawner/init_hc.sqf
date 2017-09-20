@@ -10,87 +10,87 @@ zoneNoToVehicle = [];
 zoneActive = [];
 spawnTriggers = [];
 zoneNoToBuildings = []; //format ...[object,[position]]...
+
+zoneStates = [];
 _buildingType = ["House", "Building"];
 {
-zoneActive append [false];
-zoneNoToUnits pushBack [];
-_c = _x;
-_marker = createMarker [_c select 1 ,_c select 0];
- _marker setMarkerColor ((_c select 3)call getColor);
- _marker setMarkerSize [(_c select 2),( _c select 2)];
- _marker setMarkerShape "ELLIPSE";
- _marker setMarkerAlpha 0;
- 
- [_forEachIndex,_c select 3] call smm_fnc_changeOwner;
- _zoneNumber = _forEachIndex;
- 
- //get buildings with positions;
- _currentBuildings = [];
- _center = _c select 0;
- _size = _c select 2;
- _allBuildingObjects = nearestObjects [_center,_buildingType,_size];
- {
-    _buildingPos = _x buildingPos -1;
-    if((count _buildingPos)>=smm_spawner_units_per_group )then{
-        _currentBuildings pushBack [_x,_buildingPos];
-    }
- }forEach _allBuildingObjects;
- zoneNoToBuildings pushBack (_currentBuildings call BIS_fnc_arrayShuffle);
- 
- //Create Triggers for enter zone
- _allEnterTriggers = [];
-{
-    _triggersize = (_c call smm_fnc_getSize) + smm_spawner_spawn_range;
-    //create activation triggers 
-    _entertrg = createTrigger ["EmptyDetector",_c select 0,false];
-    _entertrg setTriggerArea [_triggersize,_triggersize,0,false];
-    _entertrg setTriggerActivation [str _x,"PRESENT",true];
-    diag_log (format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide]);
-    _entertrg setTriggerStatements["this",format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide],""];
+    zoneActive append [false];
+    zoneNoToUnits pushBack [];
+    _c = _x;
+    _marker = createMarker [_c select 1 ,_c select 0];
+    _marker setMarkerColor ((_c select 3)call getColor);
+    _marker setMarkerSize [(_c select 2),( _c select 2)];
+    _marker setMarkerShape "ELLIPSE";
+    _marker setMarkerAlpha 0;
     
-    _allEnterTriggers append [_entertrg];
-}forEach smm_spawner_player_factions; 
-spawnTriggers append [_allEnterTriggers];
-//create Trigger for leaving zone
-_exittrg = createTrigger ["EmptyDetector",_c select 0,false];
-_exittrg setTriggerArea [100,100,100,false];
-_exittrg setTriggerActivation ["ANY","PRESENT",true];
-_exittrg setTriggerTimeout [60 * 30,60 * 45,60 *60,true];
-_exittrg setTriggerStatements [format ["({(triggerActivated _x)} count (spawnTriggers select %1))==0",_forEachIndex], str(_forEachIndex) +" call onZoneLeave",""];
-
-zoneNoToVehicle append [[]];
-//draw connections
-_c = _x;
-_cId = _forEachIndex;
-_neighbours = _c select 4;
-_pos = _c select 0;
+    [_forEachIndex,_c select 3] call smm_fnc_changeOwner;
+    _zoneNumber = _forEachIndex;
+    
+    //get buildings with positions;
+    _currentBuildings = [];
+    _center = _c select 0;
+    _size = _c select 2;
+    _allBuildingObjects = nearestObjects [_center,_buildingType,_size];
     {
-    if(_x < _cId) then {
+        _buildingPos = _x buildingPos -1;
+        if((count _buildingPos)>=smm_spawner_units_per_group )then{
+            _currentBuildings pushBack [_x,_buildingPos];
+        }
+    }forEach _allBuildingObjects;
+    zoneNoToBuildings pushBack (_currentBuildings call BIS_fnc_arrayShuffle);
     
-         _nb = _x call getZone;
-         _nbPos = _nb select 0;
-         _meanPos = [_pos,_nbPos] call getMean;
-         _markerSize = (_pos distance _meanPos)*0.9;
-         _angle = [_pos,_meanPos] call BIS_fnc_dirTo;
-         _markerName = (_x call smm_fnc_getHash) + "_" + (_cId call smm_fnc_getHash);
-         _mark = createMarker [_markerName,_meanPos];
-         _mark setMarkerShape "RECTANGLE";
-         _mark setMarkerSize [10,_markerSize];
-         _mark setMarkerColor "ColorBlack";
-         _mark setMarkerDir _angle;
-         _mark setMarkerPos _meanPos;
-         _mark setMarkerAlpha 0;
-     //TODO continue
-     };
-    }forEach _neighbours;
+    //Create Triggers for enter zone
+    _allEnterTriggers = [];
+    {
+        _triggersize = (_c call smm_fnc_getSize) + smm_spawner_spawn_range;
+        //create activation triggers 
+        _entertrg = createTrigger ["EmptyDetector",_c select 0,false];
+        _entertrg setTriggerArea [_triggersize,_triggersize,0,false];
+        _entertrg setTriggerActivation [str _x,"PRESENT",true];
+        diag_log (format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide]);
+        _entertrg setTriggerStatements["this",format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide],""];
+        
+        _allEnterTriggers append [_entertrg];
+    }forEach smm_spawner_player_factions; 
+    spawnTriggers append [_allEnterTriggers];
+    //create Trigger for leaving zone
+    _exittrg = createTrigger ["EmptyDetector",_c select 0,false];
+    _exittrg setTriggerArea [100,100,100,false];
+    _exittrg setTriggerActivation ["ANY","PRESENT",true];
+    _exittrg setTriggerTimeout [60 * 30,60 * 45,60 *60,true];
+    _exittrg setTriggerStatements [format ["({(triggerActivated _x)} count (spawnTriggers select %1))==0",_forEachIndex], str(_forEachIndex) +" call onZoneLeave",""];
 
+    zoneNoToVehicle append [[]];
+    //draw connections
+    _c = _x;
+    _cId = _forEachIndex;
+    _neighbours = _c select 4;
+    _pos = _c select 0;
+        {
+        if(_x < _cId) then {
+        
+            _nb = _x call getZone;
+            _nbPos = _nb select 0;
+            _meanPos = [_pos,_nbPos] call getMean;
+            _markerSize = (_pos distance _meanPos)*0.9;
+            _angle = [_pos,_meanPos] call BIS_fnc_dirTo;
+            _markerName = (_x call smm_fnc_getHash) + "_" + (_cId call smm_fnc_getHash);
+            _mark = createMarker [_markerName,_meanPos];
+            _mark setMarkerShape "RECTANGLE";
+            _mark setMarkerSize [10,_markerSize];
+            _mark setMarkerColor "ColorBlack";
+            _mark setMarkerDir _angle;
+            _mark setMarkerPos _meanPos;
+            _mark setMarkerAlpha 0;
+        //TODO continue
+        };
+        }forEach _neighbours;
 
+    zoneStates pushBack ([_c,[],[],_allBuildingObjects,_marker] call ZoneState_create);
 }forEach spawnLocs;
 _d = [];
 {       _position = (_x call smm_fnc_getPosition) findEmptyPosition [0,_x call smm_fnc_getSize,smm_spawner_interaction_object];
         _flag = smm_spawner_interaction_object createVehicle _position;
-        _d append [_flag];
-        _flag allowDamage false;
         _flag setVariable ["ace_medical_isMedicalFacility",true,true];
         
 }forEach spawnLocs;

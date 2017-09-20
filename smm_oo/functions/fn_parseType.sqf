@@ -2,7 +2,7 @@
 
 params ["_object","_othertypes"];
 private _typeName = configName _object;
-diag_log ("Parsing type " + _typeName + " with other types " + (str _othertypes));
+diag_log ("# Parsing type " + _typeName);
 private _typecheck =compile  (format ["assert ((_this select 0) == '%1')",configName _object]);
 private _varChecks = [];
 private _varSets = [];

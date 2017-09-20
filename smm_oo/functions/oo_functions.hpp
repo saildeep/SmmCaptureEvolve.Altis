@@ -7,3 +7,4 @@ class innerVarGet{};
 class innerVarSet{};
 class innerConstructor{};
 class innerFunctionCall{};
+class innerTypeCheck{};
