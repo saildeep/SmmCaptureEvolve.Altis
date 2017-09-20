@@ -1,9 +1,13 @@
-//create HQ's
+private _prefix = "[INITHC] ";
+diag_log (_prefix + "Creating centers");
 createCenter west;
 createCenter east;
 createCenter independent;
 createCenter civilian;
+
+diag_log (_prefix + "Waiting for spawnLocs");
 waitUntil {!(isNil "spawnLocs")};
+diag_log (_prefix + "Creating target arrays");
 _markerNumerator = 0;
 zoneNoToUnits = [];
 zoneNoToVehicle = [];
@@ -13,6 +17,7 @@ zoneNoToBuildings = []; //format ...[object,[position]]...
 
 zoneStates = [];
 _buildingType = ["House", "Building"];
+diag_log (_prefix + "Building zoneStates");
 {
     zoneActive append [false];
     zoneNoToUnits pushBack [];
@@ -86,16 +91,21 @@ _buildingType = ["House", "Building"];
         };
         }forEach _neighbours;
 
-    zoneStates pushBack ([_c,[],[],_allBuildingObjects,_marker] call ZoneState_create);
+    zoneStates pushBack ([_cId,[],[],_allBuildingObjects,_marker] call ZoneState_create);
 }forEach spawnLocs;
+diag_log (_prefix + "Spawning interaction points");
 _d = [];
 {       _position = (_x call smm_fnc_getPosition) findEmptyPosition [0,_x call smm_fnc_getSize,smm_spawner_interaction_object];
         _flag = smm_spawner_interaction_object createVehicle _position;
         _flag setVariable ["ace_medical_isMedicalFacility",true,true];
+        _d pushBack _flag;
         
 }forEach spawnLocs;
 interaction_points = _d;
 publicVariable "interaction_points";
+
+diag_log (_prefix + "Determining start zones");
+
 _directionOfFirstStartZone = random 360;
 _directionOfStartZones     = [_directionOfFirstStartZone,_directionOfFirstStartZone +180];
 {

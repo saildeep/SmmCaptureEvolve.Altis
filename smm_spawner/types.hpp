@@ -29,8 +29,8 @@ class Zone:OOType{
 };
 
 class ZoneState:OOType{
-    class Zone:OOVar{
-        typeName = "Zone";
+    class ZoneID:OOVar{
+        typeName = "SCALAR";
     };
     class Units:OOVar{
         typeName="[OBJECT]";
