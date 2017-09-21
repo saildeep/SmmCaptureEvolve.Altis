@@ -63,8 +63,20 @@ diag_log (_prefix + "Building zoneStates");
     private _interaction_point = smm_spawner_interaction_object createVehicle _interaction_point_position;
     _interaction_point setVariable ["ace_medical_isMedicalFacility",true,true];
 
+    private _seizeTriggers = [west,east,independent] apply{
+        private _trg = createTrigger ["EmptyDetector",[_c] call Zone_get_Position,false];
+        private _sideID = smm_spawner_all_factions find _x;
+        private _activationCode = format["[%1,%2] call smm_fnc_seizeZone",_cZoneNumber,_sideID];
+        _trg setTriggerActivation[(str _x) + " SEIZED","PRESENT",true];
+        _trg setTriggerArea[10,10,0,false];
+        _trg setTriggerTimeout [40,50, 60, true];
+        _trg setTriggerStatements["this",_activationCode,""];
+        _trg
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_marker,_interaction_point] call ZoneState_create);
+    };
+    private _triggerCollection = _seizeTriggers call TriggerCollection_create;
+
+    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_marker,_interaction_point,_triggerCollection] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 //[[_zoneStates] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
 

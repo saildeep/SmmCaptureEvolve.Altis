@@ -1,3 +1,5 @@
+
+//SERVER OWNER
 class ZonesManager:OOType{
     isSingleton = 1;
     class Zones:OOVar{
@@ -37,6 +39,7 @@ class Zone:OOType{
     };
 };
 
+//HC OWNER
 class ZoneStatesManager:OOType{
     isSingleton = 1;
     class ZoneStates:OOVar{
@@ -66,4 +69,21 @@ class ZoneState:OOType{
     class InteractionPoint:OOVar{
         typeName="OBJECT";
     };
+    class SeizeTriggers:OOVar{
+        typeName="TriggerCollection";
+    };
+
+};
+
+class TriggerCollection:OOType{
+    class TriggerBLUFOR:OOVar{
+        typeName = "OBJECT";
+    };
+    class TriggerOPFOR:OOVar{
+        typeName = "OBJECT";
+    };
+    class TriggerINDEPENDENT:OOVar{
+        typeName = "OBJECT";
+    };
+   
 };

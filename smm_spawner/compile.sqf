@@ -457,13 +457,4 @@ smm_fnc_spawnerUpdateTargets = {
 */
 
 
-call compile preprocessFile "smm_spawner\zone_generators\compile.sqf";
-onZoneEnter = compileFinal preprocessFile "smm_spawner\on_zone_enter.sqf";
-onZoneLeave = compileFinal preprocessFile "smm_spawner\on_zone_leave.sqf";
-onAiKilled = compileFinal preprocessFile "smm_spawner\on_ai_killed.sqf";
-onGroupWiped = compileFinal preprocessFile "smm_spawner\on_group_wiped.sqf";
-getVehicles = compileFinal preprocessFile "smm_spawner\get_vehicles.sqf";
-getZone = compileFinal preprocessFile "smm_spawner\get_zone.sqf";
-getVehiclePos = compileFinal preprocessFile "smm_spawner\get_safe_vehicle_pos.sqf";
-spawnSafe = compileFinal preprocessFile "smm_spawner\spawn_safe.sqf";
-doParadrop = compileFinal preprocessFile "smm_spawner\do_paradrop.sqf";
+call compile preprocessFile "smm_spawner\zone_generators\compile.sqf";;
