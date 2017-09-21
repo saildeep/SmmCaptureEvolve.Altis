@@ -40,13 +40,31 @@ class Zone:OOType{
 };
 
 //HC OWNER
+//Singleton on hc for collecting data about the current state of the zones including spawned units
 class ZoneStatesManager:OOType{
     isSingleton = 1;
     class ZoneStates:OOVar{
         typeName = "[ZoneState]";
     };
+
+    class Targets:OOVar{
+        typeName = "TargetCollection";
+    };
+
     class GetZoneState:OOFunction{
         code = "([_this select 0] call ZoneStatesManager_get_ZoneStates) select (_this select 1)";
+    };
+};
+
+class TargetCollection:OOType{
+    class TargetsBLUFOR:OOVar{
+        typeName = "[SCALAR]";
+    };
+    class TargetsOPFOR:OOVar{
+        typeName = "[SCALAR]";
+    };
+    class TargetsINDEPENDENT:OOVar{
+        typeName = "[SCALAR]";
     };
 };
 
