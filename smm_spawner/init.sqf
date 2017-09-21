@@ -1,3 +1,4 @@
+private _prefix = "[INIT] ";
 west setFriend [east,0];
 west setFriend [independent,0];
 east setFriend [west,0];
@@ -46,7 +47,24 @@ if(isServer)then{
 			spawnLocs = [] call smm_fnc_advancedZoneGenerator;
 		};
     };
-    publicVariable "spawnLocs";
+    //transfer spawnLocs to new ZonesManager
+    private _zones =[];
+    {
+        //[position,hash,size,owner,connections,name]
+        private _index = _forEachIndex;
+        private _position = _x select 0;
+        private _hash = _x select 1;
+        private _size = _x select 2;
+        private _owner = _x select 3;
+        private _connections = _x select 4;
+        private _name = _x select 5;
+        diag_log(_prefix + " processing " + (str _x) );
+        _zones pushBack ([_index,_position,_hash,_size,_owner,_connections,_name] call Zone_create);
+
+    }forEach spawnLocs;
+
+    [[_zones] call ZonesManager_create,true] call ZonesManager_SetInstance;
+    missionNamespace setVariable["spawnLocs",nil];
 };
 if(autodetectHeadless)then{
     if(isServer)then{
@@ -80,14 +98,14 @@ if(isServer)then{
 diag_log ("Started spawner with autodetectHeadless=" + (str autodetectHeadless)+ " and useHeadless=" + (str useHeadless));
 };
 []spawn{  
-    waitUntil{!isNil "activeTargets"};
-    waitUntil{!isNil "interaction_points"};
-    waitUntil{!isNil "spawnLocs"};
-    waitUntil{!isNil "spawner_init_finished"};
+    //blocking get
+    private _zoneStates = call ZoneStatesManager_GetInstance;
+
     waitUntil{alive player};
     sleep 30;
     {
-        _x addAction [str_conquer,smm_fnc_spawnerConquer,_forEachIndex];
-    }forEach interaction_points;
+        private _interaction_point = [_x] call ZoneState_get_InteractionPoint;
+        _interaction_point addAction [str_conquer,smm_fnc_spawnerConquer,_forEachIndex];
+    }forEach ([_zoneStates] call ZoneStatesManager_get_ZoneStates);
     [] call smm_fnc_spawnerUpdateMarkerAlpha;
 };

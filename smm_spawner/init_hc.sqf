@@ -5,168 +5,73 @@ createCenter east;
 createCenter independent;
 createCenter civilian;
 
-diag_log (_prefix + "Waiting for spawnLocs");
-waitUntil {!(isNil "spawnLocs")};
 diag_log (_prefix + "Creating target arrays");
-_markerNumerator = 0;
-zoneNoToUnits = [];
-zoneNoToVehicle = [];
-zoneActive = [];
-spawnTriggers = [];
-zoneNoToBuildings = []; //format ...[object,[position]]...
 
-zoneStates = [];
-_buildingType = ["House", "Building"];
+private _zoneStates = [];
+private _buildingType = ["House", "Building"];
 diag_log (_prefix + "Building zoneStates");
 {
-    zoneActive append [false];
-    zoneNoToUnits pushBack [];
-    _c = _x;
-    _marker = createMarker [_c select 1 ,_c select 0];
-    _marker setMarkerColor ((_c select 3)call getColor);
-    _marker setMarkerSize [(_c select 2),( _c select 2)];
+    private _c = _x;
+    private _marker = createMarker [[_x] call Zone_get_Hash,[_x] call Zone_get_Position];
+    _marker setMarkerSize [([_x] call Zone_get_Size),([_x] call Zone_get_Size)];
     _marker setMarkerShape "ELLIPSE";
     _marker setMarkerAlpha 0;
     
-    [_forEachIndex,_c select 3] call smm_fnc_changeOwner;
-    _zoneNumber = _forEachIndex;
+    //[_forEachIndex,[_x] call Zone_get_Side] call smm_fnc_changeOwner;
+    private _zoneNumber = [_x] call Zone_get_ID;
     
     //get buildings with positions;
-    _currentBuildings = [];
-    _center = _c select 0;
-    _size = _c select 2;
-    _allBuildingObjects = nearestObjects [_center,_buildingType,_size];
+    private _currentBuildings = [];
+    private _center = [_c] call Zone_get_Position;
+    private _size =[_c] call Zone_get_Size;
+    private _allBuildingObjects = nearestObjects [_center,_buildingType,_size];
     {
-        _buildingPos = _x buildingPos -1;
+        private _buildingPos = _x buildingPos -1;
         if((count _buildingPos)>=smm_spawner_units_per_group )then{
             _currentBuildings pushBack [_x,_buildingPos];
         }
     }forEach _allBuildingObjects;
-    zoneNoToBuildings pushBack (_currentBuildings call BIS_fnc_arrayShuffle);
     
-    //Create Triggers for enter zone
-    _allEnterTriggers = [];
+    
+    //draw connections to neighbour
+    private _cZoneNumber = _zoneNumber;
+    private _neighbours = [_x] call Zone_get_Neighbours;
+    private _pos = [_x] call Zone_get_Position;
     {
-        _triggersize = (_c call smm_fnc_getSize) + smm_spawner_spawn_range;
-        //create activation triggers 
-        _entertrg = createTrigger ["EmptyDetector",_c select 0,false];
-        _entertrg setTriggerArea [_triggersize,_triggersize,0,false];
-        _entertrg setTriggerActivation [str _x,"PRESENT",true];
-        diag_log (format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide]);
-        _entertrg setTriggerStatements["this",format ["[ %1 , %2 ] call onZoneEnter",_zoneNumber, _x call smm_fnc_macrosToConfigSide],""];
+        //only draw connections from lower to higher
+        if(_x < _cZoneNumber) then {
         
-        _allEnterTriggers append [_entertrg];
-    }forEach smm_spawner_player_factions; 
-    spawnTriggers append [_allEnterTriggers];
-    //create Trigger for leaving zone
-    _exittrg = createTrigger ["EmptyDetector",_c select 0,false];
-    _exittrg setTriggerArea [100,100,100,false];
-    _exittrg setTriggerActivation ["ANY","PRESENT",true];
-    _exittrg setTriggerTimeout [60 * 30,60 * 45,60 *60,true];
-    _exittrg setTriggerStatements [format ["({(triggerActivated _x)} count (spawnTriggers select %1))==0",_forEachIndex], str(_forEachIndex) +" call onZoneLeave",""];
-
-    zoneNoToVehicle append [[]];
-    //draw connections
-    _c = _x;
-    _cId = _forEachIndex;
-    _neighbours = _c select 4;
-    _pos = _c select 0;
-        {
-        if(_x < _cId) then {
-        
-            _nb = _x call getZone;
-            _nbPos = _nb select 0;
-            _meanPos = [_pos,_nbPos] call getMean;
-            _markerSize = (_pos distance _meanPos)*0.9;
-            _angle = [_pos,_meanPos] call BIS_fnc_dirTo;
-            _markerName = (_x call smm_fnc_getHash) + "_" + (_cId call smm_fnc_getHash);
-            _mark = createMarker [_markerName,_meanPos];
+            private _nb = [call ZonesManager_GetInstance,_x] call ZonesManager_fnc_GetZone;
+            private _nbPos = [_nb] call Zone_get_Position;
+            private _meanPos = [_pos,_nbPos] call getMean;
+            private _markerSize = (_pos distance _meanPos)*0.9;
+            private _angle = [_pos,_meanPos] call BIS_fnc_dirTo;
+            private _markerName = ([_c] call Zone_get_Hash) + "_" + ([_nb] call Zone_get_Hash);
+            private _mark = createMarker [_markerName,_meanPos];
             _mark setMarkerShape "RECTANGLE";
             _mark setMarkerSize [10,_markerSize];
             _mark setMarkerColor "ColorBlack";
             _mark setMarkerDir _angle;
             _mark setMarkerPos _meanPos;
             _mark setMarkerAlpha 0;
-        //TODO continue
+        
         };
-        }forEach _neighbours;
+    }forEach _neighbours;
 
-    zoneStates pushBack ([_cId,[],[],_allBuildingObjects,_marker] call ZoneState_create);
-}forEach spawnLocs;
-diag_log (_prefix + "Spawning interaction points");
-_d = [];
-{       _position = (_x call smm_fnc_getPosition) findEmptyPosition [0,_x call smm_fnc_getSize,smm_spawner_interaction_object];
-        _flag = smm_spawner_interaction_object createVehicle _position;
-        _flag setVariable ["ace_medical_isMedicalFacility",true,true];
-        _d pushBack _flag;
-        
-}forEach spawnLocs;
-interaction_points = _d;
-publicVariable "interaction_points";
+    //spawn interaction points
+    private _interaction_point_position = ([_c] call Zone_get_Position) findEmptyPosition [0,[_c] call Zone_get_Size,smm_spawner_interaction_object];
+    private _interaction_point = smm_spawner_interaction_object createVehicle _interaction_point_position;
+    _interaction_point setVariable ["ace_medical_isMedicalFacility",true,true];
 
-diag_log (_prefix + "Determining start zones");
 
-_directionOfFirstStartZone = random 360;
-_directionOfStartZones     = [_directionOfFirstStartZone,_directionOfFirstStartZone +180];
-{
-    _currentFaction = _x;
-    //determine startZone
-    _numPlayerZones = 0;
-    {
-        if((_x select 3) == _currentFaction)then{
-        _numPlayerZones = _numPlayerZones + 1;
-        };
+    _zoneStates pushBack ([_cId,[],[],_allBuildingObjects,_marker,_interaction_point] call ZoneState_create);
+}forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
+//[[_zoneStates] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
 
-    }forEach spawnLocs;
-    if(_numPlayerZones == 0)then{
-        _direction = _directionOfStartZones select _forEachIndex;
-        
-        diag_log (format ["Determining start zone for %1 at %2 °",_currentFaction,_direction]);
-        _selectedZone     = 0;
-        _minDistance      = 100000000; 
-        _factor           = 10000000; 
-        _meassurePosition = [_factor * (sin _direction),_factor * (cos _direction),0];
-        
-        {
-            
-            _distance = (_x select 0) distance _meassurePosition;
-            
-            if(_distance < _minDistance)then{
-                _selectedZone = _forEachIndex;
-                _minDistance  = _distance;
-            };
-        }forEach spawnLocs;
-        _startZone = _selectedZone;
-        while{((spawnLocs select _startZone) select 3) != smm_spawner_default_owner}do{
-            floor (random (count spawnLocs));
-        };
-        
-        [_startZone,_currentFaction]  call smm_fnc_changeOwner;
-        
-    };
-}forEach smm_spawner_player_factions;
+diag_log (_prefix + "Finished building zone states");
 
 spawner_init_finished = 100;
 publicVariable "spawner_init_finished";
 []call smm_fnc_spawnerUpdateTargets;
-while{true}do{
-    sleep 300;
-    _currentDivider = random [20,40,100];
-    //infinite loop for money generation
-    {
-        _currentFaction = _x;
-        _overallMoney = 0;
-        {
-            if(_currentFaction == (_x call smm_fnc_getSide))then{
-                _overallMoney = _overallMoney + (_x call smm_fnc_getSize);
-            };
-        }forEach spawnLocs;
-        _addMoney = floor (_overallMoney / _currentDivider);
-        [_addMoney,_currentFaction] call smm_fnc_addMoneySide;
-    
-    }forEach smm_spawner_all_factions ;
 
-};
-
-
-
+//TODO reimplement money giving over time stuff

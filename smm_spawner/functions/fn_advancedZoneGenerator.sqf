@@ -35,11 +35,20 @@ _chosenCandidates = [];
 {
 	_chosenCandidates pushBack (_candidates select _x);
 }forEach _set;
+
+
+
 private _connections = _chosenCandidates call smm_fnc_triangulateCandidates;
 //convert to spawnlocs format now [position,hash,size,owner,connections,name]
 private _out = [];
+
+//TODO better startzone algorithm
 {
-	private _c = [_x select 0, str (_x select 0),_x select 2,smm_spawner_default_owner,_connections select _forEachIndex,_x select 1];
+	private _owner = smm_spawner_default_owner;
+	if(_forEachIndex < (count smm_spawner_player_factions))then{
+		_owner = smm_spawner_player_factions select _forEachIndex;
+	};
+	private _c = [_x select 0, str (_x select 0),_x select 2,_owner,_connections select _forEachIndex,_x select 1];
 	_out pushBack _c;
 }forEach _chosenCandidates;
 _out

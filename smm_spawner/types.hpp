@@ -15,10 +15,8 @@ class Zone:OOType{
         typeName="SCALAR";
         typeCheck = "_this >= 0";
     };
-
     class Position:OOVar{
         typeName = "[SCALAR]";
-        typeCheck = "(count _this) == 3";
     };
     class Hash:OOVar{
         typeName="STRING";
@@ -39,6 +37,16 @@ class Zone:OOType{
     };
 };
 
+class ZoneStatesManager:OOType{
+    isSingleton = 1;
+    class ZoneStates:OOVar{
+        typeName = "[ZoneState]";
+    };
+    class GetZoneState:OOFunction{
+        code = "([_this select 0] call ZoneStatesManager_get_ZoneStates) select (_this select 1)";
+    };
+};
+
 class ZoneState:OOType{
     class ZoneID:OOVar{
         typeName = "SCALAR";
@@ -54,5 +62,8 @@ class ZoneState:OOType{
     };
     class Marker:OOVar{
         typeName="STRING";
+    };
+    class InteractionPoint:OOVar{
+        typeName="OBJECT";
     };
 };
