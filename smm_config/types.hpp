@@ -7,4 +7,14 @@ class PurchasableVehicle:OOType{
         typeName="SCALAR";
         typeCheck = "_this > 0";
     };
+	class GetIcon: OOFunction{
+		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'picture')";
+		//code = "([_this select 0] call PurchasableVehicle_get_ClassName) ";
+		
+		
+	};
+	class GetName: OOFunction{
+		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'displayName')";
+		// hint '123123';
+	};
 };

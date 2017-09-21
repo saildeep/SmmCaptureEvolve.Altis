@@ -67,10 +67,11 @@ smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
 		_ownVehicles = 4 call smm_fnc_getGear;
 		//draw vehicles
 		{
-		_classname = _x select 0;
-		_price = _x select 1;
-		_name = getText(configFile >> "CfgVehicles" >> _classname >> "displayName");
-		_icon = getText(configFile >> "CfgVehicles" >> _classname >> "picture");
+		//_classname = _x select 0; 
+		_classname = [_x] call PurchasableVehicle_get_Classname;
+		_price = [_x] call PurchasableVehicle_get_Price;
+		_name = [_x] call PurchasableVehicle_fnc_GetName;
+		_icon =[_x] call PurchasableVehicle_fnc_GetIcon;
 		if(_classname in _ownVehicles)then{
 			_name = "[x]"  + _name ;
 			_price = ceil (_price/8);
