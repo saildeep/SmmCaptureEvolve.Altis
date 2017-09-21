@@ -55,7 +55,7 @@ Nothing|object|CustomType_GetInstance
 If `singletonParameters != ""` the singleton is automatically initialized by calling the constructor with `singletonParameters`
 
 ### OOVar
-Create classes of this type any `OOType`.
+Create classes of this type in any `OOType`.
 You can define the following childs:
 
 Name | default | meaning
@@ -71,3 +71,7 @@ Parameters | Returns | Function
 [object,value] | Nothing |CustomType_set_Varname
 [object] |Nothing|CustomType_check_Varname
 
+### OOFunction
+Used to create class functions.
+Define your function either directly with `code="somafancycode";` or with `file="functionfilename.sqf";`
+*The first parameter of your function is always the object itself*.
