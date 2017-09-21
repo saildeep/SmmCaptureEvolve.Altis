@@ -64,7 +64,7 @@ diag_log (_prefix + "Building zoneStates");
     _interaction_point setVariable ["ace_medical_isMedicalFacility",true,true];
 
 
-    _zoneStates pushBack ([_cId,[],[],_allBuildingObjects,_marker,_interaction_point] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_marker,_interaction_point] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 //[[_zoneStates] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
 

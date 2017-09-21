@@ -3,7 +3,7 @@
 	["Objectname",[var1, var2, var3,...],num_variables]
 */
 params["_objectTypeName","_varchecklist","_varsetter","_vardata"];
-diag_log ("Calling constructor for " + _objectTypeName );
+diag_log ("Calling constructor for " + _objectTypeName + " with " + (str _vardata) );
 private _objName = _objectTypeName;
 assert ((count _varchecklist) == (count _vardata));
 private _obj = [_objName, + _vardata,count _varchecklist];
