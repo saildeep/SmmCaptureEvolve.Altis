@@ -1,3 +1,14 @@
+class ZonesManager:OOType{
+    isSingleton = 1;
+    class Zones:OOVar{
+        typeName="[Zone]";
+    };
+    class GetZone:OOFunction{
+        code = "([_this select 0] call ZonesManager_get_Zones) select (_this select 1)";
+    };
+
+};
+
 class Zone:OOType{
 
     class ID:OOVar{
