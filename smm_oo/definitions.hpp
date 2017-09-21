@@ -2,6 +2,7 @@
 #define OO_NAMESPACE missionNamespace
 class OOType{
     isSingleton = 0;
+    singletonParams = "";
 };
 class OOVar{
     

@@ -5,7 +5,16 @@ private _tn = configName _object;
 private _isSingleton = (getNumber (_object >> "isSingleton")) > 0;
 if(_isSingleton)then{
 	diag_log (" -|>Singleton");
-	private _getSingleton = format ["['%1'] call smm_fnc_innerSingletonGet",_tn];
+	assert(isText (_object >> "singletonParams"));
+	private _autoInitParams = getText(_object >> "singletonParams");
+	private _autoInit = _autoInitParams != "";
+
+	private _getSingleton = format ["['%1',''] call smm_fnc_innerSingletonGet",_tn];
+
+	if(_autoInit)then{
+		 _getSingleton = format ["['%1',%2] call smm_fnc_innerSingletonGet",_tn,_autoInitParams];
+	};
+
 	private _setSingleton = format ["params['_obj',['_broadcast',false]];['%1',_obj, _broadcast] call smm_fnc_innerSingletonSet;",_tn];
 	diag_log ("  |->Get:" + _getSingleton);
 	diag_log ("  |->Set:" + _setSingleton);

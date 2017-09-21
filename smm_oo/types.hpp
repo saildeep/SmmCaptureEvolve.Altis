@@ -24,6 +24,7 @@ class EventDistributor:OOType{
 
 class EventManager:OOType{
     isSingleton = 1;
+    singletonParams = "[[]]";
     class Events:OOVar{
         typeName="[EventDistributor]";
     };
