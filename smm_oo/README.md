@@ -39,6 +39,7 @@ class CustomType:OOType{
 ### OOType
 Base class for your own type.
 Created functions:
+
 Parameters | Returns | Function 
 -----------| --------| -----
 [var1,var2,..] | object | CustomType_create
@@ -63,6 +64,7 @@ typeName||Type of the variable. Use native type from [here](https://community.bi
 typeCheck| "true"| Function for custom type checking. Does not override standard typechecking.
 
 For each variable, the following Functions are generated:
+
 Parameters | Returns | Function 
 -----------| --------| -----
 [object] | value | CustomType_get_Varname
