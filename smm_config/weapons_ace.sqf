@@ -67,7 +67,8 @@ startItems append 		[
 						"ACE_elasticBandage",
 						"ACE_tourniquet",
 						"ACE_EarPlugs",
-						"ACE_morphine"
+						"ACE_morphine",
+						"ACE_quicklot"
 						];						
 rand_items_one append ((call smm_fnc_macrosAceItems) - (_aceScopes + _aceWeaponAttachments + _aceUselessStuff));
 
