@@ -24,6 +24,8 @@ private _functions = "inheritsFrom _x == (missionConfigFile >> 'OOFunction')" co
 	private _fnData = [_typeName,_x,_forEachIndex] call smm_fnc_parseFunction;
 }forEach _functions;
 
+[_object] call smm_fnc_parseSingleton;
+
 private _constructor = compile (format ["['%1',%2,%3,_this] call smm_fnc_innerConstructor",configName _object,_varChecks,_varSets]);
 private _publicTypeCheck = compile(format ["[_this select 0,'%1',%2] call smm_fnc_innerTypeCheck",configName _object,_varChecks]);
 OO_NAMESPACE setVariable [TYPE_CONSTRUCTOR_NAME(_typeName),_constructor];

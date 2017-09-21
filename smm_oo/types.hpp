@@ -23,6 +23,7 @@ class EventDistributor:OOType{
 };
 
 class EventManager:OOType{
+    isSingleton = 1;
     class Events:OOVar{
         typeName="[EventDistributor]";
     };
