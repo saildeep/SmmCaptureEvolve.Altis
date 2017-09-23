@@ -21,4 +21,5 @@ if(_isSingleton)then{
 	diag_log ("  |->Set:" + _setSingleton);
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_GET_NAME(_tn),compile _getSingleton];
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_SET_NAME(_tn),compile _setSingleton];
+	OO_NAMESPACE setVariable [TYPE_SINGLETON_BROADCAST_NAME(_tn),compile _broadcastSingleton];
 };
