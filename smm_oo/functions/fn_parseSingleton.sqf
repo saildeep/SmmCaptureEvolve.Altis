@@ -19,6 +19,8 @@ if(_isSingleton)then{
 	private _broadcastSingleton = format ["['%1'] call smm_fnc_innerSingletonBroadcast",_tn];
 	diag_log ("  |->Get:" + _getSingleton);
 	diag_log ("  |->Set:" + _setSingleton);
+	diag_log ("  |->Broadcast:" + _broadcastSingleton);
+	
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_GET_NAME(_tn),compile _getSingleton];
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_SET_NAME(_tn),compile _setSingleton];
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_BROADCAST_NAME(_tn),compile _broadcastSingleton];
