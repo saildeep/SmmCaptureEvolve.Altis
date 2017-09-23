@@ -12,10 +12,6 @@ private _buildingType = ["House", "Building"];
 diag_log (_prefix + "Building zoneStates");
 {
     private _c = _x;
-    private _marker = createMarker [[_x] call Zone_get_Hash,[_x] call Zone_get_Position];
-    _marker setMarkerSize [([_x] call Zone_get_Size),([_x] call Zone_get_Size)];
-    _marker setMarkerShape "ELLIPSE";
-    _marker setMarkerAlpha 0;
     
     //[_forEachIndex,[_x] call Zone_get_Side] call smm_fnc_changeOwner;
     private _zoneNumber = [_x] call Zone_get_ID;
@@ -76,7 +72,7 @@ diag_log (_prefix + "Building zoneStates");
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_marker,_interaction_point,_triggerCollection] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_interaction_point,_triggerCollection] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 private _initialTargets = [[],[],[]] call TargetCollection_create;
 [[_zoneStates,_initialTargets] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
@@ -85,6 +81,6 @@ diag_log (_prefix + "Finished building zone states");
 
 spawner_init_finished = 100;
 publicVariable "spawner_init_finished";
-[]call smm_fnc_spawnerUpdateTargets;
+[call ZoneStatesManager_GetInstance] call ZoneStatesManager_fnc_UpdateTargets;
 
 //TODO reimplement money giving over time stuff

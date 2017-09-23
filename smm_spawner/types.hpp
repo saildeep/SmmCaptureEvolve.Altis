@@ -95,9 +95,6 @@ class ZoneState:OOType{
     class Buildings:OOVar{
         typeName="[OBJECT]";
     };
-    class Marker:OOVar{
-        typeName="STRING";
-    };
     class InteractionPoint:OOVar{
         typeName="OBJECT";
     };
