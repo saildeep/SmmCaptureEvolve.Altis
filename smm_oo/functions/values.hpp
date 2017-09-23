@@ -8,3 +8,4 @@
 #define TYPE_SINGLETON_NAME(TYPE) (TYPE+"_instance")
 #define TYPE_SINGLETON_GET_NAME(TYPE) (TYPE+"_GetInstance")
 #define TYPE_SINGLETON_SET_NAME(TYPE) (TYPE+"_SetInstance")
+#define TYPE_SINGLETON_BROADCAST_NAME(TYPE) (TYPE+"_BroadcastInstance")

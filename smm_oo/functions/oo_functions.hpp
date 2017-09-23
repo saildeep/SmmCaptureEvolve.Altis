@@ -11,3 +11,4 @@ class innerFunctionCall{};
 class innerTypeCheck{};
 class innerSingletonGet{};
 class innerSingletonSet{};
+class innerSingletonBroadcast{};
