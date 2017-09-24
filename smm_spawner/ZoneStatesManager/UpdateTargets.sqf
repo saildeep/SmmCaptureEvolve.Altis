@@ -8,7 +8,7 @@ private _currentTargets = [_targetCollection] call TargetCollection_fnc_GetAllTa
 private _currentTargetCounts = _currentTargets apply {count _x};
 
 //now compare with smm_spawner_max_targets
-private _neededTargets = ([_currentTargetsCounts,smm_spawner_max_targets] call smm_fnc_zip) apply{abs( (_x select 1) - (_x select 0)) };
+private _neededTargets = ([_currentTargetCounts,smm_spawner_max_targets] call smm_fnc_zip) apply{abs( (_x select 1) - (_x select 0)) };
 private _sides = [_targetCollection] call TargetCollection_fnc_GetSides;
 
 private _zonesManager = call ZonesManager_GetInstance;
@@ -29,7 +29,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 				private _nbIndices = [_candidateZone] call Zone_get_Neighbours;
 				{
 					private _nbZone = [_zonesManager,_x] call ZonesManager_fnc_GetZone;
-					if(([_nbZone] call Zones_get_Owner) != _side  )then{
+					if(([_nbZone] call Zone_get_Owner) != _side  )then{
 						_candidateIndices pushBackUnique _x;
 					};
 					
@@ -46,7 +46,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
 		_candidates resize (_numNeeded min (count _candidates));
 
-		
+		//TODO set values
 	};
 
 

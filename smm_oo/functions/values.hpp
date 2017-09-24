@@ -9,3 +9,5 @@
 #define TYPE_SINGLETON_GET_NAME(TYPE) (TYPE+"_GetInstance")
 #define TYPE_SINGLETON_SET_NAME(TYPE) (TYPE+"_SetInstance")
 #define TYPE_SINGLETON_BROADCAST_NAME(TYPE) (TYPE+"_BroadcastInstance")
+
+#define TYPE_HOOK_INIT(TYPE) TYPE_FUNCTION_NAME(TYPE,"OnInit")

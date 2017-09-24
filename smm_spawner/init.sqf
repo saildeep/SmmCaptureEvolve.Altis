@@ -59,8 +59,8 @@ if(isServer)then{
         private _connections = _x select 4;
         private _name = _x select 5;
         diag_log(_prefix + " processing " + (str _x) );
-        _zones pushBack ([_index,_position,_hash,_size,_owner,_connections,_name] call Zone_create);
-
+        private _zone = [_index,_position,_hash,_size,_owner,_connections,_name] call Zone_create;
+        _zones pushBack _zone;
     }forEach spawnLocs;
 
     [[_zones] call ZonesManager_create,true] call ZonesManager_SetInstance;
@@ -107,5 +107,5 @@ diag_log ("Started spawner with autodetectHeadless=" + (str autodetectHeadless)+
         private _interaction_point = [_x] call ZoneState_get_InteractionPoint;
         _interaction_point addAction [str_conquer,smm_fnc_spawnerConquer,_forEachIndex];
     }forEach ([_zoneStates] call ZoneStatesManager_get_ZoneStates);
-    [] call smm_fnc_spawnerUpdateMarkerAlpha;
+    
 };

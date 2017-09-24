@@ -1,9 +1,6 @@
 #define OO_CONFIGFILE missionConfigFile
 #define OO_NAMESPACE missionNamespace
-class OOType{
-    isSingleton = 0;
-    singletonParams = "";
-};
+
 class OOVar{
     
     typeName = "ARRAY";
@@ -15,5 +12,11 @@ class OOVar{
 class OOFunction{
     code = "";
     file= "";
+};
+
+class OOType{
+    isSingleton = 0;
+    singletonParams = "";
+    class OnInit:OOFunction{};
 };
 

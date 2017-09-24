@@ -37,6 +37,18 @@ class Zone:OOType{
     class DisplayName:OOVar{
         typeName = "STRING";
     };
+
+    class GetMarkerName:OOFunction{
+        code = "'ZoneMarker_' + ([_this select 0] call Zone_get_Hash)"
+    };
+
+    class OnInit:OOFunction{
+        file = "smm_spawner\Zone\OnInit.sqf";
+    };
+
+    class UpdateMarkers:OOFunction{
+        file = "smm_spawner\Zone\UpdateMarkers.sqf";
+    };
 };
 
 //HC OWNER
@@ -72,7 +84,7 @@ class TargetCollection:OOType{
     };
 
     class GetAllTargets:OOFunction{
-        code = "params['_object'];[[_object] call TargetCollection_getTargetsBLUFOR,[_object] call TargetCollection_getTargetsOPFOR,[_object] call TargetsINDEPENDENT_getTargetsBLUFOR ]";
+        code = "params['_object'];[[_object] call TargetCollection_get_TargetsBLUFOR,[_object] call TargetCollection_get_TargetsOPFOR,[_object] call TargetCollection_get_TargetsINDEPENDENT ]";
     };
 
     class GetSides:OOFunction{

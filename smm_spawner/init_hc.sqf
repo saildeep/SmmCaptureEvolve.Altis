@@ -49,7 +49,7 @@ diag_log (_prefix + "Building zoneStates");
             _mark setMarkerColor "ColorBlack";
             _mark setMarkerDir _angle;
             _mark setMarkerPos _meanPos;
-            _mark setMarkerAlpha 0;
+            _mark setMarkerAlpha 1;
         
         };
     }forEach _neighbours;
