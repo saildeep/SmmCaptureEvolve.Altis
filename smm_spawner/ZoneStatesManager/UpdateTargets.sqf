@@ -49,7 +49,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 			private _zs = [_singleton] call ZoneStatesManager_fnc_GetZoneState;
 			[_zs] spawn ZoneState_fnc_ActivateZone;
 		}forEach _candidates;
-		(_currentTargets select _forEachIndex) append _candidates;
+		(_currentTargets select _forEachIndex) append (_candidates apply {[_x] call Zone_get_ID});
 
 
 	};
