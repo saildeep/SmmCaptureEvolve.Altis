@@ -226,27 +226,27 @@ B_nia_backpack={
 ai_infantry = [
 
 	[ 
-		["O_Survivor_F",10,{_this call O_nia_gear;_this call O_nia_primary; }] call PurchasableInfantry_create,
-		["O_Survivor_F",25,{_this call O_nia_gear;_this call O_nia_backpack;_this call O_nia_primarylite;_this call Nia_launcher; }] call PurchasableInfantry_create,
-		["O_Survivor_F",20,{_this call O_nia_gear;_this call O_nia_primaryheavy;_this call O_nia_backpack;}] call PurchasableInfantry_create,
-		["O_Survivor_F",50,{_this call O_nia_gear;_this call O_nia_backpack;_this call Nia_gatling; }] call PurchasableInfantry_create,
-		["O_Survivor_F",15,{_this call O_nia_gear; _this call O_nia_backpack; _this call Nia_gl_ammo; _this call O_nia_gl;}] call PurchasableInfantry_create
+		["O_Survivor_F",10,{_this call O_nia_gear;_this call O_nia_primary; }] call SpawnableInfantry_create,
+		["O_Survivor_F",25,{_this call O_nia_gear;_this call O_nia_backpack;_this call O_nia_primarylite;_this call Nia_launcher; }] call SpawnableInfantry_create,
+		["O_Survivor_F",20,{_this call O_nia_gear;_this call O_nia_primaryheavy;_this call O_nia_backpack;}] call SpawnableInfantry_create,
+		["O_Survivor_F",50,{_this call O_nia_gear;_this call O_nia_backpack;_this call Nia_gatling; }] call SpawnableInfantry_create,
+		["O_Survivor_F",15,{_this call O_nia_gear; _this call O_nia_backpack; _this call Nia_gl_ammo; _this call O_nia_gl;}] call SpawnableInfantry_create
 	],
 
 	[ 
-		["B_Survivor_F",10,{_this call B_nia_gear;_this call B_nia_primary; }] call PurchasableInfantry_create,			
-		["B_Survivor_F",25,{_this call B_nia_gear;_this call B_nia_backpack;_this call B_nia_primarylite;_this call Nia_launcher; }] call PurchasableInfantry_create,
-		["B_Survivor_F",20,{_this call B_nia_gear;_this call B_nia_primaryheavy;_this call B_nia_backpack;}] call PurchasableInfantry_create,			
-		["B_Survivor_F",50,{_this call B_nia_gear;_this call B_nia_backpack;_this call Nia_gatling; }] call PurchasableInfantry_create,
-		["B_Survivor_F",15,{_this call B_nia_gear; _this call B_nia_backpack; _this call Nia_gl_ammo; _this call B_nia_gl;}] call PurchasableInfantry_create
+		["B_Survivor_F",10,{_this call B_nia_gear;_this call B_nia_primary; }] call SpawnableInfantry_create,			
+		["B_Survivor_F",25,{_this call B_nia_gear;_this call B_nia_backpack;_this call B_nia_primarylite;_this call Nia_launcher; }] call SpawnableInfantry_create,
+		["B_Survivor_F",20,{_this call B_nia_gear;_this call B_nia_primaryheavy;_this call B_nia_backpack;}] call SpawnableInfantry_create,			
+		["B_Survivor_F",50,{_this call B_nia_gear;_this call B_nia_backpack;_this call Nia_gatling; }] call SpawnableInfantry_create,
+		["B_Survivor_F",15,{_this call B_nia_gear; _this call B_nia_backpack; _this call Nia_gl_ammo; _this call B_nia_gl;}] call SpawnableInfantry_create
 	],
 
 	[  
-		["I_Survivor_F",10,{_this call I_nia_gear;_this call I_nia_primary; }] call PurchasableInfantry_create,			
-		["I_Survivor_F",25,{_this call I_nia_gear;_this call I_nia_backpack;_this call I_nia_primarylite;_this call Nia_launcher; }] call PurchasableInfantry_create,
-		["I_Survivor_F",20,{_this call I_nia_gear;_this call I_nia_primaryheavy;_this call I_nia_backpack;}] call PurchasableInfantry_create,			
-		["I_Survivor_F",50,{_this call I_nia_gear;_this call I_nia_backpack;_this call Nia_gatling; }] call PurchasableInfantry_create,
-		["I_Survivor_F",15,{_this call I_nia_gear; _this call I_nia_backpack; _this call Nia_gl_ammo; _this call I_nia_gl;}] call PurchasableInfantry_create
+		["I_Survivor_F",10,{_this call I_nia_gear;_this call I_nia_primary; }] call SpawnableInfantry_create,			
+		["I_Survivor_F",25,{_this call I_nia_gear;_this call I_nia_backpack;_this call I_nia_primarylite;_this call Nia_launcher; }] call SpawnableInfantry_create,
+		["I_Survivor_F",20,{_this call I_nia_gear;_this call I_nia_primaryheavy;_this call I_nia_backpack;}] call SpawnableInfantry_create,			
+		["I_Survivor_F",50,{_this call I_nia_gear;_this call I_nia_backpack;_this call Nia_gatling; }] call SpawnableInfantry_create,
+		["I_Survivor_F",15,{_this call I_nia_gear; _this call I_nia_backpack; _this call Nia_gl_ammo; _this call I_nia_gl;}] call SpawnableInfantry_create
 	]
 
 ];

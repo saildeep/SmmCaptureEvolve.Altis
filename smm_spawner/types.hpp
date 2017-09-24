@@ -126,8 +126,11 @@ class ZoneState:OOType{
         file = "smm_spawner\ZoneState\GetSpawnInfantry.sqf";
     };
 
-    class GetSpawnVehivles:OOFunction{
+    class GetSpawnVehicles:OOFunction{
         file = "smm_spawner\ZoneState\GetSpawnVehicles.sqf";
+    };
+    class GetMoney:OOFunction{
+        file = "smm_spawner\ZoneState\GetMoney.sqf";
     };
 
 };

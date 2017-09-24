@@ -7,6 +7,9 @@ class PurchasableVehicle:OOType{
         typeName="SCALAR";
         typeCheck = "_this > 0";
     };
+    class PostSpawnFunction: OOVar{
+        typeName = "CODE";
+    };
 	class GetIcon: OOFunction{
 		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'picture')";
 		//code = "([_this select 0] call PurchasableVehicle_get_ClassName) ";
@@ -17,6 +20,7 @@ class PurchasableVehicle:OOType{
 		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'displayName')";
 		
     };
+
     
 };
 class SpawnableInfantry: OOType{
