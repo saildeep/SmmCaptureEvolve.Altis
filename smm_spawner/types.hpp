@@ -122,6 +122,14 @@ class ZoneState:OOType{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
     };
 
+    class GetSpawnInfantry:OOFunction{
+        file = "smm_spawner\ZoneState\GetSpawnInfantry.sqf";
+    };
+
+    class GetSpawnVehivles:OOFunction{
+        file = "smm_spawner\ZoneState\GetSpawnVehicles.sqf";
+    };
+
 };
 
 class TriggerCollection:OOType{
