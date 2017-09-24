@@ -46,8 +46,11 @@ private _zonesManager = call ZonesManager_GetInstance;
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
 		_candidates resize (_numNeeded min (count _candidates));
 
-		//TODO set values
+		(_currentTargets select _forEachIndex) append _candidates;
+
+		
 	};
 
 
 } forEach _neededTargets;
+call ZoneStatesManager_BroadcastInstance;
