@@ -45,10 +45,13 @@ private _zonesManager = call ZonesManager_GetInstance;
 		_candidates = [_candidates,[],{[_x] call Zone_get_Size },"ASCEND"] call BIS_fnc_sortBy;
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
 		_candidates resize (_numNeeded min (count _candidates));
-
+		{
+			private _zs = [_singleton] call ZoneStatesManager_fnc_GetZoneState;
+			[_zs] spawn ZoneState_fnc_ActivateZone;
+		}forEach _candidates;
 		(_currentTargets select _forEachIndex) append _candidates;
 
-		
+
 	};
 
 

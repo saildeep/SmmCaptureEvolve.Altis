@@ -118,6 +118,10 @@ class ZoneState:OOType{
         typeName="TriggerCollection";
     };
 
+    class ActivateZone:OOFunction{
+        file = "smm_spawner\ZoneState\ActivateZone.sqf";
+    };
+
 };
 
 class TriggerCollection:OOType{
