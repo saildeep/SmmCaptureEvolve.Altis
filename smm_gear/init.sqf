@@ -7,10 +7,9 @@ if(isServer && smm_load)then{
     }forEach smm_money_all_uid;
 };
 [] spawn{
-    waitUntil{! (isNil "interaction_points")};
     {
-        _x addAction [str_open_virtual_arsenal,smm_fnc_openArsenal,_forEachIndex];
-    //  _x addAction [str_research,smm_gear_research_client,_forEachIndex];
-    }forEach interaction_points;
+        private _ip = [_x] call ZoneState_get_InteractionPoint;
+        _x addAction [str_open_virtual_arsenal,smm_fnc_openArsenal,[_x] call ZoneState_get_ZoneID];
+    }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 };
 
