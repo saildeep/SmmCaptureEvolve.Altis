@@ -39,7 +39,11 @@ class Zone:OOType{
     };
 
     class GetMarkerName:OOFunction{
-        code = "'ZoneMarker_' + ([_this select 0] call Zone_get_Hash)"
+        code = "'ZoneMarker_' + ([_this select 0] call Zone_get_Hash)";
+    };
+
+    class GetRespawnMarkerName:OOFunction{
+        file="smm_spawner\Zone\GetRespawnMarkerName.sqf";
     };
 
     class OnInit:OOFunction{

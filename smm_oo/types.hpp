@@ -18,7 +18,7 @@ class EventDistributor:OOType{
         code = "([_this select 0] call EventDistributor_get_EventListenersSpawn) pushBack (_this select 1);";
     };
     class Trigger:OOFunction{
-        code = "params['_object','_params'];{ _params call _x; }forEach ([_object] call EventDistributor_get_EventListenersCall);{ _params spawn _x; }forEach ([_object] call EventDistributor_get_EventListenersSpawn);"
+        code = "params['_object','_params'];{ _params call _x; }forEach ([_object] call EventDistributor_get_EventListenersCall);{ _params spawn _x; }forEach ([_object] call EventDistributor_get_EventListenersSpawn);";
     };
 };
 
