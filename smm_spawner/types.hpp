@@ -132,6 +132,10 @@ class ZoneState:OOType{
     class GetMoney:OOFunction{
         file = "smm_spawner\ZoneState\GetMoney.sqf";
     };
+    class GetNormalizedBuildingDensity:OOFunction{
+          
+        file = "smm_spawner\ZoneState\GetNormalizedBuildingDensity.sqf";
+    };
 
 };
 
