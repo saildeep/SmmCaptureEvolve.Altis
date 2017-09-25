@@ -82,4 +82,4 @@ private _spawnedInfantry = [];
 }forEach ([_spawnVehicles,smm_spawner_vehicles_per_group] call smm_fnc_subdivide);
 ([_object] call ZoneState_get_Units) append _spawnedVehicleCrew;
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
-[_em,"OnVehiclesSpawend",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
+[_em,"OnVehiclesSpawned",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
