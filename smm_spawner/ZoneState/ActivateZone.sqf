@@ -46,3 +46,4 @@ private _spawnedInfantry = [];
 
 
 } forEach ([_spawnInfantry,smm_spawner_units_per_group] call smm_fnc_subdivide);
+
