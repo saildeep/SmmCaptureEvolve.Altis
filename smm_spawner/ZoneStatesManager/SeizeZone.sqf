@@ -1,8 +1,14 @@
 params["_object","_zoneid","_sideid"];
+diag_log "Called inner zone seized";
 
 private _seizingSide = smm_spawner_all_factions select _sideid;
 
+//TODO check what does not work here
+
+/*
 diag_log ( (str _zoneid) + " seized by " + (str _seizingSide)  );
+
+
 //list of indices, which targets are currently attackable
 private _targets = [[_object] call ZoneStatesManager_get_Targets] call TargetCollection_fnc_GetAllTargetsFlat;
 //only zones which are currently a target can be captured
@@ -14,3 +20,5 @@ if(_zoneid in _targets)then{
 		//TODO capture
 	};
 };
+
+*/
