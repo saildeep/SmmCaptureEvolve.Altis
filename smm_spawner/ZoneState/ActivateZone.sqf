@@ -35,14 +35,19 @@ private _spawnedInfantry = [];
 	if((count _buildings) > 3 )then{
 		_spawnpositions = (selectRandom _buildings) buildingPos -1;
 	}else{
-		_spawnpositions = [[_zoneCenter,_size] call smm_fnc_getSpawnPosNear];
+		_spawnpositions = [[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
+		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
+		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
+		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
+		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
+		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear];
 	};
 	assert((count _spawnpositions) >= 1);
 	//no spawn each single unit
 	{
 		private _cn = [_x] call SpawnableInfantry_get_ClassName;
 		private _pn = [_x] call SpawnableInfantry_get_PostSpawnFunction;
-		private _u = _group createUnit [_cn, (_spawnpositions select (_forEachIndex  % (count _spawnpositions) ) ), [], 0, "NONE"];
+		private _u = _group createUnit [_cn, (_spawnpositions select (_forEachIndex  % (count _spawnpositions) ) ), [], 0, "CAN_COLLIDE"];
 		
 		_u call _pn;
 		_spawnedInfantry pushBack  _u;

@@ -16,7 +16,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 {
 	private _numNeeded = _x;
 	private _side = _sides select _forEachIndex;
-	
+	private _sideIndex = _forEachIndex;
 
 
 	if(_numNeeded > 0)then{
@@ -48,7 +48,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 		diag_log ("Activating "+ (str _candidates));
 		{
 			private _zs = [_singleton,[_x] call Zone_get_ID ] call ZoneStatesManager_fnc_GetZoneState;
-			(_currentTargets select _forEachIndex) pushBack ([_x] call Zone_get_ID);
+			(_currentTargets select _sideIndex) pushBack ([_x] call Zone_get_ID);
 			[_zs] call ZoneState_fnc_ActivateZone;
 		}forEach _candidates;
 		
