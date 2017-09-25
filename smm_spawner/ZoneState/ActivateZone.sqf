@@ -32,6 +32,7 @@ private _spawnedInfantry = [];
 	private _group = createGroup[_side,true];
 	_group setVariable [VAR_NAME_ZONE,_zoneID];
 	_group setVariable ["acex_headless_blacklist", true];
+	_group enableDynamicSimulation true;
 	private _unittypes = _x;
 	private _spawnpositions = [];
 
@@ -65,6 +66,7 @@ private _spawnedInfantry = [];
 	private _group = createGroup[_side,true];
 	_group setVariable [VAR_NAME_ZONE,_zoneID];
 	_group setVariable ["acex_headless_blacklist", true];
+	_group enableDynamicSimulation true;
 	private _vehicletypes = _x;
 	private _spawnpositions = _vehicletypes apply {[_zoneCenter,_size] call smm_fnc_getSpawnPosNear};
 
