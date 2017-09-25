@@ -16,7 +16,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 {
 	private _numNeeded = _x;
 	private _side = _sides select _forEachIndex;
-	
+	private _sideIndex = _forEachIndex;
 
 
 	if(_numNeeded > 0)then{
@@ -45,12 +45,13 @@ private _zonesManager = call ZonesManager_GetInstance;
 		_candidates = [_candidates,[],{[_x] call Zone_get_Size },"ASCEND"] call BIS_fnc_sortBy;
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
 		_candidates resize (_numNeeded min (count _candidates));
-	/*	{
-			private _zs = [_singleton] call ZoneStatesManager_fnc_GetZoneState;
-			[_zs] spawn ZoneState_fnc_ActivateZone;
-		}forEach _candidates;*/
-		//TODO (_currentTargets select _forEachIndex) append (_candidates apply {[_x] call Zone_get_ID});
-
+		diag_log ("Activating "+ (str _candidates));
+		{
+			private _zs = [_singleton,[_x] call Zone_get_ID ] call ZoneStatesManager_fnc_GetZoneState;
+			(_currentTargets select _sideIndex) pushBack ([_x] call Zone_get_ID);
+			[_zs] call ZoneState_fnc_ActivateZone;
+		}forEach _candidates;
+		
 
 	};
 
