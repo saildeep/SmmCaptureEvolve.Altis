@@ -1,11 +1,15 @@
-params["_object"];
+
 #define VAR_NAME_ZONE "owner_zone"
 
+params["_object"];
+diag_log ("called ActivateZone.sqf with params " + (str _this) );
 
 private _zoneID = [_object] call ZoneState_get_ZoneID;
-diag_log ("Activating zone " + (str _zoneID));
+diag_log ("Zone id is " + (str _zoneID));
 private _zone = [call ZonesManager_GetInstance,_zoneID] call ZonesManager_fnc_GetZone;
+diag_log ("Zone is " + (str _zone));
 private _zoneCenter = [_zone] call Zone_get_Position;
+diag_log ("Zone center is " + str(_zoneCenter));
 private _size = [_zone] call Zone_get_Size;
 private _side = [_zone] call Zone_get_Owner;
 private _buildings = [_object] call ZoneState_get_Buildings;
@@ -33,15 +37,13 @@ private _spawnedInfantry = [];
 
 	//if there are enough buildings, spawn group in one of these
 	if((count _buildings) > 3 )then{
-		_spawnpositions = (selectRandom _buildings) buildingPos -1;
-	}else{
-		_spawnpositions = [[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
-		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
-		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
-		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
-		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear,
-		[_zoneCenter,_size] call smm_fnc_getSpawnPosNear];
+		_spawnpositions append  ((selectRandom _buildings) buildingPos -1);
 	};
+
+	{
+		_spawnpositions pushBack ([_zoneCenter,_size] call smm_fnc_getSpawnPosNear);
+	}forEach _unittypes;
+	
 	assert((count _spawnpositions) >= 1);
 	//no spawn each single unit
 	{
@@ -56,7 +58,7 @@ private _spawnedInfantry = [];
 
 } forEach ([_spawnInfantry,smm_spawner_units_per_group] call smm_fnc_subdivide);
 ([_object] call ZoneState_get_Units) append _spawnedInfantry;
-[_em,"OnInfantrySpawned",_spawnedInfantry,_zoneID] call EventManager_fnc_Trigger;
+[_em,"OnInfantrySpawned",[_spawnedInfantry,_zoneID] ] call EventManager_fnc_Trigger;
 
 //spawn vehicles
 {
@@ -80,4 +82,4 @@ private _spawnedInfantry = [];
 }forEach ([_spawnVehicles,smm_spawner_vehicles_per_group] call smm_fnc_subdivide);
 ([_object] call ZoneState_get_Units) append _spawnedVehicleCrew;
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
-[_em,"OnVehiclesSpawend",_spawnedVehicles,_spawnedVehicleCrew,_zoneID] call EventManager_fnc_Trigger;
+[_em,"OnVehiclesSpawend",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;

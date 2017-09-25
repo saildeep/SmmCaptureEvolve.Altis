@@ -36,3 +36,4 @@ class spawnerPatrol{};
 class spawnerSetSkill{};
 class spawnerUpdateMarkerAlpha{};
 class zoneEquals{};
+class seizeZone{};

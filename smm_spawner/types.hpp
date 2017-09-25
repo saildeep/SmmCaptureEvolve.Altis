@@ -74,6 +74,10 @@ class ZoneStatesManager:OOType{
     class UpdateTargets:OOFunction{
         file = "smm_spawner\ZoneStatesManager\UpdateTargets.sqf";
     };
+
+    class SeizeZone:OOFunction{
+        file = "smm_spawner\ZoneStatesManager\SeizeZone.sqf";
+    };
 };
 
 class TargetCollection:OOType{
@@ -90,6 +94,11 @@ class TargetCollection:OOType{
     class GetAllTargets:OOFunction{
         code = "params['_object'];[[_object] call TargetCollection_get_TargetsBLUFOR,[_object] call TargetCollection_get_TargetsOPFOR,[_object] call TargetCollection_get_TargetsINDEPENDENT ]";
     };
+
+    class GetAllTargetsFlat:OOFunction{
+        code = "params['_object'];([_object] call TargetCollection_get_TargetsBLUFOR)+([_object] call TargetCollection_get_TargetsOPFOR)+([_object] call TargetCollection_get_TargetsINDEPENDENT)";
+    };
+
 
     class GetSides:OOFunction{
         code = "[west,east,independent]";
