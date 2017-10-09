@@ -58,6 +58,7 @@ diag_log (_prefix + "Building zoneStates");
     private _interaction_point_position = ([_c] call Zone_get_Position) findEmptyPosition [0,[_c] call Zone_get_Size,smm_spawner_interaction_object];
     private _interaction_point = smm_spawner_interaction_object createVehicle _interaction_point_position;
     _interaction_point setVariable ["ace_medical_isMedicalFacility",true,true];
+    _interaction_point allowDamage false;
 
     private _seizeTriggers = [west,east,independent] apply{
         private _trg = createTrigger ["EmptyDetector",[_c] call Zone_get_Position,false];
