@@ -15,6 +15,9 @@ private _diffSize = _maxSize - _minSize;
 
 private _out = [];
 
+//probability to inspect each item
+private _inspectProb = if(smm_debug)then{0.3}else{0.9};
+#define KEEP ((random 1) < _inspectProb)
 
 /**
 First get all road intersections on the map
@@ -25,20 +28,22 @@ private _allRoads = [0,0,0] nearRoads 100000000;
 private _tIntersectionChance = 0.2;
 diag_log ("Found " + str (count _allRoads) + " roads");
 {
-	private _neighbourCount = count (roadsConnectedTo _x);
-	if(_neighbourCount > 2)then{
-		//road is intersections
-		if(_neighbourCount == 3)then{
-			if((random 1) < _tIntersectionChance)then{
-				[getPos _x,30,"ColorRed"] call smm_fnc_createDebugMarker;
-				private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),_minSize,1];
-				_out pushBack _candidate;
+	if(KEEP)then{
+		private _neighbourCount = count (roadsConnectedTo _x);
+		if(_neighbourCount > 2)then{
+			//road is intersections
+			if(_neighbourCount == 3)then{
+				if((random 1) < _tIntersectionChance)then{
+					[getPos _x,30,"ColorRed"] call smm_fnc_createDebugMarker;
+					private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),_minSize,1];
+					_out pushBack _candidate;
+				};
+			}else{
+				[getPos _x,30,"ColorOrange"] call smm_fnc_createDebugMarker;
+				private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),random[_minSize,_minSize + 0.1* _diffSize,_maxSize],3];
 			};
-		}else{
-			[getPos _x,30,"ColorOrange"] call smm_fnc_createDebugMarker;
-			private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),random[_minSize,_minSize + 0.1* _diffSize,_maxSize],3];
+			
 		};
-		
 	};
 }forEach _allRoads;
 
@@ -53,10 +58,12 @@ private _locationTypesWithImportance = [["NameCity",0.25],["NameCityCapital",0.5
 	private _locationImportance = _x select 1;
 	private _locations = nearestLocations [[0,0,0], [_locationType],1000000000000];
 	{
-		private _candidate = [getPos _x,text _x,random[_minSize,_minSize + _diffSize * _locationImportance,_minSize + _diffSize],_locationImportance * 12];
-		_out pushBack _candidate;
-		private _marker = [getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
-		_marker setMarkerText (_locationType);
+		if(KEEP)then{
+			private _candidate = [getPos _x,text _x,random[_minSize,_minSize + _diffSize * _locationImportance,_minSize + _diffSize],_locationImportance * 12];
+			_out pushBack _candidate;
+			private _marker = [getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
+			_marker setMarkerText (_locationType);
+		};
 	}forEach _locations;
 	
 }forEach _locationTypesWithImportance;
@@ -67,7 +74,7 @@ Now get all hills, that are bigger than those nearby
 
 private _nearbyHillRange = 2000;
 private _allHills = nearestLocations [[0,0,0],["Mount"],1000000000000];
-_allHills = _allHills select {(random 1) < 0.1};
+_allHills = _allHills select {(random 1) < 0.03};
 while{(count _allHills) > 0}do{
 	private _hillToCheck = _allHills deleteAt 0;
 	private _hillToCheckHeight = getTerrainHeightASL (getPos _hillToCheck);

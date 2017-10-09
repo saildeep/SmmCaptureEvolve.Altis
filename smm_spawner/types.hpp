@@ -99,6 +99,9 @@ class TargetCollection:OOType{
         code = "params['_object'];([_object] call TargetCollection_get_TargetsBLUFOR)+([_object] call TargetCollection_get_TargetsOPFOR)+([_object] call TargetCollection_get_TargetsINDEPENDENT)";
     };
 
+    class GetTargetsForSide:OOFunction{
+        file = "smm_spawner\TargetCollection\GetTargetsForSide.sqf";
+    };
 
     class GetSides:OOFunction{
         code = "[west,east,independent]";

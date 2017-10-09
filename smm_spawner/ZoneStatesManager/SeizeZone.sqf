@@ -1,24 +1,14 @@
 params["_object","_zoneid","_sideid"];
-diag_log "Called inner zone seized";
+
 
 private _seizingSide = smm_spawner_all_factions select _sideid;
 
-//TODO check what does not work here
-
-/*
-diag_log ( (str _zoneid) + " seized by " + (str _seizingSide)  );
-
-
-//list of indices, which targets are currently attackable
-private _targets = [[_object] call ZoneStatesManager_get_Targets] call TargetCollection_fnc_GetAllTargetsFlat;
-//only zones which are currently a target can be captured
+private _targets = [[_object] call ZoneStatesManager_get_Targets,_seizingSide] call TargetCollection_fnc_GetTargetsForSide;
 if(_zoneid in _targets)then{
-	private _zone = [call ZonesManager_GetInstance,_zoneid] call ZonesManager_fnc_GetZone
-	private _ownerSide = [_zone] call Zones_get_Owner;
-	//you can not capture your own zone
-	if(_ownerSide != _seizingSide)then{
-		//TODO capture
-	};
-};
-
-*/
+	diag_log "Capturing zone";
+	diag_log _zoneid;
+	diag_log "by";
+	diag_log _sideid;
+	diag_log _seizingSide;
+	diag_log "Finished Capturing on HC";
+}
