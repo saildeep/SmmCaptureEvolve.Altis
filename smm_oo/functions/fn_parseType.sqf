@@ -28,5 +28,7 @@ private _functions = "inheritsFrom _x == (missionConfigFile >> 'OOFunction')" co
 
 private _constructor = compile (format ["['%1',%2,%3,_this] call smm_fnc_innerConstructor",configName _object,_varChecks,_varSets]);
 private _publicTypeCheck = compile(format ["[_this select 0,'%1',%2] call smm_fnc_innerTypeCheck",configName _object,_varChecks]);
+private _publicOwner = compile(format ["[_this select 0] call smm_fnc_innerOwner"]);
 OO_NAMESPACE setVariable [TYPE_CONSTRUCTOR_NAME(_typeName),_constructor];
 OO_NAMESPACE setVariable [TYPE_CHECK_NAME(_typeName),_publicTypeCheck];
+OO_NAMESPACE setVariable [TYPE_OWNER_NAME(_typeName),_publicOwner];
