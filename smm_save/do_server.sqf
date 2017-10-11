@@ -8,7 +8,7 @@ _tickets = [
 [civilian] call BIS_fnc_respawnTickets
 ];
 [sav_tickets,_tickets] call smm_fnc_set;
-[sav_centers,spawnLocs] call smm_fnc_set;
+[sav_centers,[call ZonesManager_GetInstance] call ZonesManager_get_Zones ] call smm_fnc_set;
 [sav_uid,smm_money_all_uid] call smm_fnc_set;
 {
 	[sav_money + _x, _x call smm_fnc_getBalanceServer] call smm_fnc_set;

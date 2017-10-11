@@ -1,10 +1,13 @@
 
 params["_object"];
 private _markerName = [_object] call Zone_fnc_GetMarkerName;
+private _position = [_object] call Zone_get_Position;
+if(isNil _markerName)then{
+	createMarker [_markerName,_position];
+};
 
 private _size = ([_object] call Zone_get_Size);
 private _owner = ([_object] call Zone_get_Owner);
-private _position = [_object] call Zone_get_Position;
 _markerName setMarkerBrush "GRID";
 _markerName setMarkerShape "ELLIPSE";
 _markerName setMarkerSize [_size,_size];
