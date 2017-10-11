@@ -1,6 +1,8 @@
 removeAllWeapons player;
 removeHeadgear player;
-player unassignItem "NVGoggles";
-player removeItem "NVGoggles";
+{
+	player removeWeapon _x;
+	
+} forEach ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];
 _this spawn smm_fnc_medicHandleLocalRespawn;
 _this spawn smm_fnc_repairHandleLocalRespawn;
