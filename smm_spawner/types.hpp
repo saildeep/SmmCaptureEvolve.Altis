@@ -133,6 +133,9 @@ class ZoneState:OOType{
     class ActivateZone:OOFunction{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
     };
+    class DeactivateZone:OOFunction{
+        file = "smm_spawner\ZoneState\DeactivateZone.sqf";
+    };
 
     class GetSpawnInfantry:OOFunction{
         file = "smm_spawner\ZoneState\GetSpawnInfantry.sqf";
