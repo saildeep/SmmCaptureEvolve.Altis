@@ -12,6 +12,8 @@ smm_spawner_money_cap = 1200;
 smm_color_theirs = "ColorOrange";
 smm_color_ours = "ColorGreen";
 
+smm_curator_cameraCeiling = 50;
+
 smm_spawner_default_owner      = east;
 smm_spawner_all_factions       = [west,east,independent,civilian];
 smm_spawner_player_factions    = [west,independent];

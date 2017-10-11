@@ -67,4 +67,4 @@ diag_log "----- Initializing Thermal Blocker";
 
 
 [] execVM "smm_tickets\init.sqf";
-
+[] execVM "smm_curator\init.sqf";
