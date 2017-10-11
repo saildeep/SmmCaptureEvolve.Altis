@@ -75,8 +75,15 @@ diag_log (_prefix + "Building zoneStates");
 
     _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_interaction_point,_triggerCollection] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
+
 private _initialTargets = [[],[],[]] call TargetCollection_create;
+
 [[_zoneStates,_initialTargets] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
+
+//call get building density once the have good min/max
+{
+    [_x] call ZoneState_fnc_GetNormalizedBuildingDensity;
+}forEach _zoneStates;
 
 diag_log (_prefix + "Finished building zone states");
 
