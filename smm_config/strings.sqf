@@ -20,7 +20,6 @@ sav_uid = "alluids";
 sav_tickets = "wenearlylostalltickets";
 
 str_own_zone = "This is already your zone!";
-str_conquer = "Capture the flag!";
 str_no_permission = "Well .. ehhmm .. you do not own this zone";
 str_box = "Give me that box";
 str_receivied_item = "You bought %1";

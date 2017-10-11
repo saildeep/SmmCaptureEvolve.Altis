@@ -70,15 +70,3 @@ if(useHeadless)then{
 if(isServer)then{
 diag_log ("Started spawner with autodetectHeadless=" + (str autodetectHeadless)+ " and useHeadless=" + (str useHeadless));
 };
-[]spawn{  
-    //blocking get
-    private _zoneStates = call ZoneStatesManager_GetInstance;
-
-    waitUntil{alive player};
-    sleep 30;
-    {
-        private _interaction_point = [_x] call ZoneState_get_InteractionPoint;
-        _interaction_point addAction [str_conquer,smm_fnc_spawnerConquer,_forEachIndex];
-    }forEach ([_zoneStates] call ZoneStatesManager_get_ZoneStates);
-    
-};
