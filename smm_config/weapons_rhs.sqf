@@ -1,6 +1,6 @@
-startWeapons   = ["rhsusf_weap_MP7A2","rhs_weap_m38","rhs_weap_kar98k","rhs_weap_M136"];
-startMagazines = [];
-startItems     = ["ItemGPS","FirstAidKit","ToolKit"];
+startWeapons   = ["rhsusf_weap_MP7A2","rhs_weap_kar98k","rhs_weap_M136","rhs_weap_M590_5RD","rhsusf_weap_glock17g4"];
+startMagazines = ["rhsusf_mag_17Rnd_9x19_FMJ","rhsusf_5Rnd_00Buck","rhsusf_5Rnd_Slug"];
+startItems     = ["ItemGPS","FirstAidKit","ToolKit","acc_flashlight_pistol"];
 startBackpacks = [];
 
 
