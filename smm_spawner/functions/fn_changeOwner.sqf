@@ -6,3 +6,4 @@ private _size = [_zone] call Zone_get_Size;
 [_size,_newowner] call smm_fnc_addMoneySide;
 [_zone,_newowner] call Zone_set_Owner;
 [_zone] call Zone_fnc_UpdateMarkers;
+call ZonesManager_BroadcastInstance;
