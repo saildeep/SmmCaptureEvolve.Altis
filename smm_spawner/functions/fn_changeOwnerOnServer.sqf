@@ -1,3 +1,4 @@
+//ONLY CALLED OVER NETWORK
 params["_zoneid","_newowner"];
 assert(isServer);
 private _manager = call ZonesManager_GetInstance;

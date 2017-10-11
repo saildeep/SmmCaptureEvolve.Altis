@@ -14,5 +14,5 @@ if(_zoneid in _targets)then{
 	diag_log "Finished Capturing on HC";
 	private _zs = [_object,_zoneid] call ZoneStatesManager_fnc_GetZoneState;
 	[_zs] spawn ZoneState_fnc_DeactivateZone;
-	private _handle = [_zoneid,_seizingSide] remoteExec ["smm_fnc_changeOwner",2,false];
+	private _handle = [_zoneid,_seizingSide] remoteExec ["smm_fnc_changeOwnerOnServer",2,false];
 };
