@@ -46,14 +46,24 @@ private _spawnedInfantry = [];
 	}forEach _unittypes;
 	
 	assert((count _spawnpositions) >= 1);
-	//no spawn each single unit
+	//now spawn each single unit
 	{
 		private _cn = [_x] call SpawnableInfantry_get_ClassName;
 		private _pn = [_x] call SpawnableInfantry_get_PostSpawnFunction;
 		private _u = _group createUnit [_cn, (_spawnpositions select (_forEachIndex  % (count _spawnpositions) ) ), [], 0, "CAN_COLLIDE"];
-		
+		 
 		_u call _pn;
 		_spawnedInfantry pushBack  _u;
+
+		//set certain settings for ActivateZone
+		_u setVariable ["zoneid",_zoneID,true];
+		_u allowFleeing 0;
+
+		{
+			_u setSkill [_x,smm_skill];
+		}forEach ["aimingAccuracy","aimingShake","aimingSpeed","endurance","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
+
+
 	}forEach _unittypes;
 
 
