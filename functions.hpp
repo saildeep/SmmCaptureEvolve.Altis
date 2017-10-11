@@ -53,5 +53,8 @@ class smm{
         file = "smm_oo\functions";
         #include "smm_oo\functions\oo_functions.hpp"
     };
-	
+	class curator{
+		file = "smm_curator\functions";
+		#include "smm_curator\functions\curator_functions.hpp"
+	};
 };
