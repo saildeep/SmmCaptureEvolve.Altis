@@ -62,11 +62,6 @@
 				    allowedTargets = 2;
 					jip = 0; 
 			   };
-			   class smm_fnc_changeOwnerOnServer
-			   {
-				    allowedTargets = 2;
-					jip = 0; 
-			   };
 			   class smm_fnc_addMoneySide
 			   {
 				    allowedTargets = 2;
@@ -99,3 +94,14 @@
 				   allowedTargets = 2;
 				   jip = 0;
 			   };
+
+			   class smm_fnc_changeOwnerOnServer
+			   {
+				    allowedTargets = 2;
+					jip = 0; 
+			   };
+
+			   class smm_fnc_updateTargetsOnHC{
+				   allowedTargets = 0;
+				   jip = 0;
+			   }
