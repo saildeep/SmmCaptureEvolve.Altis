@@ -11,4 +11,5 @@ if(_zoneid in _targets)then{
 	diag_log _sideid;
 	diag_log _seizingSide;
 	diag_log "Finished Capturing on HC";
-}
+	private _handle = [_zoneid,_seizingSide] remoteExec ["smm_fnc_changeOwner",2,false];
+};
