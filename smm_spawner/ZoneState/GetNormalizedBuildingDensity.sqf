@@ -17,5 +17,5 @@ if( _density < bottomBuildingDensity ) then{
 	bottomBuildingDensity = _density;
 };
 
-private _out = (_density - bottomBuildingDensity)/( (topBuildingDensity-bottomBuildingDensity)+1);
+private _out = (_density - bottomBuildingDensity)/( (topBuildingDensity-bottomBuildingDensity)+0.0000000001);
 _out
