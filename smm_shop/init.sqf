@@ -1,9 +1,12 @@
 [] spawn{
-    waitUntil{! (isNil "interaction_points")};
     {
-        _x addAction [str_shop,smm_shop_open,_forEachIndex];
-    }forEach interaction_points;
+        private _ip = [_x] call ZoneState_get_InteractionPoint;
+        _ip addAction [str_shop,smm_shop_open,[_x] call ZoneState_get_ZoneID];
+    }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 };
+
+
+
 [ missionNamespace, "arsenalOpened", {
     disableSerialization;
     _display = _this select 0;

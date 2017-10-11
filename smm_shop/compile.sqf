@@ -43,59 +43,50 @@ smm_shop_create_vehicle = {
 	_veh
 };
 smm_shop_open = {
-smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
-	private ["_classname","_price","_name","_displayText"];
-	private _zone = _this select 3;
-	smm_shop_last_zone_point = _zone;
-	private _showEquipment = false;
-	private _showVehicles = false;
-	if(_zone <0)then{
-		_showEquipment = true;
-		_showVehicles = true;
-	}else{
-		private _zoneReal = _zone call getZone;
-		private _side = _zoneReal select 3;
-		
-		if(_side == (playerSide))then{
-		_showEquipment = true;
-		_showVehicles = true;
-		};
-	
-	};
-	
-	if(_showVehicles)then{
-		_ownVehicles = 4 call smm_fnc_getGear;
+	params["_attachedobj","_caller","_actionid","_arguments"];
+	private _zoneid = _arguments;
+	smm_shop_last_zone_id = _zoneid;
+	private _zone = [call ZonesManager_GetInstance,_zoneid] call ZonesManager_fnc_GetZone;
+	private _side = [_zone] call Zone_get_Owner;
+	if(_side == playerSide)then{
+		smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
+
+
+		private _ownVehicles = 4 call smm_fnc_getGear;
 		//draw vehicles
 		{
-		//_classname = _x select 0; 
-		_classname = [_x] call PurchasableVehicle_get_Classname;
-		_price = [_x] call PurchasableVehicle_get_Price;
-		_name = [_x] call PurchasableVehicle_fnc_GetName;
-		_icon =[_x] call PurchasableVehicle_fnc_GetIcon;
-		if(_classname in _ownVehicles)then{
-			_name = "[x]"  + _name ;
-			_price = ceil (_price/8);
-		}else{
-			_name = "[ ]" + _name;
-		};
-		_displayText = [_price,_name] call smm_shop_string;
-		lbAdd [smm_shop_vehicle_handle ,_displayText];
-		lbSetData [smm_shop_vehicle_handle,_forEachIndex,_classname];
-		lbSetValue [smm_shop_vehicle_handle,_forEachIndex,_price]; //set price as value
-		lbSetPicture [smm_shop_vehicle_handle,_forEachIndex,_icon];
-		lbSetPictureColor [smm_shop_vehicle_handle,_forEachIndex, [1,1,1,1]];
+			//_classname = _x select 0; 
+			private _classname = [_x] call PurchasableVehicle_get_Classname;
+			private _price = [_x] call PurchasableVehicle_get_Price;
+			private _name = [_x] call PurchasableVehicle_fnc_GetName;
+			private _icon =[_x] call PurchasableVehicle_fnc_GetIcon;
+			if(_classname in _ownVehicles)then{
+				_name = "[x]"  + _name ;
+				_price = ceil (_price/8);
+			}else{
+				_name = "[ ]" + _name;
+			};
+			private _displayText = [_price,_name] call smm_shop_string;
+			lbAdd [smm_shop_vehicle_handle ,_displayText];
+			lbSetData [smm_shop_vehicle_handle,_forEachIndex,_classname];
+			lbSetValue [smm_shop_vehicle_handle,_forEachIndex,_price]; //set price as value
+			lbSetPicture [smm_shop_vehicle_handle,_forEachIndex,_icon];
+			lbSetPictureColor [smm_shop_vehicle_handle,_forEachIndex, [1,1,1,1]];
 		}forEach buy_units;
-	};
-	
-	if(_showEquipment)then{
+
 		{
-			_name = _x select 0;
-			_price = _x select 1;
-			_displayText = [_price,_name] call smm_shop_string;
+			private _name = _x select 0;
+			private _price = _x select 1;
+			private _displayText = [_price,_name] call smm_shop_string;
 			lbAdd [smm_shop_pack_handle,_displayText];
 			lbSetValue[smm_shop_pack_handle,_forEachIndex,_forEachIndex]; //set index as value;
 		}forEach buy_packs;
+
+	}else{
+		hint str_no_permission;
 	};
+
+	
 };
 
 smm_shop_on_vehicle = {
@@ -158,8 +149,10 @@ smm_shop_on_vehicle_pos = {
 };
 smm_shop_on_vehicle_pos_place = {
 	private _clickpos 	= _this;
-	private _tentpos  	= smm_shop_last_zone_point call smm_fnc_getPosition;
-	private _range 		= smm_shop_last_zone_point call smm_fnc_getSize;
+	private _zonesManager = call ZonesManager_GetInstance;
+	private _zone = [_zonesManager,smm_shop_last_zone_id] call ZonesManager_fnc_GetZone;
+	private _tentpos  	= [_zone] call Zone_get_Position;
+	private _range 		= [_zone] call Zone_get_Size;
 	private _isInRange 	= (_clickpos distance _tentpos) < _range;
 	private _price 		= smm_shop_on_vehicle_pos_price;
 	private _classname	= smm_shop_on_vehicle_pos_classname; 	 
