@@ -2,7 +2,6 @@
 _object = _this select 0;
 _position = _this select 1;
 _radius = _this select 2;
-_ceiling = _this select 3;
 
 curatorGroup = createGroup sideLogic;
 _curator = curatorGroup createunit ["ModuleCurator_F", [0, 0, 0], [], 0, "NONE"];
@@ -11,7 +10,7 @@ unassignCurator _curator;
 removeAllCuratorAddons _curator;
 _curator addCuratorEditingArea [0, _position , 0]; //hack to disable editing of units
 _curator addCuratorCameraArea [0, _position, _radius];
-_curator setCuratorCameraAreaCeiling _ceiling;
+_curator setCuratorCameraAreaCeiling smm_curator_cameraCeiling;
 [_curator, "object", ["UnitPos"]] call BIS_fnc_setCuratorAttributes;
 _curator addCuratorPoints -1;
 _curator setCuratorWaypointCost 0;
