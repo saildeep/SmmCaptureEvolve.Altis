@@ -126,6 +126,14 @@
         isGlobal = 1;
     };
 
+    class aiDisableNVG
+    {
+        title = "Disable NVG for AI";
+        texts[] = {"True","False"};
+        values[] = {1,0};
+        default = 1;
+    };
+
     class delimiter
     {
         title="====================================Map Settings=====================================";

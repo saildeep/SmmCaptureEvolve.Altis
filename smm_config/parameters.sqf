@@ -21,8 +21,8 @@ smm_spawner_use_roads                    = (1<("zoneGenerator" call BIS_fnc_getP
 smm_spawner_use_cities                   = (0 == ("zoneGenerator" call BIS_fnc_getParamValue));
 smm_spawner_use_advanced				 = (1 == ("zoneGenerator" call BIS_fnc_getParamValue));
 smm_spawner_k                            = "zoneGenerator" call BIS_fnc_getParamValue;
-smm_spawner_max_targets        			= ["targetsBLUFOR" call BIS_fnc_getParamValue,0,"targetsINDEPENDENT" call BIS_fnc_getParamValue];
-
+smm_spawner_max_targets        			 = ["targetsBLUFOR" call BIS_fnc_getParamValue,0,"targetsINDEPENDENT" call BIS_fnc_getParamValue];
+smm_ai_disable_nvg 				 = ("aiDisableNVG" call BIS_fnc_getParamValue) == 1;
 smm_start_tickets = [100,100,100,100];
 
 //price for amount tickets

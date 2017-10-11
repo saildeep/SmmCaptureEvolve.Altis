@@ -63,6 +63,17 @@ private _spawnedInfantry = [];
 			_u setSkill [_x,smm_skill];
 		}forEach ["aimingAccuracy","aimingShake","aimingSpeed","endurance","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
 
+		if(smm_ai_disable_nvg)then{
+			_u removePrimaryWeaponItem "acc_pointer_IR";
+			//try to add russian acc_flashlight first
+			if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{
+				_u addPrimaryWeaponItem "rhs_acc_2dpZenit";
+			};
+        	_u addPrimaryWeaponItem "acc_flashlight";
+    		_u enableGunLights "forceon";
+			{_u removeWeapon _x} forEach  ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];
+		};
+
 
 	}forEach _unittypes;
 
