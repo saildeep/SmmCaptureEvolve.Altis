@@ -44,6 +44,7 @@ Parameters | Returns | Function
 -----------| --------| -----
 [var1,var2,..] | object | CustomType_create
 [object] | Nothing |CustomType_check
+[object] | Scalar | CustomType_owner 
 
 If `isSingleton = 1` the following functions are also generated
 
