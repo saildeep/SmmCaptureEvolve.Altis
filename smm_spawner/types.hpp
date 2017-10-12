@@ -53,6 +53,10 @@ class Zone:OOType{
     class UpdateMarkers:OOFunction{
         file = "smm_spawner\Zone\UpdateMarkers.sqf";
     };
+
+    class GetZoneReward:OOFunction{
+        file = "smm_spawner\Zone\GetZoneReward.sqf";
+    };
 };
 
 //HC OWNER
