@@ -8,4 +8,3 @@ private _size = [_zone] call Zone_get_Size;
 [_zone,_newowner] call Zone_set_Owner;
 [_zone] call Zone_fnc_UpdateMarkers;
 call ZonesManager_BroadcastInstance;
-[] remoteExec ["smm_fnc_updateTargetsOnHC",[call ZoneStatesManager_GetInstance] call ZoneStatesManager_owner,false];

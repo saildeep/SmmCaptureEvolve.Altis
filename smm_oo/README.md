@@ -53,7 +53,7 @@ Parameters | Returns | Function
 Nothing|object|CustomType_GetInstance
 [object,broadcast]|Nothing|CustomType_SetInstance
 Nothing|Nothing|CustomType_BroadcastInstance
-
+[code]|Nothing|CustomType_AddUpdateListener
 If `singletonParameters != ""` the singleton is automatically initialized by calling the constructor with `singletonParameters`
 
 ### OOVar

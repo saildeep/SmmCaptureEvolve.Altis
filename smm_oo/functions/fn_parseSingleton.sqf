@@ -17,11 +17,14 @@ if(_isSingleton)then{
 
 	private _setSingleton = format ["params['_obj',['_broadcast',false]];['%1',_obj, _broadcast] call smm_fnc_innerSingletonSet;",_tn];
 	private _broadcastSingleton = format ["['%1'] call smm_fnc_innerSingletonBroadcast",_tn];
+	private _broadcastListener = format ["['%1',_this select 0] call smm_fnc_innerSingletonBroadcastListener",_tn];
 	diag_log ("  |->Get:" + _getSingleton);
 	diag_log ("  |->Set:" + _setSingleton);
 	diag_log ("  |->Broadcast:" + _broadcastSingleton);
+	diag_log ("  |->Listener:" + _broadcastListener);
 	
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_GET_NAME(_tn),compile _getSingleton];
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_SET_NAME(_tn),compile _setSingleton];
 	OO_NAMESPACE setVariable [TYPE_SINGLETON_BROADCAST_NAME(_tn),compile _broadcastSingleton];
+	OO_NAMESPACE setVariable [TYPE_SINGLETON_BROADCAST_LISTENER_NAME(_tn),compile _broadcastListener];
 };

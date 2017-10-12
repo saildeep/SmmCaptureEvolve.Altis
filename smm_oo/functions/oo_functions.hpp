@@ -12,4 +12,5 @@ class innerTypeCheck{};
 class innerSingletonGet{};
 class innerSingletonSet{};
 class innerSingletonBroadcast{};
+class innerSingletonBroadcastListener{};
 class innerOwner{};

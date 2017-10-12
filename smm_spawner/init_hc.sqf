@@ -91,4 +91,8 @@ spawner_init_finished = 100;
 publicVariable "spawner_init_finished";
 [call ZoneStatesManager_GetInstance] call ZoneStatesManager_fnc_UpdateTargets;
 
+//add event for updating zones. Should make sure, that update targets is only called if the zones are up-to date.
+[{
+    [call ZoneStatesManager_GetInstance] call ZoneStatesManager_fnc_UpdateTargets;
+}] call ZonesManager_AddUpdateListener;
 //TODO reimplement money giving over time stuff
