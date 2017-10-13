@@ -5,8 +5,11 @@
 */
 params["_objectTypeName","_varchecklist","_varsetter","_vardata"];
 //diag_log ("Calling constructor for " + _objectTypeName + " with " + (str _vardata) );
+
 private _objName = _objectTypeName;
-assert ((count _varchecklist) == (count _vardata));
+if( (count _varchecklist) != (count _vardata) )then{
+	throw (format ["%1:Constructor number of given params %2 does not match needed number of params %3",_objectTypeName,count _varchecklist,count _vardata])
+};
 private _obj = [_objName, + _vardata,count _varchecklist,clientOwner];
 {
 	private _setter = _varsetter select _forEachIndex;
