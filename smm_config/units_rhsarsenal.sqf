@@ -9,8 +9,73 @@ ai_infantry = [
 		["rhs_msv_sergeant",10,{}] call SpawnableInfantry_create,
 		["rhs_msv_aa",25,{}] call SpawnableInfantry_create,
 		["rhs_msv_medic",10,{}] call SpawnableInfantry_create,
-		["rhs_vmf_recon_marksman",20,{}] call SpawnableInfantry_create, 
-		["rhs_msv_combatcrew",10,{}] call SpawnableInfantry_create
+		["rhs_msv_combatcrew",10,{}] call SpawnableInfantry_create,
+
+		["rhs_msv_emr_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_at",25,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_sergeant",10,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_aa",25,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_medic",10,{}] call SpawnableInfantry_create,
+		["rhs_msv_emr_combatcrew",10,{}] call SpawnableInfantry_create,
+
+		["rhs_vdv_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhs_vdv_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_at",25,{}] call SpawnableInfantry_create,
+		["rhs_vdv_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_sergeant",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_aa",25,{}] call SpawnableInfantry_create,
+		["rhs_vdv_medic",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_combatcrew",10,{}] call SpawnableInfantry_create,
+		
+		["rhs_vdv_des_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_at",25,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_sergeant",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_aa",25,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_medic",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_des_combatcrew",10,{}] call SpawnableInfantry_create,
+
+		["rhs_vdv_mflora_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_at",25,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_sergeant",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_aa",25,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_medic",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_mflora_combatcrew",10,{}] call SpawnableInfantry_create,
+
+		["rhs_vdv_recon_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_vdv_recon_grenadier_scout",15,{}] call SpawnableInfantry_create,
+		["rhs_vdv_recon_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_vdv_recon_sergeant",10,{}] call SpawnableInfantry_create,		
+		["rhs_vdv_recon_medic",10,{}] call SpawnableInfantry_create,
+
+		["rhs_vmf_flora_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_at",25,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_sergeant",10,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_aa",25,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_medic",10,{}] call SpawnableInfantry_create,
+		["rhs_vmf_flora_combatcrew",10,{}] call SpawnableInfantry_create,
+
+		["rhs_vmf_recon_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhs_vmf_recon_grenadier_scout",15,{}] call SpawnableInfantry_create,
+		["rhs_vmf_recon_marksman",20,{}] call SpawnableInfantry_create,
+		["rhs_vmf_recon_sergeant",10,{}] call SpawnableInfantry_create,		
+		["rhs_vmf_recon_medic",10,{}] call SpawnableInfantry_create
+
+
+		
+		
 		
 		 
 	],
@@ -25,7 +90,75 @@ ai_infantry = [
 		["rhsusf_army_ocp_aa",25,{}] call SpawnableInfantry_create,
 		["rhsusf_army_ocp_medic",10,{}] call SpawnableInfantry_create,
 		["rhsusf_army_ocp_sniper",20,{}] call SpawnableInfantry_create, 
-		["rhsusf_army_ocp_combatcrewman",10,{}] call SpawnableInfantry_create
+		["rhsusf_army_ocp_combatcrewman",10,{}] call SpawnableInfantry_create,
+
+		["rhsusf_army_ocp_rifleman_arb_m16",10,{}] call SpawnableInfantry_create,  //
+		["rhsusf_army_ocp_arb_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ocp_arb_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ocp_arb_marksman",20,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ocp_arb_squadleader",10,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ocp_arb_sniper_m107",20,{}] call SpawnableInfantry_create,
+
+		["rhsusf_army_ucp_rifleman_m4",10,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_javelin",25,{}] call SpawnableInfantry_create, 
+		["rhsusf_army_ucp_marksman",20,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_squadleader",10,{}] call SpawnableInfantry_create, 
+		["rhsusf_army_ucp_aa",25,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_medic",10,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_sniper",20,{}] call SpawnableInfantry_create, 
+		["rhsusf_army_ucp_combatcrewman",10,{}] call SpawnableInfantry_create,
+
+		["rhsusf_army_ucp_rifleman_arb_m16",10,{}] call SpawnableInfantry_create,  //
+		["rhsusf_army_ucp_arb_grenadier",15,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_arb_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_arb_marksman",20,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_arb_squadleader",10,{}] call SpawnableInfantry_create,
+		["rhsusf_army_ucp_arb_sniper_m107",20,{}] call SpawnableInfantry_create,
+
+		["rhsusf_navy_marpat_d_medic",10,{}] call SpawnableInfantry_create,
+		["rhsusf_navy_sarc_d",15,{}] call SpawnableInfantry_create,
+		["rhsusf_navy_sarc_d_fast",20,{}] call SpawnableInfantry_create,
+		
+		["rhsusf_navy_marpat_wd_medic",10,{}] call SpawnableInfantry_create,
+		["rhsusf_navy_sarc_w",15,{}] call SpawnableInfantry_create,
+		["rhsusf_navy_sarc_w_fast",20,{}] call SpawnableInfantry_create,
+
+		["rhsusf_socom_marsoc_elementleader",10,{}] call SpawnableInfantry_create, //
+		["rhsusf_socom_marsoc_cso_eod",10,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_cso_grenadier",15,{}] call SpawnableInfantry_create,  //
+		["rhsusf_socom_marsoc_jfo",10,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_jtac",10,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_cso",10,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_cso_light",10,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_sarc",10,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_sniper",20,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_sniper_m107",20,{}] call SpawnableInfantry_create,
+		["rhsusf_socom_marsoc_teamleader",10,{}] call SpawnableInfantry_create,
+
+		["rhsusf_usmc_recon_marpat_d_machinegunner_m249",20,{}] call SpawnableInfantry_create,
+		["rhsusf_usmc_recon_marpat_d_autorifleman",10,{}] call SpawnableInfantry_create,
+		["rhsusf_usmc_recon_marpat_d_grenadier_m32",15,{}] call SpawnableInfantry_create,
+		
+		["rhsusf_usmc_recon_marpat_d_machinegunner",20,{}] call SpawnableInfantry_create,
+		["rhsusf_usmc_recon_marpat_d_marksman",20,{}] call SpawnableInfantry_create,
+		
+		["rhsusf_usmc_recon_marpat_d_officer",10,{}] call SpawnableInfantry_create,
+		["rhsusf_usmc_recon_marpat_d_rifleman",10,{}] call SpawnableInfantry_create,
+		["rhsusf_usmc_recon_marpat_d_sniper_M107",20,{}] call SpawnableInfantry_create,
+
+		["rhsusf_usmc_marpat_wd_rifleman_m4",10,{}] call SpawnableInfantry_create,  //
+		["rhsusf_usmc_marpat_wd_grenadier",15,{}] call SpawnableInfantry_create,//
+		["rhsusf_usmc_marpat_wd_machinegunner",20,{}] call SpawnableInfantry_create,//
+		["rhsusf_usmc_marpat_wd_javelin",25,{}] call SpawnableInfantry_create, //
+		["rhsusf_usmc_marpat_wd_squadleader",10,{}] call SpawnableInfantry_create, //
+		["rhsusf_usmc_marpat_wd_stinger",25,{}] call SpawnableInfantry_create,//
+		["rhsusf_usmc_marpat_wd_sniper_M107",20,{}] call SpawnableInfantry_create, //
+		["rhsusf_usmc_marpat_wd_combatcrewman",10,{}] call SpawnableInfantry_create//
+
+
+
 		
 	],
 
