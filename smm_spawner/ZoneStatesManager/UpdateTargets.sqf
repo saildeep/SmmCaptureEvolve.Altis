@@ -2,15 +2,17 @@
 params["_object"];
 private _singleton = call ZoneStatesManager_GetInstance;
 assert(_object isEqualTo _singleton);
-
+private _log = { diag_log ("UpdateTargets:" + (format _this)); };
 private _targetCollection = [_object] call ZoneStatesManager_get_Targets;
+
 private _currentTargets = [_targetCollection] call TargetCollection_fnc_GetAllTargets;
+
 private _currentTargetCounts = _currentTargets apply {count _x};
-
+["Current Targets are %1 with length %2",_currentTargets,_currentTargetCounts] call _log;
 //now compare with smm_spawner_max_targets
-private _neededTargets = ([_currentTargetCounts,smm_spawner_max_targets] call smm_fnc_zip) apply{abs( (_x select 1) - (_x select 0)) };
+private _neededTargets = ([_currentTargetCounts,smm_spawner_max_targets] call smm_fnc_zip) apply{0 max  ((_x select 1) - (_x select 0)) };
 private _sides = [_targetCollection] call TargetCollection_fnc_GetSides;
-
+["Needed targets are %1",_neededTargets] call _log;
 private _zonesManager = call ZonesManager_GetInstance;
 
 {
@@ -45,7 +47,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 		_candidates = [_candidates,[],{[_x] call Zone_get_Size },"ASCEND"] call BIS_fnc_sortBy;
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
 		_candidates resize (_numNeeded min (count _candidates));
-		diag_log ("Activating "+ (str _candidates));
+		["Activating %1",_candidates] call _log;
 		{
 			private _zs = [_singleton,[_x] call Zone_get_ID ] call ZoneStatesManager_fnc_GetZoneState;
 			(_currentTargets select _sideIndex) pushBack ([_x] call Zone_get_ID);
