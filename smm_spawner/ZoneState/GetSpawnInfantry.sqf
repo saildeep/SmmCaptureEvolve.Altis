@@ -8,7 +8,7 @@ private _out = [];
 private _density = [_object] call ZoneState_fnc_GetNormalizedBuildingDensity;
 _density = sqrt _density;
 _budget = _budget * (1+_density) + 150;
-diag_log ("getting infantry for side "+(str _owner));
+
 if(_owner == east) then {
  	_pool = ai_infantry select 0;
 };
@@ -18,7 +18,7 @@ if(_owner == west) then {
 if (_owner == independent) then {
 	_pool = ai_infantry select 2;
 };
-diag_log("pool "+(str _pool));
+
 
 for "_i" from 1 to 150 do {
 
