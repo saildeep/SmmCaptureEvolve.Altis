@@ -104,4 +104,13 @@
 			   class smm_fnc_updateTargetsOnHC{
 				   allowedTargets = 0;
 				   jip = 0;
-			   }
+			   };
+
+			   class smm_fnc_visualizeZoneActivatedLocal{
+					allowedTargets = 0;
+				   	jip = 1;
+			   };
+			   class smm_fnc_visualizeZoneDeactivatedLocal{
+					allowedTargets = 0;
+				   	jip = 1;
+			   };

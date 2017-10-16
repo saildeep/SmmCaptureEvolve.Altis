@@ -29,3 +29,7 @@ str_transfer_all = "Give all";
 
 // hints
 str_hint_buy_and_place = "Click inside the zone to spawn the chosen vehicle";
+
+
+//task stuff
+str_task_title = "Seize %1";

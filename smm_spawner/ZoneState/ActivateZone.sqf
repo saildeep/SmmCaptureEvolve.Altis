@@ -106,3 +106,4 @@ private _spawnedInfantry = [];
 ([_object] call ZoneState_get_Units) append _spawnedVehicleCrew;
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
 [_em,"OnVehiclesSpawned",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
+[_em,"OnZoneActivated",_zoneID] call EventManager_fnc_Trigger;

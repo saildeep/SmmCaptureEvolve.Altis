@@ -57,4 +57,9 @@ class smm{
 		file = "smm_curator\functions";
 		#include "smm_curator\functions\curator_functions.hpp"
 	};
+	class visualizer{
+		file = "smm_visualizer\functions";
+		#include "smm_visualizer\functions\visualizer_functions.hpp"
+	};
+
 };
