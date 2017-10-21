@@ -66,7 +66,7 @@ diag_log (_prefix + "Building zoneStates");
         private _sideID = smm_spawner_all_factions find _x;
         private _activationCode = format["[%1,%2] call smm_fnc_seizeZone",_cZoneNumber,_sideID];
         _trg setTriggerActivation[(str _x) + " SEIZED","PRESENT",true];
-        _trg setTriggerArea[10,10,0,false];
+        _trg setTriggerArea[_size/2,_size/2,0,false];
         _trg setTriggerTimeout [40,50, 60, true];
         _trg setTriggerStatements["this",_activationCode,""];
         _trg
