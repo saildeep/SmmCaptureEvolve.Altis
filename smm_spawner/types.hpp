@@ -133,6 +133,10 @@ class ZoneState:OOType{
     class SeizeTriggers:OOVar{
         typeName="TriggerCollection";
     };
+    class TreeCount:OOVar{
+        typeName="SCALAR";
+        typeCheck="_this >= 0";
+    };
 
     class ActivateZone:OOFunction{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
@@ -151,9 +155,11 @@ class ZoneState:OOType{
     class GetMoney:OOFunction{
         file = "smm_spawner\ZoneState\GetMoney.sqf";
     };
-    class GetNormalizedBuildingDensity:OOFunction{
-          
+    class GetNormalizedBuildingDensity:OOFunction{    
         file = "smm_spawner\ZoneState\GetNormalizedBuildingDensity.sqf";
+    };
+    class GetNormalizedTreeDensity:OOFunction{    
+        file = "smm_spawner\ZoneState\GetNormalizedTreeDensity.sqf";
     };
 
 };

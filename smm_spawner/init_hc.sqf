@@ -28,7 +28,8 @@ diag_log (_prefix + "Building zoneStates");
         }
     }forEach _allBuildingObjects;
     
-    
+    private _treeCount = count (nearestTerrainObjects [_center,["TREE", "SMALL TREE"],_size]);
+
     //draw connections to neighbour
     private _cZoneNumber = _zoneNumber;
     private _neighbours = [_x] call Zone_get_Neighbours;
@@ -73,16 +74,17 @@ diag_log (_prefix + "Building zoneStates");
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_interaction_point,_triggerCollection] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_interaction_point,_triggerCollection,_treeCount] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;
 
 [[_zoneStates,_initialTargets] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
 
-//call get building density once the have good min/max
+//call get building and tree density once the have good min/max
 {
     [_x] call ZoneState_fnc_GetNormalizedBuildingDensity;
+    [_x] call ZoneState_fnc_GetNormalizedTreeDensity;
 }forEach _zoneStates;
 
 diag_log (_prefix + "Finished building zone states");

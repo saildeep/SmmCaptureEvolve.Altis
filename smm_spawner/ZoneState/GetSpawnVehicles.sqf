@@ -6,7 +6,7 @@ private _zone = [call ZonesManager_GetInstance, _zoneID] call ZonesManager_fnc_G
 private _owner = [_zone] call Zone_get_Owner;
 private _pool = [];
 private _out = [];
-private _density = [_object] call ZoneState_fnc_GetNormalizedBuildingDensity;
+private _density = ([_object] call ZoneState_fnc_GetNormalizedBuildingDensity) max ([_object] call ZoneState_fnc_GetNormalizedTreeDensity);
 _density = sqrt _density;
 _budget = _budget * (2-_density) + 300;
 
