@@ -30,7 +30,8 @@ smm_spawner_ai_parachute_distance  = 100;
 smm_spawner_ai_parachute = "B_Parachute";
 smm_spawner_patroling_threshold = 5;
 
-smm_skill = 0.3;
+smm_spawner_per_kill_bounty = 4;
+
 
 smm_garbage_collector_weapon_holder_timeout = 60 *15;
 smm_garbage_collector_vehicle_timeout = 60*60*2;

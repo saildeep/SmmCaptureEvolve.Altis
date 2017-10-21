@@ -104,6 +104,28 @@ private _spawnedInfantry = [];
 
 }forEach ([_spawnVehicles,smm_spawner_vehicles_per_group] call smm_fnc_subdivide);
 ([_object] call ZoneState_get_Units) append _spawnedVehicleCrew;
+{
+	_x addEventHandler ["killed",{
+		
+
+		private _killermaybevehicle = (_this select 1);
+		private _killedunit = (_this select 0);
+		//workaround for ace
+		if(smm_ace)then{
+			_killermaybevehicle = (_this select 0) getVariable ["ace_medical_lastDamageSource",_this select 1];
+		};
+		diag_log "Calling killed EH";
+		diag_log _killedunit;
+		diag_log "Killed by";
+		diag_log _killermaybevehicle;
+		
+		//do not reward TK
+		if( (side _killermaybevehicle) != (side _killedunit) )then{
+			[smm_spawner_per_kill_bounty,side _killermaybevehicle] call smm_fnc_addMoneySide;
+		};
+
+	}];
+}forEach ([_object] call ZoneState_get_Units);
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
 [_em,"OnVehiclesSpawned",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
 [_em,"OnZoneActivated",_zoneID] call EventManager_fnc_Trigger;
