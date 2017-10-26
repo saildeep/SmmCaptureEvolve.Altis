@@ -15,11 +15,12 @@ if(isServer)then{
 	}forEach smm_spawner_all_factions;
 };
 [] spawn{
-    waitUntil{! (isNil "interaction_points")};
+    
     {
+		private _ip = [_x] call ZoneState_get_InteractionPoint;
 		_formated = format [str_buy_tickets,smm_ticket_amount,smm_ticket_price];
-        _x addAction [_formated,smm_fnc_buyTickets,_this];
-    }forEach interaction_points;
+        _ip addAction [_formated,smm_fnc_buyTickets,_this];
+    }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 
 
 };
