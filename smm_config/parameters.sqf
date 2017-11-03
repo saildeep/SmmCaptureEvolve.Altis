@@ -10,7 +10,8 @@ smm_respawn_on_vehicle = (("respawnVehicles" call BIS_fnc_getParamValue) == 1);
 //Map settings
 
 _smm_load                                = "load" call BIS_fnc_getParamValue;
-smm_debug                                = ("debug" call BIS_fnc_getParamValue)==1;
+smm_debug                                = ("debug" call BIS_fnc_getParamValue)>0;
+smm_debug_ai							 = ("debug" call BIS_fnc_getParamValue)>1;
 smm_load                                 = (_smm_load == 1 && (call smm_fnc_savegameExists));
 smm_spawner_max_zone_size                = "maxZoneSize" call BIS_fnc_getParamValue;
 smm_spawner_min_zone_size                = "minZoneSize" call BIS_fnc_getParamValue;

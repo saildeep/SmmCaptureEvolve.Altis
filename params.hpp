@@ -15,9 +15,9 @@
     
     class debug
     {
-        title = "DEBUG";
-        texts[] = {"TRUE","FALSE"};
-        values[] = {1,0};
+        title = "Debug Mode";
+        texts[] = {"On (with AI)","On","Off"};
+        values[] = {2,1,0};
         default = 0;
     };
    
