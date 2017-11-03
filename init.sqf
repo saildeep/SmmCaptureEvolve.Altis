@@ -66,8 +66,8 @@ diag_log "----- Initializing Thermal Blocker";
 [] call compile preprocessFileLineNumbers "smm_thermal_blocker\init.sqf";
 diag_log "----- Initializing Visualizer";
 [] call compile preprocessFileLineNumbers "smm_visualizer\init.sqf";
-
-
+diag_log "----- Initializing AI";
+[] call compile preprocessFileLineNumbers "smm_ai\init.sqf";
 
 [] execVM "smm_tickets\init.sqf";
 [] execVM "smm_curator\init.sqf";

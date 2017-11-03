@@ -61,5 +61,8 @@ class smm{
 		file = "smm_visualizer\functions";
 		#include "smm_visualizer\functions\visualizer_functions.hpp"
 	};
-
+	class ai{
+		file = "smm_ai\functions";
+		#include "smm_ai\functions\ai_functions.hpp"
+	};
 };
