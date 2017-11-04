@@ -14,7 +14,7 @@ switch (_side) do {
 	case independent:
 	{_curator = curator_independent;};
 	default
-	{};
+	{_curator = curator_blufor;};
 };
 
 diag_log format ["assignCurator: zoneID %1, curator %2, unit %3", _zoneID,_curator, _unit];
@@ -31,10 +31,10 @@ private _interactionPoint = ([_zoneState] call  ZoneState_get_InteractionPoint);
 private _radius = ([([call ZonesManager_GetInstance, _zoneID] call ZonesManager_fnc_GetZone)] call  Zone_get_Size);
 _curator addCuratorCameraArea [0, position _interactionPoint, _radius];
 // register units
-//private _spawnedInfantry = ([_zoneState] call ZoneState_fnc_GetSpawnInfantry);
-//private _spawnedVehicles = ([_zoneState] call ZoneState_fnc_GetSpawnVehicles);
-//diag_log format ["spawned units %1", (_spawnedInfantry + _spawnedVehicles)];
-//_curator addCuratorEditableObjects [(_spawnedInfantry + _spawnedVehicles), true];
+private _spawnedInfantry = ([_zoneState] call ZoneState_get_Units);
+private _spawnedVehicles = ([_zoneState] call ZoneState_get_Vehicles);
+diag_log format ["spawned units %1", (_spawnedInfantry + _spawnedVehicles)];
+_curator addCuratorEditableObjects [(_spawnedInfantry + _spawnedVehicles), true];
 
 _unit assignCurator _curator;
 

@@ -9,12 +9,12 @@ if (isServer) then {
 		[_curator, "object", ["UnitPos"]] call BIS_fnc_setCuratorAttributes;
 		_curator addCuratorPoints -1;
 		_curator setCuratorWaypointCost 0;
-		_curator setCuratorCoef ["Place", -1];
-		_curator setCuratorCoef ["Edit", -1];
-		_curator setCuratorCoef ["Delete", -1];
-		_curator setCuratorCoef ["Destroy", -1];
+		_curator setCuratorCoef ["Place", -1e10];
+		_curator setCuratorCoef ["Edit", -1e10];
+		_curator setCuratorCoef ["Delete", -1e10];
+		_curator setCuratorCoef ["Destroy", -1e10];
 		_curator setCuratorCoef ["Group", 0];
-		_curator setCuratorCoef ["Synchronize", -1];
+		_curator setCuratorCoef ["Synchronize", -1e10];
 		
 	} forEach allCurators;
 };
