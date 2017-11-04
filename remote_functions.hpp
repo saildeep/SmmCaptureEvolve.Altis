@@ -114,3 +114,16 @@
 					allowedTargets = 0;
 				   	jip = 1;
 			   };
+			   
+			   class smm_fnc_assignCurator
+			   {
+				   allowedTargets = 2;
+				   jip = 0;
+			   };
+			   
+			   class smm_fnc_onAssignCurator
+			   {
+				   allowedTargets = 1;
+				   jip = 0;
+			   };
+			   

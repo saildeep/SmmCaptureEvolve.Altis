@@ -1,17 +1,30 @@
+diag_log "curator init started";
+if (isServer) then {
+	diag_log "curator init server";
+	{
 
-private _em = call EventManager_GetInstance;
-[_em, "OnInfantrySpawned", {_this call smm_fnc_registerUnits}] call EventManager_fnc_AddListener;
-[_em, "OnVehiclesSpawned", {[_this select 0, _this select 2] call smm_fnc_registerUnits}] call EventManager_fnc_AddListener;
+		private _curator = _x;
+		_curator addCuratorEditingArea [0, [0, 0,0] , 0]; //hack to disable editing of units
+		_curator setCuratorCameraAreaCeiling smm_curator_cameraCeiling;
+		[_curator, "object", ["UnitPos"]] call BIS_fnc_setCuratorAttributes;
+		_curator addCuratorPoints -1;
+		_curator setCuratorWaypointCost 0;
+		_curator setCuratorCoef ["Place", -1];
+		_curator setCuratorCoef ["Edit", -1];
+		_curator setCuratorCoef ["Delete", -1];
+		_curator setCuratorCoef ["Destroy", -1];
+		_curator setCuratorCoef ["Group", 0];
+		_curator setCuratorCoef ["Synchronize", -1];
+		
+	} forEach allCurators;
+};
 
-_tempCuratorMap = [];
-{
-	_object = [_x] call ZoneState_get_InteractionPoint;
-	_zoneID = [_x] call ZoneState_get_ZoneID;
-	_zm = call ZonesManager_GetInstance;
-	_zone = [_zm, _zoneID] call ZonesManager_fnc_GetZone;
-	_radius = [_zone] call Zone_get_Size;
-	_curator = [_object, position _object, _radius] call smm_fnc_createCurator;
-	_tempCuratorMap set [_zoneID, _curator];
-	
-} forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
-curatorByZoneID = _tempCuratorMap // key: zoneID, value: curator
+if (hasInterface) then {
+	{
+		private _zoneID = [_x] call ZoneState_get_ZoneID;
+		private _object = [_x] call ZoneState_get_InteractionPoint;
+		_object addAction ["Take command", {_this remoteExec ["smm_fnc_assignCurator", 2]}, _zoneID];
+		
+	} forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
+};
+diag_log "curator init done";

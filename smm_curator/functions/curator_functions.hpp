@@ -1,4 +1,3 @@
 
-class createCurator{};
-class checkWaypoint{};
-class registerUnits{};
+class assignCurator{};
+class onAssignCurator{};
