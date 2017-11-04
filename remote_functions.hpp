@@ -127,3 +127,9 @@
 				   jip = 0;
 			   };
 			   
+			   class smm_fnc_unassignCurator
+			   {
+				   allowedTargets = 2;
+				   jip = 0;
+			   };
+			   

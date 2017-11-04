@@ -1,9 +1,4 @@
 
 openCuratorInterface;
 	
-findDisplay 46 displayAddEventHandler ["KeyDown", {
-	if (inputAction "CuratorInterface" > 0) then {
-		unassignCurator getAssignedCuratorLogic player;
-	};
-	false
-}];
+(findDisplay 312) displayAddEventHandler ["unload", {[player] remoteExec ["smm_fnc_unassignCurator", 2];}];
