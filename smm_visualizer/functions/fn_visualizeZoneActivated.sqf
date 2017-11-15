@@ -11,4 +11,4 @@ if(_zoneid in ([_tc] call TargetCollection_get_TargetsOPFOR))then{
 if(_zoneid in ([_tc] call TargetCollection_get_TargetsINDEPENDENT))then{
 	_attackingSides pushBack independent;
 };
-[_zoneid,_attackingSides] remoteExec ["smm_fnc_visualizeZoneActivatedLocal",0,true];
+[_zoneid,_attackingSides] remoteExec ["smm_fnc_visualizeZoneActivatedLocal",0,[_zoneid] call smm_fnc_getTaskJIPID];
