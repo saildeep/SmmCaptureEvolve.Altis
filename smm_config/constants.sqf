@@ -22,12 +22,7 @@ smm_spawner_vehicles_per_group = 2;
 smm_spawner_interaction_object = "Land_TentDome_F";
 smm_spawner_kmeans_iterations  = 20;
 smm_spawner_kmeans_num_objects = 3000;
-//smm_spawner_interaction_object = "Flag_ARMEX_F";
-smm_spawner_ai_faction = east;
-smm_spawner_ai_dismount_distance = 1000;
-smm_spawner_ai_parachute_height  = 700;
-smm_spawner_ai_parachute_distance  = 100;
-smm_spawner_ai_parachute = "B_Parachute";
+
 smm_spawner_patroling_threshold = 5;
 
 smm_spawner_per_kill_bounty = 8;
