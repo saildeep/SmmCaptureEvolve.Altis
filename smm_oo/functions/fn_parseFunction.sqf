@@ -15,7 +15,13 @@ if(_fnCode == "")then{
 	_logmsg = getText (_functionConfig >> "file");
 };
 
-private _functionCompiled = compile _fnCode;
+private _completeFunctionName = TYPE_FUNCTION_NAME(_typename,_fnName);
+
+private _prefix = format["private _fnc_scriptNameParent = if (isNil '_fnc_scriptName') then {'%1'} else {_fnc_scriptName};" + endl,_completeFunctionName];
+_prefix = _prefix + format["private _fnc_scriptName = '%1';"+endl,_completeFunctionName];
+_prefix = _prefix + "scriptName _fnc_scriptName;" + endl + endl;
+
+private _functionCompiled = compile (_prefix + _fnCode);
 
 private _fnCall = format ["[_this select 0,'%1' ,_this select [1,(count _this) -1],%2 ] call smm_fnc_innerFunctionCall",_typename,_functionCompiled];
 diag_log ("  |->call:"+_logmsg);
