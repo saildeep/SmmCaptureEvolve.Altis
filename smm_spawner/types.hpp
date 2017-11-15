@@ -125,7 +125,8 @@ class ZoneState:OOType{
         typeName="[OBJECT]";
     };
     class Buildings:OOVar{
-        typeName="[OBJECT]";
+        typeName="SCALAR";
+        typeCheck = "_this >= 0";
     };
     class InteractionPoint:OOVar{
         typeName="OBJECT";

@@ -1,7 +1,7 @@
 params["_object"];
 private _zoneID = [_object] call ZoneState_get_ZoneID;
 private _zone = [call ZonesManager_GetInstance,_zoneID] call ZonesManager_fnc_GetZone;
-private _buildings = count ([_object] call ZoneState_get_Buildings);
+private _buildings = ([_object] call ZoneState_get_Buildings);
 private _zoneRadius = [_zone] call Zone_get_Size;
 private _density = _buildings/(_zoneRadius * _zoneRadius);
 

@@ -74,7 +74,7 @@ diag_log (_prefix + "Building zoneStates");
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],_allBuildingObjects,_interaction_point,_triggerCollection,_treeCount] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],count _allBuildingObjects,_interaction_point,_triggerCollection,_treeCount] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;

@@ -12,7 +12,8 @@ private _zoneCenter = [_zone] call Zone_get_Position;
 diag_log ("Zone center is " + str(_zoneCenter));
 private _size = [_zone] call Zone_get_Size;
 private _side = [_zone] call Zone_get_Owner;
-private _buildings = [_object] call ZoneState_get_Buildings;
+private _buildingType = ["House", "Building"];
+private _buildings = (nearestObjects [_zoneCenter,_buildingType,_size]) select {(count (_x buildingPos -1)) >= smm_spawner_units_per_group};
 
 private _em = call EventManager_GetInstance;
 
