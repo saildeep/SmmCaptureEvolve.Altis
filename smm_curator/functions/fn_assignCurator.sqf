@@ -14,12 +14,13 @@ switch (_side) do {
 	case independent:
 	{_curator = curator_independent;};
 	default
-	{_curator = curator_blufor;};
+	{_curator = curator_blufor;}; // das fixen, wenn curator verschiedener fraktionen sich gegenseitig rausschmeissen
 };
 
 diag_log format ["assignCurator: zoneID %1, curator %2, unit %3", _zoneID,_curator, _unit];
 
 // curator clean up
+unassignCurator _curator;
 _curator removeCuratorEditableObjects [(curatorEditableObjects _curator), true];
 removeAllCuratorEditingAreas _curator ;
 removeAllCuratorCameraAreas _curator ;
