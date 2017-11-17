@@ -65,4 +65,8 @@ class smm{
 		file = "smm_ai\functions";
 		#include "smm_ai\functions\ai_functions.hpp"
 	};
+	class perks{
+		file = "smm_perks\functions";
+		#include "smm_perks\functions\perks_functions.hpp"
+	}
 };
