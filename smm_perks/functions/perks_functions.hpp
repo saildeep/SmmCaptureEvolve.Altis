@@ -1,1 +1,2 @@
 class addPerk{};
+class hasPerk{};
