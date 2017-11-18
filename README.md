@@ -77,3 +77,6 @@ Keeps track of how many tickets a team has left.
 
 #### smm_time
 Synchronizes time over players.
+
+#### smm_perk
+descriptionfor players classes
