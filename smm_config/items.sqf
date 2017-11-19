@@ -188,6 +188,43 @@ allItems append [
 	//Rockets
 	["CfgMagazines","Titan_AA","BASE",200,true] call PurchasableItem_create,
 	["CfgMagazines","Titan_AP","BASE",200,true] call PurchasableItem_create,
-	["CfgMagazines","Titan_AT","BASE",200,true] call PurchasableItem_create
+	["CfgMagazines","Titan_AT","BASE",200,true] call PurchasableItem_create,
+
+	["CfgMagazines","RPG32_F","BASE",70,true] call PurchasableItem_create,
+	["CfgMagazines","RPG32_HE_F","BASE",90,true] call PurchasableItem_create,
+	["CfgMagazines","NLAW_F","BASE",150,true] call PurchasableItem_create,
+	["CfgMagazines","RPG7_F","BASE",30,true] call PurchasableItem_create,
+
+
+	//UGL
+	["CfgMagazines","1Rnd_HE_Grenade_shell","UGL",5,true] call PurchasableItem_create,
+	["CfgMagazines","1Rnd_Smoke_Grenade_shell","UGL",2,true] call PurchasableItem_create,
+	["CfgMagazines","UGL_FlareWhite_F","UGL",2,true] call PurchasableItem_create,
+
+
+	["CfgMagazines""3Rnd_HE_Grenade_shell","UGL",15,true] call PurchasableItem_create,
+	["CfgMagazines","3Rnd_Smoke_Grenade_shell","UGL",6,true] call PurchasableItem_create,
+	["CfgMagazines","3Rnd_UGL_FlareWhite_F","UGL",6,true] call PurchasableItem_create,
+
+
+	//misc
+	["CfgMagazines","Laserbatteries","BASE",20,true] call PurchasableItem_create,
+
+	//mines
+	["CfgMagazines","ATMine_Range_Mag","MINES",25,true] call PurchasableItem_create,
+	["CfgMagazines","APERSMine_Range_Mag","MINES",20,true] call PurchasableItem_create,
+	["CfgMagazines","APERSBoundingMine_Range_Mag","MINES",20,true] call PurchasableItem_create,
+	["CfgMagazines","SLAMDirectionalMine_Wire_Mag","MINES",22,true] call PurchasableItem_create,
+	["CfgMagazines","APERSTripMine_Wire_Mag","MINES",20,true] call PurchasableItem_create,
+	["CfgMagazines","ClaymoreDirectionalMine_Remote_Mag","MINES",20,true] call PurchasableItem_create,
+	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",35,true] call PurchasableItem_create,
+	["CfgMagazines","DemoCharge_Remote_Mag","MINES",31,true] call PurchasableItem_create,
+
+
 	
+	//grenades 
+	["CfgMagazines","HandGrenade","RIFLEMAN",20,true] call PurchasableItem_create,
+	["CfgMagazines","MiniGrenade","RIFLEMAN",14,true] call PurchasableItem_create,
+	["CfgMagazines","SmokeShell","RIFLEMAN",6,true] call PurchasableItem_create
+
 ];
