@@ -188,6 +188,6 @@ allItems append [
 	//Rockets
 	["CfgMagazines","Titan_AA","BASE",200,true] call PurchasableItem_create,
 	["CfgMagazines","Titan_AP","BASE",200,true] call PurchasableItem_create,
-	["CfgMagazines","Titan_AT","BASE",200,true] call PurchasableItem_create,
+	["CfgMagazines","Titan_AT","BASE",200,true] call PurchasableItem_create
 	
 ];
