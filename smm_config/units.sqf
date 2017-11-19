@@ -117,80 +117,7 @@ ai_infantry = [
     ]
 ];
 };
-//removed ,["CUP_B_AW159_Cannon_GB",220],
-if(smm_cup)then{
-ai_vehicles = [
-	[
-		["CUP_B_Mi24_D_CDF",280,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP1_TKA",250,{}] call SpawnableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",170,{}] call SpawnableVehicle_create,
-		["CUP_I_T34_NAPA",210,{}] call SpawnableVehicle_create,
-		["CUP_O_Ka50_SLA",240,{}] call SpawnableVehicle_create,
-		["CUP_B_ZSU23_CDF",300,{}] call SpawnableVehicle_create,
-		["CUP_O_Ural_ZU23_RU",170,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_AGS30_CDF",160,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_MG_CDF",110,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_ZU_TKA",270,{}] call SpawnableVehicle_create,
-		["CUP_B_T72_CDF",380,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_TKA",360,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR90_RU",280,{}] call SpawnableVehicle_create,
-		["CUP_B_BRDM2_CDF",201,{}] call SpawnableVehicle_create,
-		["CUP_O_Datsun_PK_Random",100,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR60_TK",250,{}] call SpawnableVehicle_create,
-		["CUP_B_Mi24_D_CDF",280,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP1_TKA",250,{}] call SpawnableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",170,{}] call SpawnableVehicle_create,
-		["CUP_I_T34_NAPA",210,{}] call SpawnableVehicle_create,
-		["CUP_O_Ka50_SLA",240,{}] call SpawnableVehicle_create,
-		["CUP_B_ZSU23_CDF",300,{}] call SpawnableVehicle_create,
-		["CUP_O_Ural_ZU23_RU",170,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_AGS30_CDF",160,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_MG_CDF",110,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_ZU_TKA",270,{}] call SpawnableVehicle_create,
-		["CUP_B_T72_CDF",380,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_TKA",360,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR90_RU",280,{}] call SpawnableVehicle_create,
-		["CUP_B_BRDM2_CDF",201,{}] call SpawnableVehicle_create,
-		["CUP_O_Datsun_PK_Random",100,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR60_TK",250,{}] call SpawnableVehicle_create
-	],
-	[
-		["CUP_B_HMMWV_Avenger_USMC",400,{}] call SpawnableVehicle_create,
-		["CUP_B_HMMWV_M1114_USMC",350,{}] call SpawnableVehicle_create,
-		["CUP_B_HMMWV_TOW_USMC",120,{}] call SpawnableVehicle_create,
-		["CUP_B_UH1Y_GUNSHIP_USMC",350,{}] call SpawnableVehicle_create,
-		["CUP_B_MH60S_USMC",299,{}] call SpawnableVehicle_create,
-		["CUP_B_AH1Z",400,{}] call SpawnableVehicle_create,
-		["CUP_B_CH47F_USA",350,{}] call SpawnableVehicle_create,
-		["CUP_B_Dingo_CZ_Wdl",300,{}] call SpawnableVehicle_create,
-		["CUP_B_Jackal2_L2A1_GB_D",170,{}] call SpawnableVehicle_create,
-		["CUP_B_HMMWV_SOV_USA",200,{}] call SpawnableVehicle_create,
-		["CUP_I_SUV_Armored_ION",200,{}] call SpawnableVehicle_create
-		
-	],
 
-	[
-		["CUP_B_Mi24_D_CDF",280,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP1_TKA",250,{}] call SpawnableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",170,{}] call SpawnableVehicle_create,
-		["CUP_I_T34_NAPA",210,{}] call SpawnableVehicle_create,
-		["CUP_O_Ka50_SLA",240,{}] call SpawnableVehicle_create,
-		["CUP_B_ZSU23_CDF",300,{}] call SpawnableVehicle_create,
-		["CUP_O_Ural_ZU23_RU",170,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_AGS30_CDF",160,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_MG_CDF",110,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_ZU_TKA",270,{}] call SpawnableVehicle_create,
-		["CUP_B_T72_CDF",380,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_TKA",360,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR90_RU",280,{}] call SpawnableVehicle_create,
-		["CUP_B_BRDM2_CDF",201,{}] call SpawnableVehicle_create,
-		["CUP_O_Datsun_PK_Random",100,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR60_TK",250,{}] call SpawnableVehicle_create
-	
-	]
-
-];
-}else{
 
 ai_vehicles = [
 	[
@@ -226,7 +153,7 @@ ai_vehicles = [
 		["I_MRAP_03_gmg_F",130,{}] call SpawnableVehicle_create
 	]
 ];
-};
+
 
 
 civilianBuyableUnits = [
@@ -245,8 +172,8 @@ civilianBuyableUnits = [
 
 if(smm_ace)then{
 ace_units = [
-		["ACE_Wheel",10,{}] call PurchasableVehicle_create,
-		["ACE_Track",50,{}] call PurchasableVehicle_create
+		["ACE_Wheel",10,{},"BASE"] call PurchasableVehicle_create,
+		["ACE_Track",50,{},"BASE"] call PurchasableVehicle_create
 ];
 civilianBuyableUnits append ace_units;
 };
