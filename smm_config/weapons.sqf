@@ -17,8 +17,16 @@ buy_packs = [
 
 rand_weapons = 		[
 										
-					"srifle_DMR_01_F","srifle_EBR_F","srifle_GM6_F","srifle_GM6_camo_F","srifle_LRR_F","srifle_LRR_camo_F","LMG_Mk200_F","LMG_Zafir_F",
-					"hgun_ACPC2_F","hgun_P07_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F","hgun_Rook40_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F",
+					"srifle_DMR_01_F",
+					"srifle_EBR_F",
+					"srifle_GM6_F",
+					"srifle_GM6_camo_F",
+					"srifle_LRR_F",
+					"srifle_LRR_camo_F",
+					"LMG_Mk200_F",
+					"LMG_Zafir_F",
+					"hgun_ACPC2_F",
+					"hgun_P07_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F","hgun_Rook40_F","arifle_Katiba_F","arifle_Katiba_C_F","arifle_Katiba_GL_F",
 					"arifle_Mk20_F","arifle_Mk20_plain_F","arifle_Mk20C_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F","arifle_MXC_F","arifle_MX_F",
 					"arifle_MX_GL_F","arifle_MX_SW_F","arifle_MXM_F","arifle_SDAR_F","arifle_TRG21_F","arifle_TRG20_F","arifle_TRG21_GL_F","hgun_PDW2000_F","SMG_01_F","SMG_02_F",
 					"hgun_Pistol_Signal_F","srifle_DMR_02_F","srifle_DMR_02_camo_F","srifle_DMR_02_sniper_F","srifle_DMR_03_F","srifle_DMR_03_khaki_F","srifle_DMR_03_tan_F",
