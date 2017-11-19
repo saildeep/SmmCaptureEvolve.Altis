@@ -317,60 +317,6 @@ if(playerSide == independent)then{
 
 buy_units append civilianBuyableUnits;
 
-
-if(smm_cup)then{
-	if(playerSide == west)then{
-	buy_units = [
-		["CUP_B_UH60M_US",1100,{}] call PurchasableVehicle_create,
-		["B_Heli_Light_01_F",800,{}] call PurchasableVehicle_create,
-		["CUP_B_MV22_USMC",1600,{}] call PurchasableVehicle_create,
-		["CUP_USMC_MQ9",2000,{}] call PurchasableVehicle_create,
-		["CUP_B_F35B_AA_USMC",1700,{}] call PurchasableVehicle_create,
-		["CUP_B_AV8B_CAP_USMC",1500,{}] call PurchasableVehicle_create,
-		["CUP_B_A10_CAS_USA",1600,{}] call PurchasableVehicle_create,
-		["CUP_B_MH60S_USMC",1000,{}] call PurchasableVehicle_create,
-		["CUP_B_CH47F_USA",1000,{}] call PurchasableVehicle_create,
-		["ACE_Wheel",15,{}] call PurchasableVehicle_create,
-		["ACE_Track",15,{}] call PurchasableVehicle_create,
-		["CUP_B_Dingo_CZ_Wdl",900,{}] call PurchasableVehicle_create,
-		["CUP_B_Jackal2_L2A1_GB_D",600,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_SOV_USA",600,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Transport_USA",100,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Unarmed_USMC",80,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Ambulance_USA",300,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Avenger_USMC",1000,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_M1114_USMC",350,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_TOW_USMC",600,{}] call PurchasableVehicle_create,		
-		["CUP_O_Ural_Refuel_RU",400,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Reammo_RU",400,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Repair_RU",400,{}] call PurchasableVehicle_create
-	];
-	};
-
-
-	if(playerSide == independent)then{
-	buy_units = [
-		["CUP_B_CH53E_USMC",800,{}] call PurchasableVehicle_create,
-		["CUP_B_Su25_CDF",1300,{}] call PurchasableVehicle_create,
-		["CUP_C_DC3_CIV",600,{}] call PurchasableVehicle_create,
-		["C_Heli_Light_01_civil_F",500,{}] call PurchasableVehicle_create,
-		["CUP_C_LR_Transport_CTK",60,{}] call PurchasableVehicle_create,
-		["CUP_B_LR_MG_CZ_W",250,{}] call PurchasableVehicle_create,
-		["CUP_I_SUV_Armored_ION",150,{}] call PurchasableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",250,{}] call PurchasableVehicle_create,
-		["CUP_C_Golf4_whiteblood_Civ",50,{}] call PurchasableVehicle_create,
-		["C_Hatchback_01_sport_F",80,{}] call PurchasableVehicle_create,
-		["CUP_B_LR_Ambulance_CZ_W",150,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Refuel_RU",200,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Reammo_RU",200,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Repair_RU",200,{}] call PurchasableVehicle_create,
-		["B_Quadbike_01_F",15,{}] call PurchasableVehicle_create,
-		["ACE_Wheel",5,{}] call PurchasableVehicle_create,
-		["ACE_Track",100,{}] call PurchasableVehicle_create
-
-	];
-	};
-};
 //when buying one of this vehicles, a respawn point for the players' side will be created and tracked
 respawnVehicles = ["B_Truck_01_medical_F","I_Truck_02_medical_F"];
 
