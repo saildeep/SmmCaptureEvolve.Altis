@@ -1,4 +1,4 @@
-items = [];
+allItems = [];
 
 smm_tfar = false;
 smm_ace = false;
@@ -23,7 +23,7 @@ if(isClass(configfile >> "CfgPatches" >>"task_force_radio" ))then{
 };
 
 if(!smm_rhs)then{
-	items append[
+	allItems append[
 		//weapons 
 		["CfgWeapons","srifle_DMR_01_F","MARKSMAN",900,false] call PurchasableItem_create,
 		["CfgWeapons","srifle_EBR_F","MARKSMAN",750,false] call PurchasableItem_create,
@@ -33,5 +33,8 @@ if(!smm_rhs)then{
 		["CfgWeapons","LMG_Zafir_F","LMG",860,false] call PurchasableItem_create,
 		["CfgWeapons","hgun_ACPC2_F","PDW",70,false] call PurchasableItem_create,
 		["CfgWeapons","hgun_P07_F","PDW",40,true] call PurchasableItem_create,
+		["CfgWeapons","hgun_Pistol_heavy_01_F","PDW",100,false] call PurchasableItem_create,
+		["CfgWeapons","hgun_Rook40_F","PDW",30,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_Katiba_F","RIFLEMAN",450,false] call PurchasableItem_create,
 	];
 };
