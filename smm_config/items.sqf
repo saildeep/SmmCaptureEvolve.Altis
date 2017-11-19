@@ -91,6 +91,103 @@ if(!smm_rhs)then{
 		//PDW
 		["CfgWeapons","hgun_PDW2000_F","PDW",210,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_01_F","PDW",199,false] call PurchasableItem_create,
-		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create
 	];
 };
+
+//magazines
+allItems append [
+	// AR
+	["CfgMagazines","30Rnd_556x45_Stanag","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Red","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Green","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","20Rnd_556x45_UW_mag","BASE",20,true] call PurchasableItem_create,
+	
+	
+	["CfgMagazines","30Rnd_65x39_caseless_mag","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_65x39_caseless_mag_Tracer","BASE",17,true] call PurchasableItem_create,
+	
+	["CfgMagazines","30Rnd_580x42_Mag_F","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_580x42_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
+
+	["CfgMagazines","30Rnd_545x39_Mag_F","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_545x39_Mag_Green_F"","BASE",17,true] call PurchasableItem_create,
+
+	//underbarrel cal.50
+	["CfgMagazines","10Rnd_50BW_Mag_F","BASE",40,true] call PurchasableItem_create,
+
+
+	//DMR
+	["CfgMagazines","20Rnd_762x51_Mag","BASE",20,true] call PurchasableItem_create,
+	["CfgMagazines","10Rnd_762x51_Mag","BASE",10,true] call PurchasableItem_create,
+
+	["CfgMagazines","10Rnd_762x54_Mag","BASE",10,true] call PurchasableItem_create,
+
+	["CfgMagazines","10Rnd_338_Mag","BASE",15,true] call PurchasableItem_create,
+
+	["CfgMagazines","10Rnd_127x54_Mag","BASE",20,true] call PurchasableItem_create,
+
+	["CfgMagazines","10Rnd_93x64_DMR_05_Mag","BASE",15,true] call PurchasableItem_create,
+
+	["CfgMagazines","20Rnd_650x39_Cased_Mag_F","BASE",30,true] call PurchasableItem_create,
+
+	["CfgMagazines","30Rnd_762x39_Mag_F","BASE",30,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_762x39_Mag_Green_F","BASE",35,true] call PurchasableItem_create,
+
+
+	//Sniper
+	["CfgMagazines","7Rnd_408_Mag","BASE",35,true] call PurchasableItem_create,
+	["CfgMagazines","5Rnd_127x108_Mag","BASE",25,true] call PurchasableItem_create,
+	["CfgMagazines","5Rnd_127x108_APDS_Mag","BASE",25,true] call PurchasableItem_create,
+
+	//LMG
+	["CfgMagazines","100Rnd_65x39_caseless_mag","BASE",50,true] call PurchasableItem_create,
+	["CfgMagazines","100Rnd_65x39_caseless_mag_Tracer","BASE",60,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_65x39_cased_Box","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_65x39_cased_Box_Tracer","BASE",120,true] call PurchasableItem_create,
+
+	["CfgMagazines","150Rnd_762x51_Box","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","150Rnd_762x51_Box_Tracer","BASE",120,true] call PurchasableItem_create,
+
+	["CfgMagazines","150Rnd_762x54_Box","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","150Rnd_762x54_Box_Tracer","BASE",120,true] call PurchasableItem_create,
+
+	["CfgMagazines","130Rnd_338_Mag","BASE",195,true] call PurchasableItem_create,
+
+	["CfgMagazines","150Rnd_93x64_Mag","BASE",225,true] call PurchasableItem_create,
+
+	["CfgMagazines","100Rnd_580x42_Mag_F","BASE",50,true] call PurchasableItem_create,
+	["CfgMagazines","100Rnd_580x42_Mag_Tracer_F","BASE",60,true] call PurchasableItem_create,
+
+	["CfgMagazines","150Rnd_556x45_Drum_Mag_F","BASE",75,true] call PurchasableItem_create,
+	["CfgMagazines","150Rnd_556x45_Drum_Mag_Tracer_F","BASE",85,true] call PurchasableItem_create,
+
+	["CfgMagazines","200Rnd_556x45_Box_F","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_Tracer_F","BASE",120,true] call PurchasableItem_create,
+
+	//Pistol/PDW
+	["CfgMagazines","30Rnd_9x21_Mag","BASE",8,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_9x21_Red_Mag","BASE",10,true] call PurchasableItem_create,
+	["CfgMagazines","16Rnd_9x21_Mag","BASE",4,true] call PurchasableItem_create,
+	["CfgMagazines","16Rnd_9x21_red_Mag","BASE",5,true] call PurchasableItem_create,
+	["CfgMagazines","10Rnd_9x21_Mag","BASE",3,true] call PurchasableItem_create,
+
+	["CfgMagazines","30Rnd_9x21_Mag_SMG_02","BASE",8,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_9x21_Mag_SMG_02_Tracer_Red","BASE",10,true] call PurchasableItem_create,
+
+	
+	["CfgMagazines","30Rnd_45ACP_Mag_SMG_01","BASE",8,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_45ACP_Mag_SMG_01_Tracer_Red","BASE",10,true] call PurchasableItem_create,
+	
+	["CfgMagazines","9Rnd_45ACP_Mag","BASE",3,true] call PurchasableItem_create,
+	["CfgMagazines","11Rnd_45ACP_Mag","BASE",4,true] call PurchasableItem_create,
+
+	["CfgMagazines","6Rnd_45ACP_Cylinder","BASE",2,true] call PurchasableItem_create,
+
+
+	//Rockets
+	["CfgMagazines","Titan_AA","BASE",200,true] call PurchasableItem_create,
+	["CfgMagazines","Titan_AP","BASE",200,true] call PurchasableItem_create,
+	["CfgMagazines","Titan_AT","BASE",200,true] call PurchasableItem_create,
+	
+];
