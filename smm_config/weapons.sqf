@@ -194,10 +194,7 @@ rand_launcher = [
 rand_javelinLauncher =	[
 							"launch_B_Titan_short_F","launch_I_Titan_short_F","launch_O_Titan_short_F","launch_Titan_short_F","launch_B_Titan_short_tna_F","launch_O_Titan_short_ghex_F"
 						];
-// load niarms stuff
-if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{
-	call compile preprocessFileLineNumbers "smm_config\weapons_niarsenal.sqf";
-};
+
 
 // load rhs stuff
 rand_rhsLauncher 		=[];
