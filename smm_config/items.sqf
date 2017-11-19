@@ -23,8 +23,9 @@ if(isClass(configfile >> "CfgPatches" >>"task_force_radio" ))then{
 };
 
 if(!smm_rhs)then{
-	allItems append[
 		//weapons 
+	allItems append[
+	
 		//DMR
 		["CfgWeapons","srifle_DMR_01_F","MARKSMAN",800,false] call PurchasableItem_create,
 		["CfgWeapons","srifle_EBR_F","MARKSMAN",750,false] call PurchasableItem_create,
