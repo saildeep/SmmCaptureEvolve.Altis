@@ -243,12 +243,11 @@ civilianBuyableUnits = [
 	["C_Plane_Civil_01_racing_F",450,{}] call PurchasableVehicle_create
 ];
 
+if(smm_ace)then{
 ace_units = [
 		["ACE_Wheel",10,{}] call PurchasableVehicle_create,
 		["ACE_Track",50,{}] call PurchasableVehicle_create
 ];
-
-if(smm_ace)then{
 civilianBuyableUnits append ace_units;
 };
 
