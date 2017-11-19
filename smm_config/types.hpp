@@ -51,6 +51,10 @@ class SpawnableVehicle:OOType{
     class PostSpawnFunction: OOVar{
         typeName = "CODE";
     };
+    class Perk:OOVar{
+        typeName="STRING";
+        typeCheck = "_this in (call smm_fnc_allowedPerks)";
+    };
 
 };
 
