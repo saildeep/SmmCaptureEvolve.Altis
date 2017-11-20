@@ -24,8 +24,9 @@ if(isServer)then{
             private _owner = _x select 3;
             private _connections = _x select 4;
             private _name = _x select 5;
+            private _items = _x select 6;
             diag_log(_prefix + " processing " + (str _x) );
-            private _zone = [_index,_position,_hash,_size,_owner,_connections,_name] call Zone_create;
+            private _zone = [_index,_position,_hash,_size,_owner,_connections,_name,_items] call Zone_create;
             _zones pushBack _zone;
         }forEach _generated;
 
