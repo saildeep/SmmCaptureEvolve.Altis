@@ -37,7 +37,7 @@ call parameterConfig;
 call loadConfig;
 
 call unitConfig;
-call weaponConfig;
+call itemConfig;
 
 call gcFunctions;
 
