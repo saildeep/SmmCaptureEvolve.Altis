@@ -10,6 +10,10 @@ class PurchasableVehicle:OOType{
     class PostSpawnFunction: OOVar{
         typeName = "CODE";
     };
+    class Perk:OOVar{
+        typeName="STRING";
+        typeCheck = "_this in (call smm_fnc_allowedPerks)";
+    };
 	class GetIcon: OOFunction{
 		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'picture')";
 		//code = "([_this select 0] call PurchasableVehicle_get_ClassName) ";
@@ -50,10 +54,6 @@ class SpawnableVehicle:OOType{
     };
     class PostSpawnFunction: OOVar{
         typeName = "CODE";
-    };
-    class Perk:OOVar{
-        typeName="STRING";
-        typeCheck = "_this in (call smm_fnc_allowedPerks)";
     };
 
 };
