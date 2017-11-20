@@ -157,23 +157,23 @@ ai_vehicles = [
 
 
 civilianBuyableUnits = [
-	["B_Boat_Transport_01_F",65,{}] call PurchasableVehicle_create,
-	["B_Quadbike_01_F",50,{}] call PurchasableVehicle_create,
-	["C_Boat_Civil_01_F",100,{}] call PurchasableVehicle_create,
-	["C_Offroad_01_F",140,{}] call PurchasableVehicle_create,
-	["C_Hatchback_01_sport_F",200,{}] call PurchasableVehicle_create,
-	["C_SUV_01_F",170,{}] call PurchasableVehicle_create,
-	["C_Van_01_transport_F",200,{}] call PurchasableVehicle_create,
-	["C_Van_01_fuel_F",130,{}] call PurchasableVehicle_create,
-	["C_Kart_01_F",90,{}] call PurchasableVehicle_create,
-	["C_Heli_Light_01_civil_F",600,{}] call PurchasableVehicle_create,
-	["C_Plane_Civil_01_racing_F",450,{}] call PurchasableVehicle_create
+	["B_Boat_Transport_01_F",2000,{},"BASE"] call PurchasableVehicle_create,
+	["B_Quadbike_01_F",1800,{},"BASE"] call PurchasableVehicle_create,
+	["C_Boat_Civil_01_F",2500,{},"BASE"] call PurchasableVehicle_create,
+	["C_Offroad_01_F",4000,{},"BASE"] call PurchasableVehicle_create,
+	["C_Hatchback_01_sport_F",6000,{},"BASE"] call PurchasableVehicle_create,
+	["C_SUV_01_F",5500,{},"BASE"] call PurchasableVehicle_create,
+	["C_Van_01_transport_F",7000,{},"BASE"] call PurchasableVehicle_create,
+	["C_Van_01_fuel_F",12000,{},"BASE"] call PurchasableVehicle_create,
+	["C_Kart_01_F",1790,{},"BASE"] call PurchasableVehicle_create,
+	["C_Heli_Light_01_civil_F",25000,{},"CREWMAN"] call PurchasableVehicle_create,
+	["C_Plane_Civil_01_racing_F",15000,{},"BASE"] call PurchasableVehicle_create
 ];
 
 if(smm_ace)then{
 ace_units = [
-		["ACE_Wheel",10,{},"BASE"] call PurchasableVehicle_create,
-		["ACE_Track",50,{},"BASE"] call PurchasableVehicle_create
+		["ACE_Wheel",300,{},"BASE"] call PurchasableVehicle_create,
+		["ACE_Track",5000,{},"BASE"] call PurchasableVehicle_create
 ];
 civilianBuyableUnits append ace_units;
 };
@@ -184,35 +184,35 @@ civilianBuyableUnits append ace_units;
 buy_units = [];
 if(playerSide == west)then{
 	buy_units = [
-		["B_UGV_01_F",200,{}] call PurchasableVehicle_create,
-		["B_UGV_01_rcws_F",620,{}] call PurchasableVehicle_create,
-		["B_Truck_01_transport_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_mover_F",300,{}] call PurchasableVehicle_create,
-		["B_Truck_01_Repair_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_ammo_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_fuel_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_medical_F",500,{}] call PurchasableVehicle_create,
-		["B_G_Offroad_01_armed_F",300,{}] call PurchasableVehicle_create,
-		["B_MRAP_01_gmg_F",800,{}] call PurchasableVehicle_create,
-		["B_MRAP_01_hmg_F",850,{}] call PurchasableVehicle_create,
-		["B_Boat_Armed_01_minigun_F",620,{}] call PurchasableVehicle_create,
-		["B_MBT_01_mlrs_F",12100,{}] call PurchasableVehicle_create,
-		["B_MBT_01_arty_F",8900,{}] call PurchasableVehicle_create,
-		["B_MBT_01_cannon_F",5100,{}] call PurchasableVehicle_create,
-		["B_APC_Tracked_01_AA_F",2400,{}] call PurchasableVehicle_create,
-		["B_APC_Tracked_01_CRV_F",2000,{}] call PurchasableVehicle_create,
-		["B_T_APC_Wheeled_01_cannon_F",1930,{}] call PurchasableVehicle_create,
-		["B_Heli_Transport_03_black_F",1800,{}] call PurchasableVehicle_create,
-		["B_Plane_Fighter_01_F",2500,{}] call PurchasableVehicle_create,
-		["B_Plane_CAS_01_F",2300,{}] call PurchasableVehicle_create,
-		["B_Heli_Transport_01_camo_F",1450,{}] call PurchasableVehicle_create,
-		["B_Heli_Attack_01_F",2500,{}] call PurchasableVehicle_create,
-		["B_Heli_Light_01_stripped_F",1050,{}] call PurchasableVehicle_create,
-		["B_Heli_Light_01_armed_F",1750,{}] call PurchasableVehicle_create,
-		["B_T_LSV_01_armed_F",550,{}] call PurchasableVehicle_create,
-		["B_LSV_01_unarmed_F",370,{}] call PurchasableVehicle_create,
-		["B_T_VTOL_01_armed_F",3200,{}] call PurchasableVehicle_create,
-		["B_T_VTOL_01_infantry_F",1900,{}] call PurchasableVehicle_create
+		["B_UGV_01_F",30000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["B_UGV_01_rcws_F",50000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["B_Truck_01_transport_F",15000,{},"BASE"] call PurchasableVehicle_create,
+		["B_Truck_01_mover_F",13000,{},"BASE"] call PurchasableVehicle_create,
+		["B_Truck_01_Repair_F",22000,{},"BASE"] call PurchasableVehicle_create,
+		["B_Truck_01_ammo_F",25000,{},"BASE"] call PurchasableVehicle_create,
+		["B_Truck_01_fuel_F",24000,{},"BASE"] call PurchasableVehicle_create,
+		["B_Truck_01_medical_F",21000,{},"BASE"] call PurchasableVehicle_create,
+		["B_G_Offroad_01_armed_F",30000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_MRAP_01_gmg_F",35000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_MRAP_01_hmg_F",40000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Boat_Armed_01_minigun_F",32000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_MBT_01_mlrs_F",160000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_MBT_01_arty_F",300000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_MBT_01_cannon_F",89000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_APC_Tracked_01_AA_F",60000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_APC_Tracked_01_CRV_F",59000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_T_APC_Wheeled_01_cannon_F",51000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Heli_Transport_03_black_F",35000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Plane_Fighter_01_F",150000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Plane_CAS_01_F",220000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Heli_Transport_01_camo_F",35000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Heli_Attack_01_F",240000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Heli_Light_01_stripped_F",30000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Heli_Light_01_armed_F",45000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_T_LSV_01_armed_F",16000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_LSV_01_unarmed_F",7000,{},"BASE"] call PurchasableVehicle_create,
+		["B_T_VTOL_01_armed_F",90000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_T_VTOL_01_infantry_F",60000,{},"CREWMAN"] call PurchasableVehicle_create
 	];
 };
 if(playerSide == independent)then{
