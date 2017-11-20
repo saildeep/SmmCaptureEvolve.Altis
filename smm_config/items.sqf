@@ -111,7 +111,7 @@ allItems append [
 	["CfgMagazines","30Rnd_580x42_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
 
 	["CfgMagazines","30Rnd_545x39_Mag_F","BASE",15,true] call PurchasableItem_create,
-	["CfgMagazines","30Rnd_545x39_Mag_Green_F"","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_545x39_Mag_Green_F","BASE",17,true] call PurchasableItem_create,
 
 	//underbarrel cal.50
 	["CfgMagazines","10Rnd_50BW_Mag_F","BASE",40,true] call PurchasableItem_create,
@@ -202,7 +202,7 @@ allItems append [
 	["CfgMagazines","UGL_FlareWhite_F","UGL",2,true] call PurchasableItem_create,
 
 
-	["CfgMagazines""3Rnd_HE_Grenade_shell","UGL",15,true] call PurchasableItem_create,
+	["CfgMagazines","3Rnd_HE_Grenade_shell","UGL",15,true] call PurchasableItem_create,
 	["CfgMagazines","3Rnd_Smoke_Grenade_shell","UGL",6,true] call PurchasableItem_create,
 	["CfgMagazines","3Rnd_UGL_FlareWhite_F","UGL",6,true] call PurchasableItem_create,
 
