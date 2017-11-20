@@ -228,3 +228,5 @@ allItems append [
 	["CfgMagazines","SmokeShell","RIFLEMAN",6,true] call PurchasableItem_create
 
 ];
+
+// very basic equipment
