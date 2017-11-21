@@ -140,7 +140,7 @@ class RscButton
     
     type = CT_BUTTON;
     text = "";
-    colorText[] = {1,1,1,.9};
+    colorText[] = {1,1,1,.9}; // 0.9 ?
     colorDisabled[] = {0.4,0.4,0.4,0};
     colorBackground[] = {0.75,0.75,0.75,0.8};
     colorBackgroundDisabled[] = {0,0.0,0};
