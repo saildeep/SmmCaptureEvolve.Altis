@@ -64,14 +64,14 @@ allItems append[
 
 ["CfgWeapons","rhs_weap_sr25","MARKSMAN",500,false] call PurchasableItem_create,
 
-["CfgWeapons","rhs_wearhs_weap_M107p_sr25","MARKSMAN",500,false] call PurchasableItem_create,
+["CfgWeapons","rhs_weap_M107","MARKSMAN",500,false] call PurchasableItem_create,
 
 ["CfgWeapons","rhs_weap_m32","UGL",500,false] call PurchasableItem_create,
 
 ["CfgWeapons","rhsusf_weap_MP7A2","PDW",500,false] call PurchasableItem_create,
 
-["CfgWeapons","rhs_weap_m4a1_blockll_bk","RIFLEMAN",500,false] call PurchasableItem_create,
-["CfgWeapons","rhs_weap_m4a1_blockll_M203_bk","UGL",500,false] call PurchasableItem_create,
+["CfgWeapons","rhs_weap_m4a1_blockII_bk","RIFLEMAN",500,false] call PurchasableItem_create,
+["CfgWeapons","rhs_weap_m4a1_blockII_M203_bk","UGL",500,false] call PurchasableItem_create,
 
 ["CfgWeapons","rhsusf_weap_m1911a1","PDW",200,false] call PurchasableItem_create,
 ["CfgWeapons","rhsusf_weap_glock17g4","PDW",200,false] call PurchasableItem_create,
