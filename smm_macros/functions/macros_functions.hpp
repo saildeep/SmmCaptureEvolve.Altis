@@ -20,3 +20,4 @@ class macrosAceItems{};
 class macrosBackpacks{};
 class macrosFromConfigSide{};
 class macrosGraphAnalysis{};
+class macrosGetWeaponInfo{};
