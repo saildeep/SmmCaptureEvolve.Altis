@@ -223,7 +223,7 @@ if(playerSide == west)then{
 		["rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd",10000,{},"BASE"] call PurchasableVehicle_create,
 		["rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd",15000,{},"BASE"] call PurchasableVehicle_create,
 		["rhsusf_M978A4_usarmy_wd",16000,{},"BASE"] call PurchasableVehicle_create,
-		["rhsusf_mrzr4_d",{},"BASE",2500] call PurchasableVehicle_create,
+		["rhsusf_mrzr4_d",2500,{},"BASE"] call PurchasableVehicle_create,
 		["rhsusf_m113_usarmy_supply",45000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["rhsusf_m113_usarmy_medical",45000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["rhsusf_m113_usarmy_MK19",50000,{},"CREWMAN"] call PurchasableVehicle_create,
