@@ -31,7 +31,7 @@ if(hasInterface)then{
 				};
 				_hasItems = true;
 
-				private _picture = [_item,"_picture"] call PurchasableItem_fnc_ConfigText;
+				private _picture = [_item,"picture"] call PurchasableItem_fnc_ConfigText;
 				private _displayName = [_item,"displayName"] call PurchasableItem_fnc_ConfigText;
 
 				_d = _d + format[str_task_description_item,_picture,_displayName];
