@@ -83,4 +83,8 @@ class PurchasableItem:OOType{
     class Default:OOVar{
         typeName="BOOL";
     };
+
+    class ConfigText:OOFunction{
+        file = "smm_config\PurchasableItem\ConfigText.sqf";
+    };
 };
