@@ -87,4 +87,8 @@ class PurchasableItem:OOType{
     class ConfigText:OOFunction{
         file = "smm_config\PurchasableItem\ConfigText.sqf";
     };
+
+    class ArsenalType:OOFunction{
+        file = "smm_config\PurchasableItem\ArsenalType.sqf";
+    };
 };
