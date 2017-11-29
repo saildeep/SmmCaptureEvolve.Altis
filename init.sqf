@@ -30,7 +30,6 @@ call compile preprocessFileLineNumbers "smm_spawner\compile.sqf";
 call compile preprocessFileLineNumbers "smm_save\compile.sqf";
 call compile preprocessFileLineNumbers "smm_money\compile.sqf";
 call compile preprocessFileLineNumbers "smm_medic\compile.sqf";
-call compile preprocessFileLineNumbers "smm_gear\compile.sqf";
 call compile preprocessFileLineNumbers "smm_shop\compile.sqf";
 
 call parameterConfig;

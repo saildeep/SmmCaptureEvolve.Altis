@@ -1,1 +1,2 @@
 class openArsenal{};
+class purchasableGear{};
