@@ -3,16 +3,7 @@
                // Ability to send jip messages: 0-disabled, 1-enabled (default)
                jip = 1;
                /*your functions here*/
-               class smm_gear_research_server
-               {
-                      allowedTargets=2; // can target server (default)
-                      jip = 0; // sending jip messages is disabled for this function (overrides settings in the Functions class)
-               };
-			   class smm_gear_research_notify
-               {
-                      allowedTargets=0; // can target all (default)
-                      jip = 0; 
-               };
+              
 			
 			   class smm_save_do_server
                {
@@ -52,11 +43,7 @@
 					allowedTargets = 2;
 					jip = 0;
 			   };
-			   class smm_fnc_addServer
-			   {
-				  allowedTargets = 2;
-				  jip = 0; 
-			   };
+			 
 			   class smm_fnc_getNeighbour
 			   {
 				    allowedTargets = 2;

@@ -1,12 +1,1 @@
-class addServer{};
-class getConfigCategory{};
-class getDisplayName{};
 class openArsenal{};
-class addItem{};
-class getArsenalIndex{};
-class getStartGear{};
-class getGearServer{};
-class setGearServer{};
-class getGearString{};
-class updateGear{};
-class getGear{};
