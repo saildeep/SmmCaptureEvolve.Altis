@@ -46,7 +46,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR",		"RADIO_LARGE_BLUFOR","RADIO_SMALL_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR",			"RADIO_LARGE_OPFOR","RADIO_SMALL_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT",	"RADIO_LARGE_INDEPENDENT","RADIO_SMALL_INDEPENDENT"] };
+												case independent	:{["UNIFORM_INDEPENDENT",	"RADIO_LARGE_INDEPENDENT","RADIO_SMALL_INDEPENDENT"] };
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -56,7 +56,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -66,7 +66,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -76,7 +76,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -86,17 +86,17 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	case "MACHIENE_GUNNER"				: { private _classEquipment = ["BASE","LMG","BACKPACK"];
+	case "MACHINE_GUNNER"				: { private _classEquipment = ["BASE","LMG","BACKPACK"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -106,7 +106,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -116,7 +116,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -126,7 +126,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -136,7 +136,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR",		"UAV_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR",			"UAV_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT",	"UAV_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT",	"UAV_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -146,7 +146,7 @@ _perkClass = switch(_class) do{
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
-												case GUER	:{["UNIFORM_INDEPENDENT"]};
+												case independent	:{["UNIFORM_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
