@@ -23,9 +23,7 @@ allItems append [
 	//mine detectors and mines
 	["CfgWeapons","ACE_VMM3","MINES",319,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_VMH3","MINES",319,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_M84","MINES",80,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_M14","MINES",50,false] call PurchasableItem_create,
-
+	
 
 	//useless flares and chemlights
 	["CfgMagazines","ACE_HandFlare_White","BASE",10,false] call PurchasableItem_create,
@@ -34,6 +32,9 @@ allItems append [
 	["CfgMagazines","ACE_HandFlare_Yellow","BASE",10,false] call PurchasableItem_create,
 	["CfgMagazines","ACE_Chemlight_IR","BASE",10,false] call PurchasableItem_create,
 	["CfgMagazines","ACE_Chemlight_HiYellow","BASE",10,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_M84","BASE",20,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_M14","BASE",8,false] call PurchasableItem_create,
+
 
 	//barrel
 	["CfgMagazines","ACE_SpareBarrel","LMG",50,false] call PurchasableItem_create,
@@ -85,6 +86,8 @@ allItems append [
 	["CfgWeapons","ACE_Altimeter","BASE",20,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Sandbag_empty","BASE",3,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_EntrenchingTool","BASE",200,false] call PurchasableItem_create,
+	["CfgVehicles","ACE_NonSteerableParachute","BASE",200,false] call PurchasableItem_create,
+	["CfgVehicles","ACE_TacticalLadder_Pack","RIFLEMAN",200,false] call PurchasableItem_create,
 
 	//TODO ace explosives and flashlights
 	
@@ -94,7 +97,10 @@ allItems append [
 	["CfgWeapons","ACE_Tripod","SPOTTER_EQUIPMENT",20,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Kestrel4500","SPOTTER_EQUIPMENT",150,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_ATragMX","SPOTTER_EQUIPMENT",200,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_RangeCard","SPOTTER_EQUIPMENT",20,false] call PurchasableItem_create
+	["CfgWeapons","ACE_RangeCard","SPOTTER_EQUIPMENT",20,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_MX2A","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_Vector","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_Yardage450","SPOTTER_EQUIPMENT",270,false] call PurchasableItem_create
 
 
 ];	
