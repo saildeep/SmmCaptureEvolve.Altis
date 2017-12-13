@@ -1,19 +1,24 @@
-_zone = [call ZonesManager_GetInstance, _this select 3] call ZonesManager_fnc_GetZone;
-diag_log ("Opening zone arsenal with " + (str _zone));
-disableSerialization;
+
+#define DISPLAY (uinamespace getVariable "RscDisplayArsenal")
+#define CTRL (_this select 0)
+
+
+assert canSuspend;
+
+private _zone = [call ZonesManager_GetInstance, _this select 3] call ZonesManager_fnc_GetZone;
+diag_log ("ArsenalShop: opening zone arsenal with " + (str _zone));
 
 if(([_zone] call Zone_get_Owner) == playerSide)then{
 	
 	// get the sorted inventory of the player when he opened arsenal
-	_invOnOpen = [player, true] call smm_fnc_listInventory;
+	private _invOnOpen = [player, true] call smm_fnc_listInventory;
 	player setVariable ["invOnOpen", _invOnOpen];
 
 	// calculate the cost of that inventory
-	_invCostOnOpen = [[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost;
+	private _invCostOnOpen = [[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost;
 	player setVariable ["invCostOnOpen", _invCostOnOpen];
 	diag_log format ["ArsenalShop: inv cost on open is %1", _invCostOnOpen];
 
-	/*
 	//reset arsenal stuff
 	missionNamespace setVariable ["bis_addVirtualWeaponCargo_cargo",[ [], [], [], [] ]];
 	private _items = call smm_fnc_purchasableGear;
@@ -22,28 +27,23 @@ if(([_zone] call Zone_get_Owner) == playerSide)then{
 		private _classname = [_x] call PurchasableItem_get_ClassName; 
 		[missionNamespace,_classname,false,false,1,_type]call BIS_fnc_addVirtualItemCargo;
 	}forEach _items;
-	*/
-	["Open", true] spawn BIS_fnc_arsenal;
-
-	waitUntil {!isNil {uinamespace getVariable "RscDisplayArsenal"}};
-	_display = uinamespace getVariable "RscDisplayArsenal";
-	_display displayAddEventHandler["unload", {[] spawn smm_fnc_onCloseArsenal}];
+	[] spawn BIS_fnc_arsenal;
+	
+	waitUntil {!(displayNull isEqualTo (uinamespace getVariable ["RscDisplayArsenal",displayNull]))};
+	DISPLAY displayAddEventHandler["unload", {[] spawn smm_fnc_onCloseArsenal}];
 
 	_addPricetagsToListBox = {
-		disableSerialization;
-		_ctrl = _this select 0;
-		waitUntil{(lbSize _ctrl) > 0};
-		
-		for "_i" from 0 to ((lbSize _ctrl) - 1) do {
+		waitUntil{(lbSize CTRL) > 0};
+		for "_i" from 0 to ((lbSize CTRL) - 1) do {
 			// skip "EMPTY" listbox entry
 			if (_i != 0) then {
 				// retrieve price
-				_price = floor random [0,500,100000];
+				private _price = [CTRL lbData _i] call smm_fnc_getItemCost;
 				
 				// add pricetag
-				_ctrl lbSetTextRight [_i, "        " + str(_price) + " $"];
-				if (_ctrl lbPictureRight _i == "") then {
-					_ctrl lbsetPictureRight [_i , "A3\ui_f\data\map\markers\system\empty_ca.paa"];
+				CTRL lbSetTextRight [_i, format ["    %1 $", _price]];
+				if (CTRL lbPictureRight _i == "") then {
+					CTRL lbsetPictureRight [_i , "A3\ui_f\data\map\markers\system\empty_ca.paa"];
 				};
 			};
 		};
@@ -53,15 +53,14 @@ if(([_zone] call Zone_get_Owner) == playerSide)then{
 
 	//lb idc 960 to 974  left side without face, voice, etc
 	for "_i" from 960 to 974 do {
-		_x = _display displayCtrl _i;
-		[_x] spawn _addPricetagsToListBox;
+		[(DISPLAY displayCtrl _i)] spawn _addPricetagsToListBox;
 	};
 
 	//lb idc 960 to 986  all listboxes 
 	for "_i" from 960 to 986 do {
-		_x = _display displayCtrl _i;
 		// set cost label text to the cost of the current inv
-		_x ctrlAddEventHandler ["lbselchanged", "[] spawn {
+		// sleep is necessary because execution order of the EventHandler is wrong
+		(DISPLAY displayCtrl _i) ctrlAddEventHandler ["lbselchanged", "[] spawn {
 			sleep 0.2; 
 			[[[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost] call smm_fnc_updateCostLabel;
 		}"];

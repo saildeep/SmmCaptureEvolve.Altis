@@ -1,20 +1,16 @@
 
-disableSerialization;
-
 // calc new loadout cost
-_cost = [[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost;
+private _cost = [[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost;
+private _funds = [] call smm_fnc_getBalance;
 
-_funds = 0; //TODO retrieve player balance
-
-
-_invCostOnOpen = player getVariable "invCostOnOpen";
-diag_log format ["ArsenalShop: invCostOnClose %1", _cost];
+private _invCostOnOpen = player getVariable "invCostOnOpen";
+//diag_log format ["ArsenalShop: invCostOnClose %1", _cost];
 
 // player "sells" his inv when opening arsenal
 if (_cost <= (_funds + _invCostOnOpen)) then {
-	_balance = _funds + _invCostOnOpen - _cost;
-	diag_log format ["ArsenalShop: new balance %1", _balance];
-	//TODO apply new balance
+	//diag_log format ["ArsenalShop: new balance %1",(_funds + _invCostOnOpen - _cost)];
+	[_invCostOnOpen, getPlayerUID player] call smm_fnc_addMoney;
+	[(0 - _cost), getPlayerUID player] call smm_fnc_addMoney;
 } else {
 	// not enough funds to buy current inv
 	// revert inv to inv when player opened arsenal

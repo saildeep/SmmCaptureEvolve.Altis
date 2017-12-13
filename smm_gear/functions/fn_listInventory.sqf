@@ -1,17 +1,17 @@
 	
-_unit = _this select 0;
-_sorted = _this select 1;
+private _unit = _this select 0;
+private _sorted = _this select 1;
 
 
-_uniform = uniform _unit;
-_uniformCargo = uniformItems _unit;
-_vest = vest _unit;
-_vestCargo = vestItems _unit;
-_backpack = backpack _unit;
-_backpackCargo = backpackItems _unit;
-_headgear = headgear _unit;
-_goggles = goggles _unit;
-_assignedItems = assignedItems _unit;
+private _uniform = uniform _unit;
+private _uniformCargo = uniformItems _unit;
+private _vest = vest _unit;
+private _vestCargo = vestItems _unit;
+private _backpack = backpack _unit;
+private _backpackCargo = backpackItems _unit;
+private _headgear = headgear _unit;
+private _goggles = goggles _unit;
+private _assignedItems = assignedItems _unit;
 
 _formatWeaponsItems = {
 	_w = _this select 0;
@@ -39,9 +39,9 @@ _formatWeaponsItems = {
 	_formated
 };
 
-_weaponsItems = [weaponsItems _unit] call _formatWeaponsItems;
+private _weaponsItems = [weaponsItems _unit] call _formatWeaponsItems;
 
-_inv = [];
+private _inv = [];
 if (_sorted) then {
 	_inv = [_uniform,
 			_uniformCargo,

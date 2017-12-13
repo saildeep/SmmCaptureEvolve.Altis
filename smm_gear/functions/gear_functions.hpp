@@ -5,3 +5,4 @@ class setInventory {};
 class onCloseArsenal {};
 class updateCostLabel {};
 class calcLoadoutCost {};
+class getItemCost {};

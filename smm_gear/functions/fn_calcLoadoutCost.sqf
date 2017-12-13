@@ -1,10 +1,10 @@
 
-_inv = _this select 0;
+private _inv = _this select 0;
 
-_cost = 0;
+private _cost = 0;
 {
 	if (!(_x isEqualTo "")) then {
-		_cost = _cost + 1; //TODO get item cost
+		_cost = _cost + ([_x] call smm_fnc_getItemCost);
 	}
 } forEach _inv;
 

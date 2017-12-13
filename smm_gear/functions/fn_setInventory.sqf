@@ -1,17 +1,17 @@
 
-_unit = _this select 0;
-_inv = _this select 1;
+private _unit = _this select 0;
+private _inv = _this select 1;
 
-_uniform = _inv select 0;
-_uniformCargo = _inv select 1;
-_vest = _inv select 2;
-_vestCargo = _inv select 3;
-_backpack = _inv select 4;
-_backpackCargo = _inv select 5;
-_headgear = _inv select 6;
-_goggles = _inv select 7;
-_assignedItems = _inv select 8;
-_weaponsItems = _inv select 9;
+private _uniform = _inv select 0;
+private _uniformCargo = _inv select 1;
+private _vest = _inv select 2;
+private _vestCargo = _inv select 3;
+private _backpack = _inv select 4;
+private _backpackCargo = _inv select 5;
+private _headgear = _inv select 6;
+private _goggles = _inv select 7;
+private _assignedItems = _inv select 8;
+private _weaponsItems = _inv select 9;
 
 removeAllWeapons _unit;
 removeAllItems _unit;
