@@ -49,7 +49,7 @@ smm_shop_open = {
 				lbAdd [smm_shop_vehicle_handle ,_displayText];
 				lbSetData [smm_shop_vehicle_handle,_forEachIndex,_classname];
 				lbSetValue [smm_shop_vehicle_handle,_forEachIndex,_price]; //set price as value
-				if(!(_icon in ["pictureThing"] )then{
+				if(!(_icon in ["pictureThing"]) )then{
 					lbSetPicture [smm_shop_vehicle_handle,_forEachIndex,_icon];
 				};
 				lbSetPictureColor [smm_shop_vehicle_handle,_forEachIndex, [1,1,1,1]];
