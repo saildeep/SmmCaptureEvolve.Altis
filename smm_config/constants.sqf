@@ -16,7 +16,7 @@ smm_curator_cameraCeiling = 50;
 
 smm_spawner_default_owner      = east;
 smm_spawner_all_factions       = [west,east,independent,civilian];
-smm_spawner_player_factions    = [west,independent];
+smm_spawner_player_factions    = [west,independent,east];
 smm_spawner_units_per_group    = 6;
 smm_spawner_vehicles_per_group = 2;
 smm_spawner_interaction_object = "Land_TentDome_F";
