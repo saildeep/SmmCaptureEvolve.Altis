@@ -6,6 +6,7 @@
 diag_log "Distributing items now";
 private _perks = [];
 private _ids = [];
+private _distributeNumTimes = 2;
 {
 	if(! ([_x] call PurchasableItem_get_Default) )then{
 		private _perk = [_x] call PurchasableItem_get_Perk;
@@ -30,17 +31,18 @@ diag_log _ids;
 
 //distribute uniformly to targetArray
 private _targetArray = _this apply {[]};
-{
-	private _idList = _x;
+ for [{private _i=0}, {_i < _distributeNumTimes}, {_i = _i + 1}]do {
 	{
-		private _targetZoneIndex = floor ( random (count _this) );
-		(_targetArray select _targetZoneIndex) pushBack _x;
-	}forEach _idList;
+		private _idList = _x;
+		{
+			private _targetZoneIndex = floor ( random (count _this) );
+			(_targetArray select _targetZoneIndex) pushBackUnique _x;
+		}forEach _idList;
 
 
-	
-}forEach _ids;//distribute for each perk seperately
-
+		
+	}forEach _ids;//distribute for each perk seperately
+};
 private _out = [];
 {
 	diag_log ("Distributed Items: " + ( str ( _targetArray select _forEachIndex)) );
