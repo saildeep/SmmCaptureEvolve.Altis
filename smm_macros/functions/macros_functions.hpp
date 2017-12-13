@@ -21,3 +21,4 @@ class macrosBackpacks{};
 class macrosFromConfigSide{};
 class macrosGraphAnalysis{};
 class macrosGetWeaponInfo{};
+class macrosGetUniformInfo{};

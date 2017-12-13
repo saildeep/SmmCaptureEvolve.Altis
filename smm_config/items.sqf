@@ -229,4 +229,92 @@ allItems append [
 
 ];
 
+// Uniforms
+allItems append [
+
+	// Blufor
+	["CfgWeapons","U_B_CombatUniform_mcam","UNIFORM_BLUFOR",30,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_CombatUniform_mcam_tshirt","UNIFORM_BLUFOR",30,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_CombatUniform_mcam_vest","UNIFORM_BLUFOR",30,true] call PurchasableItem_create,
+
+	["CfgWeapons","U_B_CTRG_1","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_CTRG_2","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_CTRG_3","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,	
+	["CfgWeapons","U_B_CTRG_Soldier_urb_1_F","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_CTRG_Soldier_urb_2_F","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_CTRG_Soldier_urb_3_F","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,	
+	["CfgWeapons","U_B_CTRG_Soldier_F","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_CTRG_Soldier_2_F","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_CTRG_Soldier_3_F","UNIFORM_BLUFOR",50,false] call PurchasableItem_create,	
+
+	["CfgWeapons","U_B_T_Soldier_F","UNIFORM_BLUFOR",80,false] call PurchasableItem_create,	
+	["CfgWeapons","U_B_T_Soldier_AR_F","UNIFORM_BLUFOR",80,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_T_Soldier_SL_F","UNIFORM_BLUFOR",80,false] call PurchasableItem_create,
+
+	["CfgWeapons","U_B_Wetsuit","UNIFORM_BLUFOR",320,false] call PurchasableItem_create,	
+
+	// Blufor Sniper Uniform
+	["CfgWeapons","U_B_T_Sniper_F","UNIFORM_SNIPER_BLUFOR",100,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_GhillieSuit","UNIFORM_SNIPER_BLUFOR",100,true] call PurchasableItem_create,	
+	["CfgWeapons","U_B_FullGhillie_lsh","UNIFORM_SNIPER_BLUFOR",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_FullGhillie_sard","UNIFORM_SNIPER_BLUFOR",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_FullGhillie_ard","UNIFORM_SNIPER_BLUFOR",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_B_T_FullGhillie_tna_F","UNIFORM_SNIPER_BLUFOR",130,false] call PurchasableItem_create,
+	
+
+	// Bluefor Crew Uniform
+	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_BLUFOR",1000,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_BLUFOR",50,true] call PurchasableItem_create
+
+
+	// Opfor
+	["CfgWeapons","U_O_CombatUniform_ocamo","UNIFORM_OPFOR",30,true] call PurchasableItem_create,
+	["CfgWeapons","U_O_CombatUniform_oucamo","UNIFORM_OPFOR",30,true] call PurchasableItem_create,
+
+	["CfgWeapons","U_O_T_Soldier_F","UNIFORM_OPFOR",40,true] call PurchasableItem_create,
+	
+	["CfgWeapons","SpecopsUniform_ocamo","UNIFORM_OPFOR",60,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_SpecopsUniform_blk","UNIFORM_OPFOR",60,false] call PurchasableItem_create,
+
+	["CfgWeapons","U_O_OfficerUniform_ocamo","UNIFORM_OPFOR",199,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_T_Officer_F","UNIFORM_OPFOR",199,false] call PurchasableItem_create,
+
+	["CfgWeapons","U_O_V_Soldier_Viper_F","UNIFORM_OPFOR",90,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_V_Soldier_Viper_hex_F","UNIFORM_OPFOR",80,false] call PurchasableItem_create,
+
+	["CfgWeapons","U_O_Wetsuit","UNIFORM_OPFOR",320,false] call PurchasableItem_create,
+
+	// Opfor Sniper Uniform
+	["CfgWeapons","U_O_T_Sniper_F","UNIFORM_SNIPER_OPFOR",100,true] call PurchasableItem_create,
+	["CfgWeapons","U_O_GhillieSuit","UNIFORM_SNIPER_OPFOR",100,true] call PurchasableItem_create,	
+	["CfgWeapons","U_O_FullGhillie_lsh","UNIFORM_SNIPER_OPFOR",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_FullGhillie_sard","UNIFORM_SNIPER_OPFOR",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_FullGhillie_ard","UNIFORM_SNIPER_OPFOR",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_SNIPER_OPFOR",130,false] call PurchasableItem_create,
+
+	// Opfor Crew Uniform
+	["CfgWeapons","U_O_PilotCoveralls","UNIFORM_CREWMAN_OPFOR",50,true] call PurchasableItem_create
+
+
+	// Independent
+	["CfgWeapons","U_I_CombatUniform","UNIFORM_INDEPENDENT",30,true] call PurchasableItem_create,
+	["CfgWeapons","U_I_CombatUniform_tshirt","UNIFORM_INDEPENDENT",30,true] call PurchasableItem_create,
+	["CfgWeapons","U_I_CombatUniform_shortsleeve","UNIFORM_INDEPENDENT",30,true] call PurchasableItem_create,
+
+	["CfgWeapons","U_I_OfficerUniform","UNIFORM_INDEPENDENT",199,false] call PurchasableItem_create,
+
+	["CfgWeapons","U_I_Wetsuit","UNIFORM_INDEPENDENT",320,false] call PurchasableItem_create,
+
+	// Independent Sniper Uniform
+	["CfgWeapons","U_I_GhillieSuit","UNIFORM_INDEPENDENT",100,true] call PurchasableItem_create,	
+	["CfgWeapons","U_O_FullGhillie_lsh","UNIFORM_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_FullGhillie_ard","UNIFORM_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_T_Sniper_F","UNIFORM_INDEPENDENT",100,false] call PurchasableItem_create,
+	
+	// Independent Crew Uniform
+	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",1000,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",50,true] call PurchasableItem_create
+
+];
 // very basic equipment
