@@ -25,7 +25,7 @@ smm_spawner_kmeans_num_objects = 3000;
 
 smm_spawner_patroling_threshold = 5;
 
-smm_spawner_per_kill_bounty = 8;
+smm_spawner_per_kill_bounty = 650;
 
 
 smm_garbage_collector_weapon_holder_timeout = 60 *15;
@@ -34,5 +34,5 @@ smm_garbage_collector_vehicle_timeout = 60*60*2;
 //intervall in frames
 smm_save_interval = 50 * 60 * 30;
 
-smm_money_start = 250;
+smm_money_start = 5000;
 smm_money_all_uid = [];
