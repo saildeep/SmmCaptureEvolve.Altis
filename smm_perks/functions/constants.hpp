@@ -7,6 +7,7 @@
                         "LMG",\
                         "UGL",\
                         "CREWMAN",\
+                        "SCOPE_LR",\
                         "BACKPACK","DISMANTLED_WEAPON_BACKPACK",\
                         "UNIFORM_BLUFOR","UNIFORM_OPFOR","UNIFORM_INDEPENDENT",\
                         "UNIFORM_SNIPER_BLUFOR","UNIFORM_SNIPER_OPFOR","UNIFORM_SNIPER_INDEPENDENT"\

@@ -6,6 +6,12 @@ if(isServer && smm_load)then{
         [_gear,_x] call smm_fnc_setGearServer;
     }forEach smm_money_all_uid;
 };
+
+allItemsClassNameToIndexLookup = [(count allItems) * 3 / 2] call smm_fnc_hashmapCreate;
+{
+    [allItemsClassNameToIndexLookup,[_x] call PurchasableItem_get_ClassName,_forEachIndex] call smm_fnc_hashmapPut;
+}forEach allItems;
+
 [] spawn{
     {
         private _ip = [_x] call ZoneState_get_InteractionPoint;

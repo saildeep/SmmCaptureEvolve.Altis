@@ -2,10 +2,11 @@
 private _name = _this select 0;
 
 private _cost = 0;
+private _matches = [allItemsClassNameToIndexLookup,_name] call smm_fnc_hashmapGet;
 {
-	if (([_x] call PurchasableItem_get_ClassName) == _name) then {
-		_cost = ([_x] call PurchasableItem_get_Price);
-	};
-} forEach allItems;
+	private _item = allItems select _x;
+	_cost = [_item] call PurchasableItem_get_Price;
+
+}forEach _matches;
 
 _cost

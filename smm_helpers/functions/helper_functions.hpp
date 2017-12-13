@@ -4,3 +4,8 @@ class setPosAGLS{};
 class zip{};
 class getSpawnPosNear{};
 class subdivide{};
+class hashmapCreate{};
+class hashmapPut{};
+class hashmapContains{};
+class hashmapGet{};
+class hashString{};

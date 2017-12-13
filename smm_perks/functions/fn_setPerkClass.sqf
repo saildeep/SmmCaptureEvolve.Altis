@@ -72,7 +72,7 @@ _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	case "SNIPER"						: { private _classEquipment = ["BASE","MARKSMAN","SNIPER"];
+	case "SNIPER"						: { private _classEquipment = ["BASE","MARKSMAN","SNIPER","SCOPE_LR"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR","UNIFORM_SNIPER_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR","UNIFORM_SNIPER_OPFOR"]};
@@ -82,8 +82,12 @@ _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
+<<<<<<< HEAD
 	// merge spotter with drone operator 
 	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","SPOTTER_EQUIPMENT"];
+=======
+	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","SPOTTER_EQUIPMENT","SCOPE_LR"];
+>>>>>>> 5e8010014f31fab236d3179a2c871d40955e4f90
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
