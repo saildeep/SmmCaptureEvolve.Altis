@@ -13,12 +13,14 @@ diag_log ("ArsenalShop: opening zone arsenal with " + (str _zone));
 
 if (([_zone] call Zone_get_Owner) == playerSide) then {
 	
-	// get the sorted inventory of the player when he opened arsenal
+	// get the inventory of the player when he opened arsenal
 	private _invOnOpen = [player, true] call smm_fnc_listInventory;
 	player setVariable ["invOnOpen", _invOnOpen];
+	private _invOnOpenUnsorted = [player, false] call smm_fnc_listInventory;
+	player setVariable ["invOnOpenUnsorted", _invOnOpenUnsorted];
 
 	// calculate the cost of that inventory
-	private _invCostOnOpen = [[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost;
+	private _invCostOnOpen = [[player, false] call smm_fnc_listInventory, false] call smm_fnc_calcLoadoutCost;
 	player setVariable ["invCostOnOpen", _invCostOnOpen];
 	diag_log format ["ArsenalShop: inv cost on open is %1", _invCostOnOpen];
 
@@ -36,13 +38,22 @@ if (([_zone] call Zone_get_Owner) == playerSide) then {
 	DISPLAY displayAddEventHandler["unload", {[] spawn smm_fnc_onCloseArsenal}];
 	
 	// make sure the cost label always shows the correct loadout cost
+	/*
 	[_invCostOnOpen] call smm_fnc_updateCostLabel;
 	{
 		(DISPLAY displayCtrl _x) ctrlAddEventHandler ["lbselchanged", "[] spawn {
-			sleep 0.2;
-			[[[player, false] call smm_fnc_listInventory] call smm_fnc_calcLoadoutCost] call smm_fnc_updateCostLabel;
+			sleep 0.5;
+			[[[player, false] call smm_fnc_listInventory, false] call smm_fnc_calcLoadoutCost] call smm_fnc_updateCostLabel;
 		}"];
 	} forEach IDC_LB_ALL;
+	*/
+	
+	[] spawn {
+		while {DISPLAY != displayNull} do {
+			[[[player, false] call smm_fnc_listInventory, false] call smm_fnc_calcLoadoutCost] call smm_fnc_updateCostLabel;
+			sleep 0.05;
+		};
+	};
 	
 	// add pricetags to the left listboxes
 	_addPricetagsToListBox = {
@@ -68,7 +79,12 @@ if (([_zone] call Zone_get_Owner) == playerSide) then {
 				*/
 				
 				if (ctrlType CTRL == 5) then {
-					CTRL lbSetTextRight [_i, (format ["    %1 $", _price])];
+					if (_price == -1) then {
+						CTRL lbSetTextRight [_i, "unavailable"]; //TODO move to config
+					} else {
+						CTRL lbSetTextRight [_i, (format ["    %1 $", _price])];
+					};
+					
 					if (CTRL lbPictureRight _i == "") then {
 						CTRL lbsetPictureRight [_i , "A3\ui_f\data\map\markers\system\empty_ca.paa"];
 					};
