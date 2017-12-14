@@ -32,10 +32,12 @@ if(isServer && smm_load)then{
             if(!(isNull _x))then{
                 if(_x != player)then{
                     private _actionid = _x getVariable[ACTION_ID_NAME,-1];
-                    if(_actionid == -1)then{
-                        _actionid = _x addAction [str_transfer_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
-                        _x setVariable [ACTION_ID_NAME,_actionid,false];
+                    if(_actionid > -1)then{
+                       _x removeAction _actionid;
+                        
                     };
+                    _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
+                    _x setVariable [ACTION_ID_NAME,_actionid,false];
                 };
             };
 
