@@ -23,3 +23,4 @@ class macrosGraphAnalysis{};
 class macrosGetWeaponInfo{};
 class macrosGetUniformInfo{};
 class macrosGetVestInfo{};
+class macrosGetHelmInfo{};

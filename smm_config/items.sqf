@@ -271,8 +271,8 @@ allItems append [
 	
 
 	// Bluefor Crew Uniform
-	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_BLUFOR",1000,true] call PurchasableItem_create,
-	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_BLUFOR",50,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_BLUFOR",50,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_BLUFOR",1000,true] call PurchasableItem_create,
 
 
 	// Opfor
@@ -300,7 +300,7 @@ allItems append [
 	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_SNIPER_OPFOR",130,false] call PurchasableItem_create,
 
 	// Opfor Crew Uniform
-	["CfgWeapons","U_O_PilotCoveralls","UNIFORM_CREWMAN_OPFOR",50,true] call PurchasableItem_create,
+	["CfgWeapons","U_O_PilotCoveralls","UNIFORM_CREWMAN_OPFOR",1000,true] call PurchasableItem_create,
 
 
 	// Independent
@@ -319,8 +319,8 @@ allItems append [
 	["CfgWeapons","U_O_T_Sniper_F","UNIFORM_SNIPER_INDEPENDENT",100,false] call PurchasableItem_create,
 	
 	// Independent Crew Uniform
-	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",1000,true] call PurchasableItem_create,
-	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",50,true] call PurchasableItem_create
+	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",50,true] call PurchasableItem_create,
+	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",1000,true] call PurchasableItem_create
 
 ];
 
@@ -382,7 +382,7 @@ allItems append [
 				["CfgWeapons","V_TacVestIR_blk","BASE",70,false] call PurchasableItem_create
 			];
 			//vest "Carrier Rig"
-			{allItems append[["CfgWeapons",_x,"BASE",0,false] call PurchasableItem_create];}forEach
+			{allItems append[["CfgWeapons",_x,"BASE",180,false] call PurchasableItem_create];}forEach
 			["V_PlateCarrier2_rgr_noflag_F","V_PlateCarrier2_blk"];
 	
 		// Blufor
@@ -416,6 +416,84 @@ allItems append [
 			// vest "GA Carrier GL Rig"
 			{allItems append[["CfgWeapons",_x,"UNIFORM_INDEPENDENT",150,false] call PurchasableItem_create];}forEach[
 			"V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli"];
+//
+
+//	Helmets
+	// Basic Helmets:
+		// Neutral 
+			{
+				allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 10)+30,false] call PurchasableItem_create);
+			}forEach[
+				"H_Booniehat_khk","H_Booniehat_oli","H_Booniehat_mcamo","H_Booniehat_tan","H_Booniehat_khk_hs","H_Booniehat_tna_F",
+				"H_Cap_red","H_Cap_oli","H_Cap_headphones","H_Cap_tan","H_Cap_blk","H_Cap_grn","H_Cap_oli_hs",
+				"H_Bandanna_khk","H_Bandanna_khk_hs","H_Bandanna_cbr","H_Bandanna_sgg","H_Bandanna_sand","H_Bandanna_gry","H_Bandanna_blu","H_Bandanna_camo","H_Bandanna_mcamo","H_Shemag_olive",
+				"H_Shemag_olive_hs","H_ShemagOpen_khk","H_ShemagOpen_tan",
+				"H_Beret_blk",
+				"H_Watchcap_blk","H_Watchcap_cbr","H_Watchcap_khk","H_Watchcap_camo",
+				"H_MilCap_tna_F","H_MilCap_ghex_F","H_MilCap_ocamo","H_MilCap_mcamo","H_MilCap_gry","H_MilCap_blue",
+				"H_PASGT_basic_blue_F","H_PASGT_basic_white_F","H_PASGT_basic_olive_F","H_PASGT_basic_black_F"
+				];
+
+		// Blufor
+			{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",10,false] call PurchasableItem_create];}forEach
+			["H_Cap_khaki_specops_UK","H_Cap_tan_specops_US","H_Cap_usblack"];
+			{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",100,false] call PurchasableItem_create];}forEach
+			["H_Beret_02","H_Beret_Colonel"];
+			
+		
+		// Opfor
+			{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",10,false] call PurchasableItem_create];}forEach
+			["H_Cap_brn_SPECOPS"];
+
+		// Independent
+			{allItems append[["CfgWeapons",_x,"UNIFORM_INDEPENDENT",round (_forEachIndex random 10)+30,false] call PurchasableItem_create];}forEach
+			["H_Booniehat_dgtl","H_MilCap_dgtl","H_Cap_blk_Raven"];
+					
+	// Combat Helmets:
+
+		// Neutral
+
+		// Blufor
+		allItems append[
+		["CfgWeapons","H_HelmetB_TI_tna_F","UNIFORM_BLUFOR",100,false] call PurchasableItem_create,
+		["CfgWeapons","H_HelmetCrew_B","UNIFORM_CREWMAN_BLUFOR",40,false] call PurchasableItem_create,
+		["CfgWeapons","H_CrewHelmetHeli_B","UNIFORM_CREWMAN_BLUFOR",30,false] call PurchasableItem_create,
+		["CfgWeapons","H_PilotHelmetFighter_B","UNIFORM_CREWMAN_BLUFOR",100,false] call PurchasableItem_create,
+		["CfgWeapons","H_PilotHelmetHeli_B","UNIFORM_CREWMAN_BLUFOR",30,false] call PurchasableItem_create
+		];
+		{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",50,false] call PurchasableItem_create];}forEach
+		["H_HelmetB","H_HelmetB_camo","H_HelmetB_grass","H_HelmetB_snakeskin","H_HelmetB_desert","H_HelmetB_black","H_HelmetB_sand","H_HelmetB_tna_F"];		
+		{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",80,false] call PurchasableItem_create];}forEach
+		["H_HelmetSpecB","H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetSpecB_blk","H_HelmetSpecB_snakeskin","H_HelmetSpecB_sand","H_HelmetB_Enh_tna_F"];	
+		{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",40,false] call PurchasableItem_create];}forEach
+		["H_HelmetB_light","H_HelmetB_light_grass","H_HelmetB_light_snakeskin","H_HelmetB_light_desert","H_HelmetB_light_black","H_HelmetB_light_sand","H_HelmetB_Light_tna_F"];	
+
+		// Opfor
+		allItems append[
+		["CfgWeapons","H_HelmetCrew_O","UNIFORM_CREWMAN_OPFOR",40,false] call PurchasableItem_create,
+		["CfgWeapons","H_HelmetCrew_O_ghex_F","UNIFORM_CREWMAN_OPFOR",40,false] call PurchasableItem_create,
+		["CfgWeapons","H_CrewHelmetHeli_O","UNIFORM_CREWMAN_OPFOR",30,false] call PurchasableItem_create,
+		["CfgWeapons","H_PilotHelmetFighter_O","UNIFORM_CREWMAN_OPFOR",100,false] call PurchasableItem_create,
+		["CfgWeapons","H_PilotHelmetHeli_O","UNIFORM_CREWMAN_OPFOR",30,false] call PurchasableItem_create		
+		];
+
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",60,false] call PurchasableItem_create];}forEach
+		["H_HelmetSpecO_ocamo","H_HelmetSpecO_blk","H_HelmetSpecO_ghex_F"];	
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",100,false] call PurchasableItem_create];}forEach
+		["H_HelmetLeaderO_oucamo","H_HelmetLeaderO_ocamo","H_HelmetLeaderO_ghex_F"];	
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",80,false] call PurchasableItem_create];}forEach
+		["H_HelmetO_ocamo","H_HelmetO_oucamo","H_HelmetO_ghex_F"];
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",250,false] call PurchasableItem_create];}forEach
+		["H_HelmetO_ViperSP_hex_F","H_HelmetO_ViperSP_ghex_F"];
+
+		// Independent
+		allItems append[
+		["CfgWeapons","H_HelmetCrew_I","UNIFORM_CREWMAN_INDEPENDENT",40,false] call PurchasableItem_create,
+		["CfgWeapons","H_CrewHelmetHeli_I","UNIFORM_CREWMAN_INDEPENDENT",30,false] call PurchasableItem_create,
+		["CfgWeapons","H_PilotHelmetFighter_I","UNIFORM_CREWMAN_INDEPENDENT",100,false] call PurchasableItem_create,
+		["CfgWeapons","H_PilotHelmetHeli_I","UNIFORM_CREWMAN_INDEPENDENT",30,false] call PurchasableItem_create,
+		["CfgWeapons","H_HelmetIA","UNIFORM_INDEPENDENT",10,false] call PurchasableItem_create	
+		];
 //
 
 // very basic equipment
