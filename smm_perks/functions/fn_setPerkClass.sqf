@@ -82,6 +82,7 @@ _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
+	// merge with spotter
 	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","SPOTTER_EQUIPMENT","SCOPE_LR"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};

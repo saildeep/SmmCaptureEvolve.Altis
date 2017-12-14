@@ -7,6 +7,7 @@ allItems append[
 ["CfgWeapons","rhs_weap_ak74m_zenitco01_npz","RIFLEMAN",500,false] call PurchasableItem_create,
 ["CfgWeapons","rhs_weap_ak74m_zenitco01_b33","RIFLEMAN",500,false] call PurchasableItem_create,
 
+// Silencer Weapons 
 //["CfgWeapons","rhs_weap_asval_grip_npz","?silenc?",1000,false] call PurchasableItem_create,
 //["CfgWeapons","rhs_weap_asval_grip","?silenc?",1000,false] call PurchasableItem_create,
 
