@@ -454,3 +454,31 @@ if(!smm_rhs)then{
 					"B_ViperHarness_ghex_F","B_ViperHarness_hex_F","B_ViperHarness_khk_F","B_ViperHarness_oli_F","B_ViperLightHarness_blk_F","B_ViperLightHarness_ghex_F",
 					"B_ViperLightHarness_hex_F","B_ViperLightHarness_khk_F","B_ViperLightHarness_oli_F"];
 };
+
+
+//misc items
+allItems append[
+	["CfgWeapons","ItemWatch","BASE",5,true] call PurchasableItem_create,
+	["CfgWeapons","ItemCompass","BASE",3,true] call PurchasableItem_create,
+	["CfgWeapons","ItemGPS","BASE",100,true] call PurchasableItem_create,
+	["CfgWeapons","ItemMap","BASE",1,true] call PurchasableItem_create,
+	["CfgWeapons","Binocular","BASE",80,false] call PurchasableItem_create,
+	["CfgWeapons","ToolKit","REPAIR_SIMPLE",400,true] call PurchasableItem_create,
+	["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create,
+	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
+	["CfgWeapons","NVGoggles","BASE",400,false] call PurchasableItem_create,
+	["CfgWeapons","NVGoggles_OPFOR","BASE",400,false] call PurchasableItem_create,
+	["CfgWeapons","NVGoggles_INDEP","BASE",400,false] call PurchasableItem_create
+	
+];
+
+if(!smm_ace)then{
+	allItems append [
+		["CfgWeapons","FirstAidKit","BASE",40,true] call PurchasableItem_create,
+		["CfgWeapons","Medikit","MEDIC",500,true] call PurchasableItem_create
+	];
+};
+
+if(!smm_tfar)then{
+	allItems pushBack (["CfgWeapons","ItemRadio","BASE",10,true] call PurchasableItem_create);
+};
