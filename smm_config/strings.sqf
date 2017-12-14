@@ -24,7 +24,7 @@ str_no_permission = "Well .. ehhmm .. you do not own this zone";
 str_box = "Give me that box";
 str_receivied_item = "You bought %1";
 
-str_transfer_100 = "Give 100$";
+str_transfer_amount = "Give 1000$";
 str_transfer_all = "Give all";
 str_transfer = "Transfer money";
 str_transfer_amount = "Transfering %1$";
