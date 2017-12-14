@@ -35,7 +35,7 @@ str_hint_buy_and_place = "Click inside the zone to spawn the chosen vehicle";
 
 //task stuff
 str_task_title = "Seize %1";
-str_task_description = "Conquer this area by holding the local superiority for some time!" + endl;
-str_task_description = str_task_description + "Take care of enemy vehicles and stay together!" +endl;
-str_task_description_items = "You will be rewarded with those items:" + endl;
-str_task_description_item = "<img width='18' height='18' image='%1'/> %2" + endl;
+str_task_description = "Conquer this area by holding the local superiority for some time!<br />";
+str_task_description = str_task_description + "Take care of enemy vehicles and stay together!<br />";
+str_task_description_items = "You will be rewarded with those items:<br />";
+str_task_description_item = "<img width='18' height='18' image='%1'/> %2 <br />";
