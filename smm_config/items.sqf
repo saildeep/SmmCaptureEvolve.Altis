@@ -90,7 +90,7 @@ if(!smm_rhs)then{
 
 		//PDW
 		["CfgWeapons","hgun_PDW2000_F","PDW",210,false] call PurchasableItem_create,
-		["CfgWeapons","SMG_01_F","PDW",199,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_01_F","PDW",199,true] call PurchasableItem_create,
 		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_05_F","PDW",300,false] call PurchasableItem_create,
 
