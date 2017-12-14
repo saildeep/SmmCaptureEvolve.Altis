@@ -1,7 +1,7 @@
 //creates a hash map from string to anything 
 params["_length"];
 private _initial = [];
-for [{private _i=_length}, {_i > -1}, {_i = _i - 1}] do {
-	_initial set [_i,[]];
+for [{private _i=0}, {_i <_length}, {_i = _i +1}] do {
+	_initial pushBack [];
 };
 _initial

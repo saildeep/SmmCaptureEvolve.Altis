@@ -97,8 +97,8 @@ if(!smm_rhs)then{
 		["CfgWeapons","launch_RPG7_F","ANTI_TANK",300,true] call PurchasableItem_create,
 		["CfgWeapons","launch_NLAW_F","ANTI_TANK",550,false] call PurchasableItem_create,
 		["CfgWeapons","launch_RPG32_F","ANTI_TANK",450,false] call PurchasableItem_create,
-		["CfgWeapons","launch_B_TITAN_short_F","ANTI_TANK",950,false] call PurchasableItem_create,
-		["CfgWeapons","launch_B_TITAN_F","ANTI_AIR",850,false] call PurchasableItem_create
+		["CfgWeapons","launch_B_Titan_short_F","ANTI_TANK",950,false] call PurchasableItem_create,
+		["CfgWeapons","launch_B_Titan_F","ANTI_AIR",850,false] call PurchasableItem_create
 	];
 };
 
