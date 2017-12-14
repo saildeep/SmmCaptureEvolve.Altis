@@ -241,7 +241,41 @@ if(playerSide == independent)then{
 		["I_APC_Wheeled_03_cannon_F",52000,{},"CREWMAN"] call PurchasableVehicle_create
 	];
 };
-
+if(playerSide == east)then{
+	buy_units = [
+		["O_UGV_01_F",30000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["O_UGV_01_rcws_F",50000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["O_Truck_03_transport_F",15000,{},"BASE"] call PurchasableVehicle_create,
+		["O_Truck_03_covered_F",13000,{},"BASE"] call PurchasableVehicle_create,
+		["O_Truck_03_repair_F",22000,{},"BASE"] call PurchasableVehicle_create,
+		["O_Truck_03_ammo_F",25000,{},"BASE"] call PurchasableVehicle_create,
+		["O_Truck_03_fuel_F",24000,{},"BASE"] call PurchasableVehicle_create,
+		["O_Truck_03_medical_F",21000,{},"MEDIC"] call PurchasableVehicle_create,
+		["O_G_Offroad_01_armed_F",30000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_MRAP_02_gmg_ghex_F",35000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_MRAP_02_hmg_ghex_F",40000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_Boat_Armed_01_hmg_F",32000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_MBT_02_cannon_ghex_F",160000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_MBT_02_arty_ghex_F",300000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_APC_Tracked_02_AA_F",60000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_APC_Tracked_02_cannon_F",59000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_APC_Wheeled_02_rcws_F",51000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Heli_Transport_04_F",45000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Heli_Transport_04_ammo_F",55000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["Land_Pod_Heli_Transport_04_bench_F",5000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["Land_Pod_Heli_Transport_04_covered_F",7000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["Land_Pod_Heli_Transport_04_medevac_F",7000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Plane_Fighter_02_F",150000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Plane_CAS_02_F",220000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Heli_Attack_02_F",240000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Heli_Light_02_unarmed_F",30000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_Heli_Light_02_dynamicLoadout_F",45000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_LSV_02_armed_F",16000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_LSV_02_unarmed_F",7000,{},"BASE"] call PurchasableVehicle_create,
+		["O_T_VTOL_02_infantry_F",75000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_VTOL_02_vehicle_F",75000,{},"CREWMAN"] call PurchasableVehicle_create
+	];
+};
 buy_units append civilianBuyableUnits;
 
 //when buying one of this vehicles, a respawn point for the players' side will be created and tracked
