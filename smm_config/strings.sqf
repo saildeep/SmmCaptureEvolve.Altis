@@ -26,6 +26,8 @@ str_receivied_item = "You bought %1";
 
 str_transfer_100 = "Give 100$";
 str_transfer_all = "Give all";
+str_transfer = "Transfer money";
+str_transfer_amount = "Transfering %1$";
 
 // hints
 str_hint_buy_and_place = "Click inside the zone to spawn the chosen vehicle";
