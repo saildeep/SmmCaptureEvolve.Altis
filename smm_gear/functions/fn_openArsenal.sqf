@@ -30,7 +30,7 @@ if (([_zone] call Zone_get_Owner) == playerSide) then {
 		private _classname = [_x] call PurchasableItem_get_ClassName; 
 		[missionNamespace,_classname,false,false,1,_type]call BIS_fnc_addVirtualItemCargo;
 	}forEach _items;
-	["Open",true] spawn BIS_fnc_arsenal;
+	["Open",false] spawn BIS_fnc_arsenal;
 	
 	waitUntil {!(displayNull isEqualTo (uinamespace getVariable ["RscDisplayArsenal",displayNull]))};
 	DISPLAY displayAddEventHandler["unload", {[] spawn smm_fnc_onCloseArsenal}];
