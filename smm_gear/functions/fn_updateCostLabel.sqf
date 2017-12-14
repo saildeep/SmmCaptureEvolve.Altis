@@ -4,4 +4,4 @@
 
 _cost = _this select 0;
 CTRL ctrlEnable true;
-CTRL ctrlSetText format["%1 $",_cost];
+CTRL ctrlSetText format["%1 $   |   %2 $",_cost, (([] call smm_fnc_getBalance) + (player getVariable "invCostOnOpen"))];
