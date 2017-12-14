@@ -419,3 +419,38 @@ allItems append [
 //
 
 // very basic equipment
+
+//Backpacks
+if(!smm_rhs)then{
+	allItems pushBack  (["CfgVehicles","B_Parachute","BASE",420,false] call PurchasableItem_create);
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",200,false] call PurchasableItem_create);
+	}forEach ["B_AssaultPack_khk","B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_mcamo","B_AssaultPack_ocamo"];
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",250,false] call PurchasableItem_create);
+	}forEach ["B_Kitbag_rgr","B_Kitbag_mcamo","B_Kitbag_sgg","B_Kitbag_cbr"];
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",310,false] call PurchasableItem_create);
+	}forEach ["B_TacticalPack_rgr","B_TacticalPack_mcamo","B_TacticalPack_ocamo","B_TacticalPack_blk","B_TacticalPack_oli"];
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",290,false] call PurchasableItem_create);
+	}forEach ["B_FieldPack_khk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_blk","B_Carryall_ocamo"];
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",500,false] call PurchasableItem_create);
+	}forEach ["B_Carryall_oucamo","B_Carryall_mcamo","B_Carryall_khk","B_Carryall_oli","B_Carryall_cbr"];
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",600,false] call PurchasableItem_create);
+	}forEach ["B_Bergen_mcamo_F","B_Bergen_dgtl_F","B_Bergen_hex_F","B_Bergen_tna_F"];
+
+	{
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",1100,false] call PurchasableItem_create);
+	}forEach ["B_ViperHarness_blk_F",
+					"B_ViperHarness_ghex_F","B_ViperHarness_hex_F","B_ViperHarness_khk_F","B_ViperHarness_oli_F","B_ViperLightHarness_blk_F","B_ViperLightHarness_ghex_F",
+					"B_ViperLightHarness_hex_F","B_ViperLightHarness_khk_F","B_ViperLightHarness_oli_F"];
+};
