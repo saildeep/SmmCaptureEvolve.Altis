@@ -27,17 +27,24 @@ if(isServer && smm_load)then{
 [] spawn{
      sleep 10;
     while{hasInterface}do{
+        sleep 5;
         {
-            sleep 1;
+            sleep 3;
             if(!(isNull _x))then{
                 if(_x != player)then{
                     private _actionid = _x getVariable[ACTION_ID_NAME,-1];
                     if(_actionid > -1)then{
-                       _x removeAction _actionid;
+                        if(! (_actionid in (actionIDs _x)))then{
+
+                            _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
+                            _x setVariable [ACTION_ID_NAME,_actionid,false];
+                        };
+                      
                         
+                    }else{
+                        _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
+                        _x setVariable [ACTION_ID_NAME,_actionid,false];
                     };
-                    _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
-                    _x setVariable [ACTION_ID_NAME,_actionid,false];
                 };
             };
 
