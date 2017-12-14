@@ -92,6 +92,7 @@ if(!smm_rhs)then{
 		["CfgWeapons","hgun_PDW2000_F","PDW",210,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_01_F","PDW",199,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_05_F","PDW",300,false] call PurchasableItem_create,
 
 		//missile launchers
 		["CfgWeapons","launch_RPG7_F","ANTI_TANK",300,true] call PurchasableItem_create,
