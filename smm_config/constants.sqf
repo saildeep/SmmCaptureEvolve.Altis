@@ -25,7 +25,7 @@ smm_spawner_kmeans_num_objects = 3000;
 
 smm_spawner_patroling_threshold = 5;
 
-smm_spawner_per_kill_bounty = 650;
+smm_spawner_per_kill_bounty = 225;
 
 
 smm_garbage_collector_weapon_holder_timeout = 60 *15;
