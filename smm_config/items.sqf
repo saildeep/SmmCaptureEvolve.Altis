@@ -264,17 +264,16 @@ allItems append [
 
 	// Bluefor Crew Uniform
 	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_BLUFOR",1000,true] call PurchasableItem_create,
-	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_BLUFOR",50,true] call PurchasableItem_create
+	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_BLUFOR",50,true] call PurchasableItem_create,
 
 
 	// Opfor
+
 	["CfgWeapons","U_O_CombatUniform_ocamo","UNIFORM_OPFOR",30,true] call PurchasableItem_create,
 	["CfgWeapons","U_O_CombatUniform_oucamo","UNIFORM_OPFOR",30,true] call PurchasableItem_create,
-
-	["CfgWeapons","U_O_T_Soldier_F","UNIFORM_OPFOR",40,true] call PurchasableItem_create,
 	
-	["CfgWeapons","SpecopsUniform_ocamo","UNIFORM_OPFOR",60,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_SpecopsUniform_blk","UNIFORM_OPFOR",60,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_SpecopsUniform_ocamo","UNIFORM_OPFOR",30,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_SpecopsUniform_blk","UNIFORM_OPFOR",30,false] call PurchasableItem_create,
 
 	["CfgWeapons","U_O_OfficerUniform_ocamo","UNIFORM_OPFOR",199,false] call PurchasableItem_create,
 	["CfgWeapons","U_O_T_Officer_F","UNIFORM_OPFOR",199,false] call PurchasableItem_create,
@@ -293,12 +292,11 @@ allItems append [
 	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_SNIPER_OPFOR",130,false] call PurchasableItem_create,
 
 	// Opfor Crew Uniform
-	["CfgWeapons","U_O_PilotCoveralls","UNIFORM_CREWMAN_OPFOR",50,true] call PurchasableItem_create
+	["CfgWeapons","U_O_PilotCoveralls","UNIFORM_CREWMAN_OPFOR",50,true] call PurchasableItem_create,
 
 
 	// Independent
 	["CfgWeapons","U_I_CombatUniform","UNIFORM_INDEPENDENT",30,true] call PurchasableItem_create,
-	["CfgWeapons","U_I_CombatUniform_tshirt","UNIFORM_INDEPENDENT",30,true] call PurchasableItem_create,
 	["CfgWeapons","U_I_CombatUniform_shortsleeve","UNIFORM_INDEPENDENT",30,true] call PurchasableItem_create,
 
 	["CfgWeapons","U_I_OfficerUniform","UNIFORM_INDEPENDENT",199,false] call PurchasableItem_create,
@@ -306,15 +304,110 @@ allItems append [
 	["CfgWeapons","U_I_Wetsuit","UNIFORM_INDEPENDENT",320,false] call PurchasableItem_create,
 
 	// Independent Sniper Uniform
-	["CfgWeapons","U_I_GhillieSuit","UNIFORM_INDEPENDENT",100,true] call PurchasableItem_create,	
-	["CfgWeapons","U_O_FullGhillie_lsh","UNIFORM_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_FullGhillie_ard","UNIFORM_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_T_Sniper_F","UNIFORM_INDEPENDENT",100,false] call PurchasableItem_create,
+	["CfgWeapons","U_I_GhillieSuit","UNIFORM_SNIPER_INDEPENDENT",100,true] call PurchasableItem_create,	
+	["CfgWeapons","U_O_FullGhillie_lsh","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_FullGhillie_ard","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_O_T_Sniper_F","UNIFORM_SNIPER_INDEPENDENT",100,false] call PurchasableItem_create,
 	
 	// Independent Crew Uniform
 	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",1000,true] call PurchasableItem_create,
 	["CfgWeapons","U_B_PilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",50,true] call PurchasableItem_create
 
 ];
+
+
+// Vests
+
+	// Rebreather Vests :
+		allItems append[
+		// Blufor
+			["CfgWeapons","V_RebreatherB","UNIFORM_BLUFOR",300,false] call PurchasableItem_create,
+		// Opfor
+			["CfgWeapons","V_RebreatherIR","UNIFORM_OPFOR",300,false] call PurchasableItem_create,
+		// Independent
+			["CfgWeapons","V_RebreatherIA","UNIFORM_INDEPENDENT",300,false] call PurchasableItem_create
+		];
+
+	// Lite Vests:
+
+		// Neutral
+			// vest "slash Bandollier"
+				{allItems append[["CfgWeapons",_x,"BASE",20,true] call PurchasableItem_create];}forEach
+				["V_BandollierB_khk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_blk","V_BandollierB_oli","V_BandollierB_ghex_F"];
+			// vest "Chest Rig"
+				{allItems append[["CfgWeapons",_x,"BASE",40,false] call PurchasableItem_create];}forEach
+				["V_Chestrig_khk","V_Chestrig_rgr","V_Chestrig_blk","V_Chestrig_oli"];
+			// vest "Tactical Chest Rig"
+				{allItems append[["CfgWeapons",_x,"BASE",40,false] call PurchasableItem_create];}forEach
+				["V_TacChestrig_grn_F","V_TacChestrig_oli_F","V_TacChestrig_cbr_F"];
+			// vest "Tactical Vest"
+				{allItems append[["CfgWeapons",_x,"BASE",60,false] call PurchasableItem_create];}forEach
+				["V_TacVest_khk","V_TacVest_brn","V_TacVest_oli","V_TacVest_blk","V_TacVest_camo","V_I_G_resistanceLeader_F"];
+			// vest "Multi-Pocket-Vest"
+				{allItems append[["CfgWeapons",_x,"BASE",10,true] call PurchasableItem_create];}forEach
+				["V_Pocketed_olive_F","V_Pocketed_coyote_F","V_Pocketed_black_F"];
+			// vest "Leg Strap Bag"
+				{allItems append[["CfgWeapons",_x,"BASE",15,true] call PurchasableItem_create];}forEach
+				["V_LegStrapBag_black_F","V_LegStrapBag_coyote_F","V_LegStrapBag_olive_F"];
+			// vest "EOD Vest"
+				{allItems append[["CfgWeapons",_x,"BASE",100,false] call PurchasableItem_create];}forEach
+				["V_EOD_blue_F","V_EOD_olive_F","V_EOD_coyote_F"];
+			// vest "Carrier Lite"
+				{allItems append[["CfgWeapons",_x,"BASE",150,false] call PurchasableItem_create];}forEach
+				["V_PlateCarrier1_blk","V_PlateCarrier1_rgr_noflag_F"];
+
+		// Blufor
+			// vest "Carrier Lite"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",150,false] call PurchasableItem_create];}forEach
+			["V_PlateCarrier1_tna_F","V_PlateCarrier1_rgr"];
+
+		// Opfor
+
+		// Independent
+
+	// Heavy Vests:
+		
+		// Neutral
+			allItems append[
+				["CfgWeapons","V_Rangemaster_belt","BASE",5,true] call PurchasableItem_create,
+				["CfgWeapons","V_TacVestIR_blk","BASE",70,false] call PurchasableItem_create
+			];
+			//vest "Carrier Rig"
+			{allItems append[["CfgWeapons",_x,"BASE",0,false] call PurchasableItem_create];}forEach
+			["V_PlateCarrier2_rgr_noflag_F","V_PlateCarrier2_blk"];
+	
+		// Blufor
+			allItems append[
+				["CfgWeapons","V_PlateCarrierL_CTRG","UNIFORM_BLUFOR",150,false] call PurchasableItem_create,
+				["CfgWeapons","V_PlateCarrierH_CTRG","UNIFORM_BLUFOR",160,false] call PurchasableItem_create
+			];
+			// vest "Carrier GL Rig"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",160,false] call PurchasableItem_create];}forEach
+			["V_PlateCarrierGL_rgr","V_PlateCarrierGL_blk","V_PlateCarrierGL_mtp","V_PlateCarrierGL_tna_F"];
+			// vest "Carrier Rig"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",140,false] call PurchasableItem_create];}forEach
+			["V_PlateCarrier2_rgr","V_PlateCarrier2_tna_F"];
+			// vest "Carrier Special Rig"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_BLUFOR",200,false] call PurchasableItem_create];}forEach
+			["V_PlateCarrierSpec_rgr","V_PlateCarrierSpec_blk","V_PlateCarrierSpec_mtp","V_PlateCarrierSpec_tna_F"];
+
+		// Opfor
+			// vest "LBV Grenadier Harness"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",30,false] call PurchasableItem_create];}forEach
+			["V_HarnessOGL_brn","V_HarnessOGL_gry","V_HarnessOGL_ghex_F"];
+			// vest "LBV Harness"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",40,false] call PurchasableItem_create];}forEach
+			["V_HarnessO_brn","V_HarnessO_gry","V_HarnessO_ghex_F"];
+
+		// Independent
+			allItems append[
+				["CfgWeapons","V_PlateCarrierIA1_dgtl","UNIFORM_INDEPENDENT",100,false] call PurchasableItem_create,
+				["CfgWeapons","V_PlateCarrierIA2_dgtl","UNIFORM_INDEPENDENT",120,false] call PurchasableItem_create
+			];
+			// vest "GA Carrier GL Rig"
+			{allItems append[["CfgWeapons",_x,"UNIFORM_INDEPENDENT",150,false] call PurchasableItem_create];}forEach[
+			"V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli"];
+//
+
 // very basic equipment

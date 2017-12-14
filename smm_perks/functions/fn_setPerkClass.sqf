@@ -82,6 +82,7 @@ _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
+	//todo merge with spotter
 	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","SPOTTER_EQUIPMENT","SCOPE_LR"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
@@ -132,7 +133,7 @@ _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	//merge to spotter									  
+	//todo merge to spotter									  
 	case "DRONE_OPERATOR"				: { private _classEquipment = ["BASE","PDW"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR",		"UAV_BLUFOR"]};
