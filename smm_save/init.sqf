@@ -7,10 +7,7 @@ smm_save_with_check={
     }
 };
 
-if(isServer)then{
-    addMissionEventHandler ["onEachFrame",smm_save_with_check];
-    
-};
+
 
 [] spawn{
     {
