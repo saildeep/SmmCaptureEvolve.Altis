@@ -91,7 +91,14 @@ if(!smm_rhs)then{
 		//PDW
 		["CfgWeapons","hgun_PDW2000_F","PDW",210,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_01_F","PDW",199,false] call PurchasableItem_create,
-		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create
+		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create,
+
+		//missile launchers
+		["CfgWeapons","launch_RPG7_F","ANTI_TANK",300,true] call PurchasableItem_create,
+		["CfgWeapons","launch_NLAW_F","ANTI_TANK",550,false] call PurchasableItem_create,
+		["CfgWeapons","launch_RPG32_F","ANTI_TANK",450,false] call PurchasableItem_create,
+		["CfgWeapons","launch_B_TITAN_short_F","ANTI_TANK",950,false] call PurchasableItem_create,
+		["CfgWeapons","launch_B_TITAN_F","ANTI_AIR",850,false] call PurchasableItem_create
 	];
 };
 
