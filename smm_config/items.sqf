@@ -73,7 +73,7 @@ if(!smm_rhs)then{
 		["CfgWeapons","arifle_SDAR_F","RIFLEMAN",300,false] call PurchasableItem_create,
 
 		["CfgWeapons","arifle_TRG21_F","RIFLEMAN",330,false] call PurchasableItem_create,
-		["CfgWeapons","arifle_TRG20_F","RIFLEMAN",300,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_TRG20_F","RIFLEMAN",300,true] call PurchasableItem_create,
 		["CfgWeapons","arifle_TRG21_GL_F","UGL",380,false] call PurchasableItem_create,
 
 		["CfgWeapons","arifle_AK12_F","RIFLEMAN",320,false] call PurchasableItem_create,
@@ -425,7 +425,7 @@ if(!smm_rhs)then{
 	allItems pushBack  (["CfgVehicles","B_Parachute","BASE",420,false] call PurchasableItem_create);
 
 	{
-		allItems pushBack (["CfgVehicles",_x,"BACKPACK",200,false] call PurchasableItem_create);
+		allItems pushBack (["CfgVehicles",_x,"BACKPACK",340,true] call PurchasableItem_create);
 	}forEach ["B_AssaultPack_khk","B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_mcamo","B_AssaultPack_ocamo"];
 
 	{
