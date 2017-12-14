@@ -466,6 +466,9 @@ allItems append[
 	["CfgWeapons","ToolKit","REPAIR_SIMPLE",400,true] call PurchasableItem_create,
 	["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create,
 	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
+	["CfgWeapons","Laserdesignator","SPOTTER_EQUIPMENT",400,false] call PurchasableItem_create,
+	["CfgWeapons","Laserdesignator_02","SPOTTER_EQUIPMENT",400,false] call PurchasableItem_create,
+	["CfgWeapons","Laserdesignator_03","SPOTTER_EQUIPMENT",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_OPFOR","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_INDEP","BASE",400,false] call PurchasableItem_create
