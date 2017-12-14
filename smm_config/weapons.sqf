@@ -246,7 +246,7 @@ notUsedItems=
 //Items
 rand_items_one = 	[
 					// 0815 items
-					"ItemWatch","ItemCompass","ItemGPS","ItemMap","FirstAidKit","Medikit","ToolKit","MineDetector","Binocular","Rangefinder",
+					"ItemWatch",,"ItemCompass""ItemGPS","ItemMap","FirstAidKit","Medikit","ToolKit","MineDetector","Binocular","Rangefinder",
 					"NVGoggles",
 
 					// vest
@@ -289,8 +289,22 @@ rand_items_two = [
 					"muzzle_snds_58_ghex_F","muzzle_snds_58_hex_F","muzzle_snds_B_khk_F","muzzle_snds_B_snd_F","muzzle_snds_65_TI_blk_F","muzzle_snds_65_TI_hex_F",
 					"muzzle_snds_65_TI_ghex_F",
 					
-					"optic_Arco","optic_Hamr","optic_Aco","optic_ACO_grn","optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight","optic_Holosight_smg","optic_SOS","optic_MRCO",
-					"optic_NVS","optic_DMS","optic_Yorris","optic_MRD","optic_LRPS","optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_KHS_blk","optic_KHS_hex","optic_KHS_old","optic_KHS_tan", 
+					"optic_Arco",
+					"optic_Hamr",
+					"optic_Yorris",
+					"optic_Aco",
+					"optic_ACO_grn",
+					"optic_Aco_smg",
+					"optic_ACO_grn_smg",
+					"optic_Holosight",
+					"optic_Holosight_smg",
+					"optic_SOS",
+					"optic_MRCO",
+					"optic_NVS",
+					"optic_DMS",
+					
+					"optic_MRD",
+					"optic_LRPS","optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_KHS_blk","optic_KHS_hex","optic_KHS_old","optic_KHS_tan", 
 					"optic_Arco_blk_F","optic_Arco_ghex_F","optic_DMS_ghex_F","optic_Hamr_khk_F","optic_ERCO_blk_F","optic_ERCO_khk_F",
 					"optic_ERCO_snd_F","optic_SOS_khk_F","optic_LRPS_tna_F","optic_LRPS_ghex_F","optic_Holosight_blk_F","optic_Holosight_khk_F","optic_Holosight_smg_blk_F",
 					

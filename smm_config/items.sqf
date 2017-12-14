@@ -485,3 +485,96 @@ if(!smm_ace)then{
 if(!smm_tfar)then{
 	allItems pushBack (["CfgWeapons","ItemRadio","BASE",10,true] call PurchasableItem_create);
 };
+
+
+// add silencers for random but deterministic price (index as seed)
+{
+		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 150) + 250,false] call PurchasableItem_create);
+}forEach [
+		"muzzle_snds_H",
+		"muzzle_snds_L",
+		"muzzle_snds_M",
+		"muzzle_snds_B",
+		"muzzle_snds_acp",
+		"muzzle_snds_338_black",
+		"muzzle_snds_338_green",
+		"muzzle_snds_338_sand",
+		"muzzle_snds_93mmg",
+		"muzzle_snds_93mmg_tan",
+		"muzzle_snds_H_khk_F",
+		"muzzle_snds_H_snd_F",
+		"muzzle_snds_m_khk_F",
+		"muzzle_snds_m_snd_F",
+		"muzzle_snds_58_blk_F",
+		"muzzle_snds_58_ghex_F",
+		"muzzle_snds_58_hex_F",
+		"muzzle_snds_B_khk_F",
+		"muzzle_snds_B_snd_F",
+		"muzzle_snds_65_TI_blk_F",
+		"muzzle_snds_65_TI_hex_F",
+		"muzzle_snds_65_TI_ghex_F"];
+
+//add simple holosights and ir/flashlight for random but deterministic price
+{
+		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 50) + 50,false] call PurchasableItem_create);
+}forEach [
+		"optic_MRD",
+		"optic_Yorris",
+		"optic_Aco",
+		"optic_ACO_grn",
+		"optic_Aco_smg",
+		"optic_ACO_grn_smg",
+		"optic_Holosight",
+		"optic_Holosight_smg",
+		"optic_Holosight_blk_F",
+		"optic_Holosight_khk_F",
+		"optic_Holosight_smg_blk_F",
+		"acc_flashlight",
+		"acc_pointer_IR"];
+
+//do so for advanced rifleman scopes
+{
+		allItems pushBack (["CfgWeapons",_x,"RIFLEMAN",round (_forEachIndex random 200)+120,false] call PurchasableItem_create);
+}forEach [
+		"optic_Arco",
+		"optic_Hamr",
+		"optic_MRCO",
+		"optic_Arco_blk_F",
+		"optic_Arco_ghex_F",
+		"optic_Hamr_khk_F",
+		"optic_ERCO_blk_F",
+		"optic_ERCO_khk_F",
+		"optic_ERCO_snd_F"];
+
+//and sniper scopes
+{
+		allItems pushBack (["CfgWeapons",_x,"SCOPE_LR",round (_forEachIndex random 500)+500,false] call PurchasableItem_create);
+}forEach[
+		"optic_SOS",
+		"optic_DMS",
+		"optic_LRPS",
+		"optic_AMS",
+		"optic_AMS_khk",
+		"optic_AMS_snd",
+		"optic_KHS_blk",
+		"optic_KHS_hex",
+		"optic_KHS_old",
+		"optic_KHS_tan", 
+		"optic_DMS_ghex_F",
+		"optic_SOS_khk_F",
+		"optic_LRPS_tna_F",
+		"optic_LRPS_ghex_F"];
+
+//add bipods
+{
+		allItems pushBack (["CfgWeapons",_x,"BASE",45,false] call PurchasableItem_create);
+}forEach [
+	"bipod_01_F_snd",
+	"bipod_01_F_blk",
+	"bipod_01_F_mtp",
+	"bipod_02_F_blk",
+	"bipod_02_F_tan",
+	"bipod_02_F_hex",
+	"bipod_03_F_blk",
+	"bipod_03_F_oli",
+	"bipod_01_F_khk"];

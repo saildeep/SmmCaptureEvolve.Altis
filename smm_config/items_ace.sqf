@@ -1,14 +1,14 @@
 allItems append [
 	//rifleman scopes
-	["CfgWeapons","ACE_optic_Arco_2D","BASE",110,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_optic_Arco_PIP","BASE",110,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_optic_Arco_2D","RIFLEMAN",177,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_optic_Arco_PIP","RIFLEMAN",199,false] call PurchasableItem_create,
 
-	["CfgWeapons","ACE_optic_MRCO_2D","BASE",99,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_optic_MRCO_PIP","BASE",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_optic_MRCO_2D","RIFLEMAN",131,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_optic_MRCO_PIP","RIFLEMAN",211,false] call PurchasableItem_create,
 	
 	//Long range scopes
-	["CfgWeapons","ACE_optic_Arco_2D","SCOPE_LR",500,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_optic_Arco_PIP","SCOPE_LR",500,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_optic_Arco_2D","SCOPE_LR",311,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_optic_Arco_PIP","SCOPE_LR",246,false] call PurchasableItem_create,
 
 	["CfgWeapons","ACE_optic_SOS_2D","SCOPE_LR",490,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_optic_SOS_PIP","SCOPE_LR",490,false] call PurchasableItem_create,
