@@ -41,69 +41,49 @@ Engineer
 #include "constants.hpp"
 params["_unit","_class"];
 
-_perkClass = switch(_class) do{
+
+private _radio_and_uniform = switch(side _unit)do{
+	case west:{["UNIFORM_BLUFOR","RADIO_SMALL_BLUFOR"]};
+	case east:{["UNIFORM_OPFOR","RADIO_SMALL_OPFOR"]};
+	case independent:{["UNIFORM_INDEPENDENT","RADIO_SMALL_INDEPENDENT"] };
+	default { throw " invalid side" };
+};
+
+private _perkClass = switch(_class) do{
 	case "RADIO_OPERATOR" 				: { private _classEquipment = ["BASE","PDW","RIFLEMAN"];
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR",		"RADIO_LARGE_BLUFOR","RADIO_SMALL_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR",			"RADIO_LARGE_OPFOR","RADIO_SMALL_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT",	"RADIO_LARGE_INDEPENDENT","RADIO_SMALL_INDEPENDENT"] };
+												case WEST 	:{["RADIO_LARGE_BLUFOR"]};
+												case EAST	:{["RADIO_LARGE_OPFOR"]};
+												case independent	:{["RADIO_LARGE_INDEPENDENT"] };
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
 	case "MEDIC"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","MEDIC","BACKPACK"];
-											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT"]};
-												default {[]};
-											};
-											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	case "ANTI_TANK_AIR"				: { private _classEquipment = ["BASE","PDW","ANTI_AIR","ANTI_TANK","BACKPACK"];
-											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT"]};
-												default {[]};
-											};
-											_classEquipment append _sideEquipment;
+	case "ANTI_TANK_AIR"				: { private _classEquipment = ["BASE","PDW","RIFLEMAN","ANTI_AIR","ANTI_TANK","BACKPACK"];
 											_classEquipment
 										  };
-	case "SNIPER"						: { private _classEquipment = ["BASE","MARKSMAN","SNIPER","SCOPE_LR"];
+	case "SNIPER"						: { private _classEquipment = ["BASE","PDW","MARKSMAN","SNIPER","SCOPE_LR"];
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR","UNIFORM_SNIPER_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR","UNIFORM_SNIPER_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT","UNIFORM_SNIPER_INDEPENDENT"]};
+												case WEST 	:{["UNIFORM_SNIPER_BLUFOR"]};
+												case EAST	:{["UNIFORM_SNIPER_OPFOR"]};
+												case independent	:{["UNIFORM_SNIPER_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
 	//todo merge with spotter
-	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","SPOTTER_EQUIPMENT","SCOPE_LR"];
-											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT"]};
-												default {[]};
-											};
-											_classEquipment append _sideEquipment;
+	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","SPOTTER_EQUIPMENT","SCOPE_LR"];		
 											_classEquipment
 										  };
-	case "MACHINE_GUNNER"				: { private _classEquipment = ["BASE","LMG","BACKPACK"];
-											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT"]};
-												default {[]};
-											};
-											_classEquipment append _sideEquipment;
+	case "MACHINE_GUNNER"				: { private _classEquipment = ["BASE","PDW","LMG","RIFLEMAN","BACKPACK"];
 											_classEquipment
 										  };
-	case "SOLDIER"						: { private _classEquipment = ["BASE","RIFLEMAN","BACKPACK"];
+	case "SOLDIER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
@@ -115,15 +95,15 @@ _perkClass = switch(_class) do{
 										  };
 	case "CREWMAN"						: { private _classEquipment = ["BASE","PDW","CREWMAN","DISMANTLED_WEAPON_BACKPACK","MINES"];
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_BLUFOR","UNIFORM_CREWMAN_BLUFOR"]};
-												case EAST	:{["UNIFORM_OPFOR","UNIFORM_CREWMAN_OPFOR"]};
-												case independent	:{["UNIFORM_INDEPENDENT","UNIFORM_CREWMAN_INDEPENDENT"]};
+												case WEST 	:{["UNIFORM_CREWMAN_BLUFOR"]};
+												case EAST	:{["UNIFORM_CREWMAN_OPFOR"]};
+												case independent	:{["UNIFORM_CREWMAN_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	case "GRENADIER"					: { private _classEquipment = ["BASE","RIFLEMAN","UGL","BACKPACK","MINES"];
+	case "GRENADIER"					: { private _classEquipment = ["BASE","RIFLEMAN","UGL","PDW","BACKPACK","MINES"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
@@ -134,7 +114,7 @@ _perkClass = switch(_class) do{
 											_classEquipment
 										  };
 	//todo merge to spotter									  
-	case "DRONE_OPERATOR"				: { private _classEquipment = ["BASE","PDW"];
+	case "DRONE_OPERATOR"				: { private _classEquipment = ["BASE","PDW","RIFLEMAN"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR",		"UAV_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR",			"UAV_OPFOR"]};
@@ -144,7 +124,7 @@ _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	case "ENGINEER"						: { private _classEquipment = ["BASE","PDW","BACKPACK","MINES","REPAIR_SIMPLE","REPAIR_ADVANCED"];
+	case "ENGINEER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK","MINES","REPAIR_SIMPLE","REPAIR_ADVANCED"];
 											private _sideEquipment = switch(side _unit) do{
 												case WEST 	:{["UNIFORM_BLUFOR"]};
 												case EAST	:{["UNIFORM_OPFOR"]};
@@ -157,5 +137,5 @@ _perkClass = switch(_class) do{
 	default { throw " invalid PerkClassName" };
 };
 
-[_unit,_perkClass] call smm_fnc_addPerk;
+[_unit,_perkClass + _radio_and_uniform] call smm_fnc_addPerk;
 _perkClass
