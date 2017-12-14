@@ -13,9 +13,11 @@ diag_log ("ArsenalShop: opening zone arsenal with " + (str _zone));
 
 if (([_zone] call Zone_get_Owner) == playerSide) then {
 	
-	// get the sorted inventory of the player when he opened arsenal
+	// get the inventory of the player when he opened arsenal
 	private _invOnOpen = [player, true] call smm_fnc_listInventory;
 	player setVariable ["invOnOpen", _invOnOpen];
+	private _invOnOpenUnsorted = [player, false] call smm_fnc_listInventory;
+	player setVariable ["invOnOpenUnsorted", _invOnOpenUnsorted];
 
 	// calculate the cost of that inventory
 	private _invCostOnOpen = [[player, false] call smm_fnc_listInventory, false] call smm_fnc_calcLoadoutCost;
@@ -36,6 +38,7 @@ if (([_zone] call Zone_get_Owner) == playerSide) then {
 	DISPLAY displayAddEventHandler["unload", {[] spawn smm_fnc_onCloseArsenal}];
 	
 	// make sure the cost label always shows the correct loadout cost
+	/*
 	[_invCostOnOpen] call smm_fnc_updateCostLabel;
 	{
 		(DISPLAY displayCtrl _x) ctrlAddEventHandler ["lbselchanged", "[] spawn {
@@ -43,6 +46,14 @@ if (([_zone] call Zone_get_Owner) == playerSide) then {
 			[[[player, false] call smm_fnc_listInventory, false] call smm_fnc_calcLoadoutCost] call smm_fnc_updateCostLabel;
 		}"];
 	} forEach IDC_LB_ALL;
+	*/
+	
+	[] spawn {
+		while {DISPLAY != displayNull} do {
+			[[[player, false] call smm_fnc_listInventory, false] call smm_fnc_calcLoadoutCost] call smm_fnc_updateCostLabel;
+			sleep 0.05;
+		};
+	};
 	
 	// add pricetags to the left listboxes
 	_addPricetagsToListBox = {

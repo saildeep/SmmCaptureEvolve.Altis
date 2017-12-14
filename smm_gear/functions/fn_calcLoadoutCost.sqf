@@ -7,7 +7,7 @@ private _invalidItems = [];
 {
 	if (!(_x isEqualTo "")) then {
 		private _itemCost = [_x] call smm_fnc_getItemCost;
-		if (_itemCost == -1 && !(_x in (player getVariable "invOnOpen"))) then {
+		if (_itemCost == -1 && !(_x in (player getVariable "invOnOpenUnsorted") )) then {
 			_invalidItems append [_x];
 		} else {
 			_cost = _cost + _itemCost;

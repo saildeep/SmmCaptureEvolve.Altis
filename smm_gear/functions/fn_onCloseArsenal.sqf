@@ -21,7 +21,7 @@ if(_cost isEqualType []) then {
 		//diag_log format ["ArsenalShop: new balance %1",(_funds + _invCostOnOpen - _cost)];
 		[_invCostOnOpen, getPlayerUID player] call smm_fnc_addMoney;
 		[(0 - _cost), getPlayerUID player] call smm_fnc_addMoney;
-		hint format ["You bought your loadout for %1 $\nCurrent Funds are %2 $",_cost, (_funds + _invCostOnOpen - _cost)]; //TODO replace with static
+		hint format ["You bought your loadout for %1 $\nPrevious items refunded for %2 $\nCurrent Funds are %3 $",_cost, _invCostOnOpen, (_funds + _invCostOnOpen - _cost)]; //TODO replace with static
 	} else {
 		// not enough funds to buy current inv
 		// revert inv to inv when player opened arsenal
