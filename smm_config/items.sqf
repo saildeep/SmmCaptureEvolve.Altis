@@ -114,7 +114,10 @@ allItems append [
 	
 	["CfgMagazines","30Rnd_65x39_caseless_mag","BASE",15,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_65x39_caseless_mag_Tracer","BASE",17,true] call PurchasableItem_create,
-	
+
+	["CfgMagazines","30Rnd_65x39_caseless_green","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_65x39_caseless_green_mag_Tracer","BASE",17,true] call PurchasableItem_create,
+
 	["CfgMagazines","30Rnd_580x42_Mag_F","BASE",15,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_580x42_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
 
