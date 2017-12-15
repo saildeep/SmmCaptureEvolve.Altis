@@ -76,8 +76,14 @@ private _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	//todo merge with spotter
-	case "SPOTTER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","SPOTTER_EQUIPMENT","SCOPE_LR"];		
+	case "SCOUT"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","SPOTTER_EQUIPMENT","SCOPE_LR"];
+											private _sideEquipment = switch(side _unit) do{
+												case WEST 	:{["UAV_BLUFOR"]};
+												case EAST	:{["UAV_OPFOR"]};
+												case independent	:{["UAV_INDEPENDENT"]};
+												default {[]};
+											};
+											_classEquipment append _sideEquipment;		
 											_classEquipment
 										  };
 	case "MACHINE_GUNNER"				: { private _classEquipment = ["BASE","PDW","LMG","RIFLEMAN","BACKPACK"];
@@ -100,19 +106,7 @@ private _perkClass = switch(_class) do{
 	case "GRENADIER"					: { private _classEquipment = ["BASE","RIFLEMAN","UGL","PDW","BACKPACK","MINES"];
 											_classEquipment
 										  };
-	//todo merge to spotter									  
-	case "DRONE_OPERATOR"				: { private _classEquipment = ["BASE","PDW","RIFLEMAN"];
-											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UAV_BLUFOR"]};
-												case EAST	:{["UAV_OPFOR"]};
-												case independent	:{["UAV_INDEPENDENT"]};
-												default {[]};
-											};
-											_classEquipment append _sideEquipment;
-											_classEquipment
-										  };
-	case "ENGINEER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK","MINES","REPAIR_SIMPLE","REPAIR_ADVANCED"];
-											
+	case "ENGINEER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK","MINES","REPAIR_SIMPLE","REPAIR_ADVANCED"];											
 											_classEquipment
 										  };
 	default { throw " invalid PerkClassName" };
