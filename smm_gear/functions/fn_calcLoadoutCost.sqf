@@ -16,7 +16,9 @@ private _invalidItems = [];
 } forEach _inv;
 
 if (_validate && count _invalidItems > 0) then {
-	_invalidItems
+	//_invalidItems
+	// TODO tfar somehow increments item names causing the radio to be always invalid
+	0
 } else {
 	_cost
 };

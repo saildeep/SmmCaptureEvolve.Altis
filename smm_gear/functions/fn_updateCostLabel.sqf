@@ -1,7 +1,8 @@
 
 #define DISPLAY (uinamespace getVariable "RscDisplayArsenal")
 #define CTRL_BUTTON (DISPLAY displayCtrl 44346)
-#define CTLR_INFO (DISPLAY displayCtrl 24516)
+#define CTLR_INFO_NAME (DISPLAY displayCtrl 24516)
+#define CTLR_INFO_AUTHOR (DISPLAY displayCtrl 24517)
 
 _cost = _this select 0;
 CTRL_BUTTON ctrlEnable true;
@@ -36,4 +37,8 @@ _Hypno_fnc_getName = {
    _out 
 };  
 
-//CTLR_INFO ctrlSetText format ["%1 $   |   %2", 9999, (ctrlText CTLR_INFO)];
+
+private _selItemCost = [[ctrlText CTLR_INFO_NAME] call _Hypno_fnc_getName] call smm_fnc_getItemCost;
+if (_selItemCost >= 0) then {
+	CTLR_INFO_AUTHOR ctrlSetText format ["%1 $", _selItemCost];
+};
