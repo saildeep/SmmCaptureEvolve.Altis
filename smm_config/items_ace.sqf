@@ -46,19 +46,23 @@ allItems append [
 
 
 	//medic stuff basic
-	["CfgWeapons","ACE_packingBandage","BASE",3,true] call PurchasableItem_create,
-	["CfgWeapons","ACE_elasticBandage","BASE",5,true] call PurchasableItem_create,
+		//Bandage
+		["CfgWeapons","ACE_fieldDressing","BASE",5,false] call PurchasableItem_create,
+		["CfgWeapons","ACE_packingBandage","BASE",1,true] call PurchasableItem_create,
+
+	["CfgWeapons","ACE_morphine","BASIC",15,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_EarPlugs","BASE",1,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_personalAidKit","BASE",50,true] call PurchasableItem_create,
 
 	//medic stuff advanced
-	["CfgWeapons","ACE_personalAidKit","MEDIC",50,true] call PurchasableItem_create,
-	["CfgWeapons","ACE_morphine","MEDIC",15,true] call PurchasableItem_create,
+		//Bandage
+		["CfgWeapons","ACE_elasticBandage","MEDIC",5,true] call PurchasableItem_create,
+		["CfgWeapons","ACE_quikclot","MEDIC",10,true] call PurchasableItem_create,
+
 	["CfgWeapons","ACE_tourniquet","MEDIC",8,true] call PurchasableItem_create,
-	["CfgWeapons","ACE_quikclot","MEDIC",10,true] call PurchasableItem_create,
-	["CfgWeapons","ACE_fieldDressing","MEDIC",1,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_adenosine","MEDIC",15,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_atropine","MEDIC",15,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_epinephrine","MEDIC",15,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_epinephrine","MEDIC",15,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_surgicalKit","MEDIC",119,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_bodyBag","MEDIC",10,false] call PurchasableItem_create,
 
