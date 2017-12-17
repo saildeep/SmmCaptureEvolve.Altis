@@ -280,7 +280,7 @@ class ace_medical_preventInstaDeath {
     force = 1;
 };
 class ace_medical_enableRevive {
-    value = 0;
+    value = 1;
     typeName = "SCALAR";
     force = 1;
 };
