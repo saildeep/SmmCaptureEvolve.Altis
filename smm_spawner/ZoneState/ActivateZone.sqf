@@ -122,7 +122,7 @@ private _spawnedInfantry = [];
 		
 		//do not reward TK
 		if( (side _killermaybevehicle) != (side _killedunit) )then{
-			[smm_spawner_per_kill_bounty,side _killermaybevehicle] call smm_fnc_addMoneySide;
+			[floor (random smm_spawner_per_kill_bounty),side _killermaybevehicle] call smm_fnc_addMoneySide;
 		};
 
 	}];
