@@ -36,13 +36,13 @@ if(isServer && smm_load)then{
                     if(_actionid > -1)then{
                         if(! (_actionid in (actionIDs _x)))then{
 
-                            _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
+                            _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;},5,false];
                             _x setVariable [ACTION_ID_NAME,_actionid,false];
                         };
                       
                         
                     }else{
-                        _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;}];
+                        _actionid = _x addAction [str_transfer_fixed_amount,{[1000,(_this select 0)] call smm_fnc_moneyTransfer;},5,false];
                         _x setVariable [ACTION_ID_NAME,_actionid,false];
                     };
                 };
