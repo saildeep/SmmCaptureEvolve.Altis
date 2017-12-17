@@ -659,3 +659,24 @@ if(!smm_tfar)then{
 	"bipod_03_F_blk",
 	"bipod_03_F_oli",
 	"bipod_01_F_khk"];
+
+//uav stuff
+
+allItems append [
+	["CfgWeapons","B_UavTerminal","UAV_BLUFOR",300,true] call PurchasableItem_create,
+	["CfgWeapons","O_UavTerminal","UAV_OPFOR",300,true] call PurchasableItem_create,
+	["CfgWeapons","I_UavTerminal","UAV_INDEPENDENT",300,true] call PurchasableItem_create,
+
+	["CfgVehicles","B_UAV_06_backpack_F","UAV_BLUFOR",500,false] call PurchasableItem_create,
+	["CfgVehicles","O_UAV_06_backpack_F","UAV_OPFOR",500,false] call PurchasableItem_create,
+	["CfgVehicles","I_UAV_06_backpack_F","UAV_INDEPENDENT",500,false] call PurchasableItem_create,
+
+	["CfgVehicles","B_UAV_06_medical_backpack_F","UAV_BLUFOR",600,false] call PurchasableItem_create,
+	["CfgVehicles","O_UAV_06_medical_backpack_F","UAV_OPFOR",600,false] call PurchasableItem_create,
+	["CfgVehicles","I_UAV_06_medical_backpack_F","UAV_INDEPENDENT",600,false] call PurchasableItem_create,
+
+	["CfgVehicles","B_UAV_01_backpack_F","UAV_BLUFOR",500,false] call PurchasableItem_create,
+	["CfgVehicles","O_UAV_01_backpack_F","UAV_OPFOR",500,false] call PurchasableItem_create,
+	["CfgVehicles","I_UAV_01_backpack_F","UAV_INDEPENDENT",500,false] call PurchasableItem_create
+
+];
