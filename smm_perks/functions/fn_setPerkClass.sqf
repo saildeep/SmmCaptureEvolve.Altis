@@ -1,41 +1,8 @@
 /*
 add
-
 [this, (CLASSNAME)] call smm_fnc_setPerkClass;
 
-to Unit Init
-
-
-_BLUFOR
-_OPFOR
-_INDEPENDENT
-
-possible classes
-
-Radio Operator
-
-Medic
-
-Anit-Tank/AIR  aka ROCKETMAN
-
-Sniper
-
-Spotter
-
-Machiene gunner
-
-Soldier 
-
-Crewman
-
-Grenadier
-
-Drone Operator
-
-Engineer
-
-
-	
+Set perks to a unit class.
 */
 
 #include "constants.hpp"
