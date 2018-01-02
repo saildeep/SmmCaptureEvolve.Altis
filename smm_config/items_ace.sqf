@@ -60,7 +60,6 @@ allItems append [
 		["CfgWeapons","ACE_elasticBandage","MEDIC",5,true] call PurchasableItem_create,
 		["CfgWeapons","ACE_quikclot","MEDIC",10,true] call PurchasableItem_create,
 
-	["CfgWeapons","ACE_tourniquet","MEDIC",8,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_adenosine","MEDIC",15,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_atropine","MEDIC",15,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_epinephrine","MEDIC",15,true] call PurchasableItem_create,
