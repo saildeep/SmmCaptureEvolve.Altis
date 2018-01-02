@@ -12,7 +12,11 @@ smm_fnc_virtualshop_getItemPrice = {
 		private _price = 0;
 		if (_item isEqualType "") then {
 			if !(_item isEqualTo "") then {
-				_price = [_item] call PurchasableItem_get_Price;
+				private _matches = [allItemsClassNameToIndexLookup,_item] call smm_fnc_hashmapGet;
+				{
+					private _item = allItems select _x;
+					_price = [_item] call PurchasableItem_get_Price;
+				} forEach _matches;
 				
 				// dealing with unpurchasable items (items the player might have picked up on the battlefield)
 				// the player can sell those items for the tenth of their price
@@ -25,11 +29,15 @@ smm_fnc_virtualshop_getItemPrice = {
 			private _count = _item select 1;
 			private _fullCount = getNumber (configfile >> "CfgMagazines" >> _itemName >> "count");
 			if !(_fullCount == 0 && _count == 0) then {
-				_price = [_itemName] call PurchasableItem_get_Price;
+				private _matches = [allItemsClassNameToIndexLookup,_itemName] call smm_fnc_hashmapGet;
+				{
+					private _item = allItems select _x;
+					_price = [_item] call PurchasableItem_get_Price;
+				} forEach _matches;
 				_price = ceil (_price * (_count / _fullCount));
 			};
 			
-			if !(_itemName in ([] call smm_fnc_virtualshop_getPurchasableItems)) then {
+			if !(_itemName in ([] call (uinamespace getVariable "smm_fnc_virtualshop_getPurchasableItems"))) then {
 				_price = floor (_price / 10);
 			};
 		};
