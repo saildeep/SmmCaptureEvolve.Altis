@@ -50,7 +50,7 @@ allItems append [
 		["CfgWeapons","ACE_fieldDressing","BASE",5,false] call PurchasableItem_create,
 		["CfgWeapons","ACE_packingBandage","BASE",1,true] call PurchasableItem_create,
 
-	["CfgWeapons","ACE_morphine","BASIC",15,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_morphine","BASE",15,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_EarPlugs","BASE",1,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_personalAidKit","BASE",50,true] call PurchasableItem_create,
 
