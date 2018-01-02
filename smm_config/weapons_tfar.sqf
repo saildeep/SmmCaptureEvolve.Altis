@@ -1,3 +1,6 @@
+allItems append[
+	["CfgWeapons","tf_microdagr","BASE",5,true] call PurchasableItem_create
+]
 
 if(playerside == west)then {
 rand_backpacks append 	[
