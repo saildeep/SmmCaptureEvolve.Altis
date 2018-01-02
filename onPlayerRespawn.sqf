@@ -4,6 +4,7 @@ removeBackpack player;
 removeVest player;
 removeUniform player;
 removeHeadgear player;
+removeGoggles player;
 {
 	player removeWeapon _x;
 	
