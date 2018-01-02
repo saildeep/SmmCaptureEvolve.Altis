@@ -68,5 +68,9 @@ class smm{
 	class perks{
 		file = "smm_perks\functions";
 		#include "smm_perks\functions\perks_functions.hpp"
-	}
+	};
+	class virtualshop{
+		file = "smm_virtualshop\functions";
+		#include "smm_virtualshop\functions\functions.hpp"
+	};
 };
