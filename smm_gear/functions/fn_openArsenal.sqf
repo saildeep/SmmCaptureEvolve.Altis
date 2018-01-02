@@ -1,11 +1,4 @@
 
-#define DISPLAY (uinamespace getVariable "RscDisplayArsenal")
-#define CTRL (_this select 0)
-#define IDC_LB_LEFT [960,961,962,963,964,965,966,967,968,969,970,971,972,973,974]
-#define IDC_LB_ITEM [978,979,980,985]
-#define IDC_LB_MAG [981,982,983,984,986]
-#define IDC_LB_ALL (IDC_LB_LEFT + IDC_LB_ITEM + IDC_LB_MAG)
-
 assert canSuspend;
 
 private _zone = [call ZonesManager_GetInstance, _this select 3] call ZonesManager_fnc_GetZone;
