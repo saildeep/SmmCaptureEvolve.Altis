@@ -14,6 +14,9 @@ allItems append [
 	//backpack
 	["CfgVehicles","tf_anprc152","RADIO_LARGE_BLUFOR",250,true] call PurchasableItem_create,
 	["CfgVehicles","tf_anprc148jem","RADIO_LARGE_INDEPENDENT",170,true] call PurchasableItem_create,
-	["CfgVehicles","tf_mr3000","RADIO_LARGE_OPFOR",250,true] call PurchasableItem_create
+	["CfgVehicles","tf_mr3000","RADIO_LARGE_OPFOR",250,true] call PurchasableItem_create,
+
+	//item
+	["CfgWeapons","tf_microdagr","BASE",5,true] call PurchasableItem_create
 
 ];
