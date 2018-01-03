@@ -17,27 +17,27 @@ private _statsBackpacks = [("isclass _x && getnumber (_x >> 'scope') == 2 && get
 
 _printPrices = {
 
-/*
-Parameter: [Config,String,Array,Array,Code]
+	/*
+	Parameter: [Config,String,Array,Array,Code]
 
-Config - parent config of relevant entries
-	(configfile >> "cfgvehicles") for backpacks
-	(configfile >> "cfgweapons") otherwise
-	
-String - condition to filter irrelevant config entries
-	("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'type') < 5") for weapons
-	("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'itemInfo' >> 'type') in [605,701,801]") for equipment
-	("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'isBackpack') == 1") for backpacks
-	
-Array - array of functions or code representing criteria, each given a config entry and return a number
-	[{getNumber ((_this select 0) >> "maximumLoad")}, {(-1) * (getNumber ((_this select 0) >> "mass"))}] for example
+	Config - parent config of relevant entries
+		(configfile >> "cfgvehicles") for backpacks
+		(configfile >> "cfgweapons") otherwise
+		
+	String - condition to filter irrelevant config entries
+		("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'type') < 5") for weapons
+		("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'itemInfo' >> 'type') in [605,701,801]") for equipment
+		("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'isBackpack') == 1") for backpacks
+		
+	Array - array of functions or code representing criteria, each given a config entry and return a number
+		[{getNumber ((_this select 0) >> "maximumLoad")}, {(-1) * (getNumber ((_this select 0) >> "mass"))}] for example
 
-Array - array of numbers representing weighting of each criterion, same length as previous array
-	[3,1] for example, here "maximumLoad" is valued higher than "mass"
-	
-Code - function that is given a number between 0 and 1, returns number representing the price of an item
-	{ceil (((_this select 0)^1.5 * 0.9 + 0.1) * 1000)} for example
-*/
+	Array - array of numbers representing weighting of each criterion, same length as previous array
+		[3,1] for example, here "maximumLoad" is valued higher than "mass"
+		
+	Code - function that is given a number between 0 and 1, returns number representing the price of an item
+		{ceil (((_this select 0)^1.5 * 0.9 + 0.1) * 1000)} for example
+	*/
 
 	params [
 		["_config", configNull, [configNull]],

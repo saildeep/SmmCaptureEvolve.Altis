@@ -24,3 +24,4 @@ class macrosGetWeaponInfo{};
 class macrosGetUniformInfo{};
 class macrosGetVestInfo{};
 class macrosGetHelmInfo{};
+class macrosCalcItemPrices{};
