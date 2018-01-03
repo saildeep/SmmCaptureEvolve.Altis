@@ -26,7 +26,7 @@ class Params
     
 };
 
-
+cba_settings_hasSettingsFile = 1;
 class CfgRemoteExec
 {        
        // List of script functions allowed to be sent from client via remoteExec
