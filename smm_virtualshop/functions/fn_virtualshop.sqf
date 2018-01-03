@@ -3011,7 +3011,7 @@ switch _mode do {
 			['showMessage',[_display, format [smm_fnc_virtualshop_msgInvalidItems, _formatedInvalidItems]]] call smm_fnc_virtualshop;
 		};
 		
-		if !([_loadoutCost - _invCostOnOpen] call smm_fnc_virtualshop_subtractCredit) EXC exitwith {
+		if !(([_loadoutCost - _invCostOnOpen] call smm_fnc_virtualshop_subtractCredit) EXC) exitwith {
 			['showMessage',[_display, format [smm_fnc_virtualshop_msgNotEnoughCredits, _credit, _loadoutCost - _invCostOnOpen]]] call smm_fnc_virtualshop;
 		};
 		
