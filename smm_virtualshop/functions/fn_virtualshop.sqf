@@ -291,6 +291,10 @@ switch _mode do {
 			missionnamespace setVariable ["smm_fnc_virtualshop_invCostOnOpen", _invCostOnOpen];
 		};
 		
+		waitUntil {
+			!((missionnamespace getVariable ["smm_fnc_virtualshop_invOnOpen", objNull] isEqualTo objNull) || (missionnamespace getVariable ["smm_fnc_virtualshop_invCostOnOpen", objNull] isEqualTo objNull))
+		};
+		
 		if !(isnull (uinamespace getvariable ["BIS_fnc_arsenal_cam",objnull])) exitwith {"Arsenal Viewer is already running" call bis_fnc_logFormat;};
 		missionnamespace setvariable ["BIS_fnc_arsenal_fullArsenal",[_this,0,false,[false]] call bis_fnc_param];
 
@@ -533,7 +537,7 @@ switch _mode do {
 		_ctrlButtonImport ctrladdeventhandler ["buttonclick",format ["with uinamespace do {['buttonImport',[ctrlparent (_this select 0),'init']] call %1;};",_function]];
 
 		_ctrlButtonOK = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONOK;
-		_ctrlButtonOK ctrladdeventhandler ["buttonclick",format ["with uinamespace do {['buttonOK',[ctrlparent (_this select 0),'init']] call %1;};",_function]];
+		_ctrlButtonOK ctrladdeventhandler ["buttonclick",format ["with uinamespace do {['buttonOK',[ctrlparent (_this select 0),'init']] spawn %1;};",_function]];
 
 		_ctrlButtonTry = _display displayctrl IDC_RSCDISPLAYARSENAL_CONTROLSBAR_BUTTONTRY;
 		_ctrlButtonTry ctrladdeventhandler ["buttonclick","with uinamespace do {['buttonTry',[ctrlparent (_this select 0)]] call bis_fnc_garage;};"];
@@ -1920,7 +1924,7 @@ switch _mode do {
 		};
 		
 		// update loadout cost
-		[] call smm_fnc_virtualshop_updateCostLabel;
+		[] spawn smm_fnc_virtualshop_updateCostLabel;
 		
 	};
 
@@ -1973,7 +1977,7 @@ switch _mode do {
 			_ctrlList lbsettooltip [_r * _columns,[_text,_text + "\n(Not compatible with currently equipped weapons)"] select _isIncompatible];
 		};
 		
-		[] call smm_fnc_virtualshop_updateCostLabel;
+		[] spawn smm_fnc_virtualshop_updateCostLabel;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -2887,7 +2891,7 @@ switch _mode do {
 		["TabDeselect",[_display,0]] call smm_fnc_virtualshop;
 		[missionnamespace getVariable "smm_fnc_virtualshop_invOnOpen"] call smm_fnc_virtualshop_setInventory;
 		["ListSelectCurrent",[_display]] call smm_fnc_virtualshop;
-		[] call smm_fnc_virtualshop_updateCostLabel;
+		[] spawn smm_fnc_virtualshop_updateCostLabel;
 		
 		/*
 		//--- Left sidebar
@@ -2988,6 +2992,8 @@ switch _mode do {
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "buttonOK": {
+		private _fncName = "Arsenal 'buttonOK'"; LOGFNCCALL
+	
 		_display = _this select 0;
 		
 		// buy current loadout
@@ -3011,7 +3017,7 @@ switch _mode do {
 			['showMessage',[_display, format [smm_fnc_virtualshop_msgInvalidItems, _formatedInvalidItems]]] call smm_fnc_virtualshop;
 		};
 		
-		if !(([_loadoutCost - _invCostOnOpen] call smm_fnc_virtualshop_subtractCredit) EXC) exitwith {
+		if !([_loadoutCost - _invCostOnOpen] call smm_fnc_virtualshop_subtractCredit) exitwith {
 			['showMessage',[_display, format [smm_fnc_virtualshop_msgNotEnoughCredits, _credit, _loadoutCost - _invCostOnOpen]]] call smm_fnc_virtualshop;
 		};
 		
