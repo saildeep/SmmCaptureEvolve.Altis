@@ -18,6 +18,11 @@ smm_fnc_virtualshop_getItemPrice = {
 					_price = [_item] call PurchasableItem_get_Price;
 				} forEach _matches;
 				
+				if (isNil "_price") then {
+					_price = 0;
+					diag_log format ["Error: could not retrieve price for %1", _item];
+				};
+				
 				// dealing with unpurchasable items (items the player might have picked up on the battlefield)
 				// the player can sell those items for the tenth of their price
 				if !(_item in ([] call (uinamespace getVariable "smm_fnc_virtualshop_getPurchasableItems"))) then {
@@ -34,6 +39,12 @@ smm_fnc_virtualshop_getItemPrice = {
 					private _item = allItems select _x;
 					_price = [_item] call PurchasableItem_get_Price;
 				} forEach _matches;
+				
+				if (isNil "_price") then {
+					_price = 0;
+					diag_log format ["Error: could not retrieve price for %1", _itemName];
+				};
+				
 				_price = ceil (_price * (_count / _fullCount));
 			};
 			

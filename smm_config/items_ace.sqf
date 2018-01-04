@@ -47,7 +47,7 @@ allItems append [
 
 	//medic stuff basic
 		//Bandage
-		["CfgWeapons","ACE_fieldDressing","BASE",5,false] call PurchasableItem_create,
+		["CfgWeapons","ACE_fieldDressing","BASE",5,true] call PurchasableItem_create,
 		["CfgWeapons","ACE_packingBandage","BASE",1,true] call PurchasableItem_create,
 
 	["CfgWeapons","ACE_morphine","BASE",15,true] call PurchasableItem_create,

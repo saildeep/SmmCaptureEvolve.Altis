@@ -90,8 +90,6 @@
 	_virtualMagazineCargo = (missionnamespace call bis_fnc_getVirtualMagazineCargo) + (_cargo call bis_fnc_getVirtualMagazineCargo) + magazines _center;\
 	_virtualBackpackCargo = (missionnamespace call bis_fnc_getVirtualBackpackCargo) + (_cargo call bis_fnc_getVirtualBackpackCargo) + [backpack _center];
 
-#define EXC || ((getPlayerUID player) in ["76561198023435120"])
-	
 #define STATS_WEAPONS\
 	["reloadtime","dispersion","maxzeroing","hit","mass","initSpeed"],\
 	[true,true,false,true,false,false]
@@ -143,5 +141,21 @@
 
 #define ADDPRICETAGRIGHT _ctrlList lbsetTextRight [_lbAdd, format [smm_fnc_virtualshop_pricetag,[_x] call smm_fnc_virtualshop_getItemPrice]];
 #define ADDPRICETAGLEFT format [smm_fnc_virtualshop_pricetag,[_x] call smm_fnc_virtualshop_getItemPrice]
+
+#define REFRESH_BACKPACKLOCK\
+	{\
+		private _backpack = unitBackpack player;\
+		if !(isNull _backpack) then {\
+			private _ehContainerOpened = _backpack addEventHandler ["containeropened",\
+				{\
+					[] spawn {\
+						waitUntil {!isNull(findDisplay 602)};\
+						closeDialog 602;\
+					};\
+				}\
+			];\
+			missionnamespace setVariable ["smm_fnc_virtualshop_ehContainerOpened", _ehContainerOpened];\
+		};\
+	};\
 
 #define LOGFNCCALL if (uinamespace getVariable ["smm_fnc_virtualshop_debug",true]) then {diag_log format [_fncName + " %1 | canSuspend %2 | uiNamespace %3",_this, canSuspend, uiNamespace isEqualto currentNamespace]};
