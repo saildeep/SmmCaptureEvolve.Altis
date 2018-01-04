@@ -204,7 +204,8 @@ switch (_this select 0) do {
 	case "weapons":{
 				[
 			(configfile >> "CfgWeapons"), 
-			("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'type') < 5 && getnumber (_x >> 'canLock') == 0 "), 
+			("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'type') < 5 && getnumber (_x >> 'canLock') == 0 
+			&& ((((configName _x) splitString '_') select 0) != 'launch') "), 
 			
 			// "reloadtime","dispersion","maxzeroing","hit","mass","initSpeed"
 			[
