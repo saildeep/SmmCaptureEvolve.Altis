@@ -60,8 +60,9 @@ private _spawnedInfantry = [];
 		_u setVariable ["zoneid",_zoneID,true];
 		_u allowFleeing 0;
 
+		_u setSkill smm_skill;
 		{
-			_u setSkill [_x,smm_skill];
+			_u setSkill [_x,missionnamespace getVariable [("smm_aiSubSkill_"+_x), 1]];
 		}forEach ["aimingAccuracy","aimingShake","aimingSpeed","endurance","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
 
 		if(smm_ai_disable_nvg)then{
