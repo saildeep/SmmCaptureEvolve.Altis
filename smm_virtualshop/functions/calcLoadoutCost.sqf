@@ -1,8 +1,4 @@
 
-#include "defines.hpp"
-
-private _fncName = "calcLoadoutCost"; LOGFNCCALL
-
 private _unsortedInv = _this select 0;
 private _cost = 0;
 {
