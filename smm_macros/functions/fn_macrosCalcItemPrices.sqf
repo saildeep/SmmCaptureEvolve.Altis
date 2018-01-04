@@ -121,11 +121,18 @@ switch (_this select 0) do {
 	case "backpacks": {
 		[
 			(configfile >> "cfgvehicles"), 
-			("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'isBackpack') == 1"), 
+			("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'isBackpack') == 1 && getNumber (_x >> 'maximumLoad') > 0 "), 
 			[{getNumber ((_this select 0) >> "maximumLoad")}, {(-1)*(getNumber ((_this select 0) >> "mass"))}],
 			[1,0],
 			{
-				_this select 0
+				//ceil (((_this select 0)^1.5 * 0.9 + 0.1) * 1000)
+				private _x = _this select 0;
+                private _q = 0;
+                private _a = 100;
+                private _b = 1000;
+                
+                private _y = ( _b * _x^(1 + _q) * ((_b - _a)/_b) + _a);
+                ((ceil (_y / 10)) * 10)
 			}
 		] call _printPrices;
 	};
@@ -181,10 +188,62 @@ switch (_this select 0) do {
 			],
 			[1,0,0,0],
 			{
-				(ceil (((_this select 0)^1 * 1 + 0) * 100)) * 10
+				//(ceil (((_this select 0)^1 * 1 + 0) * 100)) * 10
+				private _x = _this select 0;
+                private _q = 0;
+                private _a = 100;
+                private _b = 1000;
+                
+                private _y = ( _b * _x^(1 + _q) * ((_b - _a)/_b) + _a);
+                ((ceil (_y / 10)) * 10)
 			}
 		] call _printPrices;
 	};
 	
+	// todo - fix
+	case "weapons":{
+				[
+			(configfile >> "CfgWeapons"), 
+			("isclass _x && getnumber (_x >> 'scope') == 2 && getnumber (_x >> 'type') < 5 && getnumber (_x >> 'canLock') == 0 "), 
+			
+			// "reloadtime","dispersion","maxzeroing","hit","mass","initSpeed"
+			[
+			{getNumber ((_this select 0) >> "reloadtime")},
+			{(getNumber ((_this select 0) >> "dispersion"))},
+			{(getNumber ((_this select 0) >> "maxzeroing"))},
+
+			//get hit value
+			{	
+				private _allhit =[];
+				private _getmagazines = getarray ((_this select 0) >> "magazines");
+				{
+				private	_ammo = gettext (configfile >> "CfgMagazines" >> _x >> "ammo");   
+				private	_ammohitvalue = getnumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
+						_allhit append [_ammohitvalue];
+				}forEach _getmagazines;
+				selectMax _allhit
+			},
+			
+			//{(getNumber ((_this select 0) >> "mass"))},
+
+			{(getNumber ((_this select 0) >> "initSpeed"))}
+			],
+			// weight
+			[3,8,0,10,
+			//1,
+			5],
+
+			{
+				//ceil (((_this select 0)^1.5 * 0.9 + 0.1) * 1000)
+				private _x = _this select 0;
+                private _q = 0;
+                private _a = 100;
+                private _b = 1000;
+                
+                private _y = ( _b * _x^(1 + _q) * ((_b - _a)/_b) + _a);
+                ((ceil (_y / 10)) * 10)
+			}
+		] call _printPrices;
+	};
 	default {false};
 };
