@@ -2302,7 +2302,8 @@ switch _mode do {
 					_ctrlMouseBlock = _display displayctrl IDC_RSCDISPLAYARSENAL_MOUSEBLOCK;
 					_ctrlMouseBlock ctrlenable false;
 				} else {
-					if (_fullVersion) then {["buttonClose",[_display]] spawn smm_fnc_virtualshop;} else {_display closedisplay 2;};
+					//if (_fullVersion) then {["buttonClose",[_display]] spawn smm_fnc_virtualshop;} else {_display closedisplay 2;};
+					["buttonClose",[_display]] spawn smm_fnc_virtualshop;
 				};
 				_return = true;
 			};
