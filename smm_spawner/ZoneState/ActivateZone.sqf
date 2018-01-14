@@ -62,7 +62,7 @@ private _spawnedInfantry = [];
 
 		_u setSkill smm_skill;
 		{
-			_u setSkill [_x,missionnamespace getVariable [("smm_aiSubSkill_"+_x), 1]];
+			_u setSkill [_x,missionnamespace getVariable [("smm_aiSubSkill_"+_x), smm_skill]];
 		}forEach ["aimingAccuracy","aimingShake","aimingSpeed","endurance","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
 
 		if(smm_ai_disable_nvg)then{
