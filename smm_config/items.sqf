@@ -506,7 +506,7 @@ if(!smm_rhs)then{
 	allItems pushBack  (["CfgVehicles","B_Parachute","BASE",500,false] call PurchasableItem_create);
 
 	{
-		allItems pushBack (["CfgVehicles",_x,"BACKPACK",280,true] call PurchasableItem_create);
+		allItems pushBack (["CfgVehicles",_x,"BASE",280,true] call PurchasableItem_create);
 	}forEach ["B_AssaultPack_khk","B_AssaultPack_dgtl","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_mcamo","B_AssaultPack_ocamo"];
 
 	{
