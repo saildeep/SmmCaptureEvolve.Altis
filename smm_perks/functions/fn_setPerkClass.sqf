@@ -57,20 +57,33 @@ private _perkClass = switch(_class) do{
 											_classEquipment
 										  };
 	case "SOLDIER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK"];
-											
+											private _sideEquipment = switch(side _unit) do{
+												case WEST 	:{["TRIPOD_BACKPACK_BLUFOR","DISMANTLED_WEAPON_BACKPACK_BLUFOR"]};
+												case EAST	:{["TRIPOD_BACKPACK_OPFOR","DISMANTLED_WEAPON_BACKPACK_OPFOR"]};
+												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT"]};
+												default {[]};
+											};
+											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
-	case "CREWMAN"						: { private _classEquipment = ["BASE","PDW","CREWMAN","DISMANTLED_WEAPON_BACKPACK","MINES"];
+	case "CREWMAN"						: { private _classEquipment = ["BASE","PDW","CREWMAN","MINES"];
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["UNIFORM_CREWMAN_BLUFOR"]};
-												case EAST	:{["UNIFORM_CREWMAN_OPFOR"]};
-												case independent	:{["UNIFORM_CREWMAN_INDEPENDENT"]};
+												case WEST 	:{["TRIPOD_BACKPACK_BLUFOR","UNIFORM_CREWMAN_BLUFOR"]};
+												case EAST	:{["TRIPOD_BACKPACK_OPFOR","UNIFORM_CREWMAN_OPFOR"]};
+												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT","UNIFORM_CREWMAN_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
 	case "GRENADIER"					: { private _classEquipment = ["BASE","RIFLEMAN","UGL","PDW","BACKPACK","MINES"];
+											private _sideEquipment = switch(side _unit) do{
+												case WEST 	:{["TRIPOD_BACKPACK_BLUFOR"]};
+												case EAST	:{["TRIPOD_BACKPACK_OPFOR"]};
+												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT"]};
+												default {[]};
+											};
+											_classEquipment append _sideEquipment;
 											_classEquipment
 										  };
 	case "ENGINEER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK","MINES","REPAIR_SIMPLE","REPAIR_ADVANCED"];											

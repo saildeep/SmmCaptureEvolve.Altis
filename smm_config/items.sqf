@@ -538,6 +538,71 @@ if(!smm_rhs)then{
 	}forEach ["B_ViperLightHarness_blk_F","B_ViperLightHarness_ghex_F","B_ViperLightHarness_hex_F","B_ViperLightHarness_khk_F","B_ViperLightHarness_oli_F"];
 };
 
+// Static Weapons Backpack 
+
+	// Tripods backpacks
+
+		// Blufor
+		allItems append[
+		["CfgVehicles","B_Mortar_01_support_F","TRIPOD_BACKPACK_BLUFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","B_HMG_01_support_F","TRIPOD_BACKPACK_BLUFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","B_HMG_01_support_high_F","TRIPOD_BACKPACK_BLUFOR",100,true] call PurchasableItem_create
+		];
+
+		// Opfor
+		allItems append[
+		["CfgVehicles","O_Mortar_01_support_F","TRIPOD_BACKPACK_OPFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","O_HMG_01_support_F","TRIPOD_BACKPACK_OPFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","O_HMG_01_support_high_F","TRIPOD_BACKPACK_OPFOR",100,true] call PurchasableItem_create
+		];
+
+		// Independent
+		allItems append[
+		["CfgVehicles","I_Mortar_01_support_F","TRIPOD_BACKPACK_INDEPENDENT",100,true] call PurchasableItem_create,
+		["CfgVehicles","I_HMG_01_support_F","TRIPOD_BACKPACK_INDEPENDENT",100,true] call PurchasableItem_create,
+		["CfgVehicles","I_HMG_01_support_high_F","TRIPOD_BACKPACK_INDEPENDENT",100,true] call PurchasableItem_create
+		];
+
+	// Dismantled Wapons backpacks
+		// Blufor
+		allItems append[
+		["CfgVehicles","B_HMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",1000,true] call PurchasableItem_create,
+		//["CfgVehicles","B_HMG_01_A_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","B_GMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",2000,false] call PurchasableItem_create,
+		//["CfgVehicles","B_GMG_01_A_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","B_HMG_01_high_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",1000,false] call PurchasableItem_create,
+		["CfgVehicles","B_GMG_01_high_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",2000,false] call PurchasableItem_create,
+		["CfgVehicles","B_Mortar_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",500,false] call PurchasableItem_create,
+		["CfgVehicles","B_AA_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",650,false] call PurchasableItem_create,
+		["CfgVehicles","B_AT_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",750,false] call PurchasableItem_create
+		]; 
+
+
+		// Opfor
+		allItems append[
+		["CfgVehicles","O_HMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",1000,true] call PurchasableItem_create,
+		//["CfgVehicles","O_HMG_01_A_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","O_GMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",2000,false] call PurchasableItem_create,
+		//["CfgVehicles","O_GMG_01_A_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",100,true] call PurchasableItem_create,
+		["CfgVehicles","O_HMG_01_high_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",1000,false] call PurchasableItem_create,
+		["CfgVehicles","O_GMG_01_high_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",200,false] call PurchasableItem_create,
+		["CfgVehicles","O_Mortar_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",100,false] call PurchasableItem_create,
+		["CfgVehicles","O_AA_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",650,false] call PurchasableItem_create,
+		["CfgVehicles","O_AT_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",750,false] call PurchasableItem_create
+		]; 
+
+		// Independent
+		allItems append[
+		["CfgVehicles","I_HMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",1000,true] call PurchasableItem_create,
+		//["CfgVehicles","I_HMG_01_A_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",100,true] call PurchasableItem_create,
+		["CfgVehicles","I_GMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",1000,false] call PurchasableItem_create,
+		//["CfgVehicles","I_GMG_01_A_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",100,true] call PurchasableItem_create,
+		["CfgVehicles","I_HMG_01_high_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",1000,false] call PurchasableItem_create,
+		["CfgVehicles","I_GMG_01_high_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",2000,false] call PurchasableItem_create,
+		["CfgVehicles","I_Mortar_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",500,false] call PurchasableItem_create,
+		["CfgVehicles","I_AA_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",650,false] call PurchasableItem_create,
+		["CfgVehicles","I_AT_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",750,false] call PurchasableItem_create
+		]; 
 
 //misc items
 allItems append[
