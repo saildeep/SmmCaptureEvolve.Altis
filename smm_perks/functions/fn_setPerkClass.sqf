@@ -53,7 +53,7 @@ private _perkClass = switch(_class) do{
 											_classEquipment append _sideEquipment;		
 											_classEquipment
 										  };
-	case "MACHINE_GUNNER"				: { private _classEquipment = ["BASE","PDW","LMG","RIFLEMAN","BACKPACK"];
+	case "MACHINE_GUNNER"				: { private _classEquipment = ["BASE","PDW","LMG","RIFLEMAN","BACKPACK","UGL","MINES"];
 											_classEquipment
 										  };
 	case "SOLDIER"						: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK"];
@@ -71,16 +71,6 @@ private _perkClass = switch(_class) do{
 												case WEST 	:{["TRIPOD_BACKPACK_BLUFOR","UNIFORM_CREWMAN_BLUFOR"]};
 												case EAST	:{["TRIPOD_BACKPACK_OPFOR","UNIFORM_CREWMAN_OPFOR"]};
 												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT","UNIFORM_CREWMAN_INDEPENDENT"]};
-												default {[]};
-											};
-											_classEquipment append _sideEquipment;
-											_classEquipment
-										  };
-	case "GRENADIER"					: { private _classEquipment = ["BASE","RIFLEMAN","UGL","PDW","BACKPACK","MINES"];
-											private _sideEquipment = switch(side _unit) do{
-												case WEST 	:{["TRIPOD_BACKPACK_BLUFOR"]};
-												case EAST	:{["TRIPOD_BACKPACK_OPFOR"]};
-												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
