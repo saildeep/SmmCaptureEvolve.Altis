@@ -45,6 +45,7 @@ smm_shop_open = {
 		smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
 
 		//draw vehicles
+		private _index = 0;
 		{
 			//_classname = _x select 0; 
 			private _classname = [_x] call PurchasableVehicle_get_Classname;
@@ -53,14 +54,16 @@ smm_shop_open = {
 			private _icon =[_x] call PurchasableVehicle_fnc_GetIcon;
 			private _perk = [_x] call PurchasableVehicle_get_Perk;
 			private _displayText = [_price,_name] call smm_shop_string;
+			
 			if([player,_perk] call smm_fnc_hasPerk)then{
 				lbAdd [smm_shop_vehicle_handle ,_displayText];
-				lbSetData [smm_shop_vehicle_handle,_forEachIndex,_classname];
-				lbSetValue [smm_shop_vehicle_handle,_forEachIndex,_price]; //set price as value
+				lbSetData [smm_shop_vehicle_handle,_index,_classname];
+				lbSetValue [smm_shop_vehicle_handle,_index,_price]; //set price as value
 				if(!(_icon in ["pictureThing"]) )then{
-					lbSetPicture [smm_shop_vehicle_handle,_forEachIndex,_icon];
+					lbSetPicture [smm_shop_vehicle_handle,_index,_icon];
 				};
-				lbSetPictureColor [smm_shop_vehicle_handle,_forEachIndex, [1,1,1,1]];
+				lbSetPictureColor [smm_shop_vehicle_handle,_index, [1,1,1,1]];
+				_index = _index +1;
 			};
 		}forEach buy_units;
 
