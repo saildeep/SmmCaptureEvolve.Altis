@@ -6,7 +6,7 @@ smm_ace_medic       = (("aceMedic" call BIS_fnc_getParamValue) == 1);
 smm_time_multiplier = ("timeMultiplier" call BIS_fnc_getParamValue);
 smm_start_time      = ("startTime" call BIS_fnc_getParamValue);
 smm_respawn_on_vehicle = (("respawnVehicles" call BIS_fnc_getParamValue) == 1);
-
+smm_allow_thermal = ("allowThermal" call BIS_fnc_getParamValue) == 1;
 //Map settings
 
 _smm_load                                = "load" call BIS_fnc_getParamValue;

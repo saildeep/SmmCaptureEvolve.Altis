@@ -78,7 +78,7 @@
 	
 	class delimiterEnvironment
     {
-        title="====================================Environmental Settings=====================================";
+        title="====================================Gameplay Settings=====================================";
         texts[]={"=================================================================================="};
         values[]={0};
         default=0;
@@ -86,6 +86,15 @@
         
     };
     
+    class allowThermal
+    {
+        title="Allow Thermal imaging";
+        texts[]={"Yes","No"};
+        values[]={1,0};
+        default=1;
+        isGlobal=1;
+        
+    };
     
     class timeMultiplier
     {
