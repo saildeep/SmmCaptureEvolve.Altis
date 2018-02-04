@@ -6,54 +6,52 @@ smm_fnc_virtualshop_msgInvalidItems = "Your loadout contains items that cannot b
 smm_fnc_virtualshop_msgNotEnoughCredits = "You do not have enough credits to purchase this loadout";
 
 smm_fnc_virtualshop_getItemPrice = {
-	with missionnamespace do {
-		//_item is either string with the cfgname or (in case _item is a magazine) array with [cfgname, bulletCount]
-		params [["_item","",[[],""]]];
-		private _price = 0;
-		if (_item isEqualType "") then {
-			if !(_item isEqualTo "") then {
-				private _matches = [allItemsClassNameToIndexLookup,_item] call smm_fnc_hashmapGet;
-				{
-					private _item = allItems select _x;
-					_price = [_item] call PurchasableItem_get_Price;
-				} forEach _matches;
-				
-				if (isNil "_price") then {
-					_price = 0;
-					diag_log format ["Error: could not retrieve price for %1", _item];
-				};
-				
-				// dealing with unpurchasable items (items the player might have picked up on the battlefield)
-				// the player can sell those items for the tenth of their price
-				if !(_item in ([] call (uinamespace getVariable "smm_fnc_virtualshop_getPurchasableItems"))) then {
-					_price = floor (_price / 10);
-				};
-			};
-		} else {
-			private _itemName = _item select 0;
-			private _count = _item select 1;
-			private _fullCount = getNumber (configfile >> "CfgMagazines" >> _itemName >> "count");
-			if !(_fullCount == 0 && _count == 0) then {
-				private _matches = [allItemsClassNameToIndexLookup,_itemName] call smm_fnc_hashmapGet;
-				{
-					private _item = allItems select _x;
-					_price = [_item] call PurchasableItem_get_Price;
-				} forEach _matches;
-				
-				if (isNil "_price") then {
-					_price = 0;
-					diag_log format ["Error: could not retrieve price for %1", _itemName];
-				};
-				
-				_price = ceil (_price * (_count / _fullCount));
-			};
-			
-			if !(_itemName in ([] call (uinamespace getVariable "smm_fnc_virtualshop_getPurchasableItems"))) then {
-				_price = floor (_price / 10);
-			};
+	//_item is either string with the cfgname or (in case _item is a magazine) array with [cfgname, bulletCount]
+	params [["_item","",[[],""]]];
+	
+	private _itemName = "";
+	private _bulletCount = 0;
+	private _fullCount = 0;
+	private _isMag = false;
+	private _price = 0;
+	
+	if (_item isEqualType "") then {
+		_itemName = _item;
+	} else {
+		if (_item isEqualType []) then {
+			_itemName = _item select 0;
+			_bulletCount = _item select 1;
+			_fullCount = getNumber (configfile >> "CfgMagazines" >> _itemName >> "count");
+			_isMag = true;
 		};
-		_price
 	};
+	
+	if !(_itemName isEqualTo "") then {
+		private _matches = with missionnamespace do {[allItemsClassNameToIndexLookup,_itemName] call smm_fnc_hashmapGet};
+		{
+			private _purchasableItem = (missionnamespace getVariable ["allItems", []]) select _x;
+			_price = with missionnamespace do {[_purchasableItem] call PurchasableItem_get_Price};
+		} forEach _matches;
+	};
+	
+	if (isNil "_price") then {
+		_price = 0;
+		diag_log format ["Error: could not retrieve price for %1", _itemName];
+	};
+	
+	if (_isMag && _fullCount > 0) then {
+		if (_bulletCount > 0) then {
+			_price = ceil (_price * (_bulletCount / _fullCount));
+		} else {
+			_price = 0;
+		};
+	};
+	
+	if !(_itemName in ([] call smm_fnc_virtualshop_getPurchasableItems)) then {
+		_price = floor (_price / 10);
+	};
+	
+	_price
 };
 
 smm_fnc_virtualshop_getCredit = {
