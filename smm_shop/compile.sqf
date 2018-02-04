@@ -9,10 +9,15 @@ smm_shop_string = {
 };
 smm_shop_create_vehicle = {
 	private _classname = _this select 0;
-	private _pos = (getPos player) findEmptyPosition [0,100,_classname];
+	private _searchPos = (getPos player);
 	if((count _this) > 1)then{
-		_pos = _this select 1;
+		_searchPos = _this select 1;
 	};
+	private _pos = _searchPos findEmptyPosition [0,100,_classname];
+	if((count _pos) == 0)then{
+		_pos = _searchPos;
+	};
+	
 	private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
 	//clear all vehicles despite ammo boxes
 	if(!(_veh isKindOf "ReammoBox_F"))then{
