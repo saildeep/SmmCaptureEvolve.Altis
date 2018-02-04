@@ -15,7 +15,7 @@ private _groups = [];
 	_x setVariable[KEY_ZONECENTER,_zoneCenter];
 	_x setVariable[KEY_ZONERADIUS,_zoneRadius];
 	
-	_x disableAI "AUTOCOMBAT";
+	//_x disableAI "AUTOCOMBAT";
 	_x setCombatMode "RED";
 	_x setBehaviour "AWARE";
 
