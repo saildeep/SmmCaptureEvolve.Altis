@@ -104,7 +104,13 @@ allItems append [
 	["CfgWeapons","ACE_RangeCard","SPOTTER_EQUIPMENT",20,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_MX2A","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Vector","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_Yardage450","SPOTTER_EQUIPMENT",270,false] call PurchasableItem_create
+	["CfgWeapons","ACE_Yardage450","SPOTTER_EQUIPMENT",270,false] call PurchasableItem_create,
 
 
+	//magazines
+	["CfgWeapons","ACE_1Rnd_82mm_Mo_HE","BASE",5,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_1Rnd_82mm_Mo_Smoke","BASE",2,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_1Rnd_82mm_Mo_Illum","BASE",2,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_1Rnd_82mm_Mo_Guided","BASE",10,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_1Rnd_82mm_Mo_LaserGuided","BASE",10,false] call PurchasableItem_create
 ];	
