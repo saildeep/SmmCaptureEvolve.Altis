@@ -14,10 +14,13 @@ smm_shop_create_vehicle = {
 		_pos = _this select 1;
 	};
 	private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
-	clearWeaponCargoGlobal _veh;
-	clearMagazineCargoGlobal _veh;
-	clearItemCargoGlobal _veh;
-	clearBackpackCargoGlobal _veh;
+	//clear all vehicles despite ammo boxes
+	if(!(_veh isKindOf "ReammoBox_F"))then{
+		clearWeaponCargoGlobal _veh;
+		clearMagazineCargoGlobal _veh;
+		clearItemCargoGlobal _veh;
+		clearBackpackCargoGlobal _veh;
+	};
 	_veh disableTIEquipment true;
 	_veh spawn smm_fnc_garbageCollectorObserveVehicleClient;
 	
