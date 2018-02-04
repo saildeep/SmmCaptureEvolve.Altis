@@ -239,7 +239,7 @@ if(playerSide == independent)then{
 		["O_Truck_02_box_F",7000,{},"BASE"] call PurchasableVehicle_create,
 		["I_Truck_02_ammo_F",15000,{},"BASE"] call PurchasableVehicle_create,
 		["I_Truck_02_medical_F",12000,{},"MEDIC"] call PurchasableVehicle_create,
-		["I_Truck_02_fuel_F",370,{},"BASE"] call PurchasableVehicle_create,
+		["I_Truck_02_fuel_F",37==0,{},"BASE"] call PurchasableVehicle_create,
 		["I_APC_Wheeled_03_cannon_F",52000,{},"CREWMAN"] call PurchasableVehicle_create
 	];
 };
