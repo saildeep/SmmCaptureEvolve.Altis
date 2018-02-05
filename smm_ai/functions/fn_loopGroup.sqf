@@ -5,12 +5,14 @@ private _isInCombat = false;
 private _forceToGoToTent =false;
 private _startGroupSize = count units _group;
 private _currentGroupSize =_startGroupSize;
- // as long as group exist. loop exist
+
+ // As long as the group is alive the loop is alive.
 while{ ({alive _x} count units _group) > 0 } do {
+
 	// get group status
 	_currentGroupSize = ({alive _x} count units _group);
 
-	// get status of each group member
+	// get status of each group member and react to them.
 	{
 		if (behaviour _x isEqualTo "COMBAT") then {
 			_isInCombat = true;
@@ -23,6 +25,7 @@ while{ ({alive _x} count units _group) > 0 } do {
 		
 	} forEach (units _group );
 
+	// Back to Tent ?
 	if(_isInCombat && ( ((leader _group) distance (_group getVariable KEY_ZONECENTER)) ) > ((_group getVariable KEY_ZONERADIUS)/4))  then{
 
 		if ( (_currentGroupSize / _startGroupSize) <=0.5 ) then {
@@ -46,6 +49,7 @@ while{ ({alive _x} count units _group) > 0 } do {
 		}
 	};
 
+	// By the Tent? Back to business mode!
 	if(_forceToGoToTent && ( ((leader _group) distance (_group getVariable KEY_ZONECENTER)) ) < ((_group getVariable KEY_ZONERADIUS)/4) ) then {
 		
 		//diag_log(format["Group %1 at tent, engage again", _group]);
