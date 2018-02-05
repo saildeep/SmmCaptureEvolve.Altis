@@ -19,12 +19,19 @@ private _groups = [];
 	_x setCombatMode "RED";
 	_x setBehaviour "AWARE";
 
+// allow fleewing still necessary?
+	_x allowFleeing 0;
+// set skill. 
+	_x setSkill smm_skill; 
+	_y=_x;
+	{
+		_y setSkill [_x,missionnamespace getVariable [("smm_aiSubSkill_"+_x), smm_skill]];
+	}forEach ["aimingAccuracy","aimingShake","aimingSpeed","spotDistance","spotTime","reloadSpeed","commanding","general"];
 
 	if(smm_debug_ai)then{
 		[_x,(str _forEachIndex) + "_forzone_"+ (str _zoneid)] spawn smm_fnc_debugTrackUnit;
 	};
 }forEach _units;
-
 {
 	
 	_x setVariable[KEY_ZONEID,_zoneid];

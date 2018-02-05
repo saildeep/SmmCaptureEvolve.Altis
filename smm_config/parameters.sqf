@@ -1,7 +1,7 @@
 
 autodetectHeadless  = (2 == ("headlessClient" call BIS_fnc_getParamValue));
 useHeadless         = (1 == ("headlessClient" call BIS_fnc_getParamValue)); //false if autodetect
-smm_skill           = ("aiDifficulty" call BIS_fnc_getParamValue)/10;
+
 smm_ace_medic       = (("aceMedic" call BIS_fnc_getParamValue) == 1);
 smm_time_multiplier = ("timeMultiplier" call BIS_fnc_getParamValue);
 smm_start_time      = ("startTime" call BIS_fnc_getParamValue);
@@ -29,3 +29,16 @@ smm_start_tickets = [100,100,100,100];
 //price for amount tickets
 smm_ticket_amount = 10;
 smm_ticket_price = 300;
+
+//AI settings
+smm_skill           			= ("aiDifficulty" call BIS_fnc_getParamValue)/10;
+smm_aiSubSkill_aimingAccuracy 	= if(("aiSubSkillAimingAccuracy" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillAimingAccuracy" call BIS_fnc_getParamValue)/10} else{smm_skill};
+smm_aiSubSkill_aimingShake 		= if(("aiSubSkillAimingShake" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillAimingShake" call BIS_fnc_getParamValue)/10} else{smm_skill};
+smm_aiSubSkill_aimingSpeed 		= if(("aiSubSkillAimingSpeed" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillAimingSpeed" call BIS_fnc_getParamValue)/10} else{smm_skill};
+//endurance // disabled in ARMA 3
+smm_aiSubSkill_spotDistance 	= if(("aiSubSkillSpotDistance " call BIS_fnc_getParamValue)>=2) then {("aiSubSkillSpotDistance" call BIS_fnc_getParamValue)/10} else{smm_skill};
+smm_aiSubSkill_spotTime 		= if(("aiSubSkillSpotTime" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillSpotTime" call BIS_fnc_getParamValue)/10} else{smm_skill};
+//courage //meaningless no fleeing allowed
+smm_aiSubSkill_reloadSpeed 		= if(("aiSubSkillReloadSpeed" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillreloadSpeed" call BIS_fnc_getParamValue)/10} else{smm_skill};
+smm_aiSubSkill_commanding 		= if(("aiSubSkillCommanding" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillcommanding" call BIS_fnc_getParamValue)/10} else{smm_skill};
+smm_aiSubSkill_general 			= if(("aiSubSkillGeneral" call BIS_fnc_getParamValue)>=2) then {("aiSubSkillgeneral" call BIS_fnc_getParamValue)/10} else{smm_skill};

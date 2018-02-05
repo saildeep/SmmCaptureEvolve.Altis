@@ -27,9 +27,6 @@ smm_spawner_patroling_threshold = 5;
 
 smm_spawner_per_kill_bounty = 225;
 
-smm_aiSubSkill_aimingSpeed = 0.3;
-smm_aiSubSkill_spotTime = 0.3;
-
 smm_garbage_collector_weapon_holder_timeout = 60 *15;
 smm_garbage_collector_vehicle_timeout = 60*60*2;
 

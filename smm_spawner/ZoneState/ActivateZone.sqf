@@ -58,12 +58,6 @@ private _spawnedInfantry = [];
 
 		//set certain settings for ActivateZone
 		_u setVariable ["zoneid",_zoneID,true];
-		_u allowFleeing 0;
-
-		_u setSkill smm_skill;
-		{
-			_u setSkill [_x,missionnamespace getVariable [("smm_aiSubSkill_"+_x), smm_skill]];
-		}forEach ["aimingAccuracy","aimingShake","aimingSpeed","endurance","spotDistance","spotTime","courage","reloadSpeed","commanding","general"];
 
 		if(smm_ai_disable_nvg)then{
 			_u removePrimaryWeaponItem "acc_pointer_IR";
@@ -92,7 +86,6 @@ private _spawnedInfantry = [];
 	_group enableDynamicSimulation true;
 	private _vehicletypes = _x;
 	private _spawnpositions = _vehicletypes apply {[_zoneCenter,_size] call smm_fnc_getSpawnPosNear};
-
 	{
 		private _cn = [_x] call SpawnableVehicle_get_ClassName;
 		private _pn = [_x] call SpawnableVehicle_get_PostSpawnFunction;
