@@ -79,17 +79,20 @@ smm_shop_open = {
 smm_shop_on_vehicle = {
 	private _curSelId = lbCurSel smm_shop_vehicle_handle;
 	private _out = false;
-	if(_curSelId>-1)then{
-		
-		private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
-		private _classname = lbData [smm_shop_vehicle_handle,_curSelId];
-		if(_price call smm_fnc_buy) then {
-			private _veh = [_classname] call smm_shop_create_vehicle;
-			assert !(isNil "_veh");
-			[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+	private _isInRange = [getPos player] call smm_fnc_positionInPlayerOwnedZone;
+	if(_isInRange)then{
+		if(_curSelId>-1)then{
 			
-		}else{
-			_out = true;
+			private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
+			private _classname = lbData [smm_shop_vehicle_handle,_curSelId];
+			if(_price call smm_fnc_buy) then {
+				private _veh = [_classname] call smm_shop_create_vehicle;
+				assert !(isNil "_veh");
+				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+				
+			}else{
+				_out = true;
+			};
 		};
 	};
 	_out
