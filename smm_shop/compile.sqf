@@ -127,7 +127,7 @@ smm_shop_on_vehicle_pos_place = {
 	private _zone = [_zonesManager,smm_shop_last_zone_id] call ZonesManager_fnc_GetZone;
 	private _tentpos  	= [_zone] call Zone_get_Position;
 	private _range 		= [_zone] call Zone_get_Size;
-	private _isInRange 	= (_clickpos distance _tentpos) < _range;
+	private _isInRange 	= [_clickpos] call smm_fnc_positionInPlayerOwnedZone;
 	private _price 		= smm_shop_on_vehicle_pos_price;
 	private _classname	= smm_shop_on_vehicle_pos_classname; 	 
 	
@@ -146,6 +146,7 @@ smm_shop_on_vehicle_pos_place = {
 
 
 };
+
 
 
 
