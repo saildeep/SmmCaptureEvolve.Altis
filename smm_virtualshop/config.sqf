@@ -36,7 +36,7 @@ smm_fnc_virtualshop_getItemPrice = {
 	
 	if (isNil "_price") then {
 		_price = 0;
-		diag_log format ["Error: could not retrieve price for %1", _itemName];
+		diag_log format ["Error: could not retrieve price for %1. Current namespace is %2 ", _itemName, currentNamespace];
 	};
 	
 	if (_isMag && _fullCount > 0) then {
@@ -47,7 +47,7 @@ smm_fnc_virtualshop_getItemPrice = {
 		};
 	};
 	
-	if !(_itemName in ([] call smm_fnc_virtualshop_getPurchasableItems)) then {
+	if !(_itemName in ([] call (uinamespace getVariable "smm_fnc_virtualshop_getPurchasableItems"))) then {
 		_price = floor (_price / 10);
 	};
 	

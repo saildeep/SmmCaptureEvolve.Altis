@@ -284,21 +284,17 @@ switch _mode do {
 			waitUntil {uinamespace getVariable ["smm_fnc_virtualshop_init",false]};
 		};
 		
-		with uinamespace do {
-			private _invOnOpen = [true, true] call smm_fnc_virtualshop_listInventory;
-			missionnamespace setVariable ["smm_fnc_virtualshop_invOnOpen", _invOnOpen];
-			private _unstructuredInv = [false, true] call smm_fnc_virtualshop_listInventory;
-			private _invCostOnOpen = [_unstructuredInv] call smm_fnc_virtualshop_calcLoadoutCost;
-			missionnamespace setVariable ["smm_fnc_virtualshop_invCostOnOpen", _invCostOnOpen];
-		};
+		/*
+		private _ehHandleDamage = player addEventHandler ["handledamage", {0}];
+		missionnamespace setVariable ["smm_fnc_virtualshop_ehHandleDamage", _ehHandleDamage];
+		REFRESH_BACKPACKLOCK
+		*/
 		
-		with missionnamespace do {
-			private _ehHandleDamage = player addEventHandler ["handledamage", {0}];
-			missionnamespace setVariable ["smm_fnc_virtualshop_ehHandleDamage", _ehHandleDamage];
-			REFRESH_BACKPACKLOCK
-		};
-		
-		
+		private _invOnOpen = [true, true] call (uiNamespace getVariable "smm_fnc_virtualshop_listInventory");
+		missionnamespace setVariable ["smm_fnc_virtualshop_invOnOpen", _invOnOpen];
+		private _unstructuredInv = [false, true] call (uiNamespace getVariable "smm_fnc_virtualshop_listInventory");
+		private _invCostOnOpen = [_unstructuredInv] call (uiNamespace getVariable "smm_fnc_virtualshop_calcLoadoutCost");
+		missionnamespace setVariable ["smm_fnc_virtualshop_invCostOnOpen", _invCostOnOpen];
 		
 		if !(isnull (uinamespace getvariable ["BIS_fnc_arsenal_cam",objnull])) exitwith {"Arsenal Viewer is already running" call bis_fnc_logFormat;};
 		missionnamespace setvariable ["BIS_fnc_arsenal_fullArsenal",[_this,0,false,[false]] call bis_fnc_param];
@@ -313,6 +309,7 @@ switch _mode do {
 			if (is3DEN) then {_displayMission = finddisplay 313;};
 			_displayMission createdisplay "RscDisplayShopArsenal";
 		};
+		
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -931,9 +928,10 @@ switch _mode do {
 		with missionnamespace do {
 			[missionnamespace,"arsenalClosed",[displaynull,uinamespace getvariable ["BIS_fnc_arsenal_toggleSpace",false]]] call bis_fnc_callscriptedeventhandler;
 			
-			
+			/*
 			private _ehHandleDamage = missionnamespace getVariable ["smm_fnc_virtualshop_ehHandleDamage", objNull]; 
 			player removeEventHandler ["handledamage", _ehHandleDamage];
+			*/
 			
 			private _backpack = unitBackpack player;
 			if ((!isNull _backpack) && (!isNull (missionnamespace getVariable ["smm_fnc_virtualshop_ehContainerOpened",objNull]))) then {
@@ -944,7 +942,7 @@ switch _mode do {
 		missionnamespace setVariable ["smm_fnc_virtualshop_invCostOnOpen",nil];
 		missionnamespace setVariable ["smm_fnc_virtualshop_invOnOpen",nil];
 		missionnamespace setVariable ["smm_fnc_virtualshop_currentInvalidItems",nil];
-		missionnamespace setVariable ["smm_fnc_virtualshop_ehHandleDamage",nil];
+		//missionnamespace setVariable ["smm_fnc_virtualshop_ehHandleDamage",nil];
 		missionnamespace setVariable ["smm_fnc_virtualshop_ehContainerOpened",nil];
 
 	};
@@ -1940,7 +1938,9 @@ switch _mode do {
 			};
 		};
 		
+		/*
 		REFRESH_BACKPACKLOCK
+		*/
 		
 		// update loadout cost
 		[] spawn smm_fnc_virtualshop_updateCostLabel;
@@ -1996,7 +1996,9 @@ switch _mode do {
 			_ctrlList lbsettooltip [_r * _columns,[_text,_text + "\n(Not compatible with currently equipped weapons)"] select _isIncompatible];
 		};
 		
+		/*
 		REFRESH_BACKPACKLOCK
+		*/
 		
 		[] spawn smm_fnc_virtualshop_updateCostLabel;
 	};
@@ -2913,7 +2915,11 @@ switch _mode do {
 		["TabDeselect",[_display,0]] call smm_fnc_virtualshop;
 		[missionnamespace getVariable "smm_fnc_virtualshop_invOnOpen"] call smm_fnc_virtualshop_setInventory;
 		["ListSelectCurrent",[_display]] call smm_fnc_virtualshop;
+		
+		/*
 		REFRESH_BACKPACKLOCK
+		*/
+		
 		[] spawn smm_fnc_virtualshop_updateCostLabel;
 		
 		/*
@@ -3024,6 +3030,8 @@ switch _mode do {
 		private _loadoutCost = [_unstructuredInv] call smm_fnc_virtualshop_calcLoadoutCost;
 		private _invCostOnOpen = missionnamespace getVariable ["smm_fnc_virtualshop_invCostOnOpen", 0];
 		private _credit = [] call smm_fnc_virtualshop_getCredit;
+		
+		/* 
 		private _currentInvalidItems = [_unstructuredInv] call smm_fnc_virtualshop_isValidLoadout;
 		
 		if !(_currentInvalidItems isEqualTo []) exitWith {
@@ -3039,6 +3047,7 @@ switch _mode do {
 			} forEach (_currentInvalidItems - [_currentInvalidItems select 0]);
 			['showMessage',[_display, format [smm_fnc_virtualshop_msgInvalidItems, _formatedInvalidItems]]] call smm_fnc_virtualshop;
 		};
+		*/
 		
 		if !([_loadoutCost - _invCostOnOpen] call smm_fnc_virtualshop_subtractCredit) exitwith {
 			['showMessage',[_display, format [smm_fnc_virtualshop_msgNotEnoughCredits, _credit, _loadoutCost - _invCostOnOpen]]] call smm_fnc_virtualshop;
