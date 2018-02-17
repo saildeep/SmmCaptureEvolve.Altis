@@ -245,8 +245,8 @@ if(playerSide == independent)then{
 };
 if(playerSide == east)then{
 	buy_units = [
-		["O_UGV_01_F",30000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
-		["O_UGV_01_rcws_F",50000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["O_UGV_01_F",30000,{},"UAV_OPFOR"] call PurchasableVehicle_create,
+		["O_UGV_01_rcws_F",50000,{},"UAV_OPFOR"] call PurchasableVehicle_create,
 		["O_Truck_03_transport_F",15000,{},"BASE"] call PurchasableVehicle_create,
 		["O_Truck_03_covered_F",13000,{},"BASE"] call PurchasableVehicle_create,
 		["O_Truck_03_repair_F",22000,{},"BASE"] call PurchasableVehicle_create,
