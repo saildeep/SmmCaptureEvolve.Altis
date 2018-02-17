@@ -1,4 +1,7 @@
-params ["_veh","_side","_price","_classname"];
+params ["_veh","_side","_price","_classname","_purchaserUID"];
+_veh setVariable [str_refund_owner,_purchaserUID];
+_veh setVariable [str_refund_price,_price];
+
 _log = format ["Bought %1 for %2 $ for side %3",_classname,_price,_side];
 diag_log _log;
 //handle case this is a respawn vehicle
