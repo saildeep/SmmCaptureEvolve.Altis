@@ -188,6 +188,9 @@ if(playerSide == west)then{
 	buy_units = [
 		["B_UGV_01_F",18000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
 		["B_UGV_01_rcws_F",33000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["B_T_UAV_03_dynamicLoadout_F",75000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["B_UAV_02_dynamicLoadout_F",50000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
+		["B_UAV_05_F",23000,{},"UAV_BLUFOR"] call PurchasableVehicle_create,
 		["B_Truck_01_transport_F",15000,{},"BASE"] call PurchasableVehicle_create,
 		["B_Truck_01_mover_F",13000,{},"BASE"] call PurchasableVehicle_create,
 		["B_Truck_01_Repair_F",22000,{},"BASE"] call PurchasableVehicle_create,
@@ -206,7 +209,7 @@ if(playerSide == west)then{
 		["B_T_APC_Wheeled_01_cannon_F",51000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["B_Heli_Transport_03_black_F",35000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["B_Plane_Fighter_01_F",55000,{},"CREWMAN"] call PurchasableVehicle_create,
-		["B_Plane_CAS_01_F",65000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["B_Plane_CAS_01_dynamicLoadout_F",65000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["B_Heli_Transport_01_camo_F",35000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["B_Heli_Attack_01_F",240000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["B_Heli_Light_01_stripped_F",30000,{},"CREWMAN"] call PurchasableVehicle_create,
