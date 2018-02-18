@@ -280,8 +280,8 @@ if(playerSide == east)then{
 		["O_Heli_Light_02_dynamicLoadout_F",45000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["O_T_LSV_02_armed_F",16000,{},"CREWMAN"] call PurchasableVehicle_create,
 		["O_T_LSV_02_unarmed_F",7000,{},"BASE"] call PurchasableVehicle_create,
-		["O_T_VTOL_02_infantry_F",75000,{},"CREWMAN"] call PurchasableVehicle_create,
-		["O_T_VTOL_02_vehicle_F",75000,{},"CREWMAN"] call PurchasableVehicle_create
+		["O_T_VTOL_02_infantry_dynamicLoadout_F",75000,{},"CREWMAN"] call PurchasableVehicle_create,
+		["O_T_VTOL_02_vehicle_dynamicLoadout_F",75000,{},"CREWMAN"] call PurchasableVehicle_create
 	];
 };
 buy_units append civilianBuyableUnits;
