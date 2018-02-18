@@ -4,3 +4,4 @@ private _typeClasses = ("inheritsFrom _x == (missionConfigFile >> 'OOType')" con
 {
 	[_x,(_typeClasses apply {configName _x}) - [configName _x] ] call smm_fnc_parseType;	
 } forEach _typeClasses;
+missionNamespace setVariable["oo_init",true,false];
