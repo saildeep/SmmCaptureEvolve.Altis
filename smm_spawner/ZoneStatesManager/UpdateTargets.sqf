@@ -19,6 +19,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 	private _numNeeded = _x;
 	private _side = _sides select _forEachIndex;
 	private _sideIndex = _forEachIndex;
+	private _sideTargets = [_targetCollection,_side] call TargetCollection_fnc_GetTargetsForSide;
 
 
 	if(_numNeeded > 0)then{
@@ -41,6 +42,7 @@ private _zonesManager = call ZonesManager_GetInstance;
 			
 		} forEach ([_zonesManager] call ZonesManager_get_Zones);
 
+		_candidateIndices = _candidateIndices - _sideTargets;
 		private _candidates = _candidateIndices apply {[_zonesManager,_x] call ZonesManager_fnc_GetZone };
 
 		//TODO change sorting order, currently selects smallest zone first.
