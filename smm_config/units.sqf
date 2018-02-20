@@ -183,6 +183,7 @@ if(smm_ace)then{
 		private _name = getText(_x >> "displayName");
 		_displayNames pushBackUnique _name;
 	} forEach _vehicleMagazines;
+	
 	ace_units append (_displayNames apply {
 		private _contents = "true" configClasses (configFile>> "CfgMagazines");
 		private _dn = _x;
