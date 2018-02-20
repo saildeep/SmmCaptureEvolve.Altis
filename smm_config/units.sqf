@@ -190,8 +190,9 @@ if(smm_ace)then{
 		if((count _nameArray) > 2)then{
 			_hash = (_nameArray select 0) *5 + (_nameArray select 1) * 3 + (_nameArray select 2);
 		};
+		assert (_hash > -1);
 		private _boxes  = ["Box_NATO_AmmoVeh_F","Box_East_AmmoVeh_F","Box_IND_AmmoVeh_F"];
-		private _box = _boxes select (_hash random (count _boxes));
+		private _box = _boxes select (_hash mod (count _boxes));
 		private _price = 3000 + (round(_hash random 200))*10;
 
 		private _contents = "true" configClasses (configFile>> "CfgMagazines");
@@ -204,7 +205,7 @@ if(smm_ace)then{
 		{
 			_functionCode = _functionCode + (format ["[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply;",configName _x]);
 		}forEach _contents;
-		[_box,_price,compile _functionCode,"MINES",_boxName] call PurchasableVehicle_create
+		[_box,_price,compile _functionCode,"REPAIR_SIMPLE",_boxName] call PurchasableVehicle_create
 	});
 
 	civilianBuyableUnits append ace_units;
