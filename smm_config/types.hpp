@@ -14,6 +14,9 @@ class PurchasableVehicle:OOType{
         typeName="STRING";
         typeCheck = "_this in (call smm_fnc_allowedPerks)";
     };
+    class OverWriteName:OOVar{
+        typeName = "STRING";
+    };
 	class GetIcon: OOFunction{
 		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'picture')";
 		//code = "([_this select 0] call PurchasableVehicle_get_ClassName) ";
@@ -21,8 +24,7 @@ class PurchasableVehicle:OOType{
 		
 	};
 	class GetName: OOFunction{
-		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'displayName')";
-		
+		file = "smm_config\PurchasableVehicle\GetName.sqf";
     };
 
     
