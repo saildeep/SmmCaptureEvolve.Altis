@@ -17,7 +17,7 @@ foreach(units _group );
 // setup guard and patrol
 if(((_allZoneGroups find _group) + 1 ) % 3 == 0 )then{
 diag_log( format["Group : %1 start setup Partoling",_group]) ;
-waitUntil{[_group,_group getVariable KEY_ZONECENTER,(_group getVariable KEY_ZONERADIUS)/2,250]call smm_fnc_taskPatrol_v1_4;};
+waitUntil{[_group,_group getVariable KEY_ZONECENTER,(_group getVariable KEY_ZONERADIUS)*0.8,0]call smm_fnc_taskPatrol_v1_4;};
 diag_log( format["Group : %1 done setup Patroling",_group]) ;
 }else{
 diag_log( format["Group : %1 start setup Defending",_group]) ;
@@ -29,7 +29,7 @@ while{ ({alive _x} count units _group) > 0 } do {
 
 	// get group status
 	_currentGroupSize = ({alive _x} count units _group);
-			
+
 	// get status of each group member and react to them.
 	{
 		if (behaviour _x isEqualTo "COMBAT") then {
