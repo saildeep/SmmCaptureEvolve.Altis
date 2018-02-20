@@ -178,9 +178,22 @@ if(smm_ace)then{
 			["ACE_Box_82mm_Mo_Combo",500,{},"MINES","[Box] Mortar Ammunition"] call PurchasableVehicle_create
 	];
 	private _vehicleMagazines = (("true" configClasses (configFile >> "CfgMagazines")) select {getNumber (_x >> "scope") == 2}) select {(configFile >> "CfgMagazines">>"VehicleMagazine") in(_x call BIS_fnc_returnParents)} ;
-	ace_units append (_vehicleMagazines apply {
-		private _boxName = "[Box] "  + (getText (_x >> "displayName"));
-		private _functionCode = format ["[_this,3000] call ace_rearm_fnc_setSupplyCount;[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply;",configName _x];
+	private _displayNames = [];
+	{
+		private _name = getText(_x >> "displayName");
+		_displayNames pushBackUnique _name;
+	} forEach _vehicleMagazines;
+	ace_units append (_displayNames apply {
+		private _contents = "true" configClasses (configFile>> "CfgMagazines");
+		private _dn = _x;
+		
+		_contents = _contents select {getText (_x >> "displayName") == _dn};
+
+		private _boxName = "[Box] "  + _x;
+		private _functionCode = "[_this,3000] call ace_rearm_fnc_setSupplyCount;";
+		{
+			_functionCode = _functionCode + (format ["[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply;",configName _x]);
+		}forEach _contents;
 		["Box_NATO_AmmoVeh_F",4000,compile _functionCode,"MINES",_boxName] call PurchasableVehicle_create
 	});
 
