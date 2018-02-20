@@ -24,8 +24,7 @@ class PurchasableVehicle:OOType{
 		
 	};
 	class GetName: OOFunction{
-		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'displayName')";
-		
+		file = "smm_config\PurchasableVehicle\GetName.sqf";
     };
 
     
