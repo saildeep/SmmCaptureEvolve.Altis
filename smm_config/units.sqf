@@ -193,7 +193,7 @@ if(smm_ace)then{
 		assert (_hash > -1);
 		private _boxes  = ["Box_NATO_AmmoVeh_F","Box_East_AmmoVeh_F","Box_IND_AmmoVeh_F"];
 		private _box = _boxes select (_hash mod (count _boxes));
-		private _price = 3000 + (round(_hash random 200))*10;
+		private _price = 9000 + (round(_hash random 400))*10;
 
 		private _contents = "true" configClasses (configFile>> "CfgMagazines");
 		private _dn = _x;
@@ -201,9 +201,14 @@ if(smm_ace)then{
 		_contents = _contents select {getText (_x >> "displayName") == _dn};
 
 		private _boxName = "[Box] "  + _x;
-		private _functionCode = "[_this,3000] call ace_rearm_fnc_setSupplyCount;";
+		private _functionCode = "[_this,3000000] call ace_rearm_fnc_setSupplyCount;";
+		
 		{
-			_functionCode = _functionCode + (format ["[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply;",configName _x]);
+			private _ammo =configFile >> "CfgAmmo" >>  getText(_x >> "ammo");
+			private _ammo_caliber = 1 max (getNumber (_ammo >> "ace_rearm_caliber"));
+			private _mag_size = getNumber(_x >> "count");
+			private _count = (_price / (_ammo_caliber * _mag_size)) max 1;
+			_functionCode = _functionCode + (format ["for [{_i = 0},{_i< %2 },{_i = _i +1}] do {[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply};",configName _x,_count]);
 		}forEach _contents;
 		[_box,_price,compile _functionCode,"REPAIR_SIMPLE",_boxName] call PurchasableVehicle_create
 	});
