@@ -135,7 +135,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillAimingAccuracy{  
+    class aiSubSkillAimingAccuracy
+    {  
         title="AI Sub Skill: Aiming Accuracy"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -143,7 +144,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillAimingShake{  
+    class aiSubSkillAimingShake
+    {  
         title="AI Sub Skill: Aiming Shake"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -151,7 +153,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillAimingSpeed{  
+    class aiSubSkillAimingSpeed
+    {  
         title="AI Sub Skill: Aiming Speed   -> Hint: interpolated between 0.5 and 1.0"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -159,7 +162,8 @@
         isGlobal = 1;
     };
     
-    class aiSubSkillSpotDistance{  
+    class aiSubSkillSpotDistance
+    {  
         title="AI Sub Skill: SpotDistance"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -167,7 +171,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillSpotTime{  
+    class aiSubSkillSpotTime
+    {  
         title="AI Sub Skill: Spot Time      -> Hint: interpolated between 0.0 and 0.7"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -175,7 +180,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillReloadSpeed{  
+    class aiSubSkillReloadSpeed
+    {  
         title="AI Sub Skill: ReloadSpeed"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -183,7 +189,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillCommanding{  
+    class aiSubSkillCommanding
+    {  
         title="AI Sub Skill: Commanding"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
@@ -191,7 +198,8 @@
         isGlobal = 1;
     };
 
-    class aiSubSkillGeneral{  
+    class aiSubSkillGeneral
+    {  
         title="AI Sub Skill: General"
         texts[]={"Auto","20%","30%","40%","50%","60%","70%","80%","90%","100%"};
         values[]={0,2,3,4,5,6,7,8,9,10};
