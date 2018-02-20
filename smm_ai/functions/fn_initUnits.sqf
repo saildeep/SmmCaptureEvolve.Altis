@@ -7,7 +7,6 @@ private _zoneRadius = [_zone] call Zone_get_Size;
 private _zoneCenter = [_zone] call Zone_get_Position;
 
 
-
 private _groups = [];
 {
 	_groups pushBackUnique (group _x);
@@ -37,5 +36,5 @@ private _groups = [];
 	_x setVariable[KEY_ZONEID,_zoneid];
 	_x setVariable[KEY_ZONECENTER,_zoneCenter];
 	_x setVariable[KEY_ZONERADIUS,_zoneRadius];
-	[_x] spawn smm_fnc_loopGroup;
+	[_x,_groups] spawn smm_fnc_loopGroup;
 }forEach _groups;
