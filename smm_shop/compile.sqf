@@ -1,5 +1,5 @@
-smm_shop_dialog_name = "shop_dialog";
-smm_shop_vehicle_handle = 1500;
+#define smm_shop_dialog_name "shop_dialog"
+#define smm_shop_vehicle_handle 1500
 smm_shop_chest = player; //set as default unit init is loaded
 
 smm_shop_string = {
@@ -56,13 +56,20 @@ smm_shop_open = {
 			private _displayText = [_price,_name] call smm_shop_string;
 			
 			if([player,_perk] call smm_fnc_hasPerk)then{
+				private _color = [0.9,0,0,1];
+				if((call smm_fnc_getBalance) >= _price) then{
+					_color = [0,0.7,0,1];
+				};
+				
 				lbAdd [smm_shop_vehicle_handle ,_displayText];
 				lbSetData [smm_shop_vehicle_handle,_index,str _forEachIndex];
 				lbSetValue [smm_shop_vehicle_handle,_index,_price]; //set price as value
 				if(!(_icon in ["pictureThing"]) )then{
 					lbSetPicture [smm_shop_vehicle_handle,_index,_icon];
+					lbSetPictureColor [smm_shop_vehicle_handle, _index, _color];
 				};
-				lbSetPictureColor [smm_shop_vehicle_handle,_index, [1,1,1,1]];
+				
+				lbSetColor [smm_shop_vehicle_handle,_index,_color];
 				_index = _index +1;
 			};
 		}forEach buy_units;
