@@ -171,13 +171,20 @@ civilianBuyableUnits = [
 ];
 
 if(smm_ace)then{
-ace_units = [
-		["ACE_Wheel",300,{},"BASE",""] call PurchasableVehicle_create,
-		["ACE_Track",5000,{},"BASE",""] call PurchasableVehicle_create,
-		//TODO change perk
-		["ACE_Box_82mm_Mo_Combo",500,{},"MINES",""] call PurchasableVehicle_create
-];
-civilianBuyableUnits append ace_units;
+	ace_units = [
+			["ACE_Wheel",300,{},"BASE",""] call PurchasableVehicle_create,
+			["ACE_Track",5000,{},"BASE",""] call PurchasableVehicle_create,
+			//TODO change perk
+			["ACE_Box_82mm_Mo_Combo",500,{},"MINES","[Box] Mortar Ammunition"] call PurchasableVehicle_create
+	];
+	private _vehicleMagazines = (("true" configClasses (configFile >> "CfgMagazines")) select {getNumber (_x >> "scope") == 2}) select {(configFile >> "CfgMagazines">>"VehicleMagazine") in(_x call BIS_fnc_returnParents)} ;
+	ace_units append (_vehicleMagazines apply {
+		private _boxName = "[Box] "  + (getText (_x >> "displayName"));
+		private _functionCode = format ["[_this,3000] call ace_rearm_fnc_setSupplyCount;[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply;",configName _x];
+		["Box_NATO_AmmoVeh_F",4000,compile _functionCode,"MINES",_boxName] call PurchasableVehicle_create
+	});
+
+	civilianBuyableUnits append ace_units;
 };
 
 

@@ -57,7 +57,7 @@ smm_shop_open = {
 			
 			if([player,_perk] call smm_fnc_hasPerk)then{
 				lbAdd [smm_shop_vehicle_handle ,_displayText];
-				lbSetData [smm_shop_vehicle_handle,_index,_classname];
+				lbSetData [smm_shop_vehicle_handle,_index,str _forEachIndex];
 				lbSetValue [smm_shop_vehicle_handle,_index,_price]; //set price as value
 				if(!(_icon in ["pictureThing"]) )then{
 					lbSetPicture [smm_shop_vehicle_handle,_index,_icon];
@@ -84,11 +84,15 @@ smm_shop_on_vehicle = {
 		if(_curSelId>-1)then{
 			
 			private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
-			private _classname = lbData [smm_shop_vehicle_handle,_curSelId];
+			private _index = parseNumber (lbData [smm_shop_vehicle_handle,_curSelId]);
+			private _element = buy_units select _index;
+			private _classname = [_element] call PurchasableVehicle_get_Classname;
+			private _fn = [_element] call PurchasableVehicle_get_PostSpawnFunction;
 			if(_price call smm_fnc_buy) then {
 				private _veh = [_classname] call smm_shop_create_vehicle;
 				assert !(isNil "_veh");
 				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+				_veh spawn _fn;
 				
 			}else{
 				_out = true;
@@ -110,9 +114,14 @@ smm_shop_on_vehicle_pos = {
 	if(_curSelId>-1)then{
 		
 		private _price			= lbValue [smm_shop_vehicle_handle,_curSelId];
-		private _classname 		= lbData [smm_shop_vehicle_handle,_curSelId];
+		private _index = parseNumber( lbData [smm_shop_vehicle_handle,_curSelId]);
+		private _element = buy_units select _index;
+
+		private _fn = [_element] call PurchasableVehicle_get_PostSpawnFunction;
+		private _classname 		= [_element] call PurchasableVehicle_get_Classname;
 		smm_shop_on_vehicle_pos_price 		= _price;
 		smm_shop_on_vehicle_pos_classname 	= _classname;
+		smm_shop_on_vehicle_pos_fn 			= _fn;
 		
 		// select pos
 			closeDialog 2;
@@ -140,6 +149,7 @@ smm_shop_on_vehicle_pos_place = {
 			private _veh = [_classname,_clickpos] call smm_shop_create_vehicle;
 			assert !(isNil "_veh");
 			[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+			_veh spawn smm_shop_on_vehicle_pos_fn;
 		}else {
 			titleText [str_insufficient, "PLAIN"];
 		};
