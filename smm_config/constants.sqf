@@ -30,8 +30,8 @@ smm_spawner_per_kill_bounty = 225;
 smm_garbage_collector_weapon_holder_timeout = 60 *15;
 smm_garbage_collector_vehicle_timeout = 60*60*2;
 
-//intervall in frames
-smm_save_interval = 50 * 60 * 30;
+//intervall in seconds
+smm_save_interval = 30 *60;
 
 smm_money_start = 5000;
 smm_money_all_uid = [];

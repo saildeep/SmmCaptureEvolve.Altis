@@ -1,13 +1,4 @@
 
-smm_save_next = diag_frameNo + smm_save_interval;
-smm_save_with_check={
-    if(smm_save_next > diag_frameNo)then{
-        [] spawn smm_save_do_server;
-        smm_save_next = diag_frameNo + smm_save_interval;
-    }
-};
-
-
 
 [] spawn{
     {
@@ -15,4 +6,11 @@ smm_save_with_check={
         _ip addAction [str_save,smm_save_do_client];
     }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 };
-
+[] spawn {
+    if(isServer)then{
+        while (true) do {
+            sleep smm_save_interval;
+            [] spawn smm_save_do_server;
+        };
+    };
+};
