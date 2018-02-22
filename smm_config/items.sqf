@@ -576,7 +576,6 @@ if(!smm_rhs)then{
 		["CfgVehicles","B_AT_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_BLUFOR",750,false] call PurchasableItem_create
 		]; 
 
-
 		// Opfor
 		allItems append[
 		["CfgVehicles","O_HMG_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_OPFOR",1000,true] call PurchasableItem_create,
@@ -602,6 +601,13 @@ if(!smm_rhs)then{
 		["CfgVehicles","I_AA_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",650,false] call PurchasableItem_create,
 		["CfgVehicles","I_AT_01_weapon_F","DISMANTLED_WEAPON_BACKPACK_INDEPENDENT",750,false] call PurchasableItem_create
 		]; 
+	
+	// Dismantled Laser Designator
+
+		allItems# append [
+		["CfgVehicles","B_Static_Designator_01_weapon_F","DESIGNATOR_BLUFOR",300,true] call PurchasableItem_create,
+		["CfgVehicles","O_Static_Designator_02_weapon_F","DESIGNATOR_OPFOR",300,true] call PurchasableItem_create 
+		];
 
 //misc items
 allItems append[
@@ -613,9 +619,9 @@ allItems append[
 	["CfgWeapons","ToolKit","TOOLKIT",400,true] call PurchasableItem_create,
 
 	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
-	["CfgWeapons","Laserdesignator","UAV_BLUFOR",400,true] call PurchasableItem_create,
-	["CfgWeapons","Laserdesignator_02","UAV_OPFOR",400,true] call PurchasableItem_create,
-	["CfgWeapons","Laserdesignator_03","UAV_INDEPENDENT",400,true] call PurchasableItem_create,
+	["CfgWeapons","Laserdesignator","DESIGNATOR_BLUFOR",400,true] call PurchasableItem_create,
+	["CfgWeapons","Laserdesignator_02","DESIGNATOR_OPFOR",400,true] call PurchasableItem_create,
+	["CfgWeapons","Laserdesignator_03","DESIGNATOR_INDEPENDENT",400,true] call PurchasableItem_create,
 
 	["CfgWeapons","NVGoggles","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_OPFOR","BASE",400,false] call PurchasableItem_create,
@@ -739,9 +745,9 @@ allItems append [
 	["CfgVehicles","O_UAV_06_backpack_F","UAV_OPFOR",500,false] call PurchasableItem_create,
 	["CfgVehicles","I_UAV_06_backpack_F","UAV_INDEPENDENT",500,false] call PurchasableItem_create,
 
-	["CfgVehicles","B_UAV_06_medical_backpack_F","UAV_BLUFOR",600,false] call PurchasableItem_create,
-	["CfgVehicles","O_UAV_06_medical_backpack_F","UAV_OPFOR",600,false] call PurchasableItem_create,
-	["CfgVehicles","I_UAV_06_medical_backpack_F","UAV_INDEPENDENT",600,false] call PurchasableItem_create,
+	["CfgVehicles","B_UAV_06_backpack_F","UAV_BLUFOR",600,false] call PurchasableItem_create,
+	["CfgVehicles","O_UAV_06_backpack_F","UAV_OPFOR",600,false] call PurchasableItem_create,
+	["CfgVehicles","I_UAV_06_backpack_F","UAV_INDEPENDENT",600,false] call PurchasableItem_create,
 
 	["CfgVehicles","B_UAV_01_backpack_F","UAV_BLUFOR",500,false] call PurchasableItem_create,
 	["CfgVehicles","O_UAV_01_backpack_F","UAV_OPFOR",500,false] call PurchasableItem_create,
