@@ -210,7 +210,7 @@ if(smm_ace)then{
 			private _count = (_price / (_ammo_caliber * _mag_size)) max 1;
 			_functionCode = _functionCode + (format ["for [{_i = 0},{_i< %2 },{_i = _i +1}] do {[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply};",configName _x,_count]);
 		}forEach _contents;
-		[_box,_price,compile _functionCode,"REPAIR_SIMPLE",_boxName] call PurchasableVehicle_create
+		[_box,_price,compile _functionCode,"VEHICLE_AMMO",_boxName] call PurchasableVehicle_create
 	});
 
 	civilianBuyableUnits append ace_units;

@@ -611,7 +611,7 @@ allItems append[
 	["CfgWeapons","ItemGPS","BASE",100,true] call PurchasableItem_create,
 	["CfgWeapons","ItemMap","BASE",1,true] call PurchasableItem_create,
 	["CfgWeapons","Binocular","BASE",80,false] call PurchasableItem_create,
-	["CfgWeapons","ToolKit","REPAIR_SIMPLE",400,true] call PurchasableItem_create,
+	["CfgWeapons","ToolKit","TOOLKIT",400,true] call PurchasableItem_create,
 
 	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","Laserdesignator","UAV_BLUFOR",400,true] call PurchasableItem_create,

@@ -2,7 +2,9 @@
                         "RADIO_LARGE_BLUFOR","RADIO_LARGE_OPFOR","RADIO_LARGE_INDEPENDENT","RADIO_SMALL_BLUFOR","RADIO_SMALL_OPFOR","RADIO_SMALL_INDEPENDENT",\
                         "ANTI_AIR","ANTI_TANK",\
                         "MINES",\
-                        "REPAIR_SIMPLE","REPAIR_ADVANCED",\
+                        "TOOLKIT",\
+                        "VEHICLE_AMMO",\
+                        "REPAIR",\
                         "MARKSMAN","SNIPER","SPOTTER_EQUIPMENT",\
                         "LMG",\
                         "UGL",\
