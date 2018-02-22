@@ -43,3 +43,7 @@ str_task_description_item = "<img width='18' height='18' image='%1'/> %2 <br />"
 //vehicle refund
 str_refund_owner = "smm_vehicle_owner";
 str_refund_price = "smm_vehicle_price";
+
+//target voting
+str_vote_target_action = "Vote target";
+str_vote_target_hint = "Click in which direction you want the next target zones to be! Hold alt if you want to remove your selection";
