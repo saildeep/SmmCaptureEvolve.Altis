@@ -18,5 +18,6 @@
                         "UNIFORM_CREWMAN_BLUFOR","UNIFORM_CREWMAN_OPFOR","UNIFORM_CREWMAN_INDEPENDENT",\
                         "UAV_BLUFOR","UAV_OPFOR","UAV_INDEPENDENT",\
                         "DESIGNATOR_BLUFOR","DESIGNATOR_OPFOR","DESIGNATOR_INDEPENDENT",\
+                        "LOGISTIC__BLUFOR","LOGISTIC_OPFOR","LOGISTIC_INDEPENDENT",\
                         "MEDIC"]
 #define KEY_PERKS "allperks"

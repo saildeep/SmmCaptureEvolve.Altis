@@ -61,9 +61,9 @@ private _perkClass = switch(_class) do{
 										  };
 	case "CREWMAN"						: { private _classEquipment = ["BASE","PDW","CREWMAN","TOOLKIT","VEHICLE_AMMO"];
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 				:{["TRIPOD_BACKPACK_BLUFOR","UNIFORM_CREWMAN_BLUFOR"]};
-												case EAST					:{["TRIPOD_BACKPACK_OPFOR","UNIFORM_CREWMAN_OPFOR"]};
-												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT","UNIFORM_CREWMAN_INDEPENDENT"]};
+												case WEST 				:{["TRIPOD_BACKPACK_BLUFOR","UNIFORM_CREWMAN_BLUFOR","LOGISTIC_BLUFOR"]};
+												case EAST					:{["TRIPOD_BACKPACK_OPFOR","UNIFORM_CREWMAN_OPFOR","LOGISTIC_OPFOR"]};
+												case independent	:{["TRIPOD_BACKPACK_INDEPENDENT","UNIFORM_CREWMAN_INDEPENDENT","LOGISTIC_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
@@ -71,9 +71,9 @@ private _perkClass = switch(_class) do{
 										  };
 	case "LOGISTIC_ENGINEER"	: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK","MINES","TOOLKIT","REPAIR","VEHICLE_AMMO"];											
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 				:{["UAV_BLUFOR"]};
-												case EAST					:{["UAV_OPFOR"]};
-												case independent	:{["UAV_INDEPENDENT"]};
+												case WEST 				:{["UAV_BLUFOR","LOGISTIC_BLUFOR"]};
+												case EAST					:{["UAV_OPFOR","LOGISTIC_OPFOR"]};
+												case independent	:{["UAV_INDEPENDENT","LOGISTIC_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;
