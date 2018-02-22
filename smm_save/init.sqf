@@ -8,7 +8,7 @@
 };
 [] spawn {
     if(isServer)then{
-        while (true) do {
+        while {true} do {
             sleep smm_save_interval;
             [] spawn smm_save_do_server;
         };
