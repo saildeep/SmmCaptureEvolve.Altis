@@ -44,17 +44,25 @@ private _zonesManager = call ZonesManager_GetInstance;
 
 		_candidateIndices = _candidateIndices - _sideTargets;
 		private _candidates = _candidateIndices apply {[_zonesManager,_x] call ZonesManager_fnc_GetZone };
+		private _votes = [_candidates,_side] call smm_fnc_getVotes;
 
+		//initialize _permutation with ascending number
+		private _permutation = [];{_permutation pushBack _forEachIndex;}forEach _candidates;
+
+		//first sort by zone size
+		_permutation = [_permutation,[_candidates,_votes],{[_input0 select _x] call Zone_get_Size },"ASCEND"] call BIS_fnc_sortBy;
+		_permutation = [_permutation,[_candidates,_votes],{_input1 select _x},"DESCEND"] call BIS_fnc_sortBy;
 		//TODO change sorting order, currently selects smallest zone first.
-		_candidates = [_candidates,[],{[_x] call Zone_get_Size },"ASCEND"] call BIS_fnc_sortBy;
+		
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
-		_candidates resize (_numNeeded min (count _candidates));
-		["Activating %1",_candidates] call _log;
+		_permutation resize (_numNeeded min (count _candidates));
+		["Activating permuatation %1",_permutation] call _log;
 		{
-			private _zs = [_singleton,[_x] call Zone_get_ID ] call ZoneStatesManager_fnc_GetZoneState;
-			(_currentTargets select _sideIndex) pushBack ([_x] call Zone_get_ID);
+			private _zone = _candidates select _x;
+			private _zs = [_singleton,[_zone] call Zone_get_ID ] call ZoneStatesManager_fnc_GetZoneState;
+			(_currentTargets select _sideIndex) pushBack ([_zone] call Zone_get_ID);
 			[_zs] call ZoneState_fnc_ActivateZone;
-		}forEach _candidates;
+		}forEach _permutation;
 		
 
 	};
