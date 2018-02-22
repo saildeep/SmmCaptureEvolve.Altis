@@ -316,10 +316,9 @@ allItems append [
 
 	// Independent Sniper Uniform
 	["CfgWeapons","U_I_GhillieSuit","UNIFORM_SNIPER_INDEPENDENT",100,true] call PurchasableItem_create,	
-	["CfgWeapons","U_O_FullGhillie_lsh","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_FullGhillie_ard","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_T_FullGhillie_tna_F","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_O_T_Sniper_F","UNIFORM_SNIPER_INDEPENDENT",100,false] call PurchasableItem_create,
+	["CfgWeapons","U_I_FullGhillie_lsh","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_I_FullGhillie_ard","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_I_T_FullGhillie_tna_F","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
 	
 	// Independent Crew Uniform
 	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",50,true] call PurchasableItem_create,
