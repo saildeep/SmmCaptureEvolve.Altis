@@ -17,7 +17,7 @@ _success = createDialog "RscTransferMoney";
 
 if (_success) then {
 	
-	private _funds = 10000; //TODO
+	private _funds = [] call smm_fnc_getBalance;
 	
 	missionNamespace setVariable ["transferMoneyTo", _target];
 	missionNamespace setVariable ["transferMoneyFrom", _caller];
