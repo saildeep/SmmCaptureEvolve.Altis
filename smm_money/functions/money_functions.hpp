@@ -12,6 +12,6 @@ class moneyTransferServer{};
 class registerUid{};
 class setBalanceServer{};
 class showBalance{};
-
-
+class transferMoney{};
+class initTransferMoney{};
 
