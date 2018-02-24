@@ -604,7 +604,7 @@ if(!smm_rhs)then{
 	
 	// Dismantled Laser Designator
 
-		allItems# append [
+		allItems append [
 		["CfgVehicles","B_Static_Designator_01_weapon_F","DESIGNATOR_BLUFOR",300,true] call PurchasableItem_create,
 		["CfgVehicles","O_Static_Designator_02_weapon_F","DESIGNATOR_OPFOR",300,true] call PurchasableItem_create 
 		];
