@@ -59,11 +59,10 @@ while{ ({alive _x} count units _group) > 0 } do {
 				_x doMove _nearTentPos;
 				_x forceSpeed (_x getSpeed "FAST");
 				diag_log(format["Soldier: %1 go back to tent", name _x ]);
-				waitUntil{ ((getPos _x) distance _nearTentPos )<=5 ;};
+				waitUntil{ ((getPos _x) distance _nearTentPos )<=5 || ! (alive _unit) ;};
 				doStop _x;		
 			}forEach(units _group);
 		};
 	};
 	sleep 30;
 };
-"run"
