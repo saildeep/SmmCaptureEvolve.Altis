@@ -1,1 +1,0 @@
-["get_config_category.sqf is deprecated"] call BIS_fnc_error; 

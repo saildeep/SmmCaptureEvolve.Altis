@@ -10,6 +10,13 @@ class PurchasableVehicle:OOType{
     class PostSpawnFunction: OOVar{
         typeName = "CODE";
     };
+    class Perk:OOVar{
+        typeName="STRING";
+        typeCheck = "_this in (call smm_fnc_allowedPerks)";
+    };
+    class OverWriteName:OOVar{
+        typeName = "STRING";
+    };
 	class GetIcon: OOFunction{
 		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'picture')";
 		//code = "([_this select 0] call PurchasableVehicle_get_ClassName) ";
@@ -17,8 +24,7 @@ class PurchasableVehicle:OOType{
 		
 	};
 	class GetName: OOFunction{
-		code = "getText(configFile >> 'CfgVehicles' >> ([_this select 0] call PurchasableVehicle_get_ClassName) >> 'displayName')";
-		
+		file = "smm_config\PurchasableVehicle\GetName.sqf";
     };
 
     
@@ -58,12 +64,12 @@ class SpawnableVehicle:OOType{
 class PurchasableItem:OOType{
     class ConfigFile:OOVar{
         typeName="STRING";
-        typeCheck="(_this == 'CfgWeapons') || (_this == 'CfgVehicles')";
+        typeCheck="_this in ['CfgItems','CfgMagazines','CfgWeapons','CfgVehicles']";
     };
 
     class ClassName:OOVar{
         typeName="STRING";
-        typeCheck = "isClass (configFile >> 'CfgVehicles' >> _this) || isClass (configFile >> 'CfgWeapons' >> _this)";
+        typeCheck = "isClass (configFile >> 'CfgItems' >> _this) ||isClass (configFile >> 'CfgMagazines' >> _this) || isClass (configFile >> 'CfgVehicles' >> _this) || isClass (configFile >> 'CfgWeapons' >> _this)";
     };
 
     class Perk:OOVar{
@@ -78,5 +84,13 @@ class PurchasableItem:OOType{
 
     class Default:OOVar{
         typeName="BOOL";
+    };
+
+    class ConfigText:OOFunction{
+        file = "smm_config\PurchasableItem\ConfigText.sqf";
+    };
+
+    class ArsenalType:OOFunction{
+        file = "smm_config\PurchasableItem\ArsenalType.sqf";
     };
 };

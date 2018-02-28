@@ -37,6 +37,9 @@ class Zone:OOType{
     class DisplayName:OOVar{
         typeName = "STRING";
     };
+    class ItemIDs:OOVar{
+        typeName = "[SCALAR]";
+    };
 
     class GetMarkerName:OOFunction{
         code = "'ZoneMarker_' + ([_this select 0] call Zone_get_Hash)";

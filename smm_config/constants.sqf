@@ -16,7 +16,7 @@ smm_curator_cameraCeiling = 50;
 
 smm_spawner_default_owner      = east;
 smm_spawner_all_factions       = [west,east,independent,civilian];
-smm_spawner_player_factions    = [west,independent];
+smm_spawner_player_factions    = [west,independent,east];
 smm_spawner_units_per_group    = 6;
 smm_spawner_vehicles_per_group = 2;
 smm_spawner_interaction_object = "Land_TentDome_F";
@@ -25,14 +25,13 @@ smm_spawner_kmeans_num_objects = 3000;
 
 smm_spawner_patroling_threshold = 5;
 
-smm_spawner_per_kill_bounty = 8;
-
+smm_spawner_per_kill_bounty = 225;
 
 smm_garbage_collector_weapon_holder_timeout = 60 *15;
 smm_garbage_collector_vehicle_timeout = 60*60*2;
 
-//intervall in frames
-smm_save_interval = 50 * 60 * 30;
+//intervall in seconds
+smm_save_interval = 30 *60;
 
-smm_money_start = 250;
+smm_money_start = 5000;
 smm_money_all_uid = [];

@@ -38,3 +38,4 @@ class spawnerUpdateMarkerAlpha{};
 class zoneEquals{};
 class seizeZone{};
 class updateTargetsOnHC{};
+class distributeItems{};

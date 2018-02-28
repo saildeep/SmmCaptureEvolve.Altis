@@ -31,25 +31,9 @@ class shop_listbox1: RscListbox
 	x = 0.309219 * safezoneW + safezoneX;
 	y = 0.302 * safezoneH + safezoneY;
 	w = 0.309375 * safezoneW;
-	h = 0.165 * safezoneH;
+	h = 0.35 * safezoneH;
 };
-class shop_label2: RscText
-{
-	idc = 1001;
-	text = "Weapon Packs"; //--- ToDo: Localize;
-	x = 0.309219 * safezoneW + safezoneX;
-	y = 0.478 * safezoneH + safezoneY;
-	w = 0.345469 * safezoneW;
-	h = 0.033 * safezoneH;
-};
-class shop_listbox2: RscListbox
-{
-	idc = 1501;
-	x = 0.314375 * safezoneW + safezoneX;
-	y = 0.522 * safezoneH + safezoneY;
-	w = 0.304219 * safezoneW;
-	h = 0.154 * safezoneH;
-};
+
 class shop_button1: RscButton
 {
 	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
@@ -61,17 +45,7 @@ class shop_button1: RscButton
 	h = 0.0825 * safezoneH;
 	onButtonClick = "_this spawn smm_shop_on_vehicle;false";
 };
-class shop_button2: RscButton
-{	
-	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
-	idc = 1601;
-	text = "BUY"; //--- ToDo: Localize;
-	x = 0.62375 * safezoneW + safezoneX;
-	y = 0.522 * safezoneH + safezoneY;
-	w = 0.0360937 * safezoneW;
-	h = 0.154 * safezoneH;
-	onButtonClick = "_this spawn smm_shop_on_pack;false";
-};
+
 class shop_button3: RscButton
 {
 	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};

@@ -8,7 +8,7 @@ params["_objectTypeName","_varchecklist","_varsetter","_vardata"];
 
 private _objName = _objectTypeName;
 if( (count _varchecklist) != (count _vardata) )then{
-	throw (format ["%1:Constructor number of given params %2 does not match needed number of params %3",_objectTypeName,count _varchecklist,count _vardata])
+	throw (format ["%1:Constructor number of given params %2 does not match needed number of params %3 with data %4",_objectTypeName,count _varchecklist,count _vardata,_vardata])
 };
 private _obj = [_objName, + _vardata,count _varchecklist,clientOwner];
 {

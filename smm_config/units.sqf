@@ -117,80 +117,7 @@ ai_infantry = [
     ]
 ];
 };
-//removed ,["CUP_B_AW159_Cannon_GB",220],
-if(smm_cup)then{
-ai_vehicles = [
-	[
-		["CUP_B_Mi24_D_CDF",280,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP1_TKA",250,{}] call SpawnableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",170,{}] call SpawnableVehicle_create,
-		["CUP_I_T34_NAPA",210,{}] call SpawnableVehicle_create,
-		["CUP_O_Ka50_SLA",240,{}] call SpawnableVehicle_create,
-		["CUP_B_ZSU23_CDF",300,{}] call SpawnableVehicle_create,
-		["CUP_O_Ural_ZU23_RU",170,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_AGS30_CDF",160,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_MG_CDF",110,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_ZU_TKA",270,{}] call SpawnableVehicle_create,
-		["CUP_B_T72_CDF",380,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_TKA",360,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR90_RU",280,{}] call SpawnableVehicle_create,
-		["CUP_B_BRDM2_CDF",201,{}] call SpawnableVehicle_create,
-		["CUP_O_Datsun_PK_Random",100,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR60_TK",250,{}] call SpawnableVehicle_create,
-		["CUP_B_Mi24_D_CDF",280,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP1_TKA",250,{}] call SpawnableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",170,{}] call SpawnableVehicle_create,
-		["CUP_I_T34_NAPA",210,{}] call SpawnableVehicle_create,
-		["CUP_O_Ka50_SLA",240,{}] call SpawnableVehicle_create,
-		["CUP_B_ZSU23_CDF",300,{}] call SpawnableVehicle_create,
-		["CUP_O_Ural_ZU23_RU",170,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_AGS30_CDF",160,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_MG_CDF",110,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_ZU_TKA",270,{}] call SpawnableVehicle_create,
-		["CUP_B_T72_CDF",380,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_TKA",360,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR90_RU",280,{}] call SpawnableVehicle_create,
-		["CUP_B_BRDM2_CDF",201,{}] call SpawnableVehicle_create,
-		["CUP_O_Datsun_PK_Random",100,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR60_TK",250,{}] call SpawnableVehicle_create
-	],
-	[
-		["CUP_B_HMMWV_Avenger_USMC",400,{}] call SpawnableVehicle_create,
-		["CUP_B_HMMWV_M1114_USMC",350,{}] call SpawnableVehicle_create,
-		["CUP_B_HMMWV_TOW_USMC",120,{}] call SpawnableVehicle_create,
-		["CUP_B_UH1Y_GUNSHIP_USMC",350,{}] call SpawnableVehicle_create,
-		["CUP_B_MH60S_USMC",299,{}] call SpawnableVehicle_create,
-		["CUP_B_AH1Z",400,{}] call SpawnableVehicle_create,
-		["CUP_B_CH47F_USA",350,{}] call SpawnableVehicle_create,
-		["CUP_B_Dingo_CZ_Wdl",300,{}] call SpawnableVehicle_create,
-		["CUP_B_Jackal2_L2A1_GB_D",170,{}] call SpawnableVehicle_create,
-		["CUP_B_HMMWV_SOV_USA",200,{}] call SpawnableVehicle_create,
-		["CUP_I_SUV_Armored_ION",200,{}] call SpawnableVehicle_create
-		
-	],
 
-	[
-		["CUP_B_Mi24_D_CDF",280,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP1_TKA",250,{}] call SpawnableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",170,{}] call SpawnableVehicle_create,
-		["CUP_I_T34_NAPA",210,{}] call SpawnableVehicle_create,
-		["CUP_O_Ka50_SLA",240,{}] call SpawnableVehicle_create,
-		["CUP_B_ZSU23_CDF",300,{}] call SpawnableVehicle_create,
-		["CUP_O_Ural_ZU23_RU",170,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_AGS30_CDF",160,{}] call SpawnableVehicle_create,
-		["CUP_B_UAZ_MG_CDF",110,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_ZU_TKA",270,{}] call SpawnableVehicle_create,
-		["CUP_B_T72_CDF",380,{}] call SpawnableVehicle_create,
-		["CUP_O_BMP2_TKA",360,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR90_RU",280,{}] call SpawnableVehicle_create,
-		["CUP_B_BRDM2_CDF",201,{}] call SpawnableVehicle_create,
-		["CUP_O_Datsun_PK_Random",100,{}] call SpawnableVehicle_create,
-		["CUP_O_BTR60_TK",250,{}] call SpawnableVehicle_create
-	
-	]
-
-];
-}else{
 
 ai_vehicles = [
 	[
@@ -226,159 +153,178 @@ ai_vehicles = [
 		["I_MRAP_03_gmg_F",130,{}] call SpawnableVehicle_create
 	]
 ];
-};
+
 
 
 civilianBuyableUnits = [
-	["B_Boat_Transport_01_F",65,{}] call PurchasableVehicle_create,
-	["B_Quadbike_01_F",50,{}] call PurchasableVehicle_create,
-	["C_Boat_Civil_01_F",100,{}] call PurchasableVehicle_create,
-	["C_Offroad_01_F",140,{}] call PurchasableVehicle_create,
-	["C_Hatchback_01_sport_F",200,{}] call PurchasableVehicle_create,
-	["C_SUV_01_F",170,{}] call PurchasableVehicle_create,
-	["C_Van_01_transport_F",200,{}] call PurchasableVehicle_create,
-	["C_Van_01_fuel_F",130,{}] call PurchasableVehicle_create,
-	["C_Kart_01_F",90,{}] call PurchasableVehicle_create,
-	["C_Heli_Light_01_civil_F",600,{}] call PurchasableVehicle_create,
-	["C_Plane_Civil_01_racing_F",450,{}] call PurchasableVehicle_create
+	["B_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
+	["B_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Boat_Civil_01_F",2500,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Offroad_01_F",4000,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Hatchback_01_sport_F",6000,{},"BASE",""] call PurchasableVehicle_create,
+	["C_SUV_01_F",5500,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Van_01_transport_F",7000,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Van_01_fuel_F",12000,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Kart_01_F",1790,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Heli_Light_01_civil_F",22000,{},"CREWMAN",""] call PurchasableVehicle_create,
+	["C_Plane_Civil_01_racing_F",13500,{},"BASE",""] call PurchasableVehicle_create
 ];
 
 if(smm_ace)then{
-ace_units = [
-		["ACE_Wheel",10,{}] call PurchasableVehicle_create,
-		["ACE_Track",50,{}] call PurchasableVehicle_create
-];
-civilianBuyableUnits append ace_units;
+	ace_units = [
+			["ACE_Wheel",300,{},"BASE",""] call PurchasableVehicle_create,
+			["ACE_Track",5000,{},"BASE",""] call PurchasableVehicle_create,
+			//TODO change perk
+			["ACE_Box_82mm_Mo_Combo",500,{},"MINES","[Box] Mortar Ammunition"] call PurchasableVehicle_create
+	];
+	private _vehicleMagazines = (("true" configClasses (configFile >> "CfgMagazines")) select {getNumber (_x >> "scope") == 2}) select {(configFile >> "CfgMagazines">>"VehicleMagazine") in(_x call BIS_fnc_returnParents)} ;
+	private _displayNames = [];
+	{
+		private _name = getText(_x >> "displayName");
+		_displayNames pushBackUnique _name;
+	} forEach _vehicleMagazines;
+
+	ace_units append (_displayNames apply {
+		private _nameArray = toArray _x;
+		private _hash = 0;
+		if((count _nameArray) > 2)then{
+			_hash = (_nameArray select 0) *5 + (_nameArray select 1) * 3 + (_nameArray select 2);
+		};
+		assert (_hash > -1);
+		private _boxes  = ["Box_NATO_AmmoVeh_F","Box_East_AmmoVeh_F","Box_IND_AmmoVeh_F"];
+		private _box = _boxes select (_hash mod (count _boxes));
+		private _price = 9000 + (round(_hash random 400))*10;
+
+		private _contents = "true" configClasses (configFile>> "CfgMagazines");
+		private _dn = _x;
+		
+		_contents = _contents select {getText (_x >> "displayName") == _dn};
+
+		private _boxName = "[Box] "  + _x;
+		private _functionCode = "[_this,3000000] call ace_rearm_fnc_setSupplyCount;";
+		
+		{
+			private _ammo =configFile >> "CfgAmmo" >>  getText(_x >> "ammo");
+			private _ammo_caliber = 1 max (getNumber (_ammo >> "ace_rearm_caliber"));
+			private _mag_size = getNumber(_x >> "count");
+			private _count = (_price / (_ammo_caliber * _mag_size)) max 1;
+			_functionCode = _functionCode + (format ["for [{_i = 0},{_i< %2 },{_i = _i +1}] do {[_this,'%1'] call ace_rearm_fnc_addMagazineToSupply};",configName _x,_count]);
+		}forEach _contents;
+		[_box,_price,compile _functionCode,"VEHICLE_AMMO",_boxName] call PurchasableVehicle_create
+	});
+
+	civilianBuyableUnits append ace_units;
 };
 
 
 //call prurchaseble vehicles    ate
-//["SUV_WEst",100] call PurchasableVehicle_create;
+//["SUV_WEst",100,""] call PurchasableVehicle_create;
 buy_units = [];
 if(playerSide == west)then{
 	buy_units = [
-		["B_UGV_01_F",200,{}] call PurchasableVehicle_create,
-		["B_UGV_01_rcws_F",620,{}] call PurchasableVehicle_create,
-		["B_Truck_01_transport_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_mover_F",300,{}] call PurchasableVehicle_create,
-		["B_Truck_01_Repair_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_ammo_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_fuel_F",500,{}] call PurchasableVehicle_create,
-		["B_Truck_01_medical_F",500,{}] call PurchasableVehicle_create,
-		["B_G_Offroad_01_armed_F",300,{}] call PurchasableVehicle_create,
-		["B_MRAP_01_gmg_F",800,{}] call PurchasableVehicle_create,
-		["B_MRAP_01_hmg_F",850,{}] call PurchasableVehicle_create,
-		["B_Boat_Armed_01_minigun_F",620,{}] call PurchasableVehicle_create,
-		["B_MBT_01_mlrs_F",12100,{}] call PurchasableVehicle_create,
-		["B_MBT_01_arty_F",8900,{}] call PurchasableVehicle_create,
-		["B_MBT_01_cannon_F",5100,{}] call PurchasableVehicle_create,
-		["B_APC_Tracked_01_AA_F",2400,{}] call PurchasableVehicle_create,
-		["B_APC_Tracked_01_CRV_F",2000,{}] call PurchasableVehicle_create,
-		["B_T_APC_Wheeled_01_cannon_F",1930,{}] call PurchasableVehicle_create,
-		["B_Heli_Transport_03_black_F",1800,{}] call PurchasableVehicle_create,
-		["B_Plane_Fighter_01_F",2500,{}] call PurchasableVehicle_create,
-		["B_Plane_CAS_01_F",2300,{}] call PurchasableVehicle_create,
-		["B_Heli_Transport_01_camo_F",1450,{}] call PurchasableVehicle_create,
-		["B_Heli_Attack_01_F",2500,{}] call PurchasableVehicle_create,
-		["B_Heli_Light_01_stripped_F",1050,{}] call PurchasableVehicle_create,
-		["B_Heli_Light_01_armed_F",1750,{}] call PurchasableVehicle_create,
-		["B_T_LSV_01_armed_F",550,{}] call PurchasableVehicle_create,
-		["B_LSV_01_unarmed_F",370,{}] call PurchasableVehicle_create,
-		["B_T_VTOL_01_armed_F",3200,{}] call PurchasableVehicle_create,
-		["B_T_VTOL_01_infantry_F",1900,{}] call PurchasableVehicle_create
+		["B_UGV_01_F",2000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_UGV_01_rcws_F",33000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_T_UAV_03_dynamicLoadout_F",75000,{},"UAV_BLUFOR",""] call PurchasableVehicle_create,
+		["B_UAV_02_dynamicLoadout_F",50000,{},"UAV_BLUFOR",""] call PurchasableVehicle_create,
+		["B_UAV_05_F",23000,{},"UAV_BLUFOR",""] call PurchasableVehicle_create,
+		["B_Truck_01_transport_F",15000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_Truck_01_mover_F",13000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_Truck_01_Repair_F",22000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_Truck_01_ammo_F",25000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_Truck_01_fuel_F",24000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_Truck_01_medical_F",21000,{},"MEDIC",""] call PurchasableVehicle_create,
+		["B_G_Offroad_01_armed_F",20000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_MRAP_01_gmg_F",35000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_MRAP_01_hmg_F",40000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Boat_Armed_01_minigun_F",32000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_MBT_01_mlrs_F",160000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_MBT_01_arty_F",300000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_MBT_01_cannon_F",89000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_APC_Tracked_01_AA_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_APC_Tracked_01_CRV_F",59000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_T_APC_Wheeled_01_cannon_F",51000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Heli_Transport_03_F",35000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_Plane_Fighter_01_F",55000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Plane_CAS_01_dynamicLoadout_F",65000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Heli_Transport_01_F",35000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_Heli_Attack_01_F",240000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Heli_Light_01_stripped_F",30000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Heli_Light_01_armed_F",45000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_T_LSV_01_armed_F",16000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_LSV_01_unarmed_F",7000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_T_VTOL_01_armed_F",90000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_T_VTOL_01_infantry_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create
 	];
 };
 if(playerSide == independent)then{
 	buy_units = [
-		["I_UGV_01_F",120,{}] call PurchasableVehicle_create,
-		["I_UGV_01_rcws_F",500,{}] call PurchasableVehicle_create,
-		["I_Heli_Transport_02_F",1000,{}] call PurchasableVehicle_create,
-		["I_Heli_light_03_F",1500,{}] call PurchasableVehicle_create,
-		["I_Heli_light_03_unarmed_F",800,{}] call PurchasableVehicle_create,
-		["I_Plane_Fighter_03_CAS_F",1700,{}] call PurchasableVehicle_create,
-		["I_Plane_Fighter_03_AA_F",1500,{}] call PurchasableVehicle_create,
-		["I_Plane_Fighter_04_F",1900,{}] call PurchasableVehicle_create,
-		["I_APC_tracked_03_cannon_F",1800,{}] call PurchasableVehicle_create,
-		["I_MBT_03_cannon_F",5000,{}] call PurchasableVehicle_create,
-		["I_Boat_Armed_01_minigun_F",400,{}] call PurchasableVehicle_create,
-		["I_UAV_02_CAS_F",1300,{}] call PurchasableVehicle_create,
+		["I_UGV_01_F",2000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_UGV_01_rcws_F",50000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_Heli_Transport_02_F",29000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_Heli_light_03_dynamicLoadout_F",42000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_Heli_light_03_unarmed_F",25000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_Plane_Fighter_03_dynamicLoadout_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_Plane_Fighter_04_F",56000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_APC_tracked_03_cannon_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_MBT_03_cannon_F",99000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_Boat_Armed_01_minigun_F",28000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_UAV_02_dynamicLoadout_F",49000,{},"UAV_INDEPENDENT",""] call PurchasableVehicle_create,
 		
-		["I_G_Offroad_01_armed_F",250,{}] call PurchasableVehicle_create,
-		["I_MRAP_03_F",600,{}] call PurchasableVehicle_create,
-		["I_MRAP_03_hmg_F",900,{}] call PurchasableVehicle_create,
-		["I_MRAP_03_gmg_F",920,{}] call PurchasableVehicle_create,
-		["O_Truck_02_box_F",370,{}] call PurchasableVehicle_create,
-		["I_Truck_02_ammo_F",370,{}] call PurchasableVehicle_create,
-		["I_Truck_02_medical_F",370,{}] call PurchasableVehicle_create,
-		["I_Truck_02_fuel_F",370,{}] call PurchasableVehicle_create,
-		["I_APC_Wheeled_03_cannon_F",1700,{}] call PurchasableVehicle_create
+		["I_G_Offroad_01_armed_F",12000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_C_Offroad_02_unarmed_F",3500,{},"BASE",""] call PurchasableVehicle_create,
+		["I_MRAP_03_F",22000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_MRAP_03_hmg_F",28000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_MRAP_03_gmg_F",29000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_Truck_02_box_F",7000,{},"BASE",""] call PurchasableVehicle_create,
+		["I_Truck_02_ammo_F",15000,{},"BASE",""] call PurchasableVehicle_create,
+		["I_Truck_02_medical_F",12000,{},"MEDIC",""] call PurchasableVehicle_create,
+		["I_Truck_02_fuel_F",37000,{},"BASE",""] call PurchasableVehicle_create,
+		["I_APC_Wheeled_03_cannon_F",52000,{},"CREWMAN",""] call PurchasableVehicle_create
 	];
 };
-
+if(playerSide == east)then{
+	buy_units = [
+		["O_UGV_01_F",2000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_UGV_01_rcws_F",50000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_UAV_02_dynamicLoadout_F",60000,{},"UAV_OPFOR",""] call PurchasableVehicle_create,
+		["O_T_UAV_04_CAS_F",55000,{},"UAV_OPFOR",""] call PurchasableVehicle_create,
+		["O_Truck_03_transport_F",15000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_covered_F",13000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_repair_F",22000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_ammo_F",25000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_fuel_F",24000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_medical_F",21000,{},"MEDIC",""] call PurchasableVehicle_create,
+		["O_G_Offroad_01_armed_F",30000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_MRAP_02_gmg_ghex_F",35000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_MRAP_02_hmg_ghex_F",40000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_Boat_Armed_01_hmg_F",32000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_MBT_02_cannon_ghex_F",160000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_MBT_02_arty_ghex_F",300000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_APC_Tracked_02_AA_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_APC_Tracked_02_cannon_F",59000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_APC_Wheeled_02_rcws_F",51000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_Heli_Transport_04_F",45000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Heli_Transport_04_ammo_F",55000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Heli_Transport_04_repair_F",55000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Heli_Transport_04_bench_F",55000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["Land_Pod_Heli_Transport_04_bench_F",5000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["Land_Pod_Heli_Transport_04_covered_F",7000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["Land_Pod_Heli_Transport_04_medevac_F",7000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Plane_Fighter_02_F",150000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_Plane_CAS_02_dynamicLoadout_F",220000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_Heli_Attack_02_F",240000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_Heli_Light_02_unarmed_F",30000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Heli_Light_02_dynamicLoadout_F",45000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_LSV_02_armed_F",16000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_LSV_02_unarmed_F",7000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_T_VTOL_02_infantry_dynamicLoadout_F",75000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_T_VTOL_02_vehicle_dynamicLoadout_F",75000,{},"CREWMAN",""] call PurchasableVehicle_create
+	];
+};
 buy_units append civilianBuyableUnits;
 
-
-if(smm_cup)then{
-	if(playerSide == west)then{
-	buy_units = [
-		["CUP_B_UH60M_US",1100,{}] call PurchasableVehicle_create,
-		["B_Heli_Light_01_F",800,{}] call PurchasableVehicle_create,
-		["CUP_B_MV22_USMC",1600,{}] call PurchasableVehicle_create,
-		["CUP_USMC_MQ9",2000,{}] call PurchasableVehicle_create,
-		["CUP_B_F35B_AA_USMC",1700,{}] call PurchasableVehicle_create,
-		["CUP_B_AV8B_CAP_USMC",1500,{}] call PurchasableVehicle_create,
-		["CUP_B_A10_CAS_USA",1600,{}] call PurchasableVehicle_create,
-		["CUP_B_MH60S_USMC",1000,{}] call PurchasableVehicle_create,
-		["CUP_B_CH47F_USA",1000,{}] call PurchasableVehicle_create,
-		["ACE_Wheel",15,{}] call PurchasableVehicle_create,
-		["ACE_Track",15,{}] call PurchasableVehicle_create,
-		["CUP_B_Dingo_CZ_Wdl",900,{}] call PurchasableVehicle_create,
-		["CUP_B_Jackal2_L2A1_GB_D",600,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_SOV_USA",600,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Transport_USA",100,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Unarmed_USMC",80,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Ambulance_USA",300,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_Avenger_USMC",1000,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_M1114_USMC",350,{}] call PurchasableVehicle_create,
-		["CUP_B_HMMWV_TOW_USMC",600,{}] call PurchasableVehicle_create,		
-		["CUP_O_Ural_Refuel_RU",400,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Reammo_RU",400,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Repair_RU",400,{}] call PurchasableVehicle_create
-	];
-	};
-
-
-	if(playerSide == independent)then{
-	buy_units = [
-		["CUP_B_CH53E_USMC",800,{}] call PurchasableVehicle_create,
-		["CUP_B_Su25_CDF",1300,{}] call PurchasableVehicle_create,
-		["CUP_C_DC3_CIV",600,{}] call PurchasableVehicle_create,
-		["C_Heli_Light_01_civil_F",500,{}] call PurchasableVehicle_create,
-		["CUP_C_LR_Transport_CTK",60,{}] call PurchasableVehicle_create,
-		["CUP_B_LR_MG_CZ_W",250,{}] call PurchasableVehicle_create,
-		["CUP_I_SUV_Armored_ION",150,{}] call PurchasableVehicle_create,
-		["CUP_O_LR_SPG9_TKA",250,{}] call PurchasableVehicle_create,
-		["CUP_C_Golf4_whiteblood_Civ",50,{}] call PurchasableVehicle_create,
-		["C_Hatchback_01_sport_F",80,{}] call PurchasableVehicle_create,
-		["CUP_B_LR_Ambulance_CZ_W",150,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Refuel_RU",200,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Reammo_RU",200,{}] call PurchasableVehicle_create,
-		["CUP_O_Ural_Repair_RU",200,{}] call PurchasableVehicle_create,
-		["B_Quadbike_01_F",15,{}] call PurchasableVehicle_create,
-		["ACE_Wheel",5,{}] call PurchasableVehicle_create,
-		["ACE_Track",100,{}] call PurchasableVehicle_create
-
-	];
-	};
-};
 //when buying one of this vehicles, a respawn point for the players' side will be created and tracked
 respawnVehicles = ["B_Truck_01_medical_F","I_Truck_02_medical_F"];
-
-diag_log "TODO remove 0";
-if(isClass(configfile >> "CfgPatches" >> "hlcweapons_acr"))then{diag_log "load NIA";
-	call compile preprocessFileLineNumbers "smm_config\units_niarsenal.sqf";
-	
-};
 
 
 if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{diag_log "load RHS";

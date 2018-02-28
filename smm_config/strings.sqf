@@ -24,8 +24,10 @@ str_no_permission = "Well .. ehhmm .. you do not own this zone";
 str_box = "Give me that box";
 str_receivied_item = "You bought %1";
 
-str_transfer_100 = "Give 100$";
+str_transfer_fixed_amount = "Give 1000$";
 str_transfer_all = "Give all";
+str_transfer = "Transfer money";
+str_transfer_amount = "Transfering %1$";
 
 // hints
 str_hint_buy_and_place = "Click inside the zone to spawn the chosen vehicle";
@@ -33,3 +35,15 @@ str_hint_buy_and_place = "Click inside the zone to spawn the chosen vehicle";
 
 //task stuff
 str_task_title = "Seize %1";
+str_task_description = "Conquer this area by holding the local superiority for some time!<br />";
+str_task_description = str_task_description + "Take care of enemy vehicles and stay together!<br />";
+str_task_description_items = "You will be rewarded with those items:<br />";
+str_task_description_item = "<img width='18' height='18' image='%1'/> %2 <br />";
+
+//vehicle refund
+str_refund_owner = "smm_vehicle_owner";
+str_refund_price = "smm_vehicle_price";
+
+//target voting
+str_vote_target_action = "Vote target";
+str_vote_target_hint = "Click in which direction you want the next target zones to be! Hold alt if you want to remove your selection";

@@ -51,4 +51,7 @@ private _out = [];
 	private _c = [_x select 0, str (_x select 0),_x select 2,_owner,_connections select _forEachIndex,_x select 1];
 	_out pushBack _c;
 }forEach _chosenCandidates;
-_out
+
+
+private _itemids = _out call smm_fnc_distributeItems;
+_itemids

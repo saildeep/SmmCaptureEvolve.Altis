@@ -1,22 +1,7 @@
-smm_shop_dialog_name = "shop_dialog";
-smm_shop_vehicle_handle = 1500;
-smm_shop_pack_handle = 1501;
+#define smm_shop_dialog_name "shop_dialog"
+#define smm_shop_vehicle_handle 1500
 smm_shop_chest = player; //set as default unit init is loaded
-smm_has_permission = {
-		private _zone = _this;
-		private _zoneReal = _zone call getZone;
-		private _side = _zoneReal select 3;
-		_side == (playerSide)
-};
-smm_get_box = {
-	private _zoneSide = ((_this select 3) call getZone)select 3;
-	if(_zoneSide == (playerSide))then{
-	smm_shop_chest setPos ([getPos player,2] call getPosNear);
-	}else{
-	hint str_no_permission;
-	};
 
-};
 smm_shop_string = {
 	private["_out"];
 	_out =( str(_this select 0 ) + "$   " + (_this select 1));
@@ -24,15 +9,23 @@ smm_shop_string = {
 };
 smm_shop_create_vehicle = {
 	private _classname = _this select 0;
-	private _pos = (getPos player) findEmptyPosition [0,100,_classname];
+	private _searchPos = (getPos player);
 	if((count _this) > 1)then{
-		_pos = _this select 1;
+		_searchPos = _this select 1;
 	};
+	private _pos = _searchPos findEmptyPosition [0,100,_classname];
+	if((count _pos) == 0)then{
+		_pos = _searchPos;
+	};
+	
 	private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
-	clearWeaponCargoGlobal _veh;
-	clearMagazineCargoGlobal _veh;
-	clearItemCargoGlobal _veh;
-	clearBackpackCargoGlobal _veh;
+	//clear all vehicles despite ammo boxes
+	if(!(_veh isKindOf "ReammoBox_F"))then{
+		clearWeaponCargoGlobal _veh;
+		clearMagazineCargoGlobal _veh;
+		clearItemCargoGlobal _veh;
+		clearBackpackCargoGlobal _veh;
+	};
 	_veh disableTIEquipment true;
 	_veh spawn smm_fnc_garbageCollectorObserveVehicleClient;
 	
@@ -51,36 +44,37 @@ smm_shop_open = {
 	if(_side == playerSide)then{
 		smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
 
-
-		private _ownVehicles = 4 call smm_fnc_getGear;
 		//draw vehicles
+		private _index = 0;
 		{
 			//_classname = _x select 0; 
 			private _classname = [_x] call PurchasableVehicle_get_Classname;
 			private _price = [_x] call PurchasableVehicle_get_Price;
 			private _name = [_x] call PurchasableVehicle_fnc_GetName;
 			private _icon =[_x] call PurchasableVehicle_fnc_GetIcon;
-			if(_classname in _ownVehicles)then{
-				_name = "[x]"  + _name ;
-				_price = ceil (_price/8);
-			}else{
-				_name = "[ ]" + _name;
-			};
+			private _perk = [_x] call PurchasableVehicle_get_Perk;
 			private _displayText = [_price,_name] call smm_shop_string;
-			lbAdd [smm_shop_vehicle_handle ,_displayText];
-			lbSetData [smm_shop_vehicle_handle,_forEachIndex,_classname];
-			lbSetValue [smm_shop_vehicle_handle,_forEachIndex,_price]; //set price as value
-			lbSetPicture [smm_shop_vehicle_handle,_forEachIndex,_icon];
-			lbSetPictureColor [smm_shop_vehicle_handle,_forEachIndex, [1,1,1,1]];
+			
+			if([player,_perk] call smm_fnc_hasPerk)then{
+				private _color = [0.9,0,0,1];
+				if((call smm_fnc_getBalance) >= _price) then{
+					_color = [0,0.7,0,1];
+				};
+				
+				lbAdd [smm_shop_vehicle_handle ,_displayText];
+				lbSetData [smm_shop_vehicle_handle,_index,str _forEachIndex];
+				lbSetValue [smm_shop_vehicle_handle,_index,_price]; //set price as value
+				if(!(_icon in ["pictureThing"]) )then{
+					lbSetPicture [smm_shop_vehicle_handle,_index,_icon];
+					lbSetPictureColor [smm_shop_vehicle_handle, _index, _color];
+				};
+				
+				lbSetColor [smm_shop_vehicle_handle,_index,_color];
+				_index = _index +1;
+			};
 		}forEach buy_units;
 
-		{
-			private _name = _x select 0;
-			private _price = _x select 1;
-			private _displayText = [_price,_name] call smm_shop_string;
-			lbAdd [smm_shop_pack_handle,_displayText];
-			lbSetValue[smm_shop_pack_handle,_forEachIndex,_forEachIndex]; //set index as value;
-		}forEach buy_packs;
+		
 
 	}else{
 		hint str_no_permission;
@@ -92,22 +86,24 @@ smm_shop_open = {
 smm_shop_on_vehicle = {
 	private _curSelId = lbCurSel smm_shop_vehicle_handle;
 	private _out = false;
-	if(_curSelId>-1)then{
-		
-		private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
-		private _classname = lbData [smm_shop_vehicle_handle,_curSelId];
-		if(_price call smm_fnc_buy) then {
-			if(_classname in (4 call smm_fnc_getGear))then{
+	private _isInRange = [getPos player] call smm_fnc_positionInPlayerOwnedZone;
+	if(_isInRange)then{
+		if(_curSelId>-1)then{
+			
+			private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
+			private _index = parseNumber (lbData [smm_shop_vehicle_handle,_curSelId]);
+			private _element = buy_units select _index;
+			private _classname = [_element] call PurchasableVehicle_get_Classname;
+			private _fn = [_element] call PurchasableVehicle_get_PostSpawnFunction;
+			if(_price call smm_fnc_buy) then {
 				private _veh = [_classname] call smm_shop_create_vehicle;
 				assert !(isNil "_veh");
 				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+				_veh spawn _fn;
+				
 			}else{
-				[_classname,sav_vehicles] call smm_fnc_addItem;
-				closeDialog 2;
-				_out = false;
+				_out = true;
 			};
-		}else{
-			_out = true;
 		};
 	};
 	_out
@@ -125,25 +121,22 @@ smm_shop_on_vehicle_pos = {
 	if(_curSelId>-1)then{
 		
 		private _price			= lbValue [smm_shop_vehicle_handle,_curSelId];
-		private _classname 		= lbData [smm_shop_vehicle_handle,_curSelId];
+		private _index = parseNumber( lbData [smm_shop_vehicle_handle,_curSelId]);
+		private _element = buy_units select _index;
+
+		private _fn = [_element] call PurchasableVehicle_get_PostSpawnFunction;
+		private _classname 		= [_element] call PurchasableVehicle_get_Classname;
 		smm_shop_on_vehicle_pos_price 		= _price;
 		smm_shop_on_vehicle_pos_classname 	= _classname;
-		if(_classname in (4 call smm_fnc_getGear))then{
+		smm_shop_on_vehicle_pos_fn 			= _fn;
+		
 		// select pos
 			closeDialog 2;
 			hint str_hint_buy_and_place;
 			openMap [true,true];
 			handle1 = addMissionEventHandler ["MapSingleClick",{diag_log "click map";(_this select 1) call smm_shop_on_vehicle_pos_place ;openMap [false,false];removeMissionEventHandler ["MapSingleClick", handle1];}];
 			
-		}else{
-			if(_price call smm_fnc_buy) then {
-				[_classname,sav_vehicles] call smm_fnc_addItem;
-				closeDialog 2;
-				_out = false;
-			}else{
-				_out = true;
-			};
-		};	
+		
 	};
 	_out
 };
@@ -153,7 +146,7 @@ smm_shop_on_vehicle_pos_place = {
 	private _zone = [_zonesManager,smm_shop_last_zone_id] call ZonesManager_fnc_GetZone;
 	private _tentpos  	= [_zone] call Zone_get_Position;
 	private _range 		= [_zone] call Zone_get_Size;
-	private _isInRange 	= (_clickpos distance _tentpos) < _range;
+	private _isInRange 	= [_clickpos] call smm_fnc_positionInPlayerOwnedZone;
 	private _price 		= smm_shop_on_vehicle_pos_price;
 	private _classname	= smm_shop_on_vehicle_pos_classname; 	 
 	
@@ -163,6 +156,7 @@ smm_shop_on_vehicle_pos_place = {
 			private _veh = [_classname,_clickpos] call smm_shop_create_vehicle;
 			assert !(isNil "_veh");
 			[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+			_veh spawn smm_shop_on_vehicle_pos_fn;
 		}else {
 			titleText [str_insufficient, "PLAIN"];
 		};
@@ -173,96 +167,6 @@ smm_shop_on_vehicle_pos_place = {
 
 };
 
-
-getRandWeapons = {
-	private _out = [];
-	for [{private _i=0}, {_i<_this}, {_i=_i+1}] do
-	{
-		_out append [ [ (selectRandom (rand_weapons		- (1 call smm_fnc_getGear))),(selectRandom (rand_launcher 	- (1 call smm_fnc_getGear))) ] select (round (random [0,0.15,1]) )];
-	};
-	_out
-};
-
-getRandMagazines = {
-	private _out = [];
-	for [{private _i=0}, {_i<_this}, {_i=_i+1}] do
-	{
-		_out append [selectRandom (rand_magazines - (2 call smm_fnc_getGear))];
-	};
-	_out
-};
-
-getRandItemsTier1 = {
-	private _out = [];
-	for [{private _i=0}, {_i<_this}, {_i=_i+1}] do
-	{
-		_out append [selectRandom (rand_items_one - (0 call smm_fnc_getGear))];
-	};
-	_out
-};
-
-getRandItemsTier2 = {
-	private _out = [];
-	for [{private _i=0}, {_i<_this}, {_i=_i+1}] do
-	{
-		_out append [selectRandom (rand_items_two - (0 call smm_fnc_getGear))];
-	};
-	_out
-};
-
-getRandBackpacks = {
-	private _out = [];
-	for [{private _i=0}, {_i<_this}, {_i=_i+1}] do
-	{
-		_out append [selectRandom (rand_backpacks- (3 call smm_fnc_getGear))];
-	};
-	_out
-};
-
-smm_shop_on_pack = {
-	private _curId = lbCurSel smm_shop_pack_handle;
-	private _out = false;
-	if(_curId> -1)then{
-	private _pack = buy_packs select ( lbValue [smm_shop_pack_handle,_curId]);
-	private _price = _pack select 1;
-	private _set = _pack select 2;
-	
-	if(_price call smm_fnc_buy) then {
-		private _weps = (_set select 0) call getRandWeapons;
-		private _mags = (_set select 1) call getRandMagazines;
-		private _itms1 = (_set select 2) call getRandItemsTier1;
-		private _bps = (_set select 3) call getRandBackpacks;
-		private _itms2 = (_set select 4) call getRandItemsTier2;
-		{
-		
-			[_x,sav_weapons] call smm_fnc_addItem;
-		}forEach _weps;
-		{
-			
-			[_x,sav_magazines] call smm_fnc_addItem;
-		}forEach _mags;
-		{
-			
-			[_x,sav_items] call smm_fnc_addItem;
-		
-		}forEach _itms1;
-		{
-			
-			[_x,sav_backpacks] call smm_fnc_addItem;
-			
-		}forEach _bps;
-		{
-		
-			[_x,sav_items] call smm_fnc_addItem;
-			
-		}forEach _itms2;
-	}else{
-		_out = true;
-	};
-	};
-	
-	_out
-};
 
 
 

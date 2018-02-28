@@ -1,5 +1,8 @@
-private ["_price","_out"];
-private _price = _this;
+
+params [["_price", objNull, [0]]];
+
+assert !(_price isEqualTo objNull);
+
 private _out = false;
 private _uid = getPlayerUID player;
 if(_price <= (call smm_fnc_getBalance)) then {

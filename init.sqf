@@ -9,7 +9,7 @@ filter = compileFinal preprocessFileLineNumbers "smm_helpers\filter.sqf";
 
 stringConfig = compileFinal preprocessFileLineNumbers "smm_config\strings.sqf";
 unitConfig = compileFinal preprocessFileLineNumbers "smm_config\units.sqf";
-weaponConfig = compileFinal preprocessFileLineNumbers "smm_config\weapons.sqf";
+itemConfig = compileFinal preprocessFileLineNumbers "smm_config\items.sqf";
 constantConfig = compileFinal preprocessFileLineNumbers "smm_config\constants.sqf";
 loadConfig = compileFinal preprocessFileLineNumbers "smm_config\load.sqf";
 parameterConfig = compileFinal preprocessFileLineNumbers "smm_config\parameters.sqf";
@@ -30,14 +30,13 @@ call compile preprocessFileLineNumbers "smm_spawner\compile.sqf";
 call compile preprocessFileLineNumbers "smm_save\compile.sqf";
 call compile preprocessFileLineNumbers "smm_money\compile.sqf";
 call compile preprocessFileLineNumbers "smm_medic\compile.sqf";
-call compile preprocessFileLineNumbers "smm_gear\compile.sqf";
 call compile preprocessFileLineNumbers "smm_shop\compile.sqf";
 
 call parameterConfig;
 call loadConfig;
 
 call unitConfig;
-call weaponConfig;
+call itemConfig;
 
 call gcFunctions;
 

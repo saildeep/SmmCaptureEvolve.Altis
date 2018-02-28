@@ -1,5 +1,7 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
+#include "smm_money\dialogTransferMoney.hpp"
+#include "smm_virtualshop\dialog.hpp"
 //disableChannels[]={{0,true,true},{1,true,true},{2,true,true},{3,true,true},{4,false,false},{5,true,true},{6,false,false}};
 respawn = "BASE";
 respawnOnStart = 1;
@@ -25,10 +27,7 @@ class Params
     
 };
 
-class ACE_Settings {
-    #include "ace_settings.hpp"
-};
-
+cba_settings_hasSettingsFile = 1;
 class CfgRemoteExec
 {        
        // List of script functions allowed to be sent from client via remoteExec
