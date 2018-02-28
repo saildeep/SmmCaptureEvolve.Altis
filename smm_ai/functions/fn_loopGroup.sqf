@@ -41,7 +41,9 @@ while{ ({alive _x} count units _group) > 0 } do {
 	{
 		_nearestEnemy  = _x findNearestEnemy _x;
 		{
-		_x reveal _nearestEnemy;
+			if((_x knowsAbout _nearestEnemy)<0.5)then{
+				_x reveal [_nearestEnemy, 1.6];
+			};
 		}forEach (_allZoneGroups);
 	} forEach (units _group );
 	
