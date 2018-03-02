@@ -56,9 +56,9 @@ smm_shop_open = {
 			private _displayText = [_price,_name] call smm_shop_string;
 			
 			if([player,_perk] call smm_fnc_hasPerk)then{
-				private _color = [0.9,0,0,1];
+				private _color = [0.9,0.9,0,1];
 				if((call smm_fnc_getBalance) >= _price) then{
-					_color = [0,0.7,0,1];
+					_color = [0,0.2,0.9,1];
 				};
 				
 				lbAdd [smm_shop_vehicle_handle ,_displayText];

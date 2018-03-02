@@ -21,6 +21,7 @@ wreckRemovalMaxTime = 3600;
 allowFunctionsLog=1;
 
 ReviveMode = 0;
+allowFunctionsRecompile = 1;
 class Params
 {
     #include "params.hpp"

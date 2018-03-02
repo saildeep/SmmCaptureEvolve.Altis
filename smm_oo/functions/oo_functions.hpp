@@ -14,3 +14,5 @@ class innerSingletonSet{};
 class innerSingletonBroadcast{};
 class innerSingletonBroadcastListener{};
 class innerOwner{};
+class injectMonitorCode{};
+class injectAll{};

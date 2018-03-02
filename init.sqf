@@ -40,6 +40,10 @@ call itemConfig;
 
 call gcFunctions;
 
+if(smm_debug)then{
+	call smm_fnc_injectAll;
+};
+
 
 //init 
 diag_log "----- Initializing gear";
