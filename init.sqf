@@ -42,7 +42,7 @@ call gcFunctions;
 
 if(smm_debug)then{
 	call smm_fnc_injectAll;
-}
+};
 
 
 //init 

@@ -8,13 +8,8 @@
 */
 private _caller = if (isNil '_fnc_scriptName') then {'UNKNOWN'} else {_fnc_scriptName};
 private _thisfunctionisalreadyinjectedsodonotinjectagain = "DONOTINJECT";
-private _callkey = '%1,' + _caller;
+private _callkey = '%1_callcount';
 private _numCalls = missionNamespace getVariable [_callkey,0];
 _numCalls = _numCalls + 1;
 missionNamespace setVariable [_callkey, _numCalls,false];
-
-if((_numCalls mod 100) == 1)then{
-	private _logString = _callkey + ":" + (str _numCalls);
-	diag_log _logString;
-};
 %2
