@@ -14,7 +14,7 @@ if(behaviour _unit isEqualTo "COMBAT")then{
 
 if(((getpos _unit) distance (_unit getVariable KEY_ZONECENTER)) > (_unit getVariable KEY_ZONERADIUS) )then{
 	diag_log(format["Stupid soldier %1 leaving zone",(name _unit) ]);
-	_x setBehaviour "STEALTH";
+	_unit setBehaviour "STEALTH";
 	_unit moveTo (_unit getVariable KEY_ZONECENTER);
 	_unit forceSpeed (_unit getSpeed "FAST");
 	diag_log(format["Stupid soldier: %1 go back to zone", name _unit ]);
