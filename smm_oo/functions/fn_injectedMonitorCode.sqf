@@ -13,6 +13,7 @@ if((typeName _caller) == 'CODE')then{
 if((_caller find '{') > -1)then{
 	_caller = 'UNNAMED FUNCTION ' + (str ([str _caller] call smm_fnc_hashString));
 };
+private _thisfunctionisalreadyinjectedsodonotinjectagain = "DONOTINJECT";
 diag_log ('Running function %1 from ' + _caller);
 
 
