@@ -1,4 +1,5 @@
 params["_hashmap","_key","_value"];
+"DONOTINJECT";
 assert (_hashmap isEqualType []);
 assert (_key isEqualType "STRING");
 assert (_key isEqualTypeAny ["STRING",31337]);
