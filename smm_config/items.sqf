@@ -222,14 +222,14 @@ allItems append [
 	["CfgMagazines","Laserbatteries","BASE",20,true] call PurchasableItem_create,
 
 	//mines
-	["CfgMagazines","ATMine_Range_Mag","MINES",25,true] call PurchasableItem_create,
-	["CfgMagazines","APERSMine_Range_Mag","MINES",20,true] call PurchasableItem_create,
-	["CfgMagazines","APERSBoundingMine_Range_Mag","MINES",20,true] call PurchasableItem_create,
-	["CfgMagazines","SLAMDirectionalMine_Wire_Mag","MINES",22,true] call PurchasableItem_create,
-	["CfgMagazines","APERSTripMine_Wire_Mag","MINES",20,true] call PurchasableItem_create,
-	["CfgMagazines","ClaymoreDirectionalMine_Remote_Mag","MINES",20,true] call PurchasableItem_create,
-	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",35,true] call PurchasableItem_create,
-	["CfgMagazines","DemoCharge_Remote_Mag","MINES",31,true] call PurchasableItem_create,
+	["CfgMagazines","ATMine_Range_Mag","MINES",10,true] call PurchasableItem_create,
+	["CfgMagazines","APERSMine_Range_Mag","MINES",5,true] call PurchasableItem_create,
+	["CfgMagazines","APERSBoundingMine_Range_Mag","MINES",15,true] call PurchasableItem_create,
+	["CfgMagazines","SLAMDirectionalMine_Wire_Mag","MINES",20,true] call PurchasableItem_create,
+	["CfgMagazines","APERSTripMine_Wire_Mag","MINES",15,true] call PurchasableItem_create,
+	["CfgMagazines","ClaymoreDirectionalMine_Remote_Mag","MINES",50,true] call PurchasableItem_create,
+	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",50,true] call PurchasableItem_create,
+	["CfgMagazines","DemoCharge_Remote_Mag","MINES",30,true] call PurchasableItem_create,
 	["CfgMagazines","APERSMineDispenser_Mag","MINES",200,true] call PurchasableItem_create,
 
 	//grenades 
