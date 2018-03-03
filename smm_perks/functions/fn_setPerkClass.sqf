@@ -8,11 +8,10 @@ Set perks to a unit class.
 #include "constants.hpp"
 params["_unit","_class"];
 
-
 private _radio_and_uniform = switch(side _unit)do{
-	case west:{["UNIFORM_BLUFOR","RADIO_SMALL_BLUFOR"]};
-	case east:{["UNIFORM_OPFOR","RADIO_SMALL_OPFOR"]};
-	case independent:{["UNIFORM_INDEPENDENT","RADIO_SMALL_INDEPENDENT"] };
+	case west:{["EQUIPMENT_BLUFOR","UNIFORM_BLUFOR","RADIO_SMALL_BLUFOR"]};
+	case east:{["EQUIPMENT_OPFOR","UNIFORM_OPFOR","RADIO_SMALL_OPFOR"]};
+	case independent:{["EQUIPMENT_INDEPENDENT","UNIFORM_INDEPENDENT","RADIO_SMALL_INDEPENDENT"]};
 	default { throw " invalid side" };
 };
 

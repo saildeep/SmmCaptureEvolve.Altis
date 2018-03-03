@@ -13,17 +13,28 @@ allItems append [
 	["CfgWeapons","ACE_optic_SOS_2D","SCOPE_LR",490,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_optic_SOS_PIP","SCOPE_LR",490,false] call PurchasableItem_create,
 
-
-	//TODO add ace silencers
+	//ACE Silencer
+	["CfgWeapons","ACE_muzzle_mzls_338","RIFLEMAN",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_muzzle_mzls_93mmg","RIFLEMAN",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_muzzle_mzls_B","RIFLEMAN",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_muzzle_mzls_H","RIFLEMAN",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_muzzle_mzls_L","RIFLEMAN",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_muzzle_mzls_smg_01","RIFLEMAN",99,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_muzzle_mzls_smg_02","RIFLEMAN",99,false] call PurchasableItem_create,
 
 	//gunbag
 	["CfgVehicles","ACE_gunbag","BACKPACK",199,false] call PurchasableItem_create,
 	
 
-	//mine detectors and mines
+	//mine detectors
 	["CfgWeapons","ACE_VMM3","MINES",319,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_VMH3","MINES",319,false] call PurchasableItem_create,
-	
+
+	//mine equipment 
+	["CfgWeapons","ACE_DeadManSwitch","MINES",10,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_DefusalKit","MINES",10,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_Clacker","MINES",30,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_M26_Clacker","MINES",30,true] call PurchasableItem_create,
 
 	//useless flares and chemlights
 	["CfgMagazines","ACE_HandFlare_White","BASE",10,false] call PurchasableItem_create,
@@ -31,9 +42,12 @@ allItems append [
 	["CfgMagazines","ACE_HandFlare_Green","BASE",10,false] call PurchasableItem_create,
 	["CfgMagazines","ACE_HandFlare_Yellow","BASE",10,false] call PurchasableItem_create,
 	["CfgMagazines","ACE_Chemlight_IR","BASE",10,false] call PurchasableItem_create,
-	["CfgMagazines","ACE_Chemlight_HiYellow","BASE",10,false] call PurchasableItem_create,
+	//["CfgMagazines","ACE_Chemlight_HiYellow","BASE",10,false] call PurchasableItem_create,
+
+	//mines and grenades
 	["CfgWeapons","ACE_M84","BASE",20,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_M14","BASE",8,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_M14","MINES",8,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_FlareTripMine_Mag","MINES",8,false] call PurchasableItem_create,
 
 
 	//barrel
@@ -57,7 +71,7 @@ allItems append [
 
 	//medic stuff advanced
 		//Bandage
-		["CfgWeapons","ACE_elasticBandage","MEDIC",5,true] call PurchasableItem_create,
+		["CfgWeapons","ACE_elasticBandage","MEDIC",4,true] call PurchasableItem_create,
 		["CfgWeapons","ACE_quikclot","MEDIC",10,true] call PurchasableItem_create,
 
 	["CfgWeapons","ACE_adenosine","MEDIC",15,false] call PurchasableItem_create,
@@ -86,13 +100,16 @@ allItems append [
 	["CfgWeapons","ACE_MapTools","BASE",30,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_microDAGR","BASE",60,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_DAGR","BASE",60,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_RangeTable_82mm","BASE",8,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_RangeTable_82mm","DISMANTLED_WEAPON_BACKPACK_BLUFOR",8,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Altimeter","BASE",20,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Sandbag_empty","BASE",3,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_EntrenchingTool","BASE",200,false] call PurchasableItem_create,
 	["CfgVehicles","ACE_NonSteerableParachute","BASE",200,false] call PurchasableItem_create,
 	["CfgVehicles","ACE_TacticalLadder_Pack","RIFLEMAN",200,false] call PurchasableItem_create,
-
+	["CfgWeapons","ACE_IR_Strobe_Item","BASE",50,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_Flashlight_XL50","BASE",40,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_Flashlight_KSF1","BASE",60,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_Flashlight_MX991","BASE",60,false] call PurchasableItem_create,
 	//TODO ace explosives and flashlights
 	
 
@@ -106,16 +123,6 @@ allItems append [
 	["CfgWeapons","ACE_Vector","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Yardage450","SPOTTER_EQUIPMENT",270,false] call PurchasableItem_create
 
-
 	//magazines
-	
-	
-	// mortashells cant be added to the arsenal
-	/*
-	["CfgMagazines","ACE_1Rnd_82mm_Mo_HE","BASE",5,true] call PurchasableItem_create,
-	["CfgMagazines","ACE_1Rnd_82mm_Mo_Smoke","BASE",2,true] call PurchasableItem_create,
-	["CfgMagazines","ACE_1Rnd_82mm_Mo_Illum","BASE",2,true] call PurchasableItem_create,
-	["CfgMagazines","ACE_1Rnd_82mm_Mo_Guided","BASE",10,false] call PurchasableItem_create,
-	["CfgMagazines","ACE_1Rnd_82mm_Mo_LaserGuided","BASE",10,false] call PurchasableItem_create
-	*/
+
 ];

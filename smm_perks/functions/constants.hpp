@@ -19,5 +19,6 @@
                         "UAV_BLUFOR","UAV_OPFOR","UAV_INDEPENDENT",\
                         "DESIGNATOR_BLUFOR","DESIGNATOR_OPFOR","DESIGNATOR_INDEPENDENT",\
                         "LOGISTIC_BLUFOR","LOGISTIC_OPFOR","LOGISTIC_INDEPENDENT",\
-                        "MEDIC"]
+                        "MEDIC",\
+                        "EQUIPMENT_BLUFOR","EQUIPMENT_INDEPENDENT","EQUIPMENT_OPFOR"]
 #define KEY_PERKS "allperks"
