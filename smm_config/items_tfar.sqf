@@ -12,9 +12,17 @@ allItems append [
 
 
 	//backpack
-	["CfgVehicles","tf_anprc152","RADIO_LARGE_BLUFOR",250,true] call PurchasableItem_create,
-	["CfgVehicles","tf_anprc148jem","RADIO_LARGE_INDEPENDENT",170,true] call PurchasableItem_create,
+	["CfgVehicles","tf_rt1523g","RADIO_LARGE_BLUFOR",250,true] call PurchasableItem_create,
+	["CfgVehicles","tf_rt1523g_big","RADIO_LARGE_BLUFOR",250,true] call PurchasableItem_create,
+	["CfgVehicles","tf_anarc210","RADIO_LARGE_BLUFOR",250,true] call PurchasableItem_create,
+	
+	["CfgVehicles","tf_anprc155","RADIO_LARGE_INDEPENDENT",170,true] call PurchasableItem_create,
+	["CfgVehicles","tf_anprc155_coyote","RADIO_LARGE_INDEPENDENT",170,true] call PurchasableItem_create,
+	["CfgVehicles","tf_anarc164","RADIO_LARGE_INDEPENDENT",170,true] call PurchasableItem_create,
+
 	["CfgVehicles","tf_mr3000","RADIO_LARGE_OPFOR",250,true] call PurchasableItem_create,
+	["CfgVehicles","tf_mr3000_multicam","RADIO_LARGE_OPFOR",250,true] call PurchasableItem_create,
+	["CfgVehicles","tf_mr6000l","RADIO_LARGE_OPFOR",250,true] call PurchasableItem_create,
 
 	//item
 	["CfgWeapons","tf_microdagr","BASE",5,true] call PurchasableItem_create
