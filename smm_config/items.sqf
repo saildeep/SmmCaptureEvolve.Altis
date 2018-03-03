@@ -231,13 +231,23 @@ allItems append [
 	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",35,true] call PurchasableItem_create,
 	["CfgMagazines","DemoCharge_Remote_Mag","MINES",31,true] call PurchasableItem_create,
 
-
-	
 	//grenades 
 	["CfgMagazines","HandGrenade","RIFLEMAN",20,true] call PurchasableItem_create,
 	["CfgMagazines","MiniGrenade","RIFLEMAN",14,true] call PurchasableItem_create,
-	["CfgMagazines","SmokeShell","RIFLEMAN",6,true] call PurchasableItem_create
 
+	// smoke grenades
+	["CfgMagazines","SmokeShell","RIFLEMAN",12,true] call PurchasableItem_create,
+	["CfgMagazines","SmokeShellBlue","RIFLEMAN",24,false] call PurchasableItem_create,
+	["CfgMagazines","SmokeShellGreen","RIFLEMAN",24,false] call PurchasableItem_create,
+	["CfgMagazines","SmokeShellOrange","RIFLEMAN",24,false] call PurchasableItem_create,
+	["CfgMagazines","SmokeShellPurple","RIFLEMAN",24,false] call PurchasableItem_create,
+	["CfgMagazines","SmokeShellRed","RIFLEMAN",24,false] call PurchasableItem_create,
+	["CfgMagazines","SmokeShellYellow","RIFLEMAN",24,false] call PurchasableItem_create,
+	
+	// IR grenades
+	["CfgMagazines","B_IR_Grenade","EQUIPMENT_BLUFOR",10,false] call PurchasableItem_create,
+	["CfgMagazines","I_IR_Grenade","EQUIPMENT_INDEPENDENT",10,false] call PurchasableItem_create,
+	["CfgMagazines","O_IR_Grenade","EQUIPMENT_OPFOR",10,false] call PurchasableItem_create
 ];
 
 // Uniforms
@@ -318,7 +328,7 @@ allItems append [
 	["CfgWeapons","U_I_GhillieSuit","UNIFORM_SNIPER_INDEPENDENT",100,true] call PurchasableItem_create,	
 	["CfgWeapons","U_I_FullGhillie_lsh","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
 	["CfgWeapons","U_I_FullGhillie_ard","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
-	["CfgWeapons","U_I_T_FullGhillie_tna_F","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
+	["CfgWeapons","U_I_FullGhillie_sard","UNIFORM_SNIPER_INDEPENDENT",130,false] call PurchasableItem_create,
 	
 	// Independent Crew Uniform
 	["CfgWeapons","U_B_HeliPilotCoveralls","UNIFORM_CREWMAN_INDEPENDENT",50,true] call PurchasableItem_create,
