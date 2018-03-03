@@ -230,6 +230,7 @@ allItems append [
 	["CfgMagazines","ClaymoreDirectionalMine_Remote_Mag","MINES",20,true] call PurchasableItem_create,
 	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",35,true] call PurchasableItem_create,
 	["CfgMagazines","DemoCharge_Remote_Mag","MINES",31,true] call PurchasableItem_create,
+	["CfgMagazines","APERSMineDispenser_Mag","MINES",200,true] call PurchasableItem_create,
 
 	//grenades 
 	["CfgMagazines","HandGrenade","RIFLEMAN",20,true] call PurchasableItem_create,
