@@ -33,8 +33,8 @@ allItems append [
 	//mine equipment 
 	["CfgWeapons","ACE_DeadManSwitch","MINES",10,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_DefusalKit","MINES",10,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_Clacker","MINES",30,true] call PurchasableItem_create,
-	["CfgWeapons","ACE_M26_Clacker","MINES",30,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_Clacker","MINES",30,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_M26_Clacker","MINES",30,false] call PurchasableItem_create,
 
 	//useless flares and chemlights
 	["CfgMagazines","ACE_HandFlare_White","BASE",10,false] call PurchasableItem_create,
