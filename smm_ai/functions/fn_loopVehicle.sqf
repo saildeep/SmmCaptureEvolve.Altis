@@ -48,6 +48,8 @@ while{_run}do{
         _x limitSpeed 1;
     } foreach _crew;
 	
+	_vehicle limitSpeed 15;
+	
 	if({alive _x} count crew _unit == 0)exitWith{_run = false};
     waitUntil {(unitReady _unit)||(_unit distance _pos)<30};
 	
