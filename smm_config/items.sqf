@@ -199,7 +199,7 @@ allItems append [
 	//Rockets
 	["CfgMagazines","Titan_AA","BASE",200,true] call PurchasableItem_create,
 	["CfgMagazines","Titan_AP","BASE",200,true] call PurchasableItem_create,
-	["CfgMagazines","Titan_AT","BASE",200,true] call PurchasableItem_create,
+	["CfgMagazines","Titan_AT","BASE",800,true] call PurchasableItem_create,
 
 	["CfgMagazines","RPG32_F","BASE",70,true] call PurchasableItem_create,
 	["CfgMagazines","RPG32_HE_F","BASE",90,true] call PurchasableItem_create,
