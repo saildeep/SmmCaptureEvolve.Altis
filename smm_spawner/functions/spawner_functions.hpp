@@ -39,3 +39,4 @@ class zoneEquals{};
 class seizeZone{};
 class updateTargetsOnHC{};
 class distributeItems{};
+class getHelipadPositions{};

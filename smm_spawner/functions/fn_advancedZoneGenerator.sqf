@@ -44,11 +44,18 @@ private _out = [];
 
 //TODO better startzone algorithm
 {
+	diag_log ("Searching helipads for " + (str (_x select 0)));
 	private _owner = smm_spawner_default_owner;
 	if(_forEachIndex < (count smm_spawner_player_factions))then{
 		_owner = smm_spawner_player_factions select _forEachIndex;
 	};
-	private _c = [_x select 0, str (_x select 0),_x select 2,_owner,_connections select _forEachIndex,_x select 1];
+
+	private _pos = _x select 0;
+	private _r = _x select 2;
+	
+
+
+	private _c = [_x select 0, str (_x select 0),_x select 2,_owner,_connections select _forEachIndex,_x select 1,[_pos,_r*0.5,_r+300] call smm_fnc_getHelipadPositions];
 	_out pushBack _c;
 }forEach _chosenCandidates;
 

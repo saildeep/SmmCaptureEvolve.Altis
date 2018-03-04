@@ -11,6 +11,16 @@ class ZonesManager:OOType{
 
 };
 
+
+class Position:OOType{
+    class X:OOVar{
+        typeName="SCALAR";
+    };
+    class Y:OOVar{
+        typeName="SCALAR";
+    };
+};
+
 class Zone:OOType{
 
     class ID:OOVar{
@@ -39,6 +49,9 @@ class Zone:OOType{
     };
     class ItemIDs:OOVar{
         typeName = "[SCALAR]";
+    };
+    class LandingSpots:OOVar{
+        typeName = "[Position]";
     };
 
     class GetMarkerName:OOFunction{
