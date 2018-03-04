@@ -22,7 +22,7 @@ private _last = [_object] call ZoneState_get_LastReinforcement;
 if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	private _startingZone = _nbs select 0; // todo select zone that matches best, not random one
 	[[_startingZone] call Zone_get_Position,"ColorOrange",120] call smm_fnc_createDebugMarker;
-
+	//TODO continue here
 
 };
 
