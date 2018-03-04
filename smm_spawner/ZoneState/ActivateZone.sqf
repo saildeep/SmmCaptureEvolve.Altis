@@ -1,5 +1,5 @@
 #include "..\..\mutex.hpp"
-LOCK(SPAWN_UNITS)
+MUTEX_LOCK(SPAWN_UNITS)
 #define VAR_NAME_ZONE "owner_zone"
 
 params["_object"];
@@ -138,4 +138,4 @@ private _helipadPos = [_zone] call Zone_get_LandingSpots;
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
 [_em,"OnVehiclesSpawned",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
 [_em,"OnZoneActivated",_zoneID] call EventManager_fnc_Trigger;
-UNLOCK(SPAWN_UNITS)
+MUTEX_UNLOCK(SPAWN_UNITS)
