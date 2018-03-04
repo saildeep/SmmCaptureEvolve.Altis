@@ -69,11 +69,11 @@ private _initialTargets = [[],[],[]] call TargetCollection_create;
 
 [[_zoneStates,_initialTargets] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
 
-//call get building and tree density once the have good min/max
+//call get building and tree density once the have good min/max 5 zones should represent this fairly well
 {
     [_x] call ZoneState_fnc_GetNormalizedBuildingDensity;
     [_x] call ZoneState_fnc_GetNormalizedTreeDensity;
-}forEach _zoneStates;
+}forEach [selectRandom _zoneStates,selectRandom _zoneStates,selectRandom _zoneStates,selectRandom _zoneStates,selectRandom _zoneStates];
 
 diag_log (_prefix + "Finished building zone states");
 

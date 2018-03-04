@@ -121,6 +121,19 @@ private _spawnedInfantry = [];
 
 	}];
 }forEach ([_object] call ZoneState_get_Units);
+
+//create helipads for reinforcement troops to land
+private _helipadPos = [_zone] call Zone_get_LandingSpots;
+{
+	private _xPos = [_x] call Position_get_X;
+	private _yPos = [_x] call Position_get_Y;
+	private _pos = [_xPos,_yPos];
+	private _classname = if(smm_debug)then{"Land_HelipadSquare_F"}else{"Land_HelipadEmpty_F"};
+	private _pad = _classname createVehicle _pos;
+	_spawnedVehicles pushBack _pad;
+
+}forEach _helipadPos;
+
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
 [_em,"OnVehiclesSpawned",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
 [_em,"OnZoneActivated",_zoneID] call EventManager_fnc_Trigger;
