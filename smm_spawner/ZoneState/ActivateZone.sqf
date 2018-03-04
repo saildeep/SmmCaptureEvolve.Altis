@@ -58,25 +58,13 @@ private _spawnedInfantry = [];
 		_spawnedInfantry pushBack  _u;
 
 		//set certain settings for ActivateZone
-		_u setVariable ["zoneid",_zoneID,true];
-
-		if(smm_ai_disable_nvg)then{
-			_u removePrimaryWeaponItem "acc_pointer_IR";
-			//try to add russian acc_flashlight first
-			if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{
-				_u addPrimaryWeaponItem "rhs_acc_2dpZenit";
-			};
-        	_u addPrimaryWeaponItem "acc_flashlight";
-    		_u enableGunLights "forceon";
-			{_u removeWeapon _x} forEach  ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];
-		};
-
+		[_object,_u] call ZoneState_fnc_InitUnit;
 
 	}forEach _unittypes;
 
 
 } forEach ([_spawnInfantry,smm_spawner_units_per_group] call smm_fnc_subdivide);
-([_object] call ZoneState_get_Units) append _spawnedInfantry;
+
 [_em,"OnInfantrySpawned",[_spawnedInfantry,_zoneID] ] call EventManager_fnc_Trigger;
 
 //spawn vehicles
@@ -95,33 +83,15 @@ private _spawnedInfantry = [];
 		_spawnedVehicles pushBack _v;
 		_v call _pn;
 		_spawnedVehicleCrew append (crew _v);
+
+		{
+			[_object,_x] call ZoneState_fnc_InitUnit;
+		}forEach (crew _v);
 	}forEach _vehicletypes;
 
 
 }forEach ([_spawnVehicles,smm_spawner_vehicles_per_group] call smm_fnc_subdivide);
-([_object] call ZoneState_get_Units) append _spawnedVehicleCrew;
-{
-	_x addEventHandler ["killed",{
-		
 
-		private _killermaybevehicle = (_this select 1);
-		private _killedunit = (_this select 0);
-		//workaround for ace
-		if(smm_ace)then{
-			_killermaybevehicle = (_this select 0) getVariable ["ace_medical_lastDamageSource",_this select 1];
-		};
-		diag_log "Calling killed EH";
-		diag_log _killedunit;
-		diag_log "Killed by";
-		diag_log _killermaybevehicle;
-		
-		//do not reward TK
-		if( (side _killermaybevehicle) != (side _killedunit) )then{
-			[floor (random smm_spawner_per_kill_bounty),side _killermaybevehicle] call smm_fnc_addMoneySide;
-		};
-
-	}];
-}forEach ([_object] call ZoneState_get_Units);
 
 //create helipads for reinforcement troops to land
 private _helipadPos = [_zone] call Zone_get_LandingSpots;
@@ -136,6 +106,7 @@ private _helipadPos = [_zone] call Zone_get_LandingSpots;
 }forEach _helipadPos;
 
 ([_object] call ZoneState_get_Vehicles) append _spawnedVehicles;
+[_object,serverTime] call ZoneState_set_LastReinforcement;
 [_em,"OnVehiclesSpawned",[_spawnedVehicles,_spawnedVehicleCrew,_zoneID]] call EventManager_fnc_Trigger;
 [_em,"OnZoneActivated",_zoneID] call EventManager_fnc_Trigger;
 MUTEX_UNLOCK(SPAWN_UNITS)

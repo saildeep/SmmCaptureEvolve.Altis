@@ -146,6 +146,9 @@ class ZoneState:OOType{
     class SeizeTriggers:OOVar{
         typeName="TriggerCollection";
     };
+    class LastReinforcement:OOVar{
+        typeName = "SCALAR";
+    };
 
     class ActivateZone:OOFunction{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
@@ -169,6 +172,15 @@ class ZoneState:OOType{
     };
     class GetNormalizedTreeDensity:OOFunction{    
         file = "smm_spawner\ZoneState\GetNormalizedTreeDensity.sqf";
+    };
+    class ReinforceZone:OOFunction{
+        file = "smm_spawner\ZoneState\ReinforceZone.sqf";
+    };
+    class GetReinforceCooldown:OOFunction{
+        file = "smm_spawner\ZoneState\GetReinforceCooldown.sqf";
+    };
+    class InitUnit:OOFunction{
+        file = "smm_spawner\ZoneState\InitUnit.sqf";
     };
 
 };
