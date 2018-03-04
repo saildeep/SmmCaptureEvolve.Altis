@@ -16,20 +16,8 @@ diag_log (_prefix + "Building zoneStates");
     //[_forEachIndex,[_x] call Zone_get_Side] call smm_fnc_changeOwner;
     private _zoneNumber = [_x] call Zone_get_ID;
     
-    //get buildings with positions;
-    private _currentBuildings = [];
     private _center = [_c] call Zone_get_Position;
     private _size =[_c] call Zone_get_Size;
-    private _allBuildingObjects = nearestObjects [_center,_buildingType,_size];
-    {
-        private _buildingPos = _x buildingPos -1;
-        if((count _buildingPos)>=smm_spawner_units_per_group )then{
-            _currentBuildings pushBack [_x,_buildingPos];
-        }
-    }forEach _allBuildingObjects;
-    
-    private _treeCount = count (nearestTerrainObjects [_center,["TREE", "SMALL TREE"],_size]);
-
     //draw connections to neighbour
     private _cZoneNumber = _zoneNumber;
     private _neighbours = [_x] call Zone_get_Neighbours;
@@ -74,7 +62,7 @@ diag_log (_prefix + "Building zoneStates");
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],count _allBuildingObjects,_interaction_point,_triggerCollection,_treeCount] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection] call ZoneState_create);
 }forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;

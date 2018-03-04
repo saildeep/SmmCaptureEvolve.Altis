@@ -127,19 +127,11 @@ class ZoneState:OOType{
     class Vehicles:OOVar{
         typeName="[OBJECT]";
     };
-    class Buildings:OOVar{
-        typeName="SCALAR";
-        typeCheck = "_this >= 0";
-    };
     class InteractionPoint:OOVar{
         typeName="OBJECT";
     };
     class SeizeTriggers:OOVar{
         typeName="TriggerCollection";
-    };
-    class TreeCount:OOVar{
-        typeName="SCALAR";
-        typeCheck="_this >= 0";
     };
 
     class ActivateZone:OOFunction{
