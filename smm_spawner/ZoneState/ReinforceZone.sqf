@@ -60,6 +60,9 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	}forEach _infantry;
 
 	diag_log (format ["Reinforcing with %1 infantry",count _infantry]);
+	private _em = call EventManager_GetInstance;
+	[_em,"OnInfantrySpawned",[_units,_zoneID] ] call EventManager_fnc_Trigger;
+	[_object,serverTime] call ZoneState_set_LastReinforcement;
 };
 
 MUTEX_UNLOCK(SPAWN_UNITS)
