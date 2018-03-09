@@ -22,7 +22,9 @@ private _last = [_object] call ZoneState_get_LastReinforcement;
 //only reinforce if there are friendly nb zones and the cooldown is over
 if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	private _startingZone = selectRandom _nbs; // todo select zone that matches best, not random one
-	[[_startingZone] call Zone_get_Position,"ColorOrange",120] call smm_fnc_createDebugMarker;
+	private _startingZoneCenter = [_startingZone] call Zone_get_Position;
+	diag_log (format ["Starting from zone %1 at position %2",_startingZone,_startingZoneCenter]);
+	[_startingZoneCenter,120,"ColorOrange"] call smm_fnc_createDebugMarker;
 	
 	//collect infantry and vehicles from adjacent zones
 	private _infantry = [];
@@ -42,6 +44,21 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	_infantry = _infantry select [0,(count _infantry) / (sqrt (count _nbs))];//check if sqrt does the job
 	_vehicles = _vehicles select [0,(count _vehicles) / (sqrt (count _vehicles))];
 	
+	private _group = 0;
+	private _units = [];
+	{
+		if((_forEachIndex mod smm_spawner_units_per_group) == 0)then{
+			_group = createGroup[_side,true];
+			
+		};
+		private _classname = [_x] call SpawnableInfantry_get_ClassName;
+		diag_log (format["Spawning reinforcment %1 at %2 for side %3 in zone %4",_classname,_startingZoneCenter,_side,_zoneID]);
+		private _unit = _group createUnit [_classname,_startingZoneCenter,[],100,"NONE"];
+		[_object,_unit] call ZoneState_fnc_InitUnit;
+		_units pushBack _unit;
+
+	}forEach _infantry;
+
 	diag_log (format ["Reinforcing with %1 infantry",count _infantry]);
 };
 
