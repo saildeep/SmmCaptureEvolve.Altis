@@ -1,4 +1,4 @@
-#include "..\..\mutex.hpp"
+#include "..\..\patterns.hpp"
 MUTEX_LOCK(SPAWN_UNITS)
 params["_object"];
 private _units = [_object] call ZoneState_get_Units;

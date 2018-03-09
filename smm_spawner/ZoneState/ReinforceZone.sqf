@@ -1,8 +1,9 @@
 params["_object"];
-#include "..\..\mutex.hpp"
+#include "..\..\patterns.hpp"
 MUTEX_LOCK(SPAWN_UNITS)
 
 private _zoneID = [_object] call ZoneState_get_ZoneID;
+private _statesManager = call ZoneStatesManager_GetInstance;
 diag_log ("Reinforcing zone " + (str _zoneID));
 private _zone = [call ZonesManager_GetInstance,_zoneID] call ZonesManager_fnc_GetZone;
 diag_log ("Zone is " + (str _zone));
@@ -20,10 +21,28 @@ private _last = [_object] call ZoneState_get_LastReinforcement;
 
 //only reinforce if there are friendly nb zones and the cooldown is over
 if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
-	private _startingZone = _nbs select 0; // todo select zone that matches best, not random one
+	private _startingZone = selectRandom _nbs; // todo select zone that matches best, not random one
 	[[_startingZone] call Zone_get_Position,"ColorOrange",120] call smm_fnc_createDebugMarker;
-	//TODO continue here
+	
+	//collect infantry and vehicles from adjacent zones
+	private _infantry = [];
+	private _vehicles = [];
+	{
+		private _nbZoneState = [_statesManager,_zoneID] call ZoneStatesManager_fnc_GetZoneState;
+		private _nbInfantry = [_nbZoneState] call ZoneState_fnc_GetSpawnInfantry;
+		private _nbVehicles = [_nbZoneState] call ZoneState_fnc_GetSpawnVehicles;
+		_infantry append _nbInfantry;
+		_vehicles append _nbVehicles;
+		
+	} forEach  _nbs;
+	_infantry = _infantry call BIS_fnc_arrayShuffle;
+	_vehicles = _vehicles call BIS_fnc_arrayShuffle;
 
+	//only select first n items, where n = count(items) /fn(numnbs), to get growing average number of infantry and vehicles
+	_infantry = _infantry select [0,(count _infantry) / (sqrt (count _nbs))];//check if sqrt does the job
+	_vehicles = _vehicles select [0,(count _vehicles) / (sqrt (count _vehicles))];
+	
+	diag_log (format ["Reinforcing with %1 infantry",count _infantry]);
 };
 
 MUTEX_UNLOCK(SPAWN_UNITS)
