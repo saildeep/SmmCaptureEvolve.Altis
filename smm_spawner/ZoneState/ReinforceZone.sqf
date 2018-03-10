@@ -20,8 +20,9 @@ private _cooldown = [_object] call ZoneState_fnc_GetReinforceCooldown;
 private _last = [_object] call ZoneState_get_LastReinforcement;
 
 //only reinforce if there are friendly nb zones and the cooldown is over
-private _numUnits = count( [_object] call ZoneState_get_Units);
+private _numUnits = count( ([_object] call ZoneState_get_Units) select {!(isNull _x)});
 private _maxUnits = 60;
+diag_log (format["Checking if zone needs reinforcment with _numUnits=%1 and time=%2/%3 and count _nbs = %4",_numUnits,_cooldown + _last,serverTime,count _nbs]);
 if( ((count _nbs) > 0) and ((_last + _cooldown) > serverTime) and (_numUnits < _maxUnits) )then{
 	private _startingZone = selectRandom _nbs; // todo select zone that matches best, not random one
 	private _startingZoneCenter = [_startingZone] call Zone_get_Position;
