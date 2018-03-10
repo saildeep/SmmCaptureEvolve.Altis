@@ -6,10 +6,11 @@ if((typeName _wrappedVar) != "ARRAY")then{
 	["Expected %1 in Class %2 and Variable %3 to be off type ARRAY",_var,_typeName,_varname] call BIS_fnc_error;
 };
 
-{
+{	
+	/*
 	if(isNil{_x})then{
 		["Expected %1 in Class %2 and Variable %3 with value %4 to not nil",_x,_typeName,_varname,_wrappedVar] call BIS_fnc_error;
-	};
+	};*/
 	
 	
 	if(_isNative)then{
