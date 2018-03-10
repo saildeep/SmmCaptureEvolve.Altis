@@ -116,6 +116,9 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) && (_numUnits < _maxUn
 			_vehicleFound = true;
 		}
 	};
+	if((count _targetLandingSpots)== 0)then{
+		_targetLandingSpots pushBack _zoneCenter;
+	};
 	private _currentGroupIndex = 0;
 
 	for [{_i= 0},{_i < _numVehicles},{_i = _i + 1}] do {

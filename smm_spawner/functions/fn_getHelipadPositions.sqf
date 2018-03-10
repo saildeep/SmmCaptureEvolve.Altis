@@ -13,7 +13,7 @@
 	Array of [x,y] positions where enough space for placing a helipad is, may be []
 */
 
-params["_center","_rmin","_rmax",["_maxIterations",50],["_maxHelipads",50],["_clearDistance",30]];
+params["_center","_rmin","_rmax",["_maxIterations",10],["_maxHelipads",50],["_clearDistance",30]];
 assert (_rmax > _rmin);
 
 private _iterationCount = 0;
@@ -39,7 +39,7 @@ while { (_iterationCount < _maxIterations) and ((count _foundPositions)<_maxHeli
 
 	}else{
 		// if no position is found increase allowed gradient
-		_gradient = 1 min (_gradient + 0.05);
+		_gradient = 0.5 min (_gradient + 0.1);
 	};
 };
 _foundPositions
