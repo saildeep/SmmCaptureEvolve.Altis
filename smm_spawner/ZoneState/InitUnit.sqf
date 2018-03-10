@@ -19,6 +19,21 @@ _u addEventHandler ["killed",{
 
 		private _killermaybevehicle = (_this select 1);
 		private _killedunit = (_this select 0);
+		private _zoneID = _killedunit getVariable["zoneid",-1];
+		if(_zoneID<0)then{
+			diag_log (format ["Zone id not set on killed unit %1",_killedunit]);
+		}else{
+			//randomly order reinforcement
+			if((random 1) < 0.2)then{
+				[_zoneID,_killedunit] spawn{
+					params["_zoneID","_killedunit"];
+					private _zm = call ZoneStatesManager_GetInstance;
+					private _zs = [_zm,_zoneID] call ZoneStatesManager_fnc_GetZoneState;
+					diag_log (format ["Ordering reinforcement for killed unit %1 at zone %2 at time %3 with state %4",_killedunit,_zoneID,serverTime,_zs]);
+					[_zs] call ZoneState_fnc_ReinforceZone;
+				};
+			};
+		};
 		//workaround for ace
 		if(smm_ace)then{
 			_killermaybevehicle = (_this select 0) getVariable ["ace_medical_lastDamageSource",_this select 1];
