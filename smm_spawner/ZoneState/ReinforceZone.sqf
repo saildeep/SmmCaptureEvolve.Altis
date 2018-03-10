@@ -42,8 +42,8 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	_vehicles = _vehicles call BIS_fnc_arrayShuffle;
 
 	//only select first n items, where n = count(items) /fn(numnbs), to get growing average number of infantry and vehicles
-	_infantry = _infantry select [0,(count _infantry) / (sqrt (count _nbs))];//check if sqrt does the job
-	_vehicles = _vehicles select [0,(count _vehicles) / (sqrt (count _vehicles))];
+	_infantry = _infantry select [0,0.3 * (count _infantry) / (sqrt (count _nbs))];//check if sqrt does the job
+	_vehicles = _vehicles select [0,0.3 * (count _vehicles) / (sqrt (count _vehicles))];
 	
 	private _group = 0;
 	private _units = [];

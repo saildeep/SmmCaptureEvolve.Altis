@@ -17,7 +17,7 @@ if(((getpos _unit) distance (_unit getVariable KEY_ZONECENTER)) > (_unit getVari
 	private _distance = (getpos _unit) distance (_unit getVariable KEY_ZONECENTER);
 	private _centerToUnit = (_unit getVariable KEY_ZONECENTER) getDir (getPos _unit);
 	//move to point betwwen center and unit, which is in range of the zone
-	private _targetPos = (_unit getVariable KEY_ZONECENTER) getPos [0.75 * (_unit getVariable KEY_ZONERADIUS),_centerToUnit];
+	private _targetPos = (_unit getVariable KEY_ZONECENTER) getPos [0.5 * (_unit getVariable KEY_ZONERADIUS),_centerToUnit];
 
 	//only order back if not in vehicle
 	if((vehicle _unit) == _unit )then{
