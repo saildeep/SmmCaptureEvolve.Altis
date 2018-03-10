@@ -19,6 +19,9 @@ class Position:OOType{
     class Y:OOVar{
         typeName="SCALAR";
     };
+    class ToArray:OOFunction{
+        code="[[_this select 0] call Position_get_X,[_this select 0] call Position_get_Y]";
+    };
 };
 
 class Zone:OOType{

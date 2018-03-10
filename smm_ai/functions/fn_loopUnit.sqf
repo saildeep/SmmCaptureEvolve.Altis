@@ -19,12 +19,17 @@ if(((getpos _unit) distance (_unit getVariable KEY_ZONECENTER)) > (_unit getVari
 	//move to point betwwen center and unit, which is in range of the zone
 	private _targetPos = (_unit getVariable KEY_ZONECENTER) getPos [0.75 * (_unit getVariable KEY_ZONERADIUS),_centerToUnit];
 
-	//select behaviour based on distance to increase walking speed of units far away
-	private _behaviour = if(_distance > (1.5 *  (_unit getVariable KEY_ZONERADIUS)) )then{"SAFE"}else{"STEALTH"};
-	_unit setBehaviour _behaviour;
-	_unit doMove _targetPos;
-	_unit forceSpeed (_unit getSpeed "FAST");
-	diag_log(format["Stupid soldier: %1 go back to zone", name _unit ]);
+	//only order back if not in vehicle
+	if((vehicle _unit) == _unit )then{
+		//select behaviour based on distance to increase walking speed of units far away
+		private _behaviour = if(_distance > (1.5 *  (_unit getVariable KEY_ZONERADIUS)) )then{"SAFE"}else{"STEALTH"};
+		_unit setBehaviour _behaviour;
+		_unit doMove _targetPos;
+		_unit forceSpeed (_unit getSpeed "FAST");
+		diag_log(format["Stupid soldier: %1 go back to zone", name _unit ]);
+	}else{
+		doFollow _unit;
+	};
 	waitUntil{ ( ((getPos _unit) distance (_unit getVariable KEY_ZONECENTER) )<= (_unit getVariable KEY_ZONERADIUS)) || ! (alive _unit) || (behaviour _unit isEqualTo "COMBAT");};
 };
 

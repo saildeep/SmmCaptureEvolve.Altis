@@ -18,9 +18,10 @@ assert (_rmax > _rmin);
 
 private _iterationCount = 0;
 private _foundPositions = [];
+private _gradient = 0.1;
 while { (_iterationCount < _maxIterations) and ((count _foundPositions)<_maxHelipads) } do {
 	_iterationCount = _iterationCount + 1;
-	private _safepos =  [_center,_rmin,_rmax,_clearDistance,0,0.3,0] call BIS_fnc_findSafePos;
+	private _safepos =  [_center,_rmin,_rmax,_clearDistance,0,_gradient,0] call BIS_fnc_findSafePos;
 	if( (count _safepos) == 2 )then{
 		//in case the position is valid
 		//check against all other found positions
@@ -37,8 +38,8 @@ while { (_iterationCount < _maxIterations) and ((count _foundPositions)<_maxHeli
 		};
 
 	}else{
-		// if no position is found break loop by raising iteration count
-		_iterationCount = _maxIterations;
+		// if no position is found increase allowed gradient
+		_gradient = 1 min (_gradient + 0.05);
 	};
 };
 _foundPositions

@@ -54,6 +54,15 @@ class SpawnableVehicle:OOType{
         typeName="SCALAR";
         typeCheck = "_this > 0";
     };
+
+    class GetCargoSlots:OOFunction{
+        code="private _c = [_this select 0] call SpawnableVehicle_get_ClassName;(([_c,true] call BIS_fnc_crewCount) - ([_c,false] call BIS_fnc_crewCount))";
+    };
+
+    class IsHelicopter:OOFunction{
+        code="private _c = [_this select 0] call SpawnableVehicle_get_ClassName;(_c isKindOf 'Air')";
+    };
+
     class PostSpawnFunction: OOVar{
         typeName = "CODE";
     };

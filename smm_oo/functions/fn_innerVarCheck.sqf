@@ -7,6 +7,10 @@ if((typeName _wrappedVar) != "ARRAY")then{
 };
 
 {
+	if(isNil{_x})then{
+		["Expected %1 in Class %2 and Variable %3 with value %4 to not nil",_x,_typeName,_varname,_wrappedVar] call BIS_fnc_error;
+	};
+	
 	
 	if(_isNative)then{
 		if((typeName _x )!= _typeName)then{

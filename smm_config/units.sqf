@@ -154,6 +154,18 @@ ai_vehicles = [
 	]
 ];
 
+ai_transport_vehicles = [
+	[
+		["O_Heli_Transport_04_covered_F",370,{}] call SpawnableVehicle_create
+	],
+	[
+		["B_Heli_Transport_03_F",370,{}] call SpawnableVehicle_create
+	],
+	[
+		["I_Heli_Transport_02_F",370,{}] call SpawnableVehicle_create
+	]
+];
+
 
 
 civilianBuyableUnits = [

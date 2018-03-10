@@ -23,6 +23,7 @@ private _last = [_object] call ZoneState_get_LastReinforcement;
 if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	private _startingZone = selectRandom _nbs; // todo select zone that matches best, not random one
 	private _startingZoneCenter = [_startingZone] call Zone_get_Position;
+	private _startingZonePads = [_startingZone] call Zone_get_LandingSpots;
 	diag_log (format ["Starting from zone %1 at position %2",_startingZone,_startingZoneCenter]);
 	[_startingZoneCenter,120,"ColorOrange"] call smm_fnc_createDebugMarker;
 	
@@ -46,10 +47,11 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	
 	private _group = 0;
 	private _units = [];
+	private _groups = [];
 	{
 		if((_forEachIndex mod smm_spawner_units_per_group) == 0)then{
 			_group = createGroup[_side,true];
-			
+			_groups pushBack _group;
 		};
 		private _classname = [_x] call SpawnableInfantry_get_ClassName;
 		diag_log (format["Spawning reinforcment %1 at %2 for side %3 in zone %4",_classname,_startingZoneCenter,_side,_zoneID]);
@@ -60,6 +62,99 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 	}forEach _infantry;
 
 	diag_log (format ["Reinforcing with %1 infantry",count _infantry]);
+
+
+	//move them into transport vehicles
+	private _pool = []; //todo move this to seperate method
+	if(_side == east) then {
+		_pool = ai_transport_vehicles select 0;
+	};
+	if(_side == west) then {
+		_pool = ai_transport_vehicles select 1;
+	};
+	if (_side == independent) then {
+		_pool = ai_transport_vehicles select 2;
+	};
+	private _vehicleFound = false;
+	private _transportVehicleType = [];
+	private _targetLandingSpots = ([_zone] call Zone_get_LandingSpots) apply {[_x] call Position_fnc_ToArray};
+	private _numSearches = 0;
+	private _numVehicles = 0;
+	private _groupPerVehicle = 0;
+	while {!_vehicleFound} do {
+		_transportVehicleType = selectRandom _pool; // todo better selection algorithm
+		private _cargoSlots = [_transportVehicleType] call SpawnableVehicle_fnc_GetCargoSlots;
+		assert (_cargoSlots > 0);
+		assert (_cargoSlots >= smm_spawner_units_per_group);
+		_groupPerVehicle = floor(_cargoSlots / smm_spawner_units_per_group);
+		diag_log (format["Try Putting them into %1 with %2 cargo slots and %3 groups per vehicle",_transportVehicleType,_cargoSlots,_groupPerVehicle]);
+		
+		_numVehicles = ceil ((count _groups) / _groupPerVehicle);
+		
+		//TODO better selection
+		if([_transportVehicleType] call SpawnableVehicle_fnc_IsHelicopter   )then{
+			if( (count _targetLandingSpots)>= _numVehicles )then{
+				_vehicleFound = true;
+			};
+		}else{
+			if( (count _targetLandingSpots)< _numVehicles )then{
+				_vehicleFound = true;
+			}else{
+				if((random 1)< 0.1 )then{
+					_vehicleFound =true;
+				};
+			};
+		};
+		_numSearches = _numSearches + 1;
+		if(_numSearches > 10)then{
+			_vehicleFound = true;
+		}
+	};
+	private _currentGroupIndex = 0;
+
+	for [{_i= 0},{_i < _numVehicles},{_i = _i + 1}] do {
+
+		private _isAir = [_transportVehicleType] call SpawnableVehicle_fnc_IsHelicopter;
+		private _vehPos = [(_startingZoneCenter select 0) +  (random [-300,0,300]),(_startingZoneCenter select 1) + (random [-300,0,300])];
+		//TODO track vehicle
+		private _veh = createVehicle [ ([_transportVehicleType] call SpawnableVehicle_get_ClassName),_vehPos,[],100,if(_isAir)then{"FLY"}else{"NONE"}];
+		_veh setUnloadInCombat [true,false];
+		createVehicleCrew _veh;
+		private _vehCrew = crew _veh;
+		{
+			[_object,_x] call ZoneState_fnc_InitUnit;
+		}forEach _vehCrew;
+
+		private _vehGroup = group (_vehCrew select 0);
+		private _wpUnload = _vehGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
+		_wpUnload setWaypointType "TR UNLOAD";
+		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];
+		_wpReturn setWaypointType "MOVE";
+
+		private _cargoIndex = 0;
+		for [{_g= 0},{(_g < _groupPerVehicle) and (_currentGroupIndex < (count _groups))},{_g = _g + 1}] do {
+			private _currentGroup = _groups select _currentGroupIndex;
+			private _groupUnits = units _currentGroup;
+			{
+				_x moveInCargo [_veh,_cargoIndex];
+				//_x assignAsCargoIndex [_veh,_cargoIndex];
+				diag_log (format ["Moved %1 into %2 for reinforcment transport",_x,_veh]);
+				_cargoIndex = _cargoIndex + 1;
+			}forEach _groupUnits;
+
+			private _wpGetOut = _currentGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
+			_wpGetOut setWaypointType "GETOUT";
+			_wpGetOut synchronizeWaypoint _wpUnload;
+
+
+			_currentGroupIndex = _currentGroupIndex + 1;
+		};
+
+
+		
+	};  
+
+
 	private _em = call EventManager_GetInstance;
 	[_em,"OnInfantrySpawned",[_units,_zoneID] ] call EventManager_fnc_Trigger;
 	[_object,serverTime] call ZoneState_set_LastReinforcement;
