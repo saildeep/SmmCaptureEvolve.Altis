@@ -28,7 +28,7 @@ if(((getpos _unit) distance (_unit getVariable KEY_ZONECENTER)) > (_unit getVari
 		_unit forceSpeed (_unit getSpeed "FAST");
 		diag_log(format["Stupid soldier: %1 go back to zone", name _unit ]);
 	}else{
-		doFollow _unit;
+		//make unit return
 	};
 	waitUntil{ ( ((getPos _unit) distance (_unit getVariable KEY_ZONECENTER) )<= (_unit getVariable KEY_ZONERADIUS)) || ! (alive _unit) || (behaviour _unit isEqualTo "COMBAT");};
 };
