@@ -25,9 +25,9 @@ diag_log ("Avaiable neighbours are : " + (str _nbs));
 private _cooldown = [_object] call ZoneState_fnc_GetReinforceCooldown;
 private _last = [_object] call ZoneState_get_LastReinforcement;
 
-//only reinforce if there are friendly nb zones and the cooldown is over
+//only reinforce if there are friendly nb zones and the cooldown is over and the zone does not already have enough units
 private _numUnits = count( ([_object] call ZoneState_get_Units) select {!(isNull _x)});
-private _maxUnits = 60;
+private _maxUnits = 60; //TODO make player dependent
 diag_log (format["Checking if zone needs reinforcment with _numUnits=%1 and time=%2/%3 and count _nbs = %4",_numUnits,_cooldown + _last,serverTime,count _nbs]);
 if( ((count _nbs) > 0) and ((_last + _cooldown) > serverTime) and (_numUnits < _maxUnits) )then{
 	private _startingZone = selectRandom _nbs; // todo select zone that matches best, not random one
@@ -51,12 +51,13 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) > serverTime) and (_numUnits < _
 	_vehicles = _vehicles call BIS_fnc_arrayShuffle;
 
 	//only select first n items, where n = count(items) /fn(numnbs), to get growing average number of infantry and vehicles
-	_infantry = _infantry select [0,0.3 * (count _infantry) / (sqrt (count _nbs))];//check if sqrt does the job
-	_vehicles = _vehicles select [0,0.3 * (count _vehicles) / (sqrt (count _vehicles))];
+	_infantry = _infantry select [0,0.3 * (count _infantry) / (sqrt (count _nbs))];// todo check if sqrt does the job
+	_vehicles = _vehicles select [0,0.3 * (count _vehicles) / (sqrt (count _vehicles))];//not used ATM
 	
 	private _group = 0;
 	private _units = [];
 	private _groups = [];
+	//spawn infantry units on ground at reinforcing zone
 	{
 		if((_forEachIndex mod smm_spawner_units_per_group) == 0)then{
 			_group = createGroup[_side,true];
@@ -150,7 +151,7 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) > serverTime) and (_numUnits < _
 		}forEach ( (fullCrew [_veh,"driver",true]) + (fullCrew [_veh,"commander",true]) + (fullCrew [_veh,"gunner",true]) );
 		
 
-		
+		//create drop of and return waypoints TODO set behaviour
 		private _wpUnload = _vehGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
 		_wpUnload setWaypointType "TR UNLOAD";
 		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];
@@ -158,12 +159,13 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) > serverTime) and (_numUnits < _
 		_wpReturn setWaypointStatements ["true","{deleteVehicle(vehicle _x);deleteVehicle _x;}forEach (units (group this) )"];
 
 		private _cargoIndex = 0;
+
+		//move infantry untis into cargo of vehicles
 		for [{_g= 0},{(_g < _groupPerVehicle) and (_currentGroupIndex < (count _groups))},{_g = _g + 1}] do {
 			private _currentGroup = _groups select _currentGroupIndex;
 			private _groupUnits = units _currentGroup;
 			{
 				_x moveInCargo [_veh,_cargoIndex];
-				//_x assignAsCargoIndex [_veh,_cargoIndex];
 				diag_log (format ["Moved %1 into %2 for reinforcment transport",_x,_veh]);
 				_cargoIndex = _cargoIndex + 1;
 			}forEach _groupUnits;
