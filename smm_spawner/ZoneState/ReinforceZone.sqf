@@ -1,3 +1,9 @@
+/**
+	Author:Jonas Körner
+
+	Checks if reinforcments can be spawned, and spawns them in an adjacent zone if neccessary
+*/
+
 params["_object"];
 #include "..\..\patterns.hpp"
 MUTEX_LOCK(SPAWN_UNITS)
