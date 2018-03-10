@@ -120,9 +120,10 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 
 		private _isAir = [_transportVehicleType] call SpawnableVehicle_fnc_IsHelicopter;
 		private _vehPos = [(_startingZoneCenter select 0) +  (random [-300,0,300]),(_startingZoneCenter select 1) + (random [-300,0,300])];
-		//TODO track vehicle
+		
 		//spawn vehicle 
 		private _veh = createVehicle [ ([_transportVehicleType] call SpawnableVehicle_get_ClassName),_vehPos,[],100,if(_isAir)then{"FLY"}else{"NONE"}];
+		[_object,_veh] call ZoneState_fnc_InitVehicle;
 		_veh setUnloadInCombat [true,false];
 
 		//fill vehicle with crew
@@ -142,6 +143,7 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 		_wpUnload setWaypointType "TR UNLOAD";
 		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];
 		_wpReturn setWaypointType "MOVE";
+		_wpReturn setWaypointStatements ["true","{deleteVehicle(vehicle _x);deleteVehicle _x;}forEach (units (group this) )"];
 
 		private _cargoIndex = 0;
 		for [{_g= 0},{(_g < _groupPerVehicle) and (_currentGroupIndex < (count _groups))},{_g = _g + 1}] do {

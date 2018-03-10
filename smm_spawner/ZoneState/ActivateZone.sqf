@@ -80,7 +80,7 @@ private _spawnedInfantry = [];
 		private _pn = [_x] call SpawnableVehicle_get_PostSpawnFunction;
 		private _v = _cn createVehicle (_spawnpositions select _forEachIndex);
 		createVehicleCrew _v;
-		_spawnedVehicles pushBack _v;
+		[_object,_v] call ZoneState_fnc_InitVehicle;
 		_v call _pn;
 		_spawnedVehicleCrew append (crew _v);
 
