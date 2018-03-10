@@ -66,14 +66,18 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 
 	//move them into transport vehicles
 	private _pool = []; //todo move this to seperate method
+	private _pilotPool = [];
 	if(_side == east) then {
 		_pool = ai_transport_vehicles select 0;
+		_pilotPool = ai_transport_pilots select 0;
 	};
 	if(_side == west) then {
 		_pool = ai_transport_vehicles select 1;
+		_pilotPool = ai_transport_pilots select 1;
 	};
 	if (_side == independent) then {
 		_pool = ai_transport_vehicles select 2;
+		_pilotPool = ai_transport_pilots select 2;
 	};
 	private _vehicleFound = false;
 	private _transportVehicleType = [];
@@ -117,15 +121,23 @@ if((count _nbs) > 0 && ((_last + _cooldown) > serverTime) )then{
 		private _isAir = [_transportVehicleType] call SpawnableVehicle_fnc_IsHelicopter;
 		private _vehPos = [(_startingZoneCenter select 0) +  (random [-300,0,300]),(_startingZoneCenter select 1) + (random [-300,0,300])];
 		//TODO track vehicle
+		//spawn vehicle 
 		private _veh = createVehicle [ ([_transportVehicleType] call SpawnableVehicle_get_ClassName),_vehPos,[],100,if(_isAir)then{"FLY"}else{"NONE"}];
 		_veh setUnloadInCombat [true,false];
-		createVehicleCrew _veh;
-		private _vehCrew = crew _veh;
-		{
-			[_object,_x] call ZoneState_fnc_InitUnit;
-		}forEach _vehCrew;
 
-		private _vehGroup = group (_vehCrew select 0);
+		//fill vehicle with crew
+
+		private _vehGroup = createGroup _side;
+		
+		{
+			private _pilotType = selectRandom _pilotPool;
+			private _pilot = _vehGroup createUnit [[_pilotType] call SpawnableInfantry_get_ClassName,_startingZoneCenter,[],100,"NONE"];
+			_pilot moveInAny _veh;
+			[_object,_pilot] call ZoneState_fnc_InitUnit;
+		}forEach ( (fullCrew [_veh,"driver",true]) + (fullCrew [_veh,"commander",true]) + (fullCrew [_veh,"gunner",true]) );
+		
+
+		
 		private _wpUnload = _vehGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
 		_wpUnload setWaypointType "TR UNLOAD";
 		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];

@@ -22,7 +22,7 @@ if(((getpos _unit) distance (_unit getVariable KEY_ZONECENTER)) > (_unit getVari
 	//only order back if not in vehicle
 	if((vehicle _unit) == _unit )then{
 		//select behaviour based on distance to increase walking speed of units far away
-		private _behaviour = if(_distance > (1.5 *  (_unit getVariable KEY_ZONERADIUS)) )then{"SAFE"}else{"STEALTH"};
+		private _behaviour = if(_distance > (50+ (_unit getVariable KEY_ZONERADIUS)) )then{"SAFE"}else{"STEALTH"};
 		_unit setBehaviour _behaviour;
 		_unit doMove _targetPos;
 		_unit forceSpeed (_unit getSpeed "FAST");

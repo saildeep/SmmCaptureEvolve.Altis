@@ -166,6 +166,17 @@ ai_transport_vehicles = [
 	]
 ];
 
+ai_transport_pilots = [
+	[
+		["O_crew_F",10,{}] call SpawnableInfantry_create
+	],
+	[
+		["B_CREW_F",10,{}] call SpawnableInfantry_create
+	],
+	[
+		["i_crew_f",10,{}] call SpawnableInfantry_create
+	]
+];
 
 
 civilianBuyableUnits = [
