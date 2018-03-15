@@ -29,7 +29,7 @@ private _last = [_object] call ZoneState_get_LastReinforcement;
 private _numUnits = count( ([_object] call ZoneState_get_Units) select {!(isNull _x)});
 private _maxUnits = 60; //TODO make player dependent
 diag_log (format["Checking if zone needs reinforcment with _numUnits=%1 and time=%2/%3 and count _nbs = %4",_numUnits,_cooldown + _last,serverTime,count _nbs]);
-if( ((count _nbs) > 0) and ((_last + _cooldown) > serverTime) and (_numUnits < _maxUnits) )then{
+if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _maxUnits) )then{
 	private _startingZone = selectRandom _nbs; // todo select zone that matches best, not random one
 	private _startingZoneCenter = [_startingZone] call Zone_get_Position;
 	private _startingZonePads = [_startingZone] call Zone_get_LandingSpots;
