@@ -14,8 +14,9 @@ if((_object select 0) != _typename )then{
 if( (count (_object select 1) ) != (_object select 2) )then{
 	throw (format["Variable count for %1 corrupted",_typename]);
 };
+/*
 {
 	private _varCheck = _varchecks select _forEachIndex;
 	[_x] call _varCheck;
 	
-} forEach (_object select 1);
+} forEach (_object select 1);*/
