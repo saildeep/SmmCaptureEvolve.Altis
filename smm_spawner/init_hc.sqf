@@ -10,6 +10,7 @@ diag_log (_prefix + "Creating target arrays");
 private _zoneStates = [];
 private _buildingType = ["House", "Building"];
 diag_log (_prefix + "Building zoneStates");
+private _zm = call ZonesManager_GetInstance;
 {
     private _c = _x;
     
@@ -26,7 +27,7 @@ diag_log (_prefix + "Building zoneStates");
         //only draw connections from lower to higher
         if(_x < _cZoneNumber) then {
         
-            private _nb = [call ZonesManager_GetInstance,_x] call ZonesManager_fnc_GetZone;
+            private _nb = [_zm,_x] call ZonesManager_fnc_GetZone;
             private _nbPos = [_nb] call Zone_get_Position;
             private _meanPos = [_pos,_nbPos] call getMean;
             private _markerSize = (_pos distance _meanPos)*0.9;
@@ -63,7 +64,7 @@ diag_log (_prefix + "Building zoneStates");
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
     _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0] call ZoneState_create);
-}forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
+}forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;
 
