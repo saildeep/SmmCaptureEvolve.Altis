@@ -127,6 +127,7 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _
 	if((count _targetLandingSpots)== 0)then{
 		_targetLandingSpots pushBack _zoneCenter;
 	};
+	_targetLandingSpots = [_targetLandingSpots,[_startingZoneCenter],{_x distance _input0}] call BIS_fnc_sortBy;
 	private _currentGroupIndex = 0;
 
 	for [{_i= 0},{_i < _numVehicles},{_i = _i + 1}] do {
