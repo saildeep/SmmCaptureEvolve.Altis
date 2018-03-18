@@ -190,6 +190,9 @@ class ZoneState:OOType{
     class InitVehicle:OOFunction{
         file = "smm_spawner\ZoneState\InitVehicle.sqf";
     };
+    class ObjectiveStrength:OOFunction{
+        file = "smm_spawner\ZoneState\ObjectiveStrength.sqf";
+    };
 
 };
 
