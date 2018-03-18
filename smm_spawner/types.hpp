@@ -152,7 +152,9 @@ class ZoneState:OOType{
     class LastReinforcement:OOVar{
         typeName = "SCALAR";
     };
-
+    class Objectives:OOVar{
+        typeName = "[OBJECT]";
+    };
     class ActivateZone:OOFunction{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
     };
