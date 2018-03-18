@@ -122,8 +122,8 @@ if((count _currentUnits) == 0) then{
 		private _objectiveClassname = selectRandom _objectiveTypes;
 		private _nbZoneCenter = [_x] call Zone_get_Position;
 		private _thisToNb = _zoneCenter getDir _nbZoneCenter;
-		private _approxPlacePoint = _zoneCenter getPos [_thisToNb, _size * 0.33];
-		private _placePoint = _approxPlacePoint findEmptyPosition [0,_size * 0.66,_objectiveClassname];
+		private _approxPlacePoint = _zoneCenter getPos [ _size * 0.5,_thisToNb];
+		private _placePoint = _approxPlacePoint findEmptyPosition [0,_size * 0.5,_objectiveClassname];
 		//if empty position was found
 		if((count _placePoint) > 0)then{
 			private _objective = _objectiveClassname createVehicle _placePoint;
