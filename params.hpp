@@ -233,6 +233,14 @@
         default = 1;
     };
 
+    class targetsOPFOR
+    {
+        title="Targets zones for OPFOR";
+        texts[] = {"0","1","2","3","4","5","Unlimited"};
+        values[] = {0,1,2,3,4,5,300};
+        default = 1;
+    };
+
     class targetsINDEPENDENT
     {
         title="Targets zones for Independent";
