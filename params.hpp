@@ -285,6 +285,14 @@
         values[] = {1,0,10,20,30,40,50,60,75,100};
         default = 1;
     };
+    class defaultZoneOwner
+    {
+        title = "Default Zone Owner";
+        texts[] = {"BLUFOR","OPFOR","INDEPENDENT"};
+        values[] = {0,1,2};
+        default = 1;
+    };
+   
    
   
     
