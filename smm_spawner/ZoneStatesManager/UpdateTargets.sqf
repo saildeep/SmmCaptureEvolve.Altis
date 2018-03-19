@@ -1,7 +1,12 @@
+#include "..\..\patterns.hpp"
 ///ONLY CALLED ON HC
 params["_object"];
 private _singleton = call ZoneStatesManager_GetInstance;
 assert(_object isEqualTo _singleton);
+
+
+MUTEX_LOCK(UPDATE_TARGETS)
+
 private _log = { diag_log ("UpdateTargets:" + (format _this)); };
 private _targetCollection = [_object] call ZoneStatesManager_get_Targets;
 
@@ -68,3 +73,4 @@ private _zonesManager = call ZonesManager_GetInstance;
 
 } forEach _neededTargets;
 call ZoneStatesManager_BroadcastInstance;
+MUTEX_UNLOCK(UPDATE_TARGETS)
