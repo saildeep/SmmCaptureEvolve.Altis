@@ -116,7 +116,7 @@ if((count _currentUnits) == 0) then{
 
 	//create objectives
 	
-	private _objectiveTypes = ["Land_TTowerBig_1_F","Land_TTowerBig_2_F","Land_Cargo_Tower_V1_F","Land_Radar_Small_F","Land_SatelliteAntenna_01_F"];
+	private _objectiveTypes = ["Land_TTowerBig_1_F","Land_TTowerBig_2_F","Land_Cargo_Tower_V1_F","Land_Radar_Small_F"];
 	{
 		//go slightly into direction of the nb zone
 		private _objectiveClassname = selectRandom _objectiveTypes;
