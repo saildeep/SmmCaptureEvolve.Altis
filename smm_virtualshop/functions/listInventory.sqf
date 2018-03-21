@@ -56,6 +56,7 @@ _weapons = [];
 } forEach _weaponsItems;
 _assignedItems = _assignedItems - _weapons;
 
+/* TODO
 // replace all weapons with their base version
 // to avoid spawning unwanted attachments to weapons that were picked up from enemies
 {
@@ -66,6 +67,7 @@ _assignedItems = _assignedItems - _weapons;
 		_x set [0, _base];
 	};
 } forEach _weaponsItems;
+*/
 
 // replace backpack with base version if necessary
 if ((getNumber (configfile >> "CfgVehicles" >> _backpack >> "scope")) != 2) then {
