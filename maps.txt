@@ -7,3 +7,8 @@ lythium
 Sarani
 Malden
 Tembelan
+xcam_taunus
+Bornholm
+Dingor
+lingor3
+Fallujah
