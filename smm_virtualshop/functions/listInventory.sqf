@@ -56,13 +56,14 @@ _weapons = [];
 } forEach _weaponsItems;
 _assignedItems = _assignedItems - _weapons;
 
+
 // replace all weapons with their base version
 // to avoid spawning unwanted attachments to weapons that were picked up from enemies
 {
 	private _weapon = _x select 0;
 	private _base = getText (configfile >> "CfgWeapons" >> _weapon >> "baseWeapon");
 	
-	if (!isNil "_base") then {
+	if (!isNil "_base" && !(_base isEqualTo "")) then {
 		_x set [0, _base];
 	};
 } forEach _weaponsItems;
