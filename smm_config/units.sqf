@@ -277,8 +277,8 @@ if(playerSide == west)then{
 		["B_Heli_Light_01_armed_F",45000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_T_LSV_01_armed_F",16000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_LSV_01_unarmed_F",7000,{},"BASE",""] call PurchasableVehicle_create,
-		["B_T_VTOL_01_armed_F",90000,{},"CREWMAN",""] call PurchasableVehicle_create,
-		["B_T_VTOL_01_infantry_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create
+		["B_T_VTOL_01_armed_F",58000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_T_VTOL_01_infantry_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create
 	];
 };
 if(playerSide == independent)then{
