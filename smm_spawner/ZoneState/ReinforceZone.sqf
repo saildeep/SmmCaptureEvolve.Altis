@@ -173,7 +173,7 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _
 
 			private _wpGetOut = _currentGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
 			_wpGetOut setWaypointType "GETOUT";
-			_wpGetOut synchronizeWaypoint _wpUnload;
+			_wpGetOut synchronizeWaypoint [_wpUnload];
 
 
 			_currentGroupIndex = _currentGroupIndex + 1;
