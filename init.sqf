@@ -69,3 +69,4 @@ diag_log "----- Initializing AI";
 
 [] execVM "smm_tickets\init.sqf";
 [] execVM "smm_curator\init.sqf";
+setViewDistance 100000;
