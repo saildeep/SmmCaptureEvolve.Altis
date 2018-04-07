@@ -140,7 +140,7 @@ ai_vehicles = [
 		["B_APC_Tracked_01_AA_F",300,{}] call SpawnableVehicle_create,
 		["B_APC_Tracked_01_rcws_F",240,{}] call SpawnableVehicle_create,
 		["B_MBT_01_cannon_F",350,{}] call SpawnableVehicle_create,
-		["B_MBT_01_arty_F",300,{}] call SpawnableVehicle_create,
+		//["B_MBT_01_arty_F",300,{}] call SpawnableVehicle_create,
 		["B_MBT_01_mlrs_F",280,{}] call SpawnableVehicle_create,
 		["B_Heli_Attack_01_F",370,{}] call SpawnableVehicle_create
 	],
