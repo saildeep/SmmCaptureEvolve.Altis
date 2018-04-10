@@ -628,7 +628,8 @@ allItems append[
 	["CfgWeapons","ItemMap","BASE",1,true] call PurchasableItem_create,
 	["CfgWeapons","Binocular","BASE",80,false] call PurchasableItem_create,
 	["CfgWeapons","ToolKit","TOOLKIT",400,true] call PurchasableItem_create,
-
+	["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create	
+	
 	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","Laserdesignator","DESIGNATOR_BLUFOR",400,true] call PurchasableItem_create,
 	["CfgWeapons","Laserdesignator_02","DESIGNATOR_OPFOR",400,true] call PurchasableItem_create,
@@ -637,14 +638,12 @@ allItems append[
 	["CfgWeapons","NVGoggles","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_OPFOR","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_INDEP","BASE",400,false] call PurchasableItem_create
-	
 ];
 
 if(!smm_ace)then{
 	allItems append [
 		["CfgWeapons","FirstAidKit","BASE",40,true] call PurchasableItem_create, 
 		["CfgWeapons","Medikit","MEDIC",500,true] call PurchasableItem_create,	
-		["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create	
 	];
 };
 
