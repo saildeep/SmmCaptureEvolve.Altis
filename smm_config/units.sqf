@@ -258,10 +258,10 @@ buy_units = [];
 if(playerSide == west)then{
 	buy_units = [
 		["B_UGV_01_F",2000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
-		["B_UGV_01_rcws_F",33000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
-		["B_T_UAV_03_dynamicLoadout_F",75000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_BLUFOR",""] call PurchasableVehicle_create,
-		["B_UAV_02_dynamicLoadout_F",50000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_BLUFOR",""] call PurchasableVehicle_create,
-		["B_UAV_05_F",23000,{},"UAV_BLUFOR",""] call PurchasableVehicle_create,
+		["B_UGV_01_rcws_F",30000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_T_UAV_03_dynamicLoadout_F",35000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_BLUFOR",""] call PurchasableVehicle_create,
+		["B_UAV_02_dynamicLoadout_F",40000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_BLUFOR",""] call PurchasableVehicle_create,
+		["B_UAV_05_F",40000,{},"UAV_BLUFOR",""] call PurchasableVehicle_create,
 		["B_Truck_01_transport_F",15000,{},"BASE",""] call PurchasableVehicle_create,
 		["B_Truck_01_mover_F",13000,{},"BASE",""] call PurchasableVehicle_create,
 		["B_Truck_01_Repair_F",22000,{},"BASE",""] call PurchasableVehicle_create,
@@ -294,7 +294,7 @@ if(playerSide == west)then{
 if(playerSide == independent)then{
 	buy_units = [
 		["I_UGV_01_F",2000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
-		["I_UGV_01_rcws_F",50000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_UGV_01_rcws_F",30000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
 		["I_Heli_Transport_02_F",29000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
 		["I_Heli_light_03_dynamicLoadout_F",42000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		["I_Heli_light_03_unarmed_F",25000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
@@ -320,9 +320,9 @@ if(playerSide == independent)then{
 if(playerSide == east)then{
 	buy_units = [
 		["O_UGV_01_F",2000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
-		["O_UGV_01_rcws_F",50000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
-		["O_UAV_02_dynamicLoadout_F",60000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_OPFOR",""] call PurchasableVehicle_create,
-		["O_T_UAV_04_CAS_F",55000,{},"UAV_OPFOR",""] call PurchasableVehicle_create,
+		["O_UGV_01_rcws_F",30000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_UAV_02_dynamicLoadout_F",40000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_OPFOR",""] call PurchasableVehicle_create,
+		["O_T_UAV_04_CAS_F",50000,{},"UAV_OPFOR",""] call PurchasableVehicle_create,
 		["O_Truck_03_transport_F",15000,{},"BASE",""] call PurchasableVehicle_create,
 		["O_Truck_03_covered_F",13000,{},"BASE",""] call PurchasableVehicle_create,
 		["O_Truck_03_repair_F",22000,{},"BASE",""] call PurchasableVehicle_create,
