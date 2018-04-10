@@ -74,8 +74,26 @@ allItems append [
 		["CfgWeapons","ACE_elasticBandage","MEDIC",4,true] call PurchasableItem_create,
 		["CfgWeapons","ACE_quikclot","MEDIC",10,true] call PurchasableItem_create,
 
+	// Adenosine
+	// How much will the heart rate be increased when the HR is low (below 55)? {minIncrease, maxIncrease, seconds}
+	/* 
+	From :https://github.com/acemod/ACE3/blob/master/addons/medical/ACE_Medical_Treatments.hpp
+	hrIncreaseLow[] = {-7, -10, 15};
+	hrIncreaseNormal[] = {-15, -30, 20};
+	hrIncreaseHigh[] = {-15, -35, 10};
+	*/
 	["CfgWeapons","ACE_adenosine","MEDIC",15,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_atropine","MEDIC",15,false] call PurchasableItem_create,
+
+	// Atropine
+	// How much will the heart rate be increased when the HR is low (below 55)? {minIncrease, maxIncrease, seconds}
+	/* 
+	From :https://github.com/acemod/ACE3/blob/master/addons/medical/ACE_Medical_Treatments.hpp
+	hrIncreaseLow[] = {-2, -5, 15};
+	hrIncreaseNormal[] = {-10, -15, 20};
+	hrIncreaseHigh[] = {-5, -20, 10};
+	*/
+	["CfgWeapons","ACE_atropine","MEDIC",10,false] call PurchasableItem_create,
+
 	["CfgWeapons","ACE_epinephrine","MEDIC",15,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_surgicalKit","MEDIC",119,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_bodyBag","MEDIC",10,false] call PurchasableItem_create,
