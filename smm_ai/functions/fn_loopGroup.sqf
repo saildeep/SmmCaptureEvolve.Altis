@@ -1,5 +1,5 @@
 #include "constants.hpp"
-params["_group","_allZoneGroups"];
+params["_group","_allZoneGroups","_zoneid"];
 
 private _isInCombat = false;
 private _forceToGoToTent =false;
@@ -38,13 +38,15 @@ while{ ({alive _x} count units _group) > 0 } do {
 	} forEach (units _group );
 
 	// share information about enemy 
+	private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
 	{
 		_nearestEnemy  = _x findNearestEnemy _x;
 		{
 			if((_x knowsAbout _nearestEnemy)<0.5)then{
 				_x reveal [_nearestEnemy, 1.6];
+				diag_log(format["Unit %1 reveal %1",name _x,_nearestEnemy]);
 			};
-		}forEach (_allZoneGroups);
+		}forEach (_allZoneUnits);
 	} forEach (units _group );
 	
 	// Command: Back to Tent

@@ -27,5 +27,5 @@ private _zoneCenter = [_zone] call Zone_get_Position;
 	_x setVariable[KEY_ZONEID,_zoneid];
 	_x setVariable[KEY_ZONECENTER,_zoneCenter];
 	_x setVariable[KEY_ZONERADIUS,_zoneRadius];
-	[_x,_vehicle] spawn smm_fnc_loopVehicle;
+	[_x,_vehicle,_zoneid] spawn smm_fnc_loopVehicle;
 }forEach _vehicle;

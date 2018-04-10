@@ -1,5 +1,5 @@
 #include "constants.hpp"
-params["_vehicle","_allZoneGroups"];
+params["_vehicle","_allZoneGroups","_zoneid"];
 
 ///////Simple Patrol script vE 1.8 - SPUn / LostVar
 private ["_newCenter","_unit","_newPos","_center","_pos","_crew","_run","_pDir","_pRange","_dir","_radius"];
@@ -51,11 +51,24 @@ while{_run}do{
 	_vehicle limitSpeed 15;
 	
 	if({alive _x} count crew _unit == 0)exitWith{_run = false};
-    waitUntil {(unitReady _unit)||(_unit distance _pos)<30};
+    waitUntil {
+			// share information about enemy 
+			private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
+			{
+				_nearestEnemy  = _x findNearestEnemy _x;
+				{
+					if((_x knowsAbout _nearestEnemy)<0.5)then{
+						_x reveal [_nearestEnemy, 1.6];
+					diag_log(format["vehicle %1 reveal %2",name _x,_nearestEnemy]);
+					};
+				}forEach (_allZoneUnits);
+			} forEach (_crew);
+			(unitReady _unit)||(_unit distance _pos)<30
+			};
 	
 	sleep 5;
 	if(! (_vehicle isKindOf "Car"))then{
-		sleep + random(100);
+		sleep + random(60);
 	};
 	//_break = _unit getVariable "breakPatrol";
 	//if(!isNil("_break"))exitWith{};
