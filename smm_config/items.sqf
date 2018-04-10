@@ -44,10 +44,26 @@ if(!smm_rhs)then{
 		//lmg
 		["CfgWeapons","LMG_Mk200_F","LMG",890,false] call PurchasableItem_create,
 		["CfgWeapons","LMG_Zafir_F","LMG",860,false] call PurchasableItem_create,
-		["CfgWeapons","arifle_MX_SW_F","LMG",700,false] call PurchasableItem_create,
-		["CfgWeapons","MMG_01_hex_F","LMG",1499,false] call PurchasableItem_create,
-		["CfgWeapons","MMG_02_camo_F","LMG",1600,false] call PurchasableItem_create,
 		["CfgWeapons","LMG_03_F","LMG",850,false] call PurchasableItem_create,
+
+		["CfgWeapons","MMG_01_hex_F","LMG",1499,false] call PurchasableItem_create,
+		["CfgWeapons","MMG_01_tan_F","LMG",1499,false] call PurchasableItem_create,
+
+		["CfgWeapons","arifle_MX_SW_F","LMG",700,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_MX_SW_Black_F","LMG",700,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_MX_SW_khk_F","LMG",700,false] call PurchasableItem_create,
+
+		["CfgWeapons","MMG_02_black_F","LMG",1600,false] call PurchasableItem_create,
+		["CfgWeapons","MMG_02_camo_F","LMG",1600,false] call PurchasableItem_create,
+		["CfgWeapons","MMG_02_sand_F","LMG",1600,false] call PurchasableItem_create,	
+
+		["CfgWeapons","arifle_CTARS_blk_F","LMG",851,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_CTARS_ghex_F","LMG",851,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_CTARS_hex_F","LMG",851,false] call PurchasableItem_create,
+
+		["CfgWeapons","arifle_SPAR_02_blk_F","LMG",801,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_SPAR_02_khk_F","LMG",801,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_SPAR_02_snd_F","LMG",801,false] call PurchasableItem_create,		
 
 		//pistols
 		["CfgWeapons","hgun_ACPC2_F","PDW",70,false] call PurchasableItem_create,
@@ -629,7 +645,7 @@ allItems append[
 	["CfgWeapons","Binocular","BASE",80,false] call PurchasableItem_create,
 	["CfgWeapons","ToolKit","TOOLKIT",400,true] call PurchasableItem_create,
 	["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create	
-	
+
 	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","Laserdesignator","DESIGNATOR_BLUFOR",400,true] call PurchasableItem_create,
 	["CfgWeapons","Laserdesignator_02","DESIGNATOR_OPFOR",400,true] call PurchasableItem_create,
