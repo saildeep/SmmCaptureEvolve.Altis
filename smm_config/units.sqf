@@ -291,6 +291,8 @@ if(playerSide == west)then{
 		["B_APC_Tracked_01_CRV_F",30000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_APC_Tracked_01_rcws_F",31000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_APC_Wheeled_01_cannon_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_AFV_Wheeled_01_cannon_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_AFV_Wheeled_01_UP_cannon_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//APC anti air
 		["B_APC_Tracked_01_AA_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//MBT
