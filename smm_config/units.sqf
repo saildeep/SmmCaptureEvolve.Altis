@@ -346,7 +346,7 @@ if(playerSide == independent)then{
 		//Boat
 		["I_Boat_Armed_01_minigun_F",25000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//APC
-		["I_APC_Wheeled_03_cannon_F",20000,{},"CREWMAN",""] call PurchasableVehicle_create
+		["I_APC_Wheeled_03_cannon_F",20000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["I_APC_tracked_03_cannon_F",25000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//anti air
 		["I_LT_01_AA_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
