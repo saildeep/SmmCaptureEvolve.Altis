@@ -318,7 +318,7 @@ if(playerSide == independent)then{
 	buy_units = [
 		["I_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
 		["I_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
-		["I_C_Offroad_02_unarmed",3000,{},"BASE",""] call PurchasableVehicle_create, //APEX
+		["I_C_Offroad_02_unarmed_F",3000,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["I_C_Offroad_02_LMG_F",6000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
 		["I_MRAP_03_F",4000,{},"BASE",""] call PurchasableVehicle_create,
 
@@ -327,12 +327,13 @@ if(playerSide == independent)then{
 		["I_UGV_01_rcws_F",30000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
 		["I_UAV_02_dynamicLoadout_F",40000,{[_this,true] call smm_fnc_clearVehiclePylons;},"UAV_INDEPENDENT",""] call PurchasableVehicle_create,
 
-		["I_Truck_01_ammo_F",15000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_Truck_02_ammo_F",15000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
 		//no box truck
-		["I_Truck_01_fuel_F",15000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
-		["I_Truck_01_medical_F",20000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
-		["I_Truck_01_Repair_F",20000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,	
-		["I_Truck_01_transport_F",5000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_Truck_02_fuel_F",15000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["I_Truck_02_medical_F",20000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		// box is repair truck 
+		["I_Truck_02_box_F",20000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,	
+		["I_Truck_02_transport_F",5000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
 
 		//Heli
 		["I_Heli_Transport_02_F",30000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
