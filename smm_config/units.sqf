@@ -356,7 +356,7 @@ if(playerSide == independent)then{
 		["I_LT_01_cannon_F",60000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["I_MBT_03_cannon_F",80000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//MBT arillery
-		["Truck_02_MRL_F",70000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_Truck_02_MRL_F",70000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//Plane
 		["I_Plane_Fighter_03_dynamicLoadout_F",40000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		["I_Plane_Fighter_04_F",46000,{},"CREWMAN",""] call PurchasableVehicle_create
