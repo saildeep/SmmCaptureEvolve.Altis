@@ -131,37 +131,63 @@ ai_infantry = [
 
 
 ai_vehicles = [
-	[
+	[	
+		// Car
 		["O_MRAP_02_gmg_F",150,{}] call SpawnableVehicle_create,
-		["O_MRAP_02_hmg_F",160,{}] call SpawnableVehicle_create,
-		["O_APC_Wheeled_02_rcws_F",220,{}] call SpawnableVehicle_create,
-		["O_T_LSV_02_armed_F",120,{}] call SpawnableVehicle_create,
-		//["O_MBT_02_arty_F",280,{}] call SpawnableVehicle_create,
-		["O_APC_Tracked_02_cannon_F",270,{}] call SpawnableVehicle_create,
+		["O_MRAP_02_hmg_F",170,{}] call SpawnableVehicle_create,
+		["O_LSV_02_AT_F",90,{}] call SpawnableVehicle_create,
+		["O_LSV_02_armed_F",150,{}] call SpawnableVehicle_create,
+		// Anti-Air
 		["O_APC_Tracked_02_AA_F",320,{}] call SpawnableVehicle_create,
-		["O_MBT_02_cannon_F",350,{}] call SpawnableVehicle_create,
+		// APC
+		["O_APC_Tracked_02_cannon_F",270,{}] call SpawnableVehicle_create,
+		["O_APC_Wheeled_02_rcws_F",220,{}] call SpawnableVehicle_create,
+		// Tank
+		["O_MBT_02_cannon_F",330,{}] call SpawnableVehicle_create,
+		["O_MBT_04_cannon_F",360,{}] call SpawnableVehicle_create,
+		["O_MBT_02_command_F",400,{}] call SpawnableVehicle_create,		
+		// Heli
 		["O_Heli_Attack_02_F",370,{}] call SpawnableVehicle_create
+		// Arillery
+		//["O_MBT_02_arty_F",280,{}] call SpawnableVehicle_create,
 	],
-	[
+	[	
+		// Car
 		["B_MRAP_01_gmg_F",150,{}] call SpawnableVehicle_create,
-		["B_MRAP_01_hmg_F",160,{}] call SpawnableVehicle_create,
-		["B_APC_Wheeled_01_cannon_F",220,{}] call SpawnableVehicle_create,
-		["B_T_LSV_01_armed_F",110,{}] call SpawnableVehicle_create,
-		["B_APC_Tracked_01_CRV_F",250,{}] call SpawnableVehicle_create,
+		["B_MRAP_01_hmg_F",170,{}] call SpawnableVehicle_create,
+		["B_LSV_01_AT_F",90,{}] call SpawnableVehicle_create,
+		["B_LSV_01_armed_F",150,{}] call SpawnableVehicle_create,
+		// Anti-Air
 		["B_APC_Tracked_01_AA_F",300,{}] call SpawnableVehicle_create,
-		["B_APC_Tracked_01_rcws_F",240,{}] call SpawnableVehicle_create,
+		// APC
+		["B_APC_Wheeled_01_cannon_F",250,{}] call SpawnableVehicle_create,
+		["B_APC_Tracked_01_rcws_F",200,{}] call SpawnableVehicle_create,
+		["B_AFV_Wheeled_01_cannon_F",250,{}] call SpawnableVehicle_create,
+		["B_AFV_Wheeled_01_up_cannon_F",300,{}] call SpawnableVehicle_create,
+		// Tank
 		["B_MBT_01_cannon_F",350,{}] call SpawnableVehicle_create,
-		//["B_MBT_01_arty_F",300,{}] call SpawnableVehicle_create,
-		["B_MBT_01_mlrs_F",280,{}] call SpawnableVehicle_create,
+		["B_MBT_01_TUSK_F",400,{}] call SpawnableVehicle_create,
+		// Heli
 		["B_Heli_Attack_01_F",370,{}] call SpawnableVehicle_create
+		// Arillery
+		//["B_MBT_01_arty_F",300,{}] call SpawnableVehicle_create,
 	],
-	[
+	[	
+		// Car
+		["I_MRAP_03_hmg_F",120,{}] call SpawnableVehicle_create,
+		["I_MRAP_03_gmg_F",150,{}] call SpawnableVehicle_create,
+		// Anti-Air
+		["I_LT_01_AA_F",230,{}] call SpawnableVehicle_create,
+		// APC
 		["I_APC_Wheeled_03_cannon_F",230,{}] call SpawnableVehicle_create,
 		["I_APC_tracked_03_cannon_F",280,{}] call SpawnableVehicle_create,
+		// Tank
+		["I_LT_01_AT_F",280,{}] call SpawnableVehicle_create,
+		["I_LT_01_cannon_F",330,{}] call SpawnableVehicle_create,
 		["I_MBT_03_cannon_F",400,{}] call SpawnableVehicle_create,
-		["I_G_Offroad_01_armed_F",80,{}] call SpawnableVehicle_create,
-		["I_MRAP_03_hmg_F",140,{}] call SpawnableVehicle_create,
-		["I_MRAP_03_gmg_F",130,{}] call SpawnableVehicle_create
+		// Heli
+		["I_Heli_light_03_dynamicLoadout_F",370,{}] call SpawnableVehicle_create
+		// Arillery
 	]
 ];
 
