@@ -115,7 +115,11 @@ if(!smm_rhs)then{
 		["CfgWeapons","launch_NLAW_F","ANTI_TANK",550,false] call PurchasableItem_create,
 		["CfgWeapons","launch_RPG32_F","ANTI_TANK",450,false] call PurchasableItem_create,
 		["CfgWeapons","launch_B_Titan_short_F","ANTI_TANK",950,false] call PurchasableItem_create,
-		["CfgWeapons","launch_B_Titan_F","ANTI_AIR",850,false] call PurchasableItem_create
+		["CfgWeapons","launch_B_Titan_F","ANTI_AIR",850,false] call PurchasableItem_create,
+		["CfgWeapons","launch_O_Vorona_brown_F","ANTI_AIR",850,false] call PurchasableItem_create,
+		["CfgWeapons","launch_MRAWS_green_rail_F","ANTI_AIR",850,false] call PurchasableItem_create,
+		["CfgWeapons","launch_MRAWS_green_F","ANTI_AIR",850,false] call PurchasableItem_create
+
 	];
 };
 
@@ -222,6 +226,10 @@ allItems append [
 	["CfgMagazines","NLAW_F","BASE",150,true] call PurchasableItem_create,
 	["CfgMagazines","RPG7_F","BASE",30,true] call PurchasableItem_create,
 
+	["CfgMagazines","MRAWS_HEAT_F","BASE",70,true] call PurchasableItem_create,
+	["CfgMagazines","MRAWS_HE_F","BASE",90,true] call PurchasableItem_create,
+	["CfgMagazines","Vorona_HEAT","BASE",70,true] call PurchasableItem_create,
+	["CfgMagazines","Vorona_HE","BASE",90,true] call PurchasableItem_create,
 
 	//UGL
 	["CfgMagazines","1Rnd_HE_Grenade_shell","UGL",5,true] call PurchasableItem_create,
