@@ -440,11 +440,11 @@ if(playerSide == east)then{
 		["O_MBT_04_cannon_F",160000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["O_MBT_04_command_F",200000,{},"CREWMAN",""] call PurchasableVehicle_create,	
 		// MBT Arillery
-		["O_MBT_02_arty_F",300000,{},"CREWMAN",""] call PurchasableVehicle_create
+		["O_MBT_02_arty_F",300000,{},"CREWMAN",""] call PurchasableVehicle_create,
 
 		// Plane
 		["O_Plane_Fighter_02_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
-		["O_Plane_Fighter_Stealth_02_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
+		["O_Plane_Fighter_02_Stealth_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["O_Plane_CAS_02_dynamicLoadout_F",60000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		//Heli CREWMAN
 		["O_Heli_Attack_02_dynamicLoadout_F",240000,{},"CREWMAN",""] call PurchasableVehicle_create,	
