@@ -127,8 +127,11 @@ if(!smm_rhs)then{
 allItems append [
 	// AR
 	["CfgMagazines","30Rnd_556x45_Stanag","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_green","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_red","BASE",15,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Red","BASE",17,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Green","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Yellow","BASE",17,true] call PurchasableItem_create,
 	["CfgMagazines","20Rnd_556x45_UW_mag","BASE",20,true] call PurchasableItem_create,
 	
 	
@@ -141,9 +144,10 @@ allItems append [
 	["CfgMagazines","30Rnd_580x42_Mag_F","BASE",15,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_580x42_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
 
+	["CfgMagazines","30Rnd_545x39_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_545x39_Mag_F","BASE",15,true] call PurchasableItem_create,
-	["CfgMagazines","30Rnd_545x39_Mag_Green_F","BASE",17,true] call PurchasableItem_create,
-
+	["CfgMagazines","30Rnd_545x39_Mag_Tracer_Green_F","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_545x39_Mag_Green_F","BASE",15,true] call PurchasableItem_create,
 	//underbarrel cal.50
 	["CfgMagazines","10Rnd_50BW_Mag_F","BASE",40,true] call PurchasableItem_create,
 
@@ -184,7 +188,7 @@ allItems append [
 	["CfgMagazines","150Rnd_762x54_Box_Tracer","BASE",120,true] call PurchasableItem_create,
 
 	["CfgMagazines","130Rnd_338_Mag","BASE",195,true] call PurchasableItem_create,
-
+["CfgMagazines","200Rnd_338_Mag","BASE",300,true] call PurchasableItem_create,
 	["CfgMagazines","150Rnd_93x64_Mag","BASE",225,true] call PurchasableItem_create,
 
 	["CfgMagazines","100Rnd_580x42_Mag_F","BASE",50,true] call PurchasableItem_create,
@@ -195,6 +199,8 @@ allItems append [
 
 	["CfgMagazines","200Rnd_556x45_Box_F","BASE",100,true] call PurchasableItem_create,
 	["CfgMagazines","200Rnd_556x45_Box_Tracer_F","BASE",120,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_F_Red","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_Tracer_Red_F ","BASE",120,true] call PurchasableItem_create,
 
 	//Pistol/PDW
 	["CfgMagazines","30Rnd_9x21_Mag","BASE",8,true] call PurchasableItem_create,
