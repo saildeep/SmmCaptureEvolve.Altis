@@ -199,8 +199,8 @@ allItems append [
 
 	["CfgMagazines","200Rnd_556x45_Box_F","BASE",100,true] call PurchasableItem_create,
 	["CfgMagazines","200Rnd_556x45_Box_Tracer_F","BASE",120,true] call PurchasableItem_create,
-	["CfgMagazines","200Rnd_556x45_Box_F_Red","BASE",100,true] call PurchasableItem_create,
-	["CfgMagazines","200Rnd_556x45_Box_Tracer_Red_F ","BASE",120,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_Red_F","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_Tracer_Red_F","BASE",120,true] call PurchasableItem_create,
 
 	//Pistol/PDW
 	["CfgMagazines","30Rnd_9x21_Mag","BASE",8,true] call PurchasableItem_create,
