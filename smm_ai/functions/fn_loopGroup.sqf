@@ -38,6 +38,7 @@ while{ ({alive _x} count units _group) > 0 } do {
 	} forEach (units _group );
 
 	// share information about enemy 
+	// TODO: cleanup _entity Array.  maybe performance problem / _entity array very large
 	private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
 	{
 		private _unit = _x;
