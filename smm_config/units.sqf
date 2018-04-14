@@ -285,9 +285,9 @@ if(playerSide == west)then{
 	buy_units = [
 		["B_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
 		["B_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
-		["B_LSV_01_unarmed_F",4000,{},"BASE",""] call PurchasableVehicle_create, //APEX
+		["B_LSV_01_unarmed_F",3500,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["B_LSV_01_armed_F",7000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
-		["B_MRAP_01_F",4000,{},"BASE",""] call PurchasableVehicle_create,
+		["B_MRAP_01_F",6000,{},"BASE",""] call PurchasableVehicle_create,
 
 		//UAV Terminal
 		["B_UGV_01_F",2000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
@@ -348,7 +348,7 @@ if(playerSide == independent)then{
 		["I_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
 		["I_C_Offroad_02_unarmed_F",3000,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["I_C_Offroad_02_LMG_F",6000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
-		["I_MRAP_03_F",4000,{},"BASE",""] call PurchasableVehicle_create,
+		["I_MRAP_03_F",6000,{},"BASE",""] call PurchasableVehicle_create,
 
 		//UAV Terminal
 		["I_UGV_01_F",2000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
@@ -396,9 +396,9 @@ if(playerSide == east)then{
 	buy_units = [
 		["O_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
 		["O_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
-		["O_LSV_02_unarmed_F",4000,{},"BASE",""] call PurchasableVehicle_create, //APEX
+		["O_LSV_02_unarmed_F",3500,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["O_LSV_02_armed_F",7000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
-		["O_MRAP_02_F",4000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_MRAP_02_F",6000,{},"BASE",""] call PurchasableVehicle_create,
 
 		//UAV Terminal
 		["O_UGV_01_F",2000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
@@ -407,12 +407,12 @@ if(playerSide == east)then{
 		["O_T_UAV_04_CAS_F",50000,{},"UAV_OPFOR",""] call PurchasableVehicle_create,
 
 
-		["O_Truck_03_ammo_F",15000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_ammo_F",15000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
 		//no box truck
-		["O_Truck_03_fuel_F",5000,{},"BASE",""] call PurchasableVehicle_create,
-		["O_Truck_03_medical_F",20000,{},"MEDIC",""] call PurchasableVehicle_create,
-		["O_Truck_03_repair_F",20000,{},"BASE",""] call PurchasableVehicle_create,
-		["O_Truck_03_transport_F",5000,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Truck_03_fuel_F",5000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Truck_03_medical_F",20000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Truck_03_repair_F",20000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["O_Truck_03_transport_F",5000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
 
 		//Heli
 		["O_Heli_Transport_04_F",20000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
