@@ -145,7 +145,7 @@ ai_vehicles = [
 		// Tank
 		["O_MBT_02_cannon_F",330,{}] call SpawnableVehicle_create,
 		["O_MBT_04_cannon_F",360,{}] call SpawnableVehicle_create,
-		["O_MBT_02_command_F",400,{}] call SpawnableVehicle_create,		
+		["O_MBT_04_command_F",400,{}] call SpawnableVehicle_create,		
 		// Heli
 		["O_Heli_Attack_02_F",370,{}] call SpawnableVehicle_create
 		// Arillery
