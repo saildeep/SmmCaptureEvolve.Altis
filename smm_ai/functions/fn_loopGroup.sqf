@@ -40,15 +40,19 @@ while{ ({alive _x} count units _group) > 0 } do {
 	// share information about enemy 
 	private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
 	{
-		_nearestEnemy  = _x findNearestEnemy _x;
+		private _unit = _x;
 		{
-			if((_x knowsAbout _nearestEnemy)<0.5)then{
-				_x reveal [_nearestEnemy, 1.6];
-				diag_log(format["Unit %1 reveal %1",name _x,_nearestEnemy]);
+			private _entity = _x;		
+			if( (_entity select 3)>0 && (_unit knowsAbout (_entity select 4) )>0.5)then{
+				{
+					_x reveal [(_entity select 4), 1.6];
+					//diag_log(format["Unit %1 - %2 reveal %3 to %4",name _unit,_unit,_entity select 4 ,_x]);
+				}forEach (_allZoneUnits);
 			};
-		}forEach (_allZoneUnits);
+		} forEach (_unit nearTargets 500);
 	} forEach (units _group );
 	
+
 	// Command: Back to Tent
 	if(_isInCombat && ( ((leader _group) distance (_group getVariable KEY_ZONECENTER)) ) > ((_group getVariable KEY_ZONERADIUS)/4)) then {
 		
