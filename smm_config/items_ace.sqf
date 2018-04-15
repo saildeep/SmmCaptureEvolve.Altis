@@ -118,7 +118,7 @@ allItems append [
 	["CfgWeapons","ACE_MapTools","BASE",30,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_microDAGR","BASE",60,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_DAGR","BASE",60,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_RangeTable_82mm","DISMANTLED_WEAPON_BACKPACK_BLUFOR",8,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_RangeTable_82mm","DISMANTLED_WEAPON_BACKPACK_BLUFOR",40,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Altimeter","BASE",20,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Sandbag_empty","BASE",3,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_EntrenchingTool","BASE",200,false] call PurchasableItem_create,
@@ -136,7 +136,7 @@ allItems append [
 	["CfgWeapons","ACE_Tripod","SPOTTER_EQUIPMENT",20,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Kestrel4500","SPOTTER_EQUIPMENT",150,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_ATragMX","SPOTTER_EQUIPMENT",200,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_RangeCard","SPOTTER_EQUIPMENT",20,false] call PurchasableItem_create,
+	["CfgWeapons","ACE_RangeCard","SPOTTER_EQUIPMENT",40,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_MX2A","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Vector","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_Yardage450","SPOTTER_EQUIPMENT",270,false] call PurchasableItem_create
