@@ -43,10 +43,11 @@ while{ ({alive _x} count units _group) > 0 } do {
 	{
 		private _unit = _x;
 		{
-			private _entity = _x;		
-			if( (_entity select 3)>0 && (_unit knowsAbout (_entity select 4) )>0.5)then{
+			private _entity = _x;
+			private _unitKnowsAboutLevel = (_unit knowsAbout (_entity select 4));		
+			if( (_entity select 3)>0 && _unitKnowsAboutLevel>0.5)then{
 				{
-					_x reveal [(_entity select 4), 1.6];
+					_x reveal [(_entity select 4),_unitKnowsAboutLevel ];
 					//diag_log(format["Unit %1 - %2 reveal %3 to %4",name _unit,_unit,_entity select 4 ,_x]);
 				}forEach (_allZoneUnits);
 			};
