@@ -10,7 +10,7 @@ ai_infantry = [
 ];
 }else{
 ai_infantry = [
-	[
+	[//24
 		["O_Soldier_A_F",10,{}] call SpawnableInfantry_create,
 		["O_Soldier_AAR_F",10,{}] call SpawnableInfantry_create,
 		["O_Soldier_AR_F",15,{}] call SpawnableInfantry_create,
@@ -40,6 +40,7 @@ ai_infantry = [
 		["O_SOLDIERU_REPAIR_F",15,{}] call SpawnableInfantry_create,
 		["O_SHARPSHOOTER_F",15,{}] call SpawnableInfantry_create,
 		//["O_SOLDIERU_SL_F",10,{}] call SpawnableInfantry_create,
+		/*
 		["O_t_Soldier_A_F",10,{}] call SpawnableInfantry_create,
 		["O_t_Soldier_AAR_F",10,{}] call SpawnableInfantry_create,
 		["O_T_Soldier_AR_F",15,{}] call SpawnableInfantry_create,
@@ -52,6 +53,7 @@ ai_infantry = [
 		["O_t_Soldier_AA_F",30,{}] call SpawnableInfantry_create,
 		//["O_t_Soldier_AT_F",30,{}] call SpawnableInfantry_create,
 		["O_t_SOLDIER_REPAIR_F",15,{}] call SpawnableInfantry_create,
+		*/
 		/*
 		["O_G_SOLDIER_A_F",10,{}] call SpawnableInfantry_create,
 		["O_G_SOLDIER_AR_F",15,{}] call SpawnableInfantry_create,
@@ -81,7 +83,7 @@ ai_infantry = [
 		["b_soldier_aa_f",30,{}] call SpawnableInfantry_create,
 //at	//["b_soldier_at_f",30,{}] call SpawnableInfantry_create,
 		["b_soldier_repair_f",15,{}] call SpawnableInfantry_create,
-		["b_sharpshooter_f",15,{}] call SpawnableInfantry_create,
+		["b_sharpshooter_f",15,{}] call SpawnableInfantry_create
 		/*
 		//["b_soldier_sl_f",10,{}] call SpawnableInfantry_create,
 		["B_G_soldier_a_f",10,{}] call SpawnableInfantry_create,
@@ -94,6 +96,7 @@ ai_infantry = [
 		["b_g_sharpshooter_f",15,{}] call SpawnableInfantry_create,
 		//["b_g_soldier_sl_f",10,{}] call SpawnableInfantry_create,
 		*/
+		/*
 		["b_t_soldier_a_f",10,{}] call SpawnableInfantry_create,
 		["B_t_SOLDIER_AAR_F",10,{}] call SpawnableInfantry_create,
 		["B_t_SOLDIER_AR_F",15,{}] call SpawnableInfantry_create,
@@ -109,6 +112,7 @@ ai_infantry = [
 		//["b_t_soldier_sl_f",10,{}]call SpawnableInfantry_create,
 		["B_soldier_LAT_F",30,{}] call SpawnableInfantry_create,
 		["B_t_soldier_LAT_F",30,{}] call SpawnableInfantry_create
+		*/
 	],
 	[   
 		["i_soldier_a_f",10,{}] call SpawnableInfantry_create,
