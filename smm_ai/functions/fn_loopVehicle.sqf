@@ -7,7 +7,6 @@ private ["_newCenter","_unit","_newPos","_center","_pos","_crew","_run","_pDir",
 _unit = _vehicle;
 _center = _vehicle getVariable KEY_ZONECENTER;
 _radius = [25,_vehicle getVariable KEY_ZONERADIUS];
-diag_log("--INIT APROACHE--");
 if(isNil("_center"))then{_center = (getPos _unit);}else{_center = _center;};
 
 _newPos = getPos _unit;
@@ -49,7 +48,6 @@ while{_run}do{
     } foreach _crew;
 	
 	_vehicle limitSpeed 15;
-	diag_log(format["--FIRST APROACHE-- %1",count _crew]);
 	if({alive _x} count _crew == 0)exitWith{_run = false};
     waitUntil {
 			// share information about enemy 
@@ -63,15 +61,12 @@ while{_run}do{
 					if( (_entity select 3)>0 && _unitKnowsAboutLevel >0.5)then{
 						{
 							_x reveal [(_entity select 4), _unitKnowsAboutLevel];
-							//diag_log(format["Unit %1 - %2 reveal %3 to %4",name _unit,_unit,_entity select 4 ,_x]);
 						}forEach (_allZoneUnits);
 					};
 				} forEach (_vehicleunit nearTargets 500);
 			} forEach (_crew);
-			diag_log("--QUICK APROACHE--");
 			(unitReady _unit)||(_unit distance _pos)<30
 			};
-	diag_log("--SECOND APROACHE--");
 	sleep 5;
 	if(! (_vehicle isKindOf "Car"))then{
 		sleep + random(60);
