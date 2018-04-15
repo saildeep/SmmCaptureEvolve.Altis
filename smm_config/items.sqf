@@ -526,7 +526,7 @@ allItems append [
 		["H_HelmetLeaderO_oucamo","H_HelmetLeaderO_ocamo","H_HelmetLeaderO_ghex_F"];	
 		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",80,false] call PurchasableItem_create];}forEach
 		["H_HelmetO_ocamo","H_HelmetO_oucamo","H_HelmetO_ghex_F"];
-		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",250,false] call PurchasableItem_create];}forEach
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",15000,false] call PurchasableItem_create];}forEach
 		["H_HelmetO_ViperSP_hex_F","H_HelmetO_ViperSP_ghex_F"];
 
 		// Independent
