@@ -711,7 +711,7 @@ if(!smm_tfar)then{
 
 //add simple holosights and ir/flashlight for random but deterministic price
 allItems append [
-	["CfgWeapons","acc_flashlight",","BASE",50,true] call PurchasableItem_create
+	["CfgWeapons","acc_flashlight","BASE",50,true] call PurchasableItem_create
 ];
 {
 		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 50) + 50,false] call PurchasableItem_create);
