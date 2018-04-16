@@ -44,10 +44,26 @@ if(!smm_rhs)then{
 		//lmg
 		["CfgWeapons","LMG_Mk200_F","LMG",890,false] call PurchasableItem_create,
 		["CfgWeapons","LMG_Zafir_F","LMG",860,false] call PurchasableItem_create,
-		["CfgWeapons","arifle_MX_SW_F","LMG",700,false] call PurchasableItem_create,
-		["CfgWeapons","MMG_01_hex_F","LMG",1499,false] call PurchasableItem_create,
-		["CfgWeapons","MMG_02_camo_F","LMG",1600,false] call PurchasableItem_create,
 		["CfgWeapons","LMG_03_F","LMG",850,false] call PurchasableItem_create,
+
+		["CfgWeapons","MMG_01_hex_F","LMG",1499,false] call PurchasableItem_create,
+		["CfgWeapons","MMG_01_tan_F","LMG",1499,false] call PurchasableItem_create,
+
+		["CfgWeapons","arifle_MX_SW_F","LMG",700,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_MX_SW_Black_F","LMG",700,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_MX_SW_khk_F","LMG",700,false] call PurchasableItem_create,
+
+		["CfgWeapons","MMG_02_black_F","LMG",1600,false] call PurchasableItem_create,
+		["CfgWeapons","MMG_02_camo_F","LMG",1600,false] call PurchasableItem_create,
+		["CfgWeapons","MMG_02_sand_F","LMG",1600,false] call PurchasableItem_create,	
+
+		["CfgWeapons","arifle_CTARS_blk_F","LMG",851,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_CTARS_ghex_F","LMG",851,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_CTARS_hex_F","LMG",851,false] call PurchasableItem_create,
+
+		["CfgWeapons","arifle_SPAR_02_blk_F","LMG",801,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_SPAR_02_khk_F","LMG",801,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_SPAR_02_snd_F","LMG",801,false] call PurchasableItem_create,		
 
 		//pistols
 		["CfgWeapons","hgun_ACPC2_F","PDW",70,false] call PurchasableItem_create,
@@ -99,7 +115,11 @@ if(!smm_rhs)then{
 		["CfgWeapons","launch_NLAW_F","ANTI_TANK",550,false] call PurchasableItem_create,
 		["CfgWeapons","launch_RPG32_F","ANTI_TANK",450,false] call PurchasableItem_create,
 		["CfgWeapons","launch_B_Titan_short_F","ANTI_TANK",950,false] call PurchasableItem_create,
-		["CfgWeapons","launch_B_Titan_F","ANTI_AIR",850,false] call PurchasableItem_create
+		["CfgWeapons","launch_B_Titan_F","ANTI_AIR",850,false] call PurchasableItem_create,
+		["CfgWeapons","launch_O_Vorona_brown_F","ANTI_AIR",850,false] call PurchasableItem_create,
+		["CfgWeapons","launch_MRAWS_green_rail_F","ANTI_AIR",850,false] call PurchasableItem_create,
+		["CfgWeapons","launch_MRAWS_green_F","ANTI_AIR",850,false] call PurchasableItem_create
+
 	];
 };
 
@@ -107,8 +127,11 @@ if(!smm_rhs)then{
 allItems append [
 	// AR
 	["CfgMagazines","30Rnd_556x45_Stanag","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_green","BASE",15,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_red","BASE",15,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Red","BASE",17,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Green","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_556x45_Stanag_Tracer_Yellow","BASE",17,true] call PurchasableItem_create,
 	["CfgMagazines","20Rnd_556x45_UW_mag","BASE",20,true] call PurchasableItem_create,
 	
 	
@@ -121,9 +144,10 @@ allItems append [
 	["CfgMagazines","30Rnd_580x42_Mag_F","BASE",15,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_580x42_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
 
+	["CfgMagazines","30Rnd_545x39_Mag_Tracer_F","BASE",17,true] call PurchasableItem_create,
 	["CfgMagazines","30Rnd_545x39_Mag_F","BASE",15,true] call PurchasableItem_create,
-	["CfgMagazines","30Rnd_545x39_Mag_Green_F","BASE",17,true] call PurchasableItem_create,
-
+	["CfgMagazines","30Rnd_545x39_Mag_Tracer_Green_F","BASE",17,true] call PurchasableItem_create,
+	["CfgMagazines","30Rnd_545x39_Mag_Green_F","BASE",15,true] call PurchasableItem_create,
 	//underbarrel cal.50
 	["CfgMagazines","10Rnd_50BW_Mag_F","BASE",40,true] call PurchasableItem_create,
 
@@ -164,7 +188,7 @@ allItems append [
 	["CfgMagazines","150Rnd_762x54_Box_Tracer","BASE",120,true] call PurchasableItem_create,
 
 	["CfgMagazines","130Rnd_338_Mag","BASE",195,true] call PurchasableItem_create,
-
+["CfgMagazines","200Rnd_338_Mag","BASE",300,true] call PurchasableItem_create,
 	["CfgMagazines","150Rnd_93x64_Mag","BASE",225,true] call PurchasableItem_create,
 
 	["CfgMagazines","100Rnd_580x42_Mag_F","BASE",50,true] call PurchasableItem_create,
@@ -175,6 +199,8 @@ allItems append [
 
 	["CfgMagazines","200Rnd_556x45_Box_F","BASE",100,true] call PurchasableItem_create,
 	["CfgMagazines","200Rnd_556x45_Box_Tracer_F","BASE",120,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_Red_F","BASE",100,true] call PurchasableItem_create,
+	["CfgMagazines","200Rnd_556x45_Box_Tracer_Red_F","BASE",120,true] call PurchasableItem_create,
 
 	//Pistol/PDW
 	["CfgMagazines","30Rnd_9x21_Mag","BASE",8,true] call PurchasableItem_create,
@@ -206,6 +232,10 @@ allItems append [
 	["CfgMagazines","NLAW_F","BASE",150,true] call PurchasableItem_create,
 	["CfgMagazines","RPG7_F","BASE",30,true] call PurchasableItem_create,
 
+	["CfgMagazines","MRAWS_HEAT_F","BASE",70,true] call PurchasableItem_create,
+	["CfgMagazines","MRAWS_HE_F","BASE",90,true] call PurchasableItem_create,
+	["CfgMagazines","Vorona_HEAT","BASE",70,true] call PurchasableItem_create,
+	["CfgMagazines","Vorona_HE","BASE",90,true] call PurchasableItem_create,
 
 	//UGL
 	["CfgMagazines","1Rnd_HE_Grenade_shell","UGL",5,true] call PurchasableItem_create,
@@ -496,7 +526,7 @@ allItems append [
 		["H_HelmetLeaderO_oucamo","H_HelmetLeaderO_ocamo","H_HelmetLeaderO_ghex_F"];	
 		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",80,false] call PurchasableItem_create];}forEach
 		["H_HelmetO_ocamo","H_HelmetO_oucamo","H_HelmetO_ghex_F"];
-		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",250,false] call PurchasableItem_create];}forEach
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",2000,false] call PurchasableItem_create];}forEach
 		["H_HelmetO_ViperSP_hex_F","H_HelmetO_ViperSP_ghex_F"];
 
 		// Independent
@@ -628,6 +658,7 @@ allItems append[
 	["CfgWeapons","ItemMap","BASE",1,true] call PurchasableItem_create,
 	["CfgWeapons","Binocular","BASE",80,false] call PurchasableItem_create,
 	["CfgWeapons","ToolKit","TOOLKIT",400,true] call PurchasableItem_create,
+	["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create,
 
 	["CfgWeapons","Rangefinder","SPOTTER_EQUIPMENT",300,false] call PurchasableItem_create,
 	["CfgWeapons","Laserdesignator","DESIGNATOR_BLUFOR",400,true] call PurchasableItem_create,
@@ -637,14 +668,12 @@ allItems append[
 	["CfgWeapons","NVGoggles","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_OPFOR","BASE",400,false] call PurchasableItem_create,
 	["CfgWeapons","NVGoggles_INDEP","BASE",400,false] call PurchasableItem_create
-	
 ];
 
 if(!smm_ace)then{
 	allItems append [
 		["CfgWeapons","FirstAidKit","BASE",40,true] call PurchasableItem_create, 
-		["CfgWeapons","Medikit","MEDIC",500,true] call PurchasableItem_create,	
-		["CfgWeapons","MineDetector","MINES",400,false] call PurchasableItem_create	
+		["CfgWeapons","Medikit","MEDIC",500,true] call PurchasableItem_create	
 	];
 };
 
@@ -681,6 +710,9 @@ if(!smm_tfar)then{
 		"muzzle_snds_65_TI_ghex_F"];
 
 //add simple holosights and ir/flashlight for random but deterministic price
+allItems append [
+	["CfgWeapons","acc_flashlight",","BASE",50,true] call PurchasableItem_create
+];
 {
 		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 50) + 50,false] call PurchasableItem_create);
 }forEach [
@@ -695,7 +727,6 @@ if(!smm_tfar)then{
 		"optic_Holosight_blk_F",
 		"optic_Holosight_khk_F",
 		"optic_Holosight_smg_blk_F",
-		"acc_flashlight",
 		"acc_pointer_IR"];
 
 //do so for advanced rifleman scopes

@@ -36,5 +36,5 @@ private _groups = [];
 	_x setVariable[KEY_ZONEID,_zoneid];
 	_x setVariable[KEY_ZONECENTER,_zoneCenter];
 	_x setVariable[KEY_ZONERADIUS,_zoneRadius];
-	[_x,_groups] spawn smm_fnc_loopGroup;
+	[_x,_groups,_zoneid] spawn smm_fnc_loopGroup;
 }forEach _groups;
