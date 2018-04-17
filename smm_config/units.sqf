@@ -337,7 +337,7 @@ if(playerSide == west)then{
 		["B_Plane_Fighter_01_Stealth_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_Plane_CAS_01_dynamicLoadout_F",60000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		//Heli CREWMAN
-		["B_Heli_Attack_01_dynamicLoadout_F",240000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Heli_Attack_01_dynamicLoadout_F",120000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_Heli_Light_01_stripped_F",30000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_Heli_Light_01_armed_F",45000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		//VTOL 
@@ -451,7 +451,7 @@ if(playerSide == east)then{
 		["O_Plane_Fighter_02_Stealth_F",50000,{},"CREWMAN",""] call PurchasableVehicle_create,
 		["O_Plane_CAS_02_dynamicLoadout_F",60000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		//Heli CREWMAN
-		["O_Heli_Attack_02_dynamicLoadout_F",240000,{},"CREWMAN",""] call PurchasableVehicle_create,	
+		["O_Heli_Attack_02_dynamicLoadout_F",109000,{},"CREWMAN",""] call PurchasableVehicle_create,	
 		["O_Heli_Light_02_dynamicLoadout_F",45000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		//VTOL
 		["O_T_VTOL_02_infantry_dynamicLoadout_F",70000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
