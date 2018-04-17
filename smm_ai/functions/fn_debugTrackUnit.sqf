@@ -31,16 +31,18 @@ while{alive _unit}do{
 	private _currentPos = getPos _unit;
 	private _marker = (_mymarkers select _ci);
 	private _stance = stance _unit;
+	private _dir = getDir _unit;
 	private _icon = switch (_stance) do {
-						case "STAND": {"hd_dot" };
-						case "CROUCH": { "mil_triangle"};
-						case "PRONE": { "mil_box" };
+						case "STAND": { "hd_arrow"};
+						case "CROUCH": { "mil_arrow2"};
+						case "PRONE": { "hd_start" };
 						case "UNDEFINED": { "mil_unknown"};
 						default {"mil_warning" };
 					};
 	_marker setMarkerType _icon;
 	_marker setMarkerPos _currentPos;
-	sleep (random [0.7,0.8,0.9]);
+	_marker setMarkerDir _dir;
+	sleep (random [2,4,6]);
 };
 
 {
