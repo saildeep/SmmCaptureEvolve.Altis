@@ -128,7 +128,25 @@ if((count _currentUnits) == 0) then{
 		if((count _placePoint) > 0)then{
 			private _objective = _objectiveClassname createVehicle _placePoint;
 			([_object] call ZoneState_get_Objectives) pushBack _objective;
+
+			//create razor wire around the objective
+			private _diameterObjective = sizeOf (typeOf _objective);
+			private _diameterObjective = 3 max _diameterObjective;
+			private _razorWireType = "Land_Razorwire_F";
+			private _diameterRazorwire = (sizeOf _razorWireType) max 5;
+			private _circumferenceObjective = _diameterObjective * 3.14 * 1.3; //multiply some outer offset
+			private _numWires = _circumferenceObjective /_diameterRazorwire;
+			for [{_i=0}, {_i<_numWires}, {_i=_i+1}] do
+			{
+    			private _dir = 360 * _i / _numWires;
+				private _wirePos = (getPos _objective) getPos [_diameterObjective / 1.6,_dir];
+				private _razorWire = _razorWireType createVehicle _wirePos;
+				_razorWire setDir _dir;
+				([_object] call ZoneState_get_Objectives) pushBack _razorWire;
+			};
 		};
+
+
 	}forEach _friendlyNeighbours;
 
 
