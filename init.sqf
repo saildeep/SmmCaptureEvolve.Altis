@@ -26,7 +26,6 @@ call macrosFunctions;
 call constantConfig;
 call stringConfig;
 
-call compile preprocessFileLineNumbers "smm_spawner\compile.sqf";
 call compile preprocessFileLineNumbers "smm_save\compile.sqf";
 call compile preprocessFileLineNumbers "smm_money\compile.sqf";
 call compile preprocessFileLineNumbers "smm_medic\compile.sqf";
@@ -70,3 +69,4 @@ diag_log "----- Initializing AI";
 
 [] execVM "smm_tickets\init.sqf";
 [] execVM "smm_curator\init.sqf";
+setViewDistance 100000;

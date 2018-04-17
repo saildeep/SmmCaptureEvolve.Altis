@@ -1,7 +1,12 @@
+#include "..\..\patterns.hpp"
 ///ONLY CALLED ON HC
 params["_object"];
 private _singleton = call ZoneStatesManager_GetInstance;
 assert(_object isEqualTo _singleton);
+
+
+MUTEX_LOCK(UPDATE_TARGETS)
+
 private _log = { diag_log ("UpdateTargets:" + (format _this)); };
 private _targetCollection = [_object] call ZoneStatesManager_get_Targets;
 
@@ -49,10 +54,8 @@ private _zonesManager = call ZonesManager_GetInstance;
 		//initialize _permutation with ascending number
 		private _permutation = [];{_permutation pushBack _forEachIndex;}forEach _candidates;
 
-		//first sort by zone size
-		_permutation = [_permutation,[_candidates,_votes],{[_input0 select _x] call Zone_get_Size },"ASCEND"] call BIS_fnc_sortBy;
-		_permutation = [_permutation,[_candidates,_votes],{_input1 select _x},"DESCEND"] call BIS_fnc_sortBy;
-		//TODO change sorting order, currently selects smallest zone first.
+		//select zones with the most votes. If zones are equal/ not voted select smallest one first.
+		_permutation = [_permutation,[_candidates,_votes],{ ((_input1 select _x)* 10000) - ([_input0 select _x] call Zone_get_Size) },"DESCEND"] call BIS_fnc_sortBy;
 		
 		//make candidate to selection by resizing to needed or at minimum the avaible zones
 		_permutation resize (_numNeeded min (count _candidates));
@@ -70,3 +73,4 @@ private _zonesManager = call ZonesManager_GetInstance;
 
 } forEach _neededTargets;
 call ZoneStatesManager_BroadcastInstance;
+MUTEX_UNLOCK(UPDATE_TARGETS)

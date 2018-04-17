@@ -27,6 +27,7 @@ private _allRoads = [0,0,0] nearRoads 100000000;
 //only 20% of T-Intersections are added as candidates, because there are so many
 private _tIntersectionChance = 0.2;
 diag_log ("Found " + str (count _allRoads) + " roads");
+private _roadCandidates = [];
 {
 	if(KEEP)then{
 		private _neighbourCount = count (roadsConnectedTo _x);
@@ -36,16 +37,19 @@ diag_log ("Found " + str (count _allRoads) + " roads");
 				if((random 1) < _tIntersectionChance)then{
 					[getPos _x,30,"ColorRed"] call smm_fnc_createDebugMarker;
 					private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),_minSize,1];
-					_out pushBack _candidate;
+					_roadCandidates pushBack _candidate;
 				};
 			}else{
 				[getPos _x,30,"ColorOrange"] call smm_fnc_createDebugMarker;
 				private _candidate = [getPos _x,"Intersection at " + (str (getPos _x)),random[_minSize,_minSize + 0.1* _diffSize,_maxSize],3];
+				_roadCandidates pushBack _candidate;
 			};
 			
 		};
 	};
 }forEach _allRoads;
+_roadCandidates = _roadCandidates call BIS_fnc_arrayShuffle;
+_out append (_roadCandidates select [0,100]); // only select up 100 intersections
 
 
 /**

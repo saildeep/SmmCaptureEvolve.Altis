@@ -10,26 +10,15 @@ diag_log (_prefix + "Creating target arrays");
 private _zoneStates = [];
 private _buildingType = ["House", "Building"];
 diag_log (_prefix + "Building zoneStates");
+private _zm = call ZonesManager_GetInstance;
 {
     private _c = _x;
     
     //[_forEachIndex,[_x] call Zone_get_Side] call smm_fnc_changeOwner;
     private _zoneNumber = [_x] call Zone_get_ID;
     
-    //get buildings with positions;
-    private _currentBuildings = [];
     private _center = [_c] call Zone_get_Position;
     private _size =[_c] call Zone_get_Size;
-    private _allBuildingObjects = nearestObjects [_center,_buildingType,_size];
-    {
-        private _buildingPos = _x buildingPos -1;
-        if((count _buildingPos)>=smm_spawner_units_per_group )then{
-            _currentBuildings pushBack [_x,_buildingPos];
-        }
-    }forEach _allBuildingObjects;
-    
-    private _treeCount = count (nearestTerrainObjects [_center,["TREE", "SMALL TREE"],_size]);
-
     //draw connections to neighbour
     private _cZoneNumber = _zoneNumber;
     private _neighbours = [_x] call Zone_get_Neighbours;
@@ -38,7 +27,7 @@ diag_log (_prefix + "Building zoneStates");
         //only draw connections from lower to higher
         if(_x < _cZoneNumber) then {
         
-            private _nb = [call ZonesManager_GetInstance,_x] call ZonesManager_fnc_GetZone;
+            private _nb = [_zm,_x] call ZonesManager_fnc_GetZone;
             private _nbPos = [_nb] call Zone_get_Position;
             private _meanPos = [_pos,_nbPos] call getMean;
             private _markerSize = (_pos distance _meanPos)*0.9;
@@ -74,18 +63,18 @@ diag_log (_prefix + "Building zoneStates");
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],count _allBuildingObjects,_interaction_point,_triggerCollection,_treeCount] call ZoneState_create);
-}forEach ([call ZonesManager_GetInstance] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
+    _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0,[]] call ZoneState_create);
+}forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;
 
 [[_zoneStates,_initialTargets] call ZoneStatesManager_create,true] call ZoneStatesManager_SetInstance;
 
-//call get building and tree density once the have good min/max
+//call get building and tree density once the have good min/max 5 zones should represent this fairly well
 {
     [_x] call ZoneState_fnc_GetNormalizedBuildingDensity;
     [_x] call ZoneState_fnc_GetNormalizedTreeDensity;
-}forEach _zoneStates;
+}forEach [selectRandom _zoneStates,selectRandom _zoneStates,selectRandom _zoneStates,selectRandom _zoneStates,selectRandom _zoneStates];
 
 diag_log (_prefix + "Finished building zone states");
 

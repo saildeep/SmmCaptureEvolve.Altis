@@ -1,4 +1,4 @@
-//	gets an array of elements in format [position,hash,size,owner,connections,name]
+//	gets an array of elements in format [position,hash,size,owner,connections,name,helipads]
 //	and distributes all items id's to id, returning an array of arrays of ids
 
 

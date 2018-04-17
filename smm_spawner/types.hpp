@@ -11,6 +11,19 @@ class ZonesManager:OOType{
 
 };
 
+
+class Position:OOType{
+    class X:OOVar{
+        typeName="SCALAR";
+    };
+    class Y:OOVar{
+        typeName="SCALAR";
+    };
+    class ToArray:OOFunction{
+        code="[[_this select 0] call Position_get_X,[_this select 0] call Position_get_Y]";
+    };
+};
+
 class Zone:OOType{
 
     class ID:OOVar{
@@ -39,6 +52,9 @@ class Zone:OOType{
     };
     class ItemIDs:OOVar{
         typeName = "[SCALAR]";
+    };
+    class LandingSpots:OOVar{
+        typeName = "[Position]";
     };
 
     class GetMarkerName:OOFunction{
@@ -127,21 +143,18 @@ class ZoneState:OOType{
     class Vehicles:OOVar{
         typeName="[OBJECT]";
     };
-    class Buildings:OOVar{
-        typeName="SCALAR";
-        typeCheck = "_this >= 0";
-    };
     class InteractionPoint:OOVar{
         typeName="OBJECT";
     };
     class SeizeTriggers:OOVar{
         typeName="TriggerCollection";
     };
-    class TreeCount:OOVar{
-        typeName="SCALAR";
-        typeCheck="_this >= 0";
+    class LastReinforcement:OOVar{
+        typeName = "SCALAR";
     };
-
+    class Objectives:OOVar{
+        typeName = "[OBJECT]";
+    };
     class ActivateZone:OOFunction{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
     };
@@ -164,6 +177,21 @@ class ZoneState:OOType{
     };
     class GetNormalizedTreeDensity:OOFunction{    
         file = "smm_spawner\ZoneState\GetNormalizedTreeDensity.sqf";
+    };
+    class ReinforceZone:OOFunction{
+        file = "smm_spawner\ZoneState\ReinforceZone.sqf";
+    };
+    class GetReinforceCooldown:OOFunction{
+        file = "smm_spawner\ZoneState\GetReinforceCooldown.sqf";
+    };
+    class InitUnit:OOFunction{
+        file = "smm_spawner\ZoneState\InitUnit.sqf";
+    };
+    class InitVehicle:OOFunction{
+        file = "smm_spawner\ZoneState\InitVehicle.sqf";
+    };
+    class ObjectiveStrength:OOFunction{
+        file = "smm_spawner\ZoneState\ObjectiveStrength.sqf";
     };
 
 };

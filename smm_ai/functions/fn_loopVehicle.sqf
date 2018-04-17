@@ -1,5 +1,5 @@
 #include "constants.hpp"
-params["_vehicle","_allZoneGroups"];
+params["_vehicle","_allZoneGroups","_VehicleCrew","_zoneid"];
 
 ///////Simple Patrol script vE 1.8 - SPUn / LostVar
 private ["_newCenter","_unit","_newPos","_center","_pos","_crew","_run","_pDir","_pRange","_dir","_radius"];
@@ -7,11 +7,10 @@ private ["_newCenter","_unit","_newPos","_center","_pos","_crew","_run","_pDir",
 _unit = _vehicle;
 _center = _vehicle getVariable KEY_ZONECENTER;
 _radius = [25,_vehicle getVariable KEY_ZONERADIUS];
-
 if(isNil("_center"))then{_center = (getPos _unit);}else{_center = _center;};
 
 _newPos = getPos _unit;
-_crew = crew _unit;
+_crew = _VehicleCrew;
 _run = true;
 
 while{_run}do{
@@ -49,13 +48,28 @@ while{_run}do{
     } foreach _crew;
 	
 	_vehicle limitSpeed 15;
-	
-	if({alive _x} count crew _unit == 0)exitWith{_run = false};
-    waitUntil {(unitReady _unit)||(_unit distance _pos)<30};
-	
+	if({alive _x} count _crew == 0)exitWith{_run = false};
+    waitUntil {
+			// share information about enemy 
+			// TODO: cleanup _entity Array.  maybe performance problem / _entity array very large
+			private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
+			{
+				private _vehicleunit = _x;
+				{
+					private _entity = _x;		
+					private _unitKnowsAboutLevel = (_vehicleunit knowsAbout (_entity select 4));	
+					if( (_entity select 3)>0 && _unitKnowsAboutLevel >0.5)then{
+						{
+							_x reveal [(_entity select 4), _unitKnowsAboutLevel];
+						}forEach (_allZoneUnits);
+					};
+				} forEach (_vehicleunit nearTargets 500);
+			} forEach (_crew);
+			(unitReady _unit)||(_unit distance _pos)<30
+			};
 	sleep 5;
 	if(! (_vehicle isKindOf "Car"))then{
-		sleep + random(100);
+		sleep + random(60);
 	};
 	//_break = _unit getVariable "breakPatrol";
 	//if(!isNil("_break"))exitWith{};

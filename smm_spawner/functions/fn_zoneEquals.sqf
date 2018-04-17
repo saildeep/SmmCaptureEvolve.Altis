@@ -1,1 +1,0 @@
-((_this select 0) call smm_fnc_getHash) == ((_this select 1) call smm_fnc_getHash)

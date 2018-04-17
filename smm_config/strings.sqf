@@ -3,6 +3,8 @@ str_research = "Research";
 str_save = "Save current state";
 str_saving = "Saving....";
 str_shop = "Open shop";
+str_ammo_type= "Show loadable Ammo types";
+str_ammo_types_list = "Your vehicle can load %1";
 str_balance = "Check Balance";
 str_insufficient = "You have insufficient funds";
 str_buy_tickets = "Buy %1 Tickets (%2$)";
@@ -24,7 +26,7 @@ str_no_permission = "Well .. ehhmm .. you do not own this zone";
 str_box = "Give me that box";
 str_receivied_item = "You bought %1";
 
-str_transfer_fixed_amount = "Give 1000$";
+str_transfer_fixed_amount = "Give Money";
 str_transfer_all = "Give all";
 str_transfer = "Transfer money";
 str_transfer_amount = "Transfering %1$";
