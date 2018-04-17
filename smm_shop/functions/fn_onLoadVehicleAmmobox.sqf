@@ -8,7 +8,8 @@
 #define IDC_TEXT_COST 1000
 
 #define FITS_SEL_VEH_COLOR [0.7,0.9,0.7,1]
-#define BASE_PRICE 500
+#define BASE_PRICE (missionNamespace getVariable ["smm_shop_box_base_price", 0])
+
 _updateMags = {
 	params [
 		["_ctrlCombo", controlNull , [controlNull]]
@@ -56,10 +57,10 @@ _updateMags = {
 			_name = _name + "...";
 		};
 
-		private _price = 100; // TODO
+		private _price = [_x] call smm_fnc_getVehicleMagPrice;
 		private _ammoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
 
-		private _index = _ctrl lnbAddRow [str (_amount * _ammoCount), _name , format [" (%1 $) ", _price], format [" %1 $ ",_price * _amount]]; // TODO make str_pricePerMag and str_priceTotal global
+		private _index = _ctrl lnbAddRow [str (_amount * _ammoCount), _name , format [str_ammo_pricePerMag, _price], format [str_ammo_priceTotal, _price * _amount]]; 
 		_ctrl lnbSetData [[_index, 0], _x];
 		_ctrl lbSetTooltip [_index * 4, _x];
 		
@@ -117,13 +118,13 @@ _changeBoxContent = {
 	_boxMags =  _boxContents apply {_x select 0};
 	_index = _boxMags find _magName;
 	private _ammoCount = getNumber (configFile >> "CfgMagazines" >> _magName >> "count");
-	private _price = 100; // TODO
+	private _price = [_magName] call smm_fnc_getVehicleMagPrice;
 	if (_index >= 0) then {
 		_ctrl lnbSetText [[_cur,0],str (((_boxContents select _index) select 1) * _ammoCount)];
-		_ctrl lnbSetText [[_cur,3],format [" %1 $ ",((_boxContents select _index) select 1) * _price]]; // TODO make str_priceTotal global
+		_ctrl lnbSetText [[_cur,3],format [str_ammo_priceTotal, ((_boxContents select _index) select 1) * _price]];
 	} else {
 		_ctrl lnbSetText [[_cur,0],"0"];
-		_ctrl lnbSetText [[_cur,3],format [" %1 $ ",0]]; // TODO make str_priceTotal global
+		_ctrl lnbSetText [[_cur,3],format [str_ammo_priceTotal,0]];
 	};
 
 	// calc total cost and update text
@@ -131,15 +132,15 @@ _changeBoxContent = {
 	private _totalCost = 0;
 	{
 		private _magName = _x select 0;
-		private _price = 100; // TODO
+		private _price = [_magName] call smm_fnc_getVehicleMagPrice;
 		_totalCost = _totalCost + _price * (_x select 1);
 	} forEach _boxContents;
 
-	_totalCost = _totalCost + (missionNamespace getVariable ["vehicleAmmoboxBasePrice",0]);
+	_totalCost = _totalCost + BASE_PRICE;
 
 	missionNamespace setVariable ["vehicleAmmoboxTotalCost", _totalCost];
 
-	_ctrlText ctrlSetText format ["Total Cost:  %1 $", _totalCost]; // TODO make str_totalcost global
+	_ctrlText ctrlSetText format [str_ammo_totalCost, _totalCost];
 };
 
 _buyAmmobox = {
@@ -147,13 +148,15 @@ _buyAmmobox = {
 		"_ctrl"
 	];
 
-	private _boxContents = missionNamespace getVariable ["vehicleAmmoboxContent", []];
-	if (true) then { // TODO make transaction
+	private _boxContents = missionNamespace getVariable ["vehicleAmmoboxContent", []]; // [[magname1, amount1], [...], ...]  *amount of magazines (not bullets)
+	if ([missionNamespace getVariable ["vehicleAmmoboxTotalCost",0]] call smm_fnc_buy) then { // TODO make transaction
 		// TODO spawn crate with contents
 
+
+		missionNamespace setVariable  ["vehicleAmmoboxContent", nil];
 		closeDialog 1;
 	} else {
-		hint "Insufficient funds"; // TODO make string global
+		hint str_insufficient;
 	}
 };
 
@@ -171,8 +174,7 @@ private _purchasableVehicles = [
 	"B_MRAP_01_gmg_F"
 ]; // TODO fetch purchasable vehicle name list
 
-missionNamespace setVariable ["vehicleAmmoboxBasePrice", BASE_PRICE];
-(_display displayCtrl IDC_TEXT_COST) ctrlSetText format ["Total Cost:  %1 $",BASE_PRICE]; // TODO make str_totalcost global
+(_display displayCtrl IDC_TEXT_COST) ctrlSetText format [str_ammo_totalCost, BASE_PRICE];
 
 private _ctrlCombo = _display displayCtrl IDC_COMBO;
 {

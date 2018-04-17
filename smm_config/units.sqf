@@ -469,3 +469,7 @@ if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{diag_log "load RHS"
 };
 
 buy_units = [buy_units,[],{[_x] call PurchasableVehicle_get_Price},"ASCEND"] call BIS_fnc_sortBy;
+
+vehicleAmmoPrices = [
+	
+];
