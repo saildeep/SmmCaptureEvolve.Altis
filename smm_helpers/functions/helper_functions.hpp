@@ -10,3 +10,4 @@ class hashmapContains{};
 class hashmapGet{};
 class hashString{};
 class clearVehiclePylons{};
+class clearVehicleAmmo{};

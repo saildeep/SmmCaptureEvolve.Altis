@@ -103,3 +103,14 @@ class PurchasableItem:OOType{
         file = "smm_config\PurchasableItem\ArsenalType.sqf";
     };
 };
+
+class PurchasableVehicleAmmo:OOType{
+    class ClassName: OOVar{
+        typeName="STRING";
+        typeCheck = "isClass (configFile >> 'CfgAmmo' >> _this)";
+    };
+    class Price: OOVar{
+        typeName="SCALAR";
+        typeCheck = "_this > 0";
+    };
+};
