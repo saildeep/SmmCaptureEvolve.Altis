@@ -240,6 +240,166 @@ if(smm_ace)then{
 			//TODO change perk
 			["ACE_Box_82mm_Mo_Combo",500,{},"MINES","[Box] Mortar Ammunition"] call PurchasableVehicle_create
 	];
+
+	allAmmoTypes = [
+		["ACE_20mm_HE", 3] call PurchasableVehicleAmmo_create,	/*20 mm Shells (500)*/
+		["ACE_B_35mm_ABM", 4.2] call PurchasableVehicleAmmo_create,	/*35mm ABM Shells (120)*/
+		["ACE_B_35mm_ABM_Tracer_Green", 4.2] call PurchasableVehicleAmmo_create,	/*35mm ABM Shells (120)*/
+		["ACE_B_35mm_ABM_Tracer_Red", 4.2] call PurchasableVehicleAmmo_create,	/*35mm ABM Shells (120)*/
+		["ACE_B_35mm_ABM_Tracer_Yellow", 4.2] call PurchasableVehicleAmmo_create,	/*35mm ABM Shells (120)*/
+		["ACE_Hellfire_AGM114K", 50] call PurchasableVehicleAmmo_create,	/*AGM-114K [ACE] (6)*/
+		["ACE_Hellfire_AGM114N", 50] call PurchasableVehicleAmmo_create,	/*AGM-114N [ACE] (6)*/
+		["ACE_Hydra70_DAGR", 50] call PurchasableVehicleAmmo_create,	/*6 Round DAGR (12)*/
+		["ACE_Javelin_FGM148_static", 50] call PurchasableVehicleAmmo_create,	/*Titan Missile (1)*/
+		["ace_kh25ml", 150] call PurchasableVehicleAmmo_create,	/*1x Kh-25ML [ACE] (1)*/
+		["ace_maverick_L", 150] call PurchasableVehicleAmmo_create,	/*AGM-65 Maverick L [ACE] (1)*/
+		["ammo_AAA_Gun35mm_AA", 4.2] call PurchasableVehicleAmmo_create,	/*Praetorian 20mm (1550)*/
+		["ammo_Fighter01_Gun20mm_AA", 3] call PurchasableVehicleAmmo_create,	/*M61 20mm 450 rnd (450)*/
+		["ammo_Fighter02_Gun30mm_AA", 3] call PurchasableVehicleAmmo_create,	/*Gsh 30mm 180 rnd (180)*/
+		["ammo_Fighter04_Gun20mm_AA", 3] call PurchasableVehicleAmmo_create,	/*M61 20mm 150 rbd (150)*/
+		["ammo_Missile_AA_R73", 100] call PurchasableVehicleAmmo_create,	/*R73 SR AA x1 (1)*/
+		["ammo_Missile_AA_R77", 150] call PurchasableVehicleAmmo_create,	/*R77 MR AA x1 (1)*/
+		["ammo_Missile_AMRAAM_C", 150] call PurchasableVehicleAmmo_create,	/*AMRAAM C AA x1 (1)*/
+		["ammo_Missile_AMRAAM_D", 150] call PurchasableVehicleAmmo_create,	/*AMRAAM D AA x1 (1)*/
+		["ammo_Missile_BIM9X", 100] call PurchasableVehicleAmmo_create,	/*BIM 9X AA x1 (1)*/
+		["ammo_Missile_rim116", 100] call PurchasableVehicleAmmo_create,	/*Spartan AA (21)*/
+		["ammo_Missile_rim162", 150] call PurchasableVehicleAmmo_create,	/*Centurion AA (8)*/
+		["AT_Mine_155mm_AMOS_range", 50] call PurchasableVehicleAmmo_create,	/*AT Mine Cluster (6)*/
+		["B_127x108_Ball", 0.5] call PurchasableVehicleAmmo_create,	/*NSVT-M (450)*/
+		["B_127x99_Ball", 0.5] call PurchasableVehicleAmmo_create,	/*12.7 mm AA MG Mag (500)*/
+		["B_127x99_Ball_Tracer_Green", 0.5] call PurchasableVehicleAmmo_create,	/*12.7 mm AA MG Tracer (Green) Mag (500)*/
+		["B_127x99_Ball_Tracer_Red", 0.5] call PurchasableVehicleAmmo_create,	/*12.7 mm AA MG Tracer (Red) Mag (500)*/
+		["B_127x99_Ball_Tracer_Yellow", 0.5] call PurchasableVehicleAmmo_create,	/*12.7 mm AA MG Tracer (Yellow) Mag (500)*/
+		["B_20mm", 3] call PurchasableVehicleAmmo_create,	/*20 mm Shells (300)*/
+		["B_20mm_AP", 3.5] call PurchasableVehicleAmmo_create,	/*20 mm Shells (60)*/
+		["B_20mm_Tracer_Red", 3] call PurchasableVehicleAmmo_create,	/*20 mm Shells (1000)*/
+		["B_25mm", 2] call PurchasableVehicleAmmo_create,	/*25 mm Shells (300)*/
+		["B_30mm_AP", 3.5] call PurchasableVehicleAmmo_create,	/*30 mm APDS shells (250)*/
+		["B_30mm_AP_Tracer_Green", 3.5] call PurchasableVehicleAmmo_create,	/*30 mm APDS Tracer (Green) Shells (250)*/
+		["B_30mm_AP_Tracer_Red", 3.5] call PurchasableVehicleAmmo_create,	/*30 mm APDS Tracer (Red) Shells (250)*/
+		["B_30mm_AP_Tracer_Yellow", 3.5] call PurchasableVehicleAmmo_create,	/*30 mm APDS Tracer (Yellow) Shells (250)*/
+		["B_30mm_APFSDS", 7.5] call PurchasableVehicleAmmo_create,	/*30 mm APFSDS (60)*/
+		["B_30mm_APFSDS_Tracer_Green", 7.5] call PurchasableVehicleAmmo_create,	/*30 mm APFSDS (60)*/
+		["B_30mm_APFSDS_Tracer_Red", 7.5] call PurchasableVehicleAmmo_create,	/*30 mm APFSDS-T (60)*/
+		["B_30mm_APFSDS_Tracer_Yellow", 7.5] call PurchasableVehicleAmmo_create,	/*30 mm APFSDS-T (60)*/
+		["B_30mm_HE", 2] call PurchasableVehicleAmmo_create,	/*30 mm HE Shells (250)*/
+		["B_30mm_HE_Tracer_Green", 2] call PurchasableVehicleAmmo_create,	/*30 mm HE Tracer (Green) Shells (250)*/
+		["B_30mm_HE_Tracer_Red", 2] call PurchasableVehicleAmmo_create,	/*30 mm HE Tracer (Red) Shells (250)*/
+		["B_30mm_MP", 2] call PurchasableVehicleAmmo_create,	/*30 mm Multi-purpose (140)*/
+		["B_30mm_MP_Tracer_Green", 2] call PurchasableVehicleAmmo_create,	/*30 mm MP-T (140)*/
+		["B_30mm_MP_Tracer_Red", 2] call PurchasableVehicleAmmo_create,	/*30 mm MP-T (140)*/
+		["B_30mm_MP_Tracer_Yellow", 2] call PurchasableVehicleAmmo_create,	/*30 mm MP-T (140)*/
+		["B_35mm_AA", 4.2] call PurchasableVehicleAmmo_create,	/*35 mm AA Shells (680)*/
+		["B_35mm_AA_Tracer_Green", 4.2] call PurchasableVehicleAmmo_create,	/*35 mm AA Shells (680)*/
+		["B_35mm_AA_Tracer_Red", 4.2] call PurchasableVehicleAmmo_create,	/*35 mm AA Shells (680)*/
+		["B_35mm_AA_Tracer_Yellow", 4.2] call PurchasableVehicleAmmo_create,	/*35 mm AA Shells (680)*/
+		["B_40mm_APFSDS", 10] call PurchasableVehicleAmmo_create,	/*40 mm APFSDS (40)*/
+		["B_40mm_APFSDS_Tracer_Green", 10] call PurchasableVehicleAmmo_create,	/*40 mm APFSDS-T (40)*/
+		["B_40mm_APFSDS_Tracer_Red", 10] call PurchasableVehicleAmmo_create,	/*40 mm APFSDS-T (40)*/
+		["B_40mm_APFSDS_Tracer_Yellow", 10] call PurchasableVehicleAmmo_create,	/*40 mm APFSDS-T (40)*/
+		["B_40mm_GPR", 4] call PurchasableVehicleAmmo_create,	/*40 mm GPR (60)*/
+		["B_40mm_GPR_Tracer_Green", 4] call PurchasableVehicleAmmo_create,	/*40 mm GPR-T (60)*/
+		["B_40mm_GPR_Tracer_Red", 4] call PurchasableVehicleAmmo_create,	/*40 mm GPR-T (60)*/
+		["B_40mm_GPR_Tracer_Yellow", 4] call PurchasableVehicleAmmo_create,	/*40 mm GPR-T (60)*/
+		["B_65x39_Case_green", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 200Rnd Belt Case Tracer (Green) (200)*/
+		["B_65x39_Case_Green", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 2000Rnd LMG Belt (2000)*/
+		["B_65x39_Case_yellow", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 200Rnd Belt Tracer (Yellow) (200)*/
+		["B_65x39_Case_Yellow", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 1000Rnd LMG Belt (1000)*/
+		["B_65x39_Caseless", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 200Rnd Belt Case (200)*/
+		["B_65x39_Minigun_Caseless_Green_splash", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 2000Rnd LMG Tracer (Green) Belt (2000)*/
+		["B_65x39_Minigun_Caseless_Red_splash", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 2000Rnd LMG Tracer (Red) Belt (2000)*/
+		["B_65x39_Minigun_Caseless_Yellow_splash", 0.12] call PurchasableVehicleAmmo_create,	/*6.5 mm 2000Rnd LMG Tracer (Yellow) Belt (2000)*/
+		["B_762x51_Ball", 0.12] call PurchasableVehicleAmmo_create,	/*7.62 mm Minigun Belt (200)*/
+		["B_762x51_Minigun_Tracer_Red_splash", 0.12] call PurchasableVehicleAmmo_create,	/*7.62 mm Minigun Belt (5000)*/
+		["B_762x51_Minigun_Tracer_Yellow_splash", 0.12] call PurchasableVehicleAmmo_create,	/*7.62 mm Minigun Belt (5000)*/
+		["B_762x51_Tracer_Green", 0.12] call PurchasableVehicleAmmo_create,	/*7.62 mm Minigun Belt (200)*/
+		["B_762x51_Tracer_Red", 0.12] call PurchasableVehicleAmmo_create,	/*7.62 mm Minigun Belt (200)*/
+		["B_762x51_Tracer_Yellow", 0.12] call PurchasableVehicleAmmo_create,	/*7.62 mm Minigun Belt (200)*/
+		["Bo_GBU12_LGB", 2000] call PurchasableVehicleAmmo_create,	/*GBU-12 (2)*/
+		["Bo_GBU12_LGB_MI10", 2000] call PurchasableVehicleAmmo_create,	/*GBU-12 (2)*/
+		["Bo_Leaflets", 20] call PurchasableVehicleAmmo_create,	/*Leaflets (1)*/
+		["Bo_Mk82", 100] call PurchasableVehicleAmmo_create,	/*Mk82 (2)*/
+		["Bo_Mk82_MI08", 100] call PurchasableVehicleAmmo_create,	/*Mk82 (2)*/
+		["Bomb_03_F", 2000] call PurchasableVehicleAmmo_create,	/*FAB-250M-54 (2)*/
+		["Bomb_04_F", 2000] call PurchasableVehicleAmmo_create,	/*GBU-12 (4)*/
+		["BombCluster_01_Ammo_F", 2000] call PurchasableVehicleAmmo_create,	/*CBU-85 (4)*/
+		["BombCluster_02_Ammo_F", 2000] call PurchasableVehicleAmmo_create,	/*RBK-500F (4)*/
+		["BombCluster_02_cap_Ammo_F", 2000] call PurchasableVehicleAmmo_create,	/*RBK-500F Cluster x1 (1)*/
+		["BombCluster_03_Ammo_F", 2000] call PurchasableVehicleAmmo_create,	/*BL778 (4)*/
+		["BombDemine_01_Ammo_F", 1] call PurchasableVehicleAmmo_create,	/*Demining Charge (4)*/
+		["BombDemine_01_DummyAmmo_F", 1] call PurchasableVehicleAmmo_create,	/*Demining Charge (Dummy) (4)*/
+		["Cannon_30mm_HE_Plane_CAS_02_F", 2] call PurchasableVehicleAmmo_create,	/*30mm HEI-T (500)*/
+		["Cluster_155mm_AMOS", 20] call PurchasableVehicleAmmo_create,	/*Cluster Shells (2)*/
+		["Flare_82mm_AMOS_White", 10] call PurchasableVehicleAmmo_create,	/*Flare (White) (8)*/
+		["G_20mm_HE", 1] call PurchasableVehicleAmmo_create,	/*20 mm Grenade Mag (200)*/
+		["G_40mm_HEDP", 1] call PurchasableVehicleAmmo_create,	/*40 mm HE Grenade Mag (200)*/
+		["Gatling_30mm_HE_Plane_CAS_01_F", 2] call PurchasableVehicleAmmo_create,	/*30mm HEI (1170)*/
+		["M_120mm_cannon_ATGM", 50] call PurchasableVehicleAmmo_create,	/*120mm ATGM (4)*/
+		["M_120mm_cannon_ATGM_LG", 50] call PurchasableVehicleAmmo_create,	/*120mm ATGM LG (4)*/
+		["M_125mm_cannon_ATGM", 50] call PurchasableVehicleAmmo_create,	/*125mm ATGM (4)*/
+		["M_127mm_Firefist_AT", 50] call PurchasableVehicleAmmo_create,	/*FireFIST ATGM Missile (2)*/
+		["M_70mm_SAAMI", 100] call PurchasableVehicleAmmo_create,	/*SAAMI Missile (4)*/
+		["M_Air_AA", 100] call PurchasableVehicleAmmo_create,	/*ASRAAM (2)*/
+		["M_Air_AA_MI02", 100] call PurchasableVehicleAmmo_create,	/*ASRAAM (2)*/
+		["M_Air_AA_MI06", 100] call PurchasableVehicleAmmo_create,	/*ASRAAM (2)*/
+		["M_Air_AT", 50] call PurchasableVehicleAmmo_create,	/*AG Missiles (6)*/
+		["M_AT", 50] call PurchasableVehicleAmmo_create,	/*DAR (24)*/
+		["M_Jian_AT", 150] call PurchasableVehicleAmmo_create,	/*Jian (4)*/
+		["M_PG_AT", 50] call PurchasableVehicleAmmo_create,	/*DAGR (24)*/
+		["M_Scalpel_AT", 30] call PurchasableVehicleAmmo_create,	/*Scalpel E2 (8)*/
+		["M_Scalpel_AT_hidden", 30] call PurchasableVehicleAmmo_create,	/*Scalpel E2 (2)*/
+		["M_Titan_AA_long", 100] call PurchasableVehicleAmmo_create,	/*Titan Missile (4)*/
+		["M_Titan_AA_static", 100] call PurchasableVehicleAmmo_create,	/*Zephyr (1)*/
+		["M_Titan_AT_long", 50] call PurchasableVehicleAmmo_create,	/*Titan Missile (5)*/
+		["M_Zephyr", 150] call PurchasableVehicleAmmo_create,	/*Zephyr (4)*/
+		["Mine_155mm_AMOS_range", 50] call PurchasableVehicleAmmo_create,	/*Mine Cluster (6)*/
+		["Missile_AA_03_F", 100] call PurchasableVehicleAmmo_create,	/*Wympel R-73 (2)*/
+		["Missile_AA_04_F", 100] call PurchasableVehicleAmmo_create,	/*AIM-9 Sidewinder (2)*/
+		["Missile_AGM_01_F", 150] call PurchasableVehicleAmmo_create,	/*Kh-25MTP (4)*/
+		["Missile_AGM_02_F", 150] call PurchasableVehicleAmmo_create,	/*AGM-65 Maverick (6)*/
+		["R_230mm_Cluster", 100] call PurchasableVehicleAmmo_create,	/*230 mm Cluster Rocket (12)*/
+		["R_230mm_HE", 100] call PurchasableVehicleAmmo_create,	/*227mm HE Missile (12)*/
+		["R_80mm_HE", 50] call PurchasableVehicleAmmo_create,	/*Skyfire (14)*/
+		["Rocket_03_AP_F", 50] call PurchasableVehicleAmmo_create,	/*S-8 AP (20)*/
+		["Rocket_03_HE_F", 50] call PurchasableVehicleAmmo_create,	/*S-8 HE (20)*/
+		["Rocket_04_AP_F", 50] call PurchasableVehicleAmmo_create,	/*Hydra 70 AP (7)*/
+		["Rocket_04_HE_F", 50] call PurchasableVehicleAmmo_create,	/*Hydra 70 HE (7)*/
+		["Sh_105mm_APFSDS", 50] call PurchasableVehicleAmmo_create,	/*105mm APFSDS (40)*/
+		["Sh_105mm_APFSDS_T_Green", 50] call PurchasableVehicleAmmo_create,	/*105mm APFSDS-T (40)*/
+		["Sh_105mm_APFSDS_T_Red", 50] call PurchasableVehicleAmmo_create,	/*105mm APFSDS-T (40)*/
+		["Sh_105mm_APFSDS_T_Yellow", 50] call PurchasableVehicleAmmo_create,	/*105mm APFSDS-T (40)*/
+		["Sh_105mm_HEAT_MP", 50] call PurchasableVehicleAmmo_create,	/*105mm HEAT-MP (20)*/
+		["Sh_105mm_HEAT_MP_T_Green", 50] call PurchasableVehicleAmmo_create,	/*105mm HEAT-MP-T (20)*/
+		["Sh_105mm_HEAT_MP_T_Red", 50] call PurchasableVehicleAmmo_create,	/*105mm HEAT-MP-T (20)*/
+		["Sh_105mm_HEAT_MP_T_Yellow", 50] call PurchasableVehicleAmmo_create,	/*105mm HEAT-MP-T (20)*/
+		["Sh_120mm_APFSDS", 50] call PurchasableVehicleAmmo_create,	/*120mm APFSDS (30)*/
+		["Sh_120mm_APFSDS_Tracer_Green", 50] call PurchasableVehicleAmmo_create,	/*120mm APFSDS-T (30)*/
+		["Sh_120mm_APFSDS_Tracer_Red", 50] call PurchasableVehicleAmmo_create,	/*120mm APFSDS-T (30)*/
+		["Sh_120mm_APFSDS_Tracer_Yellow", 50] call PurchasableVehicleAmmo_create,	/*120mm APFSDS-T (30)*/
+		["Sh_120mm_HE", 30] call PurchasableVehicleAmmo_create,	/*HE Shells (30)*/
+		["Sh_120mm_HE_Tracer_Green", 30] call PurchasableVehicleAmmo_create,	/*120mm HE-T (30)*/
+		["Sh_120mm_HE_Tracer_Red", 30] call PurchasableVehicleAmmo_create,	/*120mm HE-T (30)*/
+		["Sh_120mm_HE_Tracer_Yellow", 30] call PurchasableVehicleAmmo_create,	/*120mm HE-T (30)*/
+		["Sh_125mm_HE", 30] call PurchasableVehicleAmmo_create,	/*125mm HE (12)*/
+		["Sh_125mm_HE_T_Green", 30] call PurchasableVehicleAmmo_create,	/*125mm HE-T (12)*/
+		["Sh_125mm_HE_T_Red", 30] call PurchasableVehicleAmmo_create,	/*125mm HE-T (12)*/
+		["Sh_125mm_HE_T_Yellow", 30] call PurchasableVehicleAmmo_create,	/*125mm HE-T (12)*/
+		["Sh_125mm_HEAT", 50] call PurchasableVehicleAmmo_create,	/*125mm HEAT (12)*/
+		["Sh_125mm_HEAT_T_Green", 50] call PurchasableVehicleAmmo_create,	/*125mm HEAT-T (12)*/
+		["Sh_125mm_HEAT_T_Red", 50] call PurchasableVehicleAmmo_create,	/*125mm HEAT-T (12)*/
+		["Sh_125mm_HEAT_T_Yellow", 50] call PurchasableVehicleAmmo_create,	/*125mm HEAT-T (12)*/
+		["Sh_155mm_AMOS", 30] call PurchasableVehicleAmmo_create,	/*155 mm HE Shells (32)*/
+		["Sh_155mm_AMOS_guided", 20] call PurchasableVehicleAmmo_create,	/*Guided (2)*/
+		["Sh_155mm_AMOS_LG", 50] call PurchasableVehicleAmmo_create,	/*Laser Guided (2)*/
+		["Sh_82mm_AMOS", 20] call PurchasableVehicleAmmo_create,	/*HE Mortar Shells (8)*/
+		["Sh_82mm_AMOS_guided", 20] call PurchasableVehicleAmmo_create,	/*Guided (8)*/
+		["Sh_82mm_AMOS_LG", 50] call PurchasableVehicleAmmo_create,	/*Laser Guided (8)*/
+		["Smoke_120mm_AMOS_White", 20] call PurchasableVehicleAmmo_create,	/*Smoke (White) (6)*/
+		["Smoke_82mm_AMOS_White", 100] call PurchasableVehicleAmmo_create,	/*Smoke Shell (White) (8)*/
+		["SmokeLauncherAmmo", 10] call PurchasableVehicleAmmo_create,	/*Smoke Screen (2)*/
+		["SmokeLauncherAmmo_boat", 10] call PurchasableVehicleAmmo_create	/*Smoke Screen (2)*/
+	];
+
 };
 
 
