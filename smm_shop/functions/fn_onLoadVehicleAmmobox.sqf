@@ -185,11 +185,7 @@ params [
 
 disableSerialization;
 
-private _purchasableVehicles = [
-	"B_Heli_Attack_01_dynamicLoadout_F",
-	"B_APC_Tracked_01_AA_F",
-	"B_MRAP_01_gmg_F"
-]; // TODO fetch purchasable vehicle name list
+private _purchasableVehicles = buy_units apply {[_x] call PurchasableVehicle_get_ClassName};
 
 (_display displayCtrl IDC_TEXT_COST) ctrlSetText format [str_ammo_totalCost, BASE_PRICE];
 
