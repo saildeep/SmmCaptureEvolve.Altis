@@ -54,3 +54,4 @@ str_vote_target_hint = "Click in which direction you want the next target zones 
 str_ammo_pricePerMag = " (%1 $) ";
 str_ammo_priceTotal = " %1 $ ";
 str_ammo_totalCost = "Total Cost:  %1 $";
+str_ammo_box_shop="Vehicle Ammo";

@@ -148,10 +148,27 @@ _buyAmmobox = {
 		"_ctrl"
 	];
 
-	private _boxContents = missionNamespace getVariable ["vehicleAmmoboxContent", []]; // [[magname1, amount1], [...], ...]  *amount of magazines (not bullets)
 	if ([missionNamespace getVariable ["vehicleAmmoboxTotalCost",0]] call smm_fnc_buy) then { // TODO make transaction
-		// TODO spawn crate with contents
+		// create ammobox near player
+		private _classname = "Box_NATO_AmmoVeh_F";
+		private _boxContents = missionNamespace getVariable ["vehicleAmmoboxContent", []]; // [[magname1, amount1], [...], ...]  *amount of magazines (not bullets)
+		private _searchPos = (getPos player);
+		private _pos = _searchPos findEmptyPosition [0,100,_classname];
+		if((count _pos) == 0)then{
+			_pos = _searchPos;
+		};
+		private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
 
+		// fill ammobox with stored magazines
+		_veh call smm_fnc_garbageCollectorObserveVehicleClient;
+		[_veh,3000000] call ace_rearm_fnc_setSupplyCount;
+		{
+			private _magName = _x select 0;
+			private _amount = _x select 1;
+			for "_i" from 1 to _amount do {
+				[_veh, _magName] call ace_rearm_fnc_addMagazineToSupply;
+			};
+		} forEach _boxContents;
 
 		missionNamespace setVariable  ["vehicleAmmoboxContent", nil];
 		closeDialog 1;
