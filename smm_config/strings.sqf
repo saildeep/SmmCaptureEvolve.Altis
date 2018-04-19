@@ -49,3 +49,5 @@ str_refund_price = "smm_vehicle_price";
 //target voting
 str_vote_target_action = "Vote target";
 str_vote_target_hint = "Click in which direction you want the next target zones to be! Hold alt if you want to remove your selection";
+
+str_ammo_box_shop="Vehicle Ammo";
