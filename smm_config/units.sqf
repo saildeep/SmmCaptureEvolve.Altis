@@ -240,7 +240,6 @@ if(smm_ace)then{
 			//TODO change perk
 			["ACE_Box_82mm_Mo_Combo",500,{},"MINES","[Box] Mortar Ammunition"] call PurchasableVehicle_create
 	];
-	
 };
 
 
@@ -431,7 +430,3 @@ if(isClass(configfile >> "CfgPatches" >> "rhs_weapons"))then{diag_log "load RHS"
 };
 
 buy_units = [buy_units,[],{[_x] call PurchasableVehicle_get_Price},"ASCEND"] call BIS_fnc_sortBy;
-
-vehicleAmmoPrices = [
-	
-];

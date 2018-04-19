@@ -14,7 +14,7 @@ if (_index >= 0) then {
 	private _ammo = getText (configFile >> "CfgMagazines" >> _magName >> "ammo");
 	private _count = getNumber (configFile >> "CfgMagazines" >> _magName >> "count");
 	private _cost = getNumber (configFile >> "CfgAmmo" >> _ammo >> "cost");
-	_price = _count * _cost * (missionNamespace getVariable ["smm_shop_ammo_cost_multiplier", 1]);
+	_price = ceil (_count * _cost * (missionNamespace getVariable ["smm_shop_ammo_cost_multiplier", 1]));
 };
 
 _price

@@ -37,4 +37,4 @@ smm_money_start = 5000;
 smm_money_all_uid = [];
 
 smm_shop_box_base_price = 500;
-smm_shop_ammo_cost_multiplier = 1;
+smm_shop_ammo_cost_multiplier = 0.5;
