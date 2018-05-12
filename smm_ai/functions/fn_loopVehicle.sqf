@@ -47,12 +47,13 @@ while{_run}do{
         _x limitSpeed 1;
     } foreach _crew;
 	
-	_vehicle limitSpeed 15;
+	_vehicle limitSpeed 1;
+	_vehicle forceSpeed 1;
 	if({alive _x} count _crew == 0)exitWith{_run = false};
     waitUntil {
 			// share information about enemy 
 			// TODO: cleanup _entity Array.  maybe performance problem / _entity array very large
-			private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
+			/*private _allZoneUnits = [[call ZoneStatesManager_GetInstance,_zoneid] call ZoneStatesManager_fnc_GetZoneState] call ZoneState_get_Units;
 			{
 				private _vehicleunit = _x;
 				{
@@ -64,7 +65,7 @@ while{_run}do{
 						}forEach (_allZoneUnits);
 					};
 				} forEach (_vehicleunit nearTargets 500);
-			} forEach (_crew);
+			} forEach (_crew);*/
 			(unitReady _unit)||(_unit distance _pos)<30
 			};
 	sleep 5;
