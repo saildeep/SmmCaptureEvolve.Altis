@@ -83,7 +83,7 @@ ai_infantry = [
 		["b_soldier_aa_f",30,{}] call SpawnableInfantry_create,
 //at	//["b_soldier_at_f",30,{}] call SpawnableInfantry_create,
 		["b_soldier_repair_f",15,{}] call SpawnableInfantry_create,
-		["b_sharpshooter_f",15,{}] call SpawnableInfantry_create
+		["b_sharpshooter_f",15,{}] call SpawnableInfantry_create,
 		/*
 		//["b_soldier_sl_f",10,{}] call SpawnableInfantry_create,
 		["B_G_soldier_a_f",10,{}] call SpawnableInfantry_create,
@@ -110,9 +110,10 @@ ai_infantry = [
 		//["b_t_soldier_at_f",30,{}] call SpawnableInfantry_create,
 		["b_t_soldier_repair_f",15,{}] call SpawnableInfantry_create,
 		//["b_t_soldier_sl_f",10,{}]call SpawnableInfantry_create,
+		*/
 		["B_soldier_LAT_F",30,{}] call SpawnableInfantry_create,
 		["B_t_soldier_LAT_F",30,{}] call SpawnableInfantry_create
-		*/
+		
 	],
 	[   
 		["i_soldier_a_f",10,{}] call SpawnableInfantry_create,

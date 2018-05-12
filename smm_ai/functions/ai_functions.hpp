@@ -7,3 +7,4 @@ class taskDefend_v1_3a{};
 class taskPatrol_v1_4{};
 class initVehicles{};
 class loopVehicle{};
+class revealRoutineVehicle{};
