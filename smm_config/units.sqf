@@ -223,7 +223,7 @@ ai_transport_pilots = [
 
 civilianBuyableUnits = [
 
-	["C_Boat_Civil_01_F",2500,{},"BASE",""] call PurchasableVehicle_create
+	["C_Boat_Civil_01_F",2500,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Offroad_01_F",4000,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Hatchback_01_sport_F",6000,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_SUV_01_F",5500,{},"BASE",""] call PurchasableVehicle_create,
@@ -231,7 +231,7 @@ civilianBuyableUnits = [
 	//["C_Van_01_fuel_F",12000,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Kart_01_F",1790,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Heli_Light_01_civil_F",22000,{},"CREWMAN",""] call PurchasableVehicle_create,
-	//["C_Plane_Civil_01_racing_F",13500,{},"BASE",""] call PurchasableVehicle_create
+	["C_Plane_Civil_01_racing_F",6500,{},"LOGISTIC",""] call PurchasableVehicle_create
 ];
 
 if(smm_ace)then{
