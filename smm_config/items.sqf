@@ -66,11 +66,11 @@ if(!smm_rhs)then{
 		["CfgWeapons","arifle_SPAR_02_snd_F","LMG",801,false] call PurchasableItem_create,		
 
 		//pistols
-		["CfgWeapons","hgun_ACPC2_F","PDW",70,false] call PurchasableItem_create,
-		["CfgWeapons","hgun_P07_F","PDW",40,true] call PurchasableItem_create,
-		["CfgWeapons","hgun_Pistol_heavy_01_F","PDW",100,false] call PurchasableItem_create,
-		["CfgWeapons","hgun_Rook40_F","PDW",30,false] call PurchasableItem_create,
-		["CfgWeapons","hgun_Pistol_01_F","PDW",60,false] call PurchasableItem_create,
+		["CfgWeapons","hgun_ACPC2_F","PDW",40,false] call PurchasableItem_create,
+		["CfgWeapons","hgun_P07_F","PDW",45,true] call PurchasableItem_create,
+		["CfgWeapons","hgun_Pistol_heavy_01_F","PDW",60,false] call PurchasableItem_create,
+		["CfgWeapons","hgun_Rook40_F","PDW",45,false] call PurchasableItem_create,
+		["CfgWeapons","hgun_Pistol_01_F","PDW",25,false] call PurchasableItem_create,
 
 		//assault rifles/UGL
 		["CfgWeapons","arifle_Katiba_F","RIFLEMAN",450,false] call PurchasableItem_create,
@@ -97,7 +97,7 @@ if(!smm_rhs)then{
 
 		["CfgWeapons","arifle_AKM_F","RIFLEMAN",280,false] call PurchasableItem_create,
 
-		["CfgWeapons","arifle_ARX_blk_F","RIFLEMAN",500,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_ARX_blk_F","RIFLEMAN",800,false] call PurchasableItem_create,
 		["CfgWeapons","arifle_SPAR_01_khk_F","RIFLEMAN",510,false] call PurchasableItem_create,
 		["CfgWeapons","arifle_SPAR_01_GL_blk_F","UGL",510,false] call PurchasableItem_create,
 
@@ -105,20 +105,20 @@ if(!smm_rhs)then{
 		["CfgWeapons","arifle_CTAR_GL_blk_F","UGL",600,false] call PurchasableItem_create,
 
 		//PDW
-		["CfgWeapons","hgun_PDW2000_F","PDW",210,false] call PurchasableItem_create,
-		["CfgWeapons","SMG_01_F","PDW",199,true] call PurchasableItem_create,
-		["CfgWeapons","SMG_02_F","PDW",189,false] call PurchasableItem_create,
-		["CfgWeapons","SMG_05_F","PDW",300,false] call PurchasableItem_create,
+		["CfgWeapons","hgun_PDW2000_F","PDW",90,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_01_F","PDW",100,true] call PurchasableItem_create,
+		["CfgWeapons","SMG_02_F","PDW",120,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_05_F","PDW",110,false] call PurchasableItem_create,
 
 		//missile launchers
 		["CfgWeapons","launch_RPG7_F","ANTI_TANK",300,true] call PurchasableItem_create,
-		["CfgWeapons","launch_NLAW_F","ANTI_TANK",550,false] call PurchasableItem_create,
+		["CfgWeapons","launch_NLAW_F","ANTI_TANK",800,false] call PurchasableItem_create,
 		["CfgWeapons","launch_RPG32_F","ANTI_TANK",450,false] call PurchasableItem_create,
 		["CfgWeapons","launch_B_Titan_short_F","ANTI_TANK",950,false] call PurchasableItem_create,
 		["CfgWeapons","launch_B_Titan_F","ANTI_AIR",850,false] call PurchasableItem_create,
-		["CfgWeapons","launch_O_Vorona_brown_F","ANTI_AIR",850,false] call PurchasableItem_create,
-		["CfgWeapons","launch_MRAWS_green_rail_F","ANTI_AIR",850,false] call PurchasableItem_create,
-		["CfgWeapons","launch_MRAWS_green_F","ANTI_AIR",850,false] call PurchasableItem_create
+		["CfgWeapons","launch_O_Vorona_brown_F","ANTI_AIR",700,false] call PurchasableItem_create,
+		["CfgWeapons","launch_MRAWS_green_rail_F","ANTI_AIR",450,false] call PurchasableItem_create,
+		["CfgWeapons","launch_MRAWS_green_F","ANTI_AIR",550,false] call PurchasableItem_create
 
 	];
 };
@@ -526,7 +526,7 @@ allItems append [
 		["H_HelmetLeaderO_oucamo","H_HelmetLeaderO_ocamo","H_HelmetLeaderO_ghex_F"];	
 		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",80,false] call PurchasableItem_create];}forEach
 		["H_HelmetO_ocamo","H_HelmetO_oucamo","H_HelmetO_ghex_F"];
-		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",2000,false] call PurchasableItem_create];}forEach
+		{allItems append[["CfgWeapons",_x,"UNIFORM_OPFOR",5000,false] call PurchasableItem_create];}forEach
 		["H_HelmetO_ViperSP_hex_F","H_HelmetO_ViperSP_ghex_F"];
 
 		// Independent
@@ -682,7 +682,33 @@ if(!smm_tfar)then{
 };
 
 
-// add silencers for random but deterministic price (index as seed)
+// add silencers
+allItems append [
+	["CfgWeapons","muzzle_snds_H","BASE",270,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_L","BASE",120,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_M","BASE",220,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_B","BASE",250,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_acp","BASE",120,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_338_black","BASE",350,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_338_green","BASE",350,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_338_sand","BASE",350,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_93mmg","BASE",350,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_93mmg_tan","BASE",350,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_H_khk_F","BASE",270,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_H_snd_F","BASE",270,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_m_khk_F","BASE",220,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_m_snd_F","BASE",220,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_58_blk_F","BASE",230,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_58_ghex_F","BASE",230,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_58_hex_F","BASE",230,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_B_khk_F","BASE",250,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_B_snd_F","BASE",250,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_65_TI_blk_F","BASE",310,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_65_TI_hex_F","BASE",310,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_65_TI_ghex_F","BASE",310,false] call PurchasableItem_create
+];
+
+/*
 {
 		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 150) + 250,false] call PurchasableItem_create);
 }forEach [
@@ -708,13 +734,14 @@ if(!smm_tfar)then{
 		"muzzle_snds_65_TI_blk_F",
 		"muzzle_snds_65_TI_hex_F",
 		"muzzle_snds_65_TI_ghex_F"];
+*/
 
 //add simple holosights and ir/flashlight for random but deterministic price
 allItems append [
-	["CfgWeapons","acc_flashlight","BASE",50,true] call PurchasableItem_create
+	["CfgWeapons","acc_flashlight","BASE",20,true] call PurchasableItem_create
 ];
 {
-		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 50) + 50,false] call PurchasableItem_create);
+		allItems pushBack (["CfgWeapons",_x,"BASE",round (_forEachIndex random 50) + 10,false] call PurchasableItem_create);
 }forEach [
 		"optic_MRD",
 		"optic_Yorris",
