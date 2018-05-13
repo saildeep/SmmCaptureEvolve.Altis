@@ -2,6 +2,7 @@ Tanoa
 Stratis
 Chernarus
 Takistan
+Zargabad
 Australia
 lythium
 Sarani
@@ -9,6 +10,7 @@ Malden
 Tembelan
 xcam_taunus
 Bornholm
-Dingor
+dingor
 lingor3
 Fallujah
+ruha
