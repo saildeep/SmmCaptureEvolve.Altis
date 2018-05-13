@@ -155,6 +155,7 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _
 		//create drop of and return waypoints TODO set behaviour
 		private _wpUnload = _vehGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
 		_wpUnload setWaypointType "TR UNLOAD";
+		_wpUnload setWaypointBehaviour "CARELESS";
 		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];
 		_wpReturn setWaypointType "MOVE";
 		_wpReturn setWaypointStatements ["true","{deleteVehicle(vehicle _x);deleteVehicle _x;}forEach (units (group this) )"];
