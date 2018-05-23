@@ -69,7 +69,7 @@ private _perkClass = switch(_class) do{
 											_classEquipment
 										  };
 	case "LOGISTIC_ENGINEER"	: { private _classEquipment = ["BASE","PDW","RIFLEMAN","BACKPACK","MINES","TOOLKIT","REPAIR","VEHICLE_AMMO","LOGISTIC"];											
-											private _sideEquipment = switch(side _unit) do0{
+											private _sideEquipment = switch(side _unit) do{
 												case WEST 				:{["UAV_BLUFOR","LOGISTIC_BLUFOR"]};
 												case EAST					:{["UAV_OPFOR","LOGISTIC_OPFOR"]};
 												case independent	:{["UAV_INDEPENDENT","LOGISTIC_INDEPENDENT"]};
