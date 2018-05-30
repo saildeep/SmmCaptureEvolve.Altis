@@ -585,6 +585,7 @@ if(playerSide == east)then{
 buy_units append civilianBuyableUnits;
 if(smm_ace)then{
 	buy_units append [
+		["ACE_Box_82mm_Mo_Combo",6000,{},"BASE",""] call PurchasableVehicle_create,
 		["ACE_Box_82mm_Mo_HE",2000,{},"BASE",""] call PurchasableVehicle_create,
 		["ACE_Box_82mm_Mo_Illum",4000,{},"BASE",""] call PurchasableVehicle_create,
 		["ACE_Box_82mm_Mo_Smoke",200,{},"BASE",""] call PurchasableVehicle_create
