@@ -152,12 +152,13 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _
 		}forEach ( (fullCrew [_veh,"driver",true]) + (fullCrew [_veh,"commander",true]) + (fullCrew [_veh,"gunner",true]) );
 		
 
-		//create drop of and return waypoints TODO set behaviour
+		//create drop of and return waypoints 
 		private _wpUnload = _vehGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
 		_wpUnload setWaypointType "TR UNLOAD";
 		_wpUnload setWaypointBehaviour "CARELESS";
 		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];
 		_wpReturn setWaypointType "MOVE";
+		_wpReturn setWaypointBehaviour "CARELESS";
 		_wpReturn setWaypointStatements ["true","{deleteVehicle(vehicle _x);deleteVehicle _x;}forEach (units (group this) )"];
 
 		private _cargoIndex = 0;
