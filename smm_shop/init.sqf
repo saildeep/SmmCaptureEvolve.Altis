@@ -9,6 +9,15 @@
 };
 
 if(smm_ace)then{
+
+    private _isAmmoTruckNearby = {
+        params["_target","_player","_params"];
+        private _vehicles = (getPos _player) nearObjects ["AllVehicles",30];
+        private _numAmmoVehicles = {(getNumber(configFile >> "CfgVehicles">> (typeOf _x)>>"ace_rearm_defaultSupply"))> 0} count _vehicles;
+
+        (_numAmmoVehicles > 0)
+    };
+
     private _actionChildren = {
         params["_target","_player","_params"];
         private _actions = [];
@@ -28,6 +37,6 @@ if(smm_ace)then{
         _actions
     };
 
-    private _action = ["RearmVehicle", "Fully rearm vehicle","",{},{true},_actionChildren,[],"",4] call ace_interact_menu_fnc_createAction;
+    private _action = ["RearmVehicle", "Fully rearm vehicle","",{},_isAmmoTruckNearby,_actionChildren,[],"",4] call ace_interact_menu_fnc_createAction;
     ["Box_NATO_AmmoVeh_F",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 };
