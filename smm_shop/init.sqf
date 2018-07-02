@@ -29,7 +29,8 @@ if(smm_ace)then{
                     diag_log format["Rearming vehicle:%1",_params];
                     _params call ace_rearm_fnc_rearmEntireVehicle;
                 };
-                private _childAction = [typeOf _x,typeOf _x,"",_childStatement,{true},{},[_target,_player,_x]]  call ace_interact_menu_fnc_createAction;
+                private _name = getText(configFile >> "CfgVehicles">> (typeOf _x)>>"displayName");
+                private _childAction = [(typeOf _x) + (str _forEachIndex),_name,"",_childStatement,{true},{},[_target,_player,_x]]  call ace_interact_menu_fnc_createAction;
                 _actions pushBack  [_childAction, [], _target];
             };
         }forEach _vehicles;
