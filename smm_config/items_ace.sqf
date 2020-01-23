@@ -83,6 +83,8 @@ allItems append [
 	hrIncreaseHigh[] = {-15, -35, 10};
 	*/
 	["CfgWeapons","ACE_adenosine","MEDIC",15,false] call PurchasableItem_create,
+	
+	["CfgWeapons","ACE_splint","MEDIC",60,true] call PurchasableItem_create,
 
 	// Atropine
 	// How much will the heart rate be increased when the HR is low (below 55)? {minIncrease, maxIncrease, seconds}
