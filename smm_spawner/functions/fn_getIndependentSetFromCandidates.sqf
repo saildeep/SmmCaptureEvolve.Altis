@@ -19,7 +19,7 @@ private _maxImportance = -555555;
 	_maxImportance = _maxImportance max (_x select 3);
 }forEach _this;
 
-for [{_i=0}, {_i < 100000}, {_i = _i + 1}] do {
+for [{_i=0}, {_i < 10*(count _this)}, {_i = _i + 1}] do {
 	private _candidateIndex = floor (random (count _this));
 	private _candidate = _this select _candidateIndex;
 	private _probability = (_candidate select 3)/_maxImportance;

@@ -13,33 +13,29 @@
 	Array of [x,y] positions where enough space for placing a helipad is, may be []
 */
 
-params["_center","_rmin","_rmax",["_maxIterations",10],["_maxHelipads",50],["_clearDistance",30]];
+params["_center","_rmin","_rmax",["_maxIterations",8],["_maxHelipads",10],["_clearDistance",15]];
 assert (_rmax > _rmin);
 
 private _iterationCount = 0;
 private _foundPositions = [];
 private _gradient = 0.1;
+private _blacklist = [];
 while { (_iterationCount < _maxIterations) and ((count _foundPositions)<_maxHelipads) } do {
 	_iterationCount = _iterationCount + 1;
-	private _safepos =  [_center,_rmin,_rmax,_clearDistance,0,_gradient,0] call BIS_fnc_findSafePos;
+
+	private _safepos =  [_center,_rmin,_rmax,_clearDistance,0,_gradient,0,_blacklist] call BIS_fnc_findSafePos;
 	if( (count _safepos) == 2 )then{
-		//in case the position is valid
-		//check against all other found positions
-		private _isClear = true;
-		{
-			if( (_safepos distance _x)<(_clearDistance * 2) ) then{
-				_isClear = false;
-			};
-		}forEach _foundPositions;
-		if(_isClear)then{
+	
 			_iterationCount = _iterationCount - 1;
 			_foundPositions pushBack _safepos;
+			_blacklist pushBack [_safepos,_clearDistance];
 			[_safepos,60,"ColorGrey"] call smm_fnc_createDebugMarker;
-		};
+		
 
 	}else{
 		// if no position is found increase allowed gradient
 		_gradient = 0.5 min (_gradient + 0.1);
 	};
 };
+diag_log ("Found " + (str (count _foundPositions))+ " helipad positions");
 _foundPositions

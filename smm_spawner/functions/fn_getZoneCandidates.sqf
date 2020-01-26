@@ -123,11 +123,12 @@ private _cleanedOut = [];
 		_pos = getPos (_nearRoads select 0);
 		_cleanedOut pushBack [_pos,_x select 1,_x select 2, _x select 3];
 	}else{
+		private _isWater 			= surfaceIsWater _pos;
 		private _posHeight			= getTerrainHeightASL _pos;
 		private _posElevated		= [_pos select 0, _pos select 1, _posHeight + 0.01];
 		private _posElevatedMore 	= [_pos select 0, _pos select 1, _posHeight + 100.0];
-		if (!lineIntersects[_posElevated,_posElevatedMore])then{
-			//visibility to up is clear
+		if (!lineIntersects[_posElevated,_posElevatedMore] && !_isWater)then{
+			//visibility to up is clear and is not in water
 			_cleanedOut pushBack [_pos,_x select 1,_x select 2, _x select 3];
 		};
 	};
