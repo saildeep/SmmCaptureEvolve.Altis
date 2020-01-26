@@ -33,7 +33,7 @@ smm_garbage_collector_vehicle_timeout = 60*60*2;
 //intervall in seconds
 smm_save_interval = 30 *60;
 
-smm_money_start = 5000;
+smm_money_start = 12000;
 smm_money_all_uid = [];
 
 smm_shop_box_base_price = 500;
