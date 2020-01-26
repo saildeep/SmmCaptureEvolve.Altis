@@ -223,7 +223,7 @@ force ace_medical_treatment_maxLitterObjects = 500;
 force ace_medical_treatment_medicEpinephrine = 0;
 force ace_medical_treatment_medicPAK = 1;
 force ace_medical_treatment_medicSurgicalKit = 1;
-force ace_medical_treatment_timeCoefficientPAK = 1;
+force ace_medical_treatment_timeCoefficientPAK = = 0.2;
 force ace_medical_treatment_woundReopening = true;
 
 // ACE Name Tags
