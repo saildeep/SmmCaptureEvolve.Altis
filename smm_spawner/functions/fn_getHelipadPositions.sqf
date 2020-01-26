@@ -18,7 +18,8 @@ assert (_rmax > _rmin);
 
 private _iterationCount = 0;
 private _foundPositions = [];
-private _gradient = 0.1;
+private _gradient = 0.05;
+private _maxGradient = 0.7;
 private _blacklist = [];
 while { (_iterationCount < _maxIterations) and ((count _foundPositions)<_maxHelipads) } do {
 	_iterationCount = _iterationCount + 1;
@@ -34,7 +35,7 @@ while { (_iterationCount < _maxIterations) and ((count _foundPositions)<_maxHeli
 
 	}else{
 		// if no position is found increase allowed gradient
-		_gradient = 0.5 min (_gradient + 0.1);
+		_gradient = _maxGradient min (_gradient * 2);
 	};
 };
 diag_log ("Found " + (str (count _foundPositions))+ " helipad positions");

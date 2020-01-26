@@ -12,7 +12,7 @@ private _overlaps = _candidates call smm_fnc_getOverlappingFromCandidates;
 
 private _set = [];
 private _importance = 0;
-private _numIterations = if(smm_debug)then{2}else{5};
+private _numIterations = if(smm_debug)then{2}else{20};
 diag_log ("Finding independent set with " + (str _numIterations) + " iterations");
 for [{_a=0}, {_a < _numIterations}, {_a = _a + 1}] do {
 	//calculate overall importance value of previous
