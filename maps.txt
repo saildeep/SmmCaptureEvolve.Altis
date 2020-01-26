@@ -3,6 +3,7 @@ Stratis
 Chernarus
 Takistan
 Zargabad
+zargabad
 Australia
 lythium
 Sarani
@@ -14,3 +15,8 @@ dingor
 lingor3
 Fallujah
 ruha
+vt7
+tem_kujari
+sara
+Shapur_BAF
+saralite
