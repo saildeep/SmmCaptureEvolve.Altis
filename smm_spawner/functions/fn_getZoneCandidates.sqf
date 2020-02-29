@@ -56,14 +56,14 @@ _out append (_roadCandidates select [0,100]); // only select up 100 intersection
 Now get all locations
 */ 
 
-private _locationTypesWithImportance = [["NameCity",0.25],["NameCityCapital",0.5],["NameVillage",0.15],["NameLocal",0.7],["Airport",1.0]];
+private _locationTypesWithImportance = [["NameCity",0.25],["NameCityCapital",0.5],["NameVillage",0.15],["NameLocal",0.7],["Airport",3.0]];
 {
 	private _locationType = _x select 0;
 	private _locationImportance = _x select 1;
 	private _locations = nearestLocations [[0,0,0], [_locationType],1000000000000];
 	{
 		if(KEEP)then{
-			private _candidate = [getPos _x,text _x,random[_minSize,_minSize + _diffSize * _locationImportance,_minSize + _diffSize],_locationImportance * 12];
+			private _candidate = [getPos _x,text _x,random[_minSize,_minSize + _diffSize * _locationImportance,_minSize + _diffSize],_locationImportance * 35];
 			_out pushBack _candidate;
 			private _marker = [getPos _x,30,"ColorGreen"] call smm_fnc_createDebugMarker;
 			_marker setMarkerText (_locationType);
