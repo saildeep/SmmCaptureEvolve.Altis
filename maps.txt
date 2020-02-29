@@ -1,6 +1,8 @@
 Tanoa
 Stratis
 Chernarus
+Chernarus_Winter
+chernarus_summer
 Takistan
 Zargabad
 zargabad
