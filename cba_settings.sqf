@@ -91,7 +91,7 @@ ace_goggles_showInThirdPerson = false;
 
 // ACE Hearing
 force ace_hearing_autoAddEarplugsToUnits = true;
-ace_hearing_disableEarRinging = false;
+force ace_hearing_disableEarRinging = false;
 force ace_hearing_earplugsVolume = 0.421884;
 force ace_hearing_enableCombatDeafness = true;
 force ace_hearing_enabledForZeusUnits = true;
