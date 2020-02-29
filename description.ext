@@ -53,3 +53,5 @@ class OOTypes{
 class CfgRespawnInventory{
     #include "respawn_inventory.hpp"
 };
+
+#include "tfar_animations.hpp"
