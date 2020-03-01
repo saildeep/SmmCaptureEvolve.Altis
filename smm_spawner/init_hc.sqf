@@ -70,10 +70,11 @@ private _zm = call ZonesManager_GetInstance;
    {
         diag_log ("Using carrier pos "+ str(_x));
         private _carrierPos = [_x] call Position3D_fnc_ToArray;
-        private _carrier = "Land_Carrier_01_base_F" createVehicle _carrierPos;
+        private _carrier =  createVehicle ["Land_Carrier_01_base_F",ASLToAGL _carrierPos,[],0,"CAN_COLLIDE"];
         
-        _carrier setPosASL _carrierPos;
+        
         _carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
+        _carrier setPosASL _carrierPos;
         [_carrier] call BIS_fnc_Carrier01PosUpdate;
         [_carrier,_carrierPos] remoteExec ["smm_fnc_positionCarrier",0,true];
         
