@@ -63,6 +63,20 @@ private _zm = call ZonesManager_GetInstance;
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
+    private _possibleCarrierLocations = [_pos,0,_size] call smm_fnc_getCarrierPositions;
+    
+    {
+        private _carrier = "Land_Carrier_01_base_F" createVehicle [0,0,0];
+        private _terrainHeight = getTerrainHeightASL _x;
+        //_carrier setvehiclePosition [[_x select 0,_x select 1,10+ -1 * _terrainHeight ], [], 0, "CAN_COLLIDE"];
+        _carrier setPosASL [_x select 0,_x select 1,-5 ];
+        _carrier call BIS_fnc_Carrier01PosUpdate;
+
+        // Current result is saved in variable _x
+        
+    } forEach _possibleCarrierLocations;
+
+
     _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0,[]] call ZoneState_create);
 }forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
