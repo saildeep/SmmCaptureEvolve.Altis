@@ -462,7 +462,7 @@ if(playerSide == west)then{
 		//Heli CREWMAN
 		["B_Heli_Attack_01_dynamicLoadout_F",50000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		["B_Heli_Light_01_stripped_F",10000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
-		["B_Heli_Light_01_armed_F",18000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
+		["B_Heli_Light_01_dynamicLoadout_F",18000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
 
 		//VTOL 
 		["B_T_VTOL_01_armed_F",35000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
