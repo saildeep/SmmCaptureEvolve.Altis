@@ -19,21 +19,38 @@ switch (_owner) do {
 	case civilian: {_markerName setMarkerColor "ColorCIV"};
 	default { };
 };
+
+private _markerTypesAndPosition = [["default",_position]];
+private _carriers = ([_object] call Zone_get_CarrierSpots) apply {[_x] call Position3D_fnc_ToArray};
+//diag_log ("Zone has carriers "+ str(_carriers));
+{
+	private _carrierMarkerSuffix =  "carrier_"+ (str _forEachIndex);
+	private _carrierPosition = ASLToAGL([_x] call smm_fnc_getSpawnPositionRelativeToCarrier);
+	diag_log ("Adding spawn position for carrier " + _carrierMarkerSuffix + " at " + (str _carrierPosition) + " of carrier pos " + (str _x));
+	_markerTypesAndPosition pushBack [ _carrierMarkerSuffix,_carrierPosition ];
+	
+} forEach _carriers;
 //check respawn markers
 {
-	private _respawnMarkerName = [_object,_x] call Zone_fnc_GetRespawnMarkerName;
-	if(_owner == _x)then{
-		
-		
-		//if respawnmarker for current does not exist, create one
-		if((getMarkerColor _respawnMarkerName) == "" )then{
-			createMarker [_respawnMarkerName,_position];
-		};
-	}else{
-		//delete all other respawn markers
-		if( (getMarkerColor _respawnMarkerName) != "" )then{
-			deleteMarker _respawnMarkerName;
-		};
-	};
+	private _markerSuffix = _x select 0;
+	private _markerPos = _x select 1;
+	{
 	
-} forEach smm_spawner_player_factions;
+		private _respawnMarkerName = ([_object,_x] call Zone_fnc_GetRespawnMarkerName) + "_" + _markerSuffix;
+		if(_owner == _x)then{
+			
+			
+			//if respawnmarker for current does not exist, create one
+			if((getMarkerColor _respawnMarkerName) == "" )then{
+				createMarker [_respawnMarkerName,_markerPos];
+			};
+		}else{
+			//delete all other respawn markers
+			if( (getMarkerColor _respawnMarkerName) != "" )then{
+				deleteMarker _respawnMarkerName;
+			};
+		};
+	
+	} forEach smm_spawner_player_factions;
+	
+} forEach _markerTypesAndPosition;

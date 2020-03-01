@@ -19,3 +19,4 @@ class updateTargetsOnHC{};
 class distributeItems{};
 class getHelipadPositions{};
 class getCarrierPositions{};
+class getSpawnPositionRelativeToCarrier{};
