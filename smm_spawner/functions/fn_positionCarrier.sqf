@@ -16,7 +16,7 @@
         _carrier setPosWorld _carrierPos;
 
 		
-	//	[_carrier] spawn { sleep 10; _this call BIS_fnc_Carrier01Init};
+		[_carrier] spawn { sleep 10; _this call BIS_fnc_Carrier01Init};
 		
 		diag_log ("Updating carrier position of " + str(_carrier) + " finished");
 };

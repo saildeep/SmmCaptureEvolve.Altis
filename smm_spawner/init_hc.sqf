@@ -65,19 +65,21 @@ private _zm = call ZonesManager_GetInstance;
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
     private _carrierInteractionPoints = [];
-    private _spawnmarker = createMarker ["carriermarker",[0,0,0]];
+    
     private _spawnedCarriers = [];
    {
         diag_log ("Using carrier pos "+ str(_x));
         private _carrierPos = [_x] call Position3D_fnc_ToArray;
-        _spawnmarker setMarkerPos (ASLToAGL _carrierPos);
-        private _carrier =  createVehicle ["Land_Carrier_01_base_F",getMarkerPos _spawnmarker,[_spawnmarker],0,"CAN_COLLIDE"];
+
+        private _carrier = "Land_Carrier_01_base_F" createVehicle _carrierPos;
         
         
-        _carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
+        
         _carrier setPosWorld _carrierPos;
+        _carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
+        
         [_carrier] call BIS_fnc_Carrier01PosUpdate;
-        [_carrier,_carrierPos] remoteExec ["smm_fnc_positionCarrier",0,true];
+        [_carrier,_carrierPos] remoteExec ["smm_fnc_positionCarrier",-clientOwner ,true];
         
         _spawnedCarriers pushBack _carrier;
 
@@ -92,7 +94,7 @@ private _zm = call ZonesManager_GetInstance;
     } forEach _carrierList;
 
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],[_interaction_point] +_carrierInteractionPoints,_triggerCollection,0,[],_spawnedCarriers] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],[_interaction_point] +_carrierInteractionPoints,_triggerCollection,0,[]] call ZoneState_create);
 }forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;

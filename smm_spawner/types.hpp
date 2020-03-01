@@ -173,9 +173,7 @@ class ZoneState:OOType{
     class Objectives:OOVar{
         typeName = "[OBJECT]";
     };
-    class Carriers:OOVar{
-        typeName = "[OBJECT]"
-    }
+   
     class ActivateZone:OOFunction{
         file = "smm_spawner\ZoneState\ActivateZone.sqf";
     };
