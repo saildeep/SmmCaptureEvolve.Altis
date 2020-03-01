@@ -227,10 +227,10 @@ civilianBuyableUnits = [
 	//["C_Offroad_01_F",4000,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Hatchback_01_sport_F",6000,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_SUV_01_F",5500,{},"BASE",""] call PurchasableVehicle_create,
-	//["C_Van_01_transport_F",7000,{},"BASE",""] call PurchasableVehicle_create,
-	//["C_Van_01_fuel_F",12000,{},"BASE",""] call PurchasableVehicle_create,
+	["C_Van_01_transport_F",3800,{},"LOGISTIC",""] call PurchasableVehicle_create,
+	["C_Van_01_fuel_F",8000,{},"LOGISTIC",""] call PurchasableVehicle_create,
 	//["C_Kart_01_F",1790,{},"BASE",""] call PurchasableVehicle_create,
-	//["C_Heli_Light_01_civil_F",22000,{},"CREWMAN",""] call PurchasableVehicle_create,
+	["C_Boat_Transport_02_F",4000,{},"LOGISTIC",""] call PurchasableVehicle_create,
 	["C_Plane_Civil_01_racing_F",6500,{},"LOGISTIC",""] call PurchasableVehicle_create,
 	["C_Heli_light_01_digital_F",11500,{},"LOGISTIC",""] call PurchasableVehicle_create
 ];

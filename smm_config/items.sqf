@@ -258,7 +258,7 @@ allItems append [
 	["CfgMagazines","SLAMDirectionalMine_Wire_Mag","MINES",20,true] call PurchasableItem_create,
 	["CfgMagazines","APERSTripMine_Wire_Mag","MINES",15,true] call PurchasableItem_create,
 	["CfgMagazines","ClaymoreDirectionalMine_Remote_Mag","MINES",50,true] call PurchasableItem_create,
-	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",50,true] call PurchasableItem_create,
+	["CfgMagazines","SatchelCharge_Remote_Mag","RIFLEMAN",150,true] call PurchasableItem_create,
 	["CfgMagazines","DemoCharge_Remote_Mag","RIFLEMAN",30,true] call PurchasableItem_create,
 	["CfgMagazines","APERSMineDispenser_Mag","MINES",200,true] call PurchasableItem_create,
 
