@@ -251,7 +251,7 @@ allItems append [
 	//misc
 	["CfgMagazines","Laserbatteries","BASE",20,true] call PurchasableItem_create,
 
-	//mines
+	//mines/explosives
 	["CfgMagazines","ATMine_Range_Mag","MINES",10,true] call PurchasableItem_create,
 	["CfgMagazines","APERSMine_Range_Mag","MINES",5,true] call PurchasableItem_create,
 	["CfgMagazines","APERSBoundingMine_Range_Mag","MINES",15,true] call PurchasableItem_create,
@@ -259,7 +259,7 @@ allItems append [
 	["CfgMagazines","APERSTripMine_Wire_Mag","MINES",15,true] call PurchasableItem_create,
 	["CfgMagazines","ClaymoreDirectionalMine_Remote_Mag","MINES",50,true] call PurchasableItem_create,
 	["CfgMagazines","SatchelCharge_Remote_Mag","MINES",50,true] call PurchasableItem_create,
-	["CfgMagazines","DemoCharge_Remote_Mag","MINES",30,true] call PurchasableItem_create,
+	["CfgMagazines","DemoCharge_Remote_Mag","RIFLEMAN",30,true] call PurchasableItem_create,
 	["CfgMagazines","APERSMineDispenser_Mag","MINES",200,true] call PurchasableItem_create,
 
 	//grenades 
