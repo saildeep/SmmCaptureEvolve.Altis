@@ -78,6 +78,7 @@ private _zm = call ZonesManager_GetInstance;
         diag_log ("Spawning carrier tent at " + str(_carrierInteractionPos));
         private _carrierInteractionPoint = smm_spawner_interaction_object createVehicle _carrierInteractionPos;
         _carrierInteractionPoint setPosASL _carrierInteractionPos;
+        _carrierInteractionPoint setVectorDirAndUp [[0,1,0],[0,0,1]];
         _carrierInteractionPoint setVariable ["ace_medical_isMedicalFacility",true,true];
         _carrierInteractionPoint allowDamage false;
         _carrierInteractionPoints pushBack  _carrierInteractionPoint;
