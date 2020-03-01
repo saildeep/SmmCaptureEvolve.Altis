@@ -231,7 +231,8 @@ civilianBuyableUnits = [
 	//["C_Van_01_fuel_F",12000,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Kart_01_F",1790,{},"BASE",""] call PurchasableVehicle_create,
 	//["C_Heli_Light_01_civil_F",22000,{},"CREWMAN",""] call PurchasableVehicle_create,
-	["C_Plane_Civil_01_racing_F",6500,{},"LOGISTIC",""] call PurchasableVehicle_create
+	["C_Plane_Civil_01_racing_F",6500,{},"LOGISTIC",""] call PurchasableVehicle_create,
+	["C_Heli_light_01_digital_F",11500,{},"LOGISTIC",""] call PurchasableVehicle_create
 ];
 
 if(smm_ace)then{
@@ -594,9 +595,6 @@ if(smm_ace)then{
 		
 };
 
-buy_units append [
-	["C_Heli_light_01_digital_F",13000,{},"LOGISTIC",""] call PurchasableVehicle_create
-];
 
 //when buying one of this vehicles, a respawn point for the players' side will be created and tracked
 respawnVehicles = ["B_Truck_01_medical_F","I_Truck_02_medical_F"];
