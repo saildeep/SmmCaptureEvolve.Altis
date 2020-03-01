@@ -22,7 +22,7 @@ if (isServer) then {
 if (hasInterface) then {
 	{
 		private _zoneID = [_x] call ZoneState_get_ZoneID;
-		private _object = [_x] call ZoneState_get_InteractionPoint;
+		private _object = ([_x] call ZoneState_get_InteractionPoints) select 0;
 		_object addAction ["Take command", {_this remoteExec ["smm_fnc_assignCurator", 2]}, _zoneID];
 		
 	} forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);

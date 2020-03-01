@@ -17,7 +17,7 @@ if(isServer)then{
 [] spawn{
     
     {
-		private _ip = [_x] call ZoneState_get_InteractionPoint;
+		private _ip = ([_x] call ZoneState_get_InteractionPoints) select 0;
 		_formated = format [str_buy_tickets,smm_ticket_amount,smm_ticket_price];
         _ip addAction [_formated,smm_fnc_buyTickets,_this];
     }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);

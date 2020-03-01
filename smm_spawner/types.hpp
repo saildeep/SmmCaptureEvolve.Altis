@@ -161,8 +161,8 @@ class ZoneState:OOType{
     class Vehicles:OOVar{
         typeName="[OBJECT]";
     };
-    class InteractionPoint:OOVar{
-        typeName="OBJECT";
+    class InteractionPoints:OOVar{
+        typeName="[OBJECT]";
     };
     class SeizeTriggers:OOVar{
         typeName="TriggerCollection";

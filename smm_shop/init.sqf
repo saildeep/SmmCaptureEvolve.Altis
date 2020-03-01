@@ -1,10 +1,15 @@
 [] spawn{
     {
-        private _ip = [_x] call ZoneState_get_InteractionPoint;
-        _ip addAction [str_shop,smm_shop_open,[_x] call ZoneState_get_ZoneID];
-        if(smm_ace)then{
-            _ip addAction [str_ammo_box_shop,'createDialog "RscDisplayAmmobox"',[_x] call ZoneState_get_ZoneID,3,false,false,"","[player,'VEHICLE_AMMO'] call smm_fnc_hasPerk"];
-        };
+        private _zoneState = _x;
+        private _ips = [_zoneState] call ZoneState_get_InteractionPoints;
+        {
+            _x addAction [str_shop,smm_shop_open,[_zoneState] call ZoneState_get_ZoneID];
+            if(smm_ace)then{
+                _x addAction [str_ammo_box_shop,'createDialog "RscDisplayAmmobox"',[_zoneState] call ZoneState_get_ZoneID,3,false,false,"","[player,'VEHICLE_AMMO'] call smm_fnc_hasPerk"];
+            };
+            
+        } forEach _ips;
+        
     }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 };
 

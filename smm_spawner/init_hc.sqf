@@ -81,7 +81,7 @@ private _zm = call ZonesManager_GetInstance;
     } forEach _carrierList;
 
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0,[],_spawnedCarriers] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],[_interaction_point],_triggerCollection,0,[],_spawnedCarriers] call ZoneState_create);
 }forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;

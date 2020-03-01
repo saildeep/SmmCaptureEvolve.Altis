@@ -2,7 +2,7 @@
 
 [] spawn{
     {
-        private _ip = [_x] call ZoneState_get_InteractionPoint;
+        private _ip = ([_x] call ZoneState_get_InteractionPoints)select 0;
         _ip addAction [str_save,smm_save_do_client];
     }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 };

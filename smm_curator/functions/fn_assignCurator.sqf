@@ -28,7 +28,7 @@ removeAllCuratorCameraAreas _curator ;
 // adjust curator to the new zone
 // add camera area
 private _zoneState = ([call ZoneStatesManager_GetInstance, _zoneID] call ZoneStatesManager_fnc_GetZoneState);
-private _interactionPoint = ([_zoneState] call  ZoneState_get_InteractionPoint);
+private _interactionPoint = ([_zoneState] call  ZoneState_get_InteractionPoints) select 0;
 private _radius = ([([call ZonesManager_GetInstance, _zoneID] call ZonesManager_fnc_GetZone)] call  Zone_get_Size);
 _curator addCuratorCameraArea [0, position _interactionPoint, _radius];
 // register units

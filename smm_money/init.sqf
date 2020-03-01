@@ -17,8 +17,12 @@ if(isServer && smm_load)then{
 [] spawn{
     
     {
-        private _interaction_point = [_x] call ZoneState_get_InteractionPoint;
-        _interaction_point addAction [str_balance,smm_fnc_showBalance,_this];
+        private _interaction_points = [_x] call ZoneState_get_InteractionPoints;
+        {
+            _x addAction [str_balance,smm_fnc_showBalance,_this];
+            
+        } forEach _interaction_points;
+       
     }forEach ([call ZoneStatesManager_GetInstance] call ZoneStatesManager_get_ZoneStates);
 
 };
