@@ -119,4 +119,9 @@
 				   allowedTargets = 2;
 				   jip = 0;
 			   };
+			   class smm_fnc_positionCarrier
+			   {
+				   allowedTargets = 0;
+				   jip = 1;
+			   };
 			   
