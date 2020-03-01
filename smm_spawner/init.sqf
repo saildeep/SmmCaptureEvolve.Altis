@@ -29,6 +29,7 @@ if(isServer)then{
             private _items = _x select 8;
             diag_log(_prefix + " processing " + (str _x) );
             private _zone = [_index,_position,_hash,_size,_owner,_connections,_name,_items,_helipads apply{_x call Position_create},_carriers apply {_x call Position3D_create}] call Zone_create;
+            diag_log(_prefix + " yielding " + str(_zone));
             _zones pushBack _zone;
         }forEach _generated;
 

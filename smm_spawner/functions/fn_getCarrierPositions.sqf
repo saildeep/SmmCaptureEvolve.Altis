@@ -6,14 +6,16 @@
 	2: Maximum Radius (Scalar > 0)
 
 	Returns:
-	Array of [x,y] positions, may be []
+	Array of [x,y,z] positions, may be []
  */
 
  params["_center","_rmin","_rmax"];
 
- private _pos = [_center, _rmin, _rmax,80,2,1,0,[]] call BIS_fnc_findSafePos;
+ private _pos = [_center, _rmin, _rmax,50,2,1,0,[]] call BIS_fnc_findSafePos;
 if((count _pos) == 2)then{
-	[_pos]
+	private _h =  -5;
+
+	[[_pos select 0,_pos select 1,_h]]
 }else{
 	[]
 }

@@ -35,7 +35,7 @@ class Position3D:OOType{
         typeName="SCALAR";
     };
     class ToArray:OOFunction{
-        code="[[_this select 0] call Position_get_X,[_this select 0] call Position_get_Y,[_this select 0] call Position_get_Z]";
+        code="[[_this select 0] call Position3D_get_X,[_this select 0] call Position3D_get_Y,[_this select 0] call Position3D_get_Z]";
     };
 }
 
