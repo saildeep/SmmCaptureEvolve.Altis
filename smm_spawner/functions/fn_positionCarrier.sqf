@@ -14,7 +14,7 @@
 		sleep 5;
 		_carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
         _carrier setPosWorld _carrierPos;
-		diag_log ("Carrier has variables " + (_carrier getVariable ["bis_carrierParts",[]]));
+		diag_log ("Carrier has variables " + (str (_carrier getVariable ["bis_carrierParts",[]])));
 		
 		[_carrier] spawn { sleep 10; _this call BIS_fnc_Carrier01Init};
 		
