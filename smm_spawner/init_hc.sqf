@@ -66,7 +66,7 @@ private _zm = call ZonesManager_GetInstance;
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
     
-    
+    private _spawnedCarriers = [];
    {
         diag_log ("Using carrier pos "+ str(_x));
         private _carrierPos = [_x] call Position3D_fnc_ToArray;
@@ -75,12 +75,13 @@ private _zm = call ZonesManager_GetInstance;
         _carrier setPosASL _carrierPos;
         _carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
         _carrier call BIS_fnc_Carrier01PosUpdate;
+        _spawnedCarriers pushBack _carrier;
 
         
     } forEach _carrierList;
 
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0,[]] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0,[],_spawnedCarriers] call ZoneState_create);
 }forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;
