@@ -9,17 +9,15 @@ smm_shop_string = {
 	_out
 };
 smm_shop_create_vehicle = {
-	private _classname = _this select 0;
-	private _searchPos = (getPos player);
-	if((count _this) > 1)then{
-		_searchPos = _this select 1;
-	};
+	params ["_classname",["_searchPos",getPos player],["_placement","NONE"]];
+	
+	
 	private _pos = _searchPos;
 	if((count _pos) == 0)then{
 		_pos = (getPos player);
 	};
 	
-	private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
+	private _veh = createVehicle [_classname,_pos,[],0,_placement];
 	//clear all vehicles despite ammo boxes
 	if(!(_veh isKindOf "ReammoBox_F"))then{
 		clearWeaponCargoGlobal _veh;
@@ -191,8 +189,10 @@ smm_shop_on_vehicle_carrier = {
 			private _classname = [_element] call PurchasableVehicle_get_Classname;
 			private _fn = [_element] call PurchasableVehicle_get_PostSpawnFunction;
 			if(_price call smm_fnc_buy) then {
-				private _veh = [_classname,_carrierSpawnPos] call smm_shop_create_vehicle;
+				private _veh = [_classname,_carrierSpawnPos,"CAN_COLLIDE"] call smm_shop_create_vehicle;
 				assert !(isNil "_veh");
+				_veh setPosASL _carrierSpawnPos;
+				_veh setDir 180;
 				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
 				_veh spawn _fn;
 				
