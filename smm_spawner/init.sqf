@@ -25,9 +25,10 @@ if(isServer)then{
             private _connections = _x select 4;
             private _name = _x select 5;
             private _helipads = _x select 6;
-            private _items = _x select 7;
+            private _carriers = _x select 7;
+            private _items = _x select 8;
             diag_log(_prefix + " processing " + (str _x) );
-            private _zone = [_index,_position,_hash,_size,_owner,_connections,_name,_items,_helipads apply{_x call Position_create}] call Zone_create;
+            private _zone = [_index,_position,_hash,_size,_owner,_connections,_name,_items,_helipads apply{_x call Position_create},_carriers apply {_x call Position3D_create}] call Zone_create;
             _zones pushBack _zone;
         }forEach _generated;
 

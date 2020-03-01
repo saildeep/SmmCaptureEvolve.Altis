@@ -23,6 +23,7 @@ private _zm = call ZonesManager_GetInstance;
     private _cZoneNumber = _zoneNumber;
     private _neighbours = [_x] call Zone_get_Neighbours;
     private _pos = [_x] call Zone_get_Position;
+    private _carrierLocations =[_x] call Zone_get_CarrierSpots;
     {
         //only draw connections from lower to higher
         if(_x < _cZoneNumber) then {
@@ -63,18 +64,18 @@ private _zm = call ZonesManager_GetInstance;
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
 
-    private _possibleCarrierLocations = [_pos,0,_size] call smm_fnc_getCarrierPositions;
+    
     
     {
+        private _carrierPos = [_x] call Position3D_fnc_ToArray;
         private _carrier = "Land_Carrier_01_base_F" createVehicle [0,0,0];
-        private _terrainHeight = getTerrainHeightASL _x;
+        private _terrainHeight = getTerrainHeightASL _carrierPos;
         //_carrier setvehiclePosition [[_x select 0,_x select 1,10+ -1 * _terrainHeight ], [], 0, "CAN_COLLIDE"];
-        _carrier setPosASL [_x select 0,_x select 1,-5 ];
+        _carrier setPosASL [_carrierPos select 0,_carrierPos select 1,-5 ];
         _carrier call BIS_fnc_Carrier01PosUpdate;
 
-        // Current result is saved in variable _x
         
-    } forEach _possibleCarrierLocations;
+    } forEach _carrierLocations;
 
 
     _zoneStates pushBack ([_cZoneNumber,[],[],_interaction_point,_triggerCollection,0,[]] call ZoneState_create);

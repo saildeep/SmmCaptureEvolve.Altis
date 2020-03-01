@@ -55,7 +55,7 @@ private _out = [];
 	
 
 
-	private _c = [_x select 0, str (_x select 0),_x select 2,_owner,_connections select _forEachIndex,_x select 1,[_pos,_r*0.5,_r+300,if(smm_debug)then{1}else{10},if(smm_debug)then{3}else{30}] call smm_fnc_getHelipadPositions];
+	private _c = [_x select 0, str (_x select 0),_x select 2,_owner,_connections select _forEachIndex,_x select 1,[_pos,_r*0.5,_r+300,if(smm_debug)then{1}else{10},if(smm_debug)then{3}else{30}] call smm_fnc_getHelipadPositions,[_pos,0,_r] call smm_fnc_getCarrierPositions];
 	_out pushBack _c;
 }forEach _chosenCandidates;
 

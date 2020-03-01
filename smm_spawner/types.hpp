@@ -24,6 +24,21 @@ class Position:OOType{
     };
 };
 
+class Position3D:OOType{
+    class X:OOVar{
+        typeName="SCALAR";
+    };
+    class Y:OOVar{
+        typeName="SCALAR";
+    };
+    class Z:OOVar{
+        typeName="SCALAR";
+    };
+    class ToArray:OOFunction{
+        code="[[_this select 0] call Position_get_X,[_this select 0] call Position_get_Y,[_this select 0] call Position_get_Z]";
+    };
+}
+
 class Zone:OOType{
 
     class ID:OOVar{
@@ -55,6 +70,9 @@ class Zone:OOType{
     };
     class LandingSpots:OOVar{
         typeName = "[Position]";
+    };
+    class CarrierSpots:OOVar{
+        typeName = "[Position3D]";
     };
 
     class GetMarkerName:OOFunction{
