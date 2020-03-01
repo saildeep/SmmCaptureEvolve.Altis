@@ -152,8 +152,8 @@ _buyAmmobox = {
 		// create ammobox near player
 		private _classname = "Box_NATO_AmmoVeh_F";
 		private _boxContents = missionNamespace getVariable ["vehicleAmmoboxContent", []]; // [[magname1, amount1], [...], ...]  *amount of magazines (not bullets)
-		private _searchPos = (getPos player);
-		private _pos = _searchPos findEmptyPosition [0,100,_classname];
+		private _searchPos = (getPosATL player);
+		private _pos = _searchPos vectorAdd [3,3,3]; // findEmptyPosition [0,100,_classname];
 		if((count _pos) == 0)then{
 			_pos = _searchPos;
 		};

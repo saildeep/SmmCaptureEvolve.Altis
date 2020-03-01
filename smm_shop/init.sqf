@@ -6,6 +6,8 @@
             _x addAction [str_shop,smm_shop_open,[_zoneState] call ZoneState_get_ZoneID];
             if(smm_ace)then{
                 _x addAction [str_ammo_box_shop,'createDialog "RscDisplayAmmobox"',[_zoneState] call ZoneState_get_ZoneID,3,false,false,"","[player,'VEHICLE_AMMO'] call smm_fnc_hasPerk"];
+            
+            
             };
             
         } forEach _ips;
@@ -19,8 +21,10 @@ if(smm_ace)then{
         params["_target","_player","_params"];
         private _vehicles = (getPos _player) nearObjects ["AllVehicles",30];
         private _numAmmoVehicles = {(getNumber(configFile >> "CfgVehicles">> (typeOf _x)>>"ace_rearm_defaultSupply"))> 0} count _vehicles;
-
-        (_numAmmoVehicles > 0)
+        private _interactionPointsNearby = nearestObjects [getPos player, [smm_spawner_interaction_object],50];
+        private _canRearm =  (_numAmmoVehicles > 0) or ((count _interactionPointsNearby)>0);
+        _canRearm
+       
     };
 
     private _actionChildren = {
