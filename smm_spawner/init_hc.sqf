@@ -73,6 +73,7 @@ private _zm = call ZonesManager_GetInstance;
         private _carrier = "Land_Carrier_01_base_F" createVehicle [0,0,0];
         
         _carrier setPosASL _carrierPos;
+        _carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
         _carrier call BIS_fnc_Carrier01PosUpdate;
 
         
