@@ -57,6 +57,20 @@ class shop_button3: RscButton
 	h = 0.0825 * safezoneH;
 	onButtonClick = "_this spawn smm_shop_on_vehicle_pos;false";
 };
+
+
+class shop_button4: RscButton
+{
+	soundClick[] = {"\A3\ui_f\data\Sound\RscButtonMenu\soundClick", 0.07, 1};
+	idc = 1603;
+	text = "Carrier"; //--- ToDo: Localize;	
+	x = 0.62375 * safezoneW + safezoneX;
+	y = 0.490 * safezoneH + safezoneY;
+	w = 0.0360937 * safezoneW;
+	h = 0.0825 * safezoneH;
+	onButtonClick = "_this spawn smm_shop_on_vehicle_carrier;false";
+};
+
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT END
 ////////////////////////////////////////////////////////

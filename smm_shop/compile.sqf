@@ -1,5 +1,6 @@
 #define smm_shop_dialog_name "shop_dialog"
 #define smm_shop_vehicle_handle 1500
+#define smm_shop_carrier_handle 1603
 smm_shop_chest = player; //set as default unit init is loaded
 
 smm_shop_string = {
@@ -13,9 +14,9 @@ smm_shop_create_vehicle = {
 	if((count _this) > 1)then{
 		_searchPos = _this select 1;
 	};
-	private _pos = _searchPos findEmptyPosition [0,100,_classname];
+	private _pos = _searchPos;
 	if((count _pos) == 0)then{
-		_pos = _searchPos;
+		_pos = (getPos player);
 	};
 	
 	private _veh = createVehicle [_classname,_pos,[],0,"NONE"];
@@ -40,6 +41,11 @@ smm_shop_open = {
 	private _zoneid = _arguments;
 	smm_shop_last_zone_id = _zoneid;
 	private _zone = [call ZonesManager_GetInstance,_zoneid] call ZonesManager_fnc_GetZone;
+	private _carriers = [_zone] call Zone_get_CarrierSpots;
+	
+	ctrlEnable[smm_shop_carrier_handle,(count _carriers) > 0 ]; //enable disable carrier handle if there is on in the zone
+
+
 	private _side = [_zone] call Zone_get_Owner;
 	if(_side == playerSide)then{
 		smm_shop_dialog_handle = createDialog smm_shop_dialog_name;
@@ -153,7 +159,7 @@ smm_shop_on_vehicle_pos_place = {
 	
 	if(_isInRange)then{
 		if(_price call smm_fnc_buy)then{
-			private _veh = [_classname,_clickpos] call smm_shop_create_vehicle;
+			private _veh = [_classname,_clickpos findEmptyPosition [0,200,_classname]] call smm_shop_create_vehicle;
 			assert !(isNil "_veh");
 			[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
 			_veh spawn smm_shop_on_vehicle_pos_fn;
@@ -168,5 +174,33 @@ smm_shop_on_vehicle_pos_place = {
 };
 
 
-
+smm_shop_on_vehicle_carrier = {
+	private _curSelId = lbCurSel smm_shop_vehicle_handle;
+	private _out = false;
+	private _zonesManager = call ZonesManager_GetInstance;
+	private _zone = [_zonesManager,smm_shop_last_zone_id] call ZonesManager_fnc_GetZone;
+	private _carriers = [_zone] call Zone_get_CarrierSpots;
+	
+	if((count _carriers)> 0)then{
+		if(_curSelId>-1)then{
+			private _carrierPos = [_carriers select 0] call Position3D_fnc_ToArray;
+			private _carrierSpawnPos = [_carrierPos,"vehicle"] call smm_fnc_getSpawnPositionRelativeToCarrier;
+			private _price = lbValue [smm_shop_vehicle_handle,_curSelId];
+			private _index = parseNumber (lbData [smm_shop_vehicle_handle,_curSelId]);
+			private _element = buy_units select _index;
+			private _classname = [_element] call PurchasableVehicle_get_Classname;
+			private _fn = [_element] call PurchasableVehicle_get_PostSpawnFunction;
+			if(_price call smm_fnc_buy) then {
+				private _veh = [_classname,_carrierSpawnPos] call smm_shop_create_vehicle;
+				assert !(isNil "_veh");
+				[_veh,_price,_classname] spawn smm_fnc_onVehiclePurchased;
+				_veh spawn _fn;
+				
+			}else{
+				_out = true;
+			};
+		};
+	};
+	_out
+};
 
