@@ -64,7 +64,7 @@ private _zm = call ZonesManager_GetInstance;
 
     };
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
-
+    private _carrierInteractionPoints = [];
     
     private _spawnedCarriers = [];
    {
@@ -77,11 +77,18 @@ private _zm = call ZonesManager_GetInstance;
         _carrier call BIS_fnc_Carrier01PosUpdate;
         _spawnedCarriers pushBack _carrier;
 
-        
+        private _carrierInteractionPos = [_carrierPos,"interaction"] call smm_fnc_getSpawnPositionRelativeToCarrier;
+        diag_log ("Spawning carrier tent at " + str(_carrierInteractionPos));
+        private _carrierInteractionPoint = smm_spawner_interaction_object createVehicle _carrierInteractionPos;
+        _carrierInteractionPoint attachTo [_carrier,[8,8,24.5]];
+        _carrierInteractionPoint setVariable ["ace_medical_isMedicalFacility",true,true];
+        _carrierInteractionPoint allowDamage false;
+        _carrierInteractionPoints pushBack  _carrierInteractionPoint;
+
     } forEach _carrierList;
 
 
-    _zoneStates pushBack ([_cZoneNumber,[],[],[_interaction_point],_triggerCollection,0,[],_spawnedCarriers] call ZoneState_create);
+    _zoneStates pushBack ([_cZoneNumber,[],[],[_interaction_point] +_carrierInteractionPoints,_triggerCollection,0,[],_spawnedCarriers] call ZoneState_create);
 }forEach ([_zm] call ZonesManager_get_Zones );// does blocking wait unitl zones finished generating
 
 private _initialTargets = [[],[],[]] call TargetCollection_create;
