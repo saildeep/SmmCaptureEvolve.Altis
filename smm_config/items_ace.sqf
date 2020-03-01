@@ -96,7 +96,7 @@ allItems append [
 	*/
 	["CfgWeapons","ACE_atropine","MEDIC",10,false] call PurchasableItem_create,
 
-	["CfgWeapons","ACE_epinephrine","MEDIC",15,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_epinephrine","BASE",75,true] call PurchasableItem_create,
 	["CfgWeapons","ACE_surgicalKit","MEDIC",119,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_bodyBag","MEDIC",10,false] call PurchasableItem_create,
 
