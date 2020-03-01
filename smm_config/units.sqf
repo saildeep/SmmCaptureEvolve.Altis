@@ -593,6 +593,11 @@ if(smm_ace)then{
 	]
 		
 };
+
+buy_units append [
+	["C_Heli_light_01_digital_F",13000,{},"LOGISTIC",""] call PurchasableVehicle_create
+];
+
 //when buying one of this vehicles, a respawn point for the players' side will be created and tracked
 respawnVehicles = ["B_Truck_01_medical_F","I_Truck_02_medical_F"];
 
