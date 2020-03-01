@@ -92,6 +92,7 @@ if((count _currentUnits) == 0) then{
 			{
 				[_object,_x] call ZoneState_fnc_InitUnit;
 			}forEach (crew _v);
+			_v setVehicleLock "LOCKED";
 		}forEach _vehicletypes;
 
 
