@@ -70,7 +70,7 @@ private _zm = call ZonesManager_GetInstance;
    {
         diag_log ("Using carrier pos "+ str(_x));
         private _carrierPos = [_x] call Position3D_fnc_ToArray;
-        private _carrier = "Land_Carrier_01_base_F" createVehicle [0,0,0];
+        private _carrier = "Land_Carrier_01_base_F" createVehicle _carrierPos;
         
         [_carrier,_carrierPos] remoteExec ["smm_fnc_positionCarrier",0,true];
         
