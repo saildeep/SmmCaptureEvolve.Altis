@@ -12,7 +12,7 @@
  params["_carrierPosition",["_type","respawn"]];
  private _out = _carrierPosition;
  if(_type == "respawn")then{
-	 _out = [(_carrierPosition select 0),(_carrierPosition select 1),(_carrierPosition select 2) +22];
+	 _out = [(_carrierPosition select 0),(_carrierPosition select 1),(_carrierPosition select 2) +24];
  };
  if(_type=="interaction")then{
 	_out = [(_carrierPosition select 0)-15,(_carrierPosition select 1)+25,(_carrierPosition select 2) +24.5];
