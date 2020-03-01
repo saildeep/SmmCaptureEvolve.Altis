@@ -11,7 +11,7 @@
 
  params["_center","_rmin","_rmax"];
 
- private _pos = [_center, _rmin, _rmax,60,2,100,0,[]] call BIS_fnc_findSafePos;
+ private _pos = [_center, _rmin, _rmax,150,2,100,0,[]] call BIS_fnc_findSafePos;
 if((count _pos) == 2)then{
 	private _h =  -5;
 
