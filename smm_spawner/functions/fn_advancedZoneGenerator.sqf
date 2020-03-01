@@ -42,6 +42,7 @@ private _connections = _chosenCandidates call smm_fnc_triangulateCandidates;
 //convert to spawnlocs format now [position,hash,size,owner,connections,name]
 private _out = [];
 
+private _carrierBlacklist = [];
 //TODO better startzone algorithm
 {
 	diag_log ("Searching helipads for " + (str (_x select 0)));
@@ -53,7 +54,9 @@ private _out = [];
 	private _pos = _x select 0;
 	private _r = _x select 2;
 	private _helipads = [_pos,_r*0.5,_r+300,if(smm_debug)then{1}else{10},if(smm_debug)then{3}else{30}] call smm_fnc_getHelipadPositions;
-	private _carriers = [_pos,0,_r*2] call smm_fnc_getCarrierPositions;
+	private _carriers = [_pos,0,_r*2,_carrierBlacklist] call smm_fnc_getCarrierPositions;
+	_carrierBlacklist append (_carriers apply {[[_x select 0,_x select 1],2000]}); // no carrier in range of 2KM if one is spawned
+
 	if((count _carriers) > 0) then{
 		diag_log ("Found carrier position for " + (str _pos) + " which is " + (str (_carriers select 0)));
 	};
