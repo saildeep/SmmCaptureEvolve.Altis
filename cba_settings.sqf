@@ -184,7 +184,7 @@ force ace_medical_blood_bloodLifetime = 1800;
 force ace_medical_blood_enabledFor = 2;
 force ace_medical_blood_maxBloodObjects = 500;
 force ace_medical_fatalDamageSource = 1;
-ace_medical_feedback_painEffectType = 1;
+force ace_medical_feedback_painEffectType = 1;
 force ace_medical_fractures = 1;
 ace_medical_gui_enableActions = 0;
 ace_medical_gui_enableMedicalMenu = 1;
@@ -249,7 +249,7 @@ force ace_nightvision_disableNVGsWithSights = false;
 force ace_nightvision_effectScaling = 1;
 force ace_nightvision_fogScaling = 1;
 force ace_nightvision_noiseScaling = 1;
-ace_nightvision_shutterEffects = true;
+force ace_nightvision_shutterEffects = true;
 
 // ACE Overheating
 ace_overheating_displayTextOnJam = true;
