@@ -9,7 +9,7 @@
  diag_log ("Updating carrier position of " + str(_carrier) + " to " + str(_carrierPos));
  
  [_carrier,_carrierPos] spawn {
-	 	params["_carrier"];
+	 	params["_carrier","_carrierPos"];
 		// Clients wait for carrier
 		sleep 5;
 		_carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
