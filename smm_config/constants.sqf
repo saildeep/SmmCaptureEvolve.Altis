@@ -6,6 +6,7 @@ smm_spawner_despawn_range = 2000;
 
 smm_spawner_zone_scan_size = 100;
 smm_spawner_house_influence = 10;
+smm_spawner_min_carrier_spacing = 3500;
 
 smm_spawner_money_cap = 1200;
 

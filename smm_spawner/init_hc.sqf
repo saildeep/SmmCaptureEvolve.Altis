@@ -72,7 +72,7 @@ private _zm = call ZonesManager_GetInstance;
         private _carrierPos = [_x] call Position3D_fnc_ToArray;
         [_carrierPos] remoteExec ["smm_fnc_spawnCarrierServer",2,false];
         
-        _spawnedCarriers pushBack _carrier;
+       
 
         private _carrierInteractionPos = [_carrierPos,"interaction"] call smm_fnc_getSpawnPositionRelativeToCarrier;
         diag_log ("Spawning carrier tent at " + str(_carrierInteractionPos));
