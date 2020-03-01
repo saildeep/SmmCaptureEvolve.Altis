@@ -21,3 +21,4 @@ class getHelipadPositions{};
 class getCarrierPositions{};
 class getSpawnPositionRelativeToCarrier{};
 class positionCarrier{};
+class spawnCarrierServer{};

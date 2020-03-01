@@ -66,27 +66,18 @@ private _zm = call ZonesManager_GetInstance;
     private _triggerCollection = _seizeTriggers call TriggerCollection_create;
     private _carrierInteractionPoints = [];
     
-    private _spawnedCarriers = [];
+   
    {
         diag_log ("Using carrier pos "+ str(_x));
         private _carrierPos = [_x] call Position3D_fnc_ToArray;
-
-        private _carrier = "Land_Carrier_01_base_F" createVehicle _carrierPos;
-        
-        
-        
-        _carrier setPosWorld _carrierPos;
-        _carrier setVectorDirAndUp [[0,1,0],[0,0,1]];
-        
-        [_carrier] call BIS_fnc_Carrier01PosUpdate;
-        [_carrier,_carrierPos] remoteExec ["smm_fnc_positionCarrier",-clientOwner ,true];
+        [_carrierPos] remoteExec ["smm_fnc_spawnCarrierServer",2,false];
         
         _spawnedCarriers pushBack _carrier;
 
         private _carrierInteractionPos = [_carrierPos,"interaction"] call smm_fnc_getSpawnPositionRelativeToCarrier;
         diag_log ("Spawning carrier tent at " + str(_carrierInteractionPos));
         private _carrierInteractionPoint = smm_spawner_interaction_object createVehicle _carrierInteractionPos;
-        _carrierInteractionPoint attachTo [_carrier,[-20,-8,24.5]];
+        _carrierInteractionPoint setPosASL _carrierInteractionPos;
         _carrierInteractionPoint setVariable ["ace_medical_isMedicalFacility",true,true];
         _carrierInteractionPoint allowDamage false;
         _carrierInteractionPoints pushBack  _carrierInteractionPoint;

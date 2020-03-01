@@ -124,4 +124,8 @@
 				   allowedTargets = 0;
 				   jip = 1;
 			   };
-			   
+			   class smm_fnc_spawnCarrierServer
+			   {
+				   allowedTargets = 2;
+				   jip = 0;
+			   };
