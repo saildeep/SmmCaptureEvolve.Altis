@@ -271,8 +271,8 @@ force ace_pylons_enabledForZeus = true;
 force ace_pylons_enabledFromAmmoTrucks = true;
 force ace_pylons_rearmNewPylons = false;
 force ace_pylons_requireEngineer = false;
-force ace_pylons_requireToolkit = true;
-force ace_pylons_searchDistance = 40;
+force ace_pylons_requireToolkit = false;
+force ace_pylons_searchDistance = 70;
 force ace_pylons_timePerPylon = 3;
 
 // ACE Quick Mount
