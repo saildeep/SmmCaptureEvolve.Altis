@@ -1,5 +1,5 @@
 #include "constants.hpp"
-params["_unit","_perk"];
+params["_unit",["_perk","INVALID PERK"]];
 if(_perk in ALLOWED_PERKS)then{
 	(_perk in (_unit getVariable [KEY_PERKS,[]]))
 }else{

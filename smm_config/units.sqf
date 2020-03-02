@@ -466,8 +466,8 @@ if(playerSide == west)then{
 
 		//VTOL 
 		["B_T_VTOL_01_armed_F",35000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
-		["B_T_VTOL_01_infantry_F",17000,{},"CREWMAN",""] call PurchasableVehicle_create,
-		["B_T_VTOL_01_vehicle_F",18000,{},"CREWMAN",""] call PurchasableVehicle_create
+		["B_T_VTOL_01_infantry_F",17000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_T_VTOL_01_vehicle_F",18000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create
 	];
 };
 if(playerSide == independent)then{
