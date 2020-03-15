@@ -569,11 +569,22 @@ if(playerSide == east)then{
 		["O_MBT_04_command_F",58000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,	
 		// MBT Arillery
 		["O_MBT_02_arty_F",80000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_Truck_02_MRL_F",55000,{
+			[_this,true] call smm_fnc_clearVehicleAmmo;
+			_this setObjectTextureGlobal [0, "a3\soft_f_beta\truck_02\data\truck_02_kab_opfor_co.paa"];
+			_this setObjectTextureGlobal [1, "a3\soft_f_beta\truck_02\data\truck_02_int_co.paa"];
+			_this setObjectTextureGlobal [2, "a3\soft_f_gamma\truck_02\data\truck_02_mrl_opfor_co.paa"];
+		},"CREWMAN",""] call PurchasableVehicle_create,
 
 		// Plane
 		["O_Plane_Fighter_02_F",30000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
 		["O_Plane_Fighter_02_Stealth_F",32500,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,
 		["O_Plane_CAS_02_dynamicLoadout_F",35000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
+		["I_Plane_Fighter_03_dynamicLoadout_F",29000,{
+			[_this,true] call smm_fnc_clearVehiclePylons;
+			_this setObjectTextureGlobal [0, "a3\air_f_gamma\plane_fighter_03\data\plane_fighter_03_body_1_greyhex_co.paa"];
+			_this setObjectTextureGlobal [1, "a3\air_f_gamma\plane_fighter_03\data\plane_fighter_03_body_2_greyhex_co.paa"];
+		},"CREWMAN",""] call PurchasableVehicle_create,
 		//Heli CREWMAN
 		["O_Heli_Attack_02_dynamicLoadout_F",50000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create,	
 		["O_Heli_Light_02_dynamicLoadout_F",23000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
