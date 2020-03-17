@@ -411,7 +411,10 @@ buy_units = [];
 if(playerSide == west)then{
 	buy_units = [
 		["B_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
-		["B_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
+		["B_Quadbike_01_F",1800,{
+			_this setObjectTextureGlobal [0, "a3\soft_f_bootcamp\quadbike_01\data\quadbike_01_ig_co.paa"];
+			_this setObjectTextureGlobal [1, "a3\soft_f_gamma\quadbike_01\data\quadbike_01_wheel_ig_co.paa"];
+		},"BASE",""]{ call PurchasableVehicle_create,
 		["B_LSV_01_unarmed_F",3500,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["B_LSV_01_armed_F",9000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
 		["B_MRAP_01_F",8700,{},"BASE",""] call PurchasableVehicle_create,
@@ -473,7 +476,10 @@ if(playerSide == west)then{
 if(playerSide == independent)then{
 	buy_units = [
 		["I_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
-		["I_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
+		["I_Quadbike_01_F",1800,{
+			_this setObjectTextureGlobal [0, "a3\soft_f_beta\quadbike_01\data\quadbike_01_indp_co.paa"];
+			_this setObjectTextureGlobal [1, "a3\soft_f_beta\quadbike_01\data\quadbike_01_wheel_indp_co.paa"];
+		},"BASE",""]{ call PurchasableVehicle_create,
 		["I_C_Offroad_02_unarmed_F",3000,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["I_C_Offroad_02_LMG_F",6000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
 		["I_MRAP_03_F",6000,{},"BASE",""] call PurchasableVehicle_create,
@@ -523,7 +529,10 @@ if(playerSide == independent)then{
 if(playerSide == east)then{
 	buy_units = [
 		["O_Boat_Transport_01_F",2000,{},"BASE",""] call PurchasableVehicle_create,
-		["O_Quadbike_01_F",1800,{},"BASE",""] call PurchasableVehicle_create,
+		["O_Quadbike_01_F",1800,{
+			_this setObjectTextureGlobal [0, "a3\soft_f\quadbike_01\data\quadbike_01_opfor_co.paa"];
+			_this setObjectTextureGlobal [1, "a3\soft_f\quadbike_01\data\quadbike_01_wheel_opfor_co.paa"];
+		},"BASE",""]{ call PurchasableVehicle_create,
 		["O_LSV_02_unarmed_F",3500,{},"BASE",""] call PurchasableVehicle_create, //APEX
 		["O_LSV_02_armed_F",7000,{},"BASE",""] call PurchasableVehicle_create,	//APEX
 		["O_MRAP_02_F",8000,{},"BASE",""] call PurchasableVehicle_create,
