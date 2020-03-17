@@ -112,9 +112,9 @@ if(!smm_rhs)then{
 		["CfgWeapons","SMG_02_F","PDW",120,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_05_F","PDW",110,false] call PurchasableItem_create,
 		
-		["CfgWeapons","SMG_03C_TR_black","PDW",400,true] call PurchasableItem_create,
-		["CfgWeapons","SMG_03C_black","PDW",350,true] call PurchasableItem_create,
-		["CfgWeapons","SMG_03_TR_black","PDW",300,true] call PurchasableItem_create,
+		["CfgWeapons","SMG_03C_TR_black","PDW",400,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_03C_black","PDW",350,false] call PurchasableItem_create,
+		["CfgWeapons","SMG_03_TR_black","PDW",300,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_03_black","PDW",250,true] call PurchasableItem_create,
 
 		//missile launchers
