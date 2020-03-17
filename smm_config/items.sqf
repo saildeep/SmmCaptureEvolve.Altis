@@ -35,7 +35,9 @@ if(!smm_rhs)then{
 		["CfgWeapons","srifle_DMR_05_tan_f","MARKSMAN",1101,false] call PurchasableItem_create,
 		["CfgWeapons","srifle_DMR_06_camo_F","MARKSMAN",899,false] call PurchasableItem_create,
 		["CfgWeapons","srifle_DMR_07_blk_F","MARKSMAN",929,false] call PurchasableItem_create,
-
+		["CfgWeapons","arifle_SPAR_03_blk_F","MARKSMAN",900,false] call PurchasableItem_create,
+		["CfgWeapons","arifle_SPAR_03_khk_F","MARKSMAN",900,false] call PurchasableItem_create,
+		
 
 		//Sniper
 		["CfgWeapons","srifle_GM6_F","SNIPER",1750,false] call PurchasableItem_create,
@@ -109,6 +111,11 @@ if(!smm_rhs)then{
 		["CfgWeapons","SMG_01_F","PDW",100,true] call PurchasableItem_create,
 		["CfgWeapons","SMG_02_F","PDW",120,false] call PurchasableItem_create,
 		["CfgWeapons","SMG_05_F","PDW",110,false] call PurchasableItem_create,
+		
+		["CfgWeapons","SMG_03C_TR_black","PDW",400,true] call PurchasableItem_create,
+		["CfgWeapons","SMG_03C_black","PDW",350,true] call PurchasableItem_create,
+		["CfgWeapons","SMG_03_TR_black","PDW",300,true] call PurchasableItem_create,
+		["CfgWeapons","SMG_03_black","PDW",250,true] call PurchasableItem_create,
 
 		//missile launchers
 		["CfgWeapons","launch_RPG7_F","ANTI_TANK",300,true] call PurchasableItem_create,
@@ -220,6 +227,8 @@ allItems append [
 	["CfgMagazines","11Rnd_45ACP_Mag","BASE",4,true] call PurchasableItem_create,
 
 	["CfgMagazines","6Rnd_45ACP_Cylinder","BASE",2,true] call PurchasableItem_create,
+	
+	["CfgMagazines","50Rnd_570x28_SMG_03","BASE",25,true] call PurchasableItem_create,
 
 
 	//Rockets
@@ -705,7 +714,8 @@ allItems append [
 	["CfgWeapons","muzzle_snds_B_snd_F","BASE",250,false] call PurchasableItem_create,
 	["CfgWeapons","muzzle_snds_65_TI_blk_F","BASE",310,false] call PurchasableItem_create,
 	["CfgWeapons","muzzle_snds_65_TI_hex_F","BASE",310,false] call PurchasableItem_create,
-	["CfgWeapons","muzzle_snds_65_TI_ghex_F","BASE",310,false] call PurchasableItem_create
+	["CfgWeapons","muzzle_snds_65_TI_ghex_F","BASE",310,false] call PurchasableItem_create,
+	["CfgWeapons","muzzle_snds_570","BASE",200,false] call PurchasableItem_create
 ];
 
 /*
