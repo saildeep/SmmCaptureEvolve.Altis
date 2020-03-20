@@ -37,9 +37,9 @@ private _perkClass = switch(_class) do{
 										  };
 	case "SCOUT"							: { private _classEquipment = ["BASE","PDW","RIFLEMAN","MARKSMAN","SPOTTER_EQUIPMENT","SCOPE_LR"];
 											private _sideEquipment = switch(side _unit) do{
-												case WEST 				:{["UAV_BLUFOR","RADIO_LARGE_BLUFOR","DESIGNATOR_BLUFOR"]};
-												case EAST					:{["UAV_OPFOR","RADIO_LARGE_OPFOR","DESIGNATOR_OPFOR"]};
-												case independent	:{["UAV_INDEPENDENT","RADIO_LARGE_INDEPENDENT","DESIGNATOR_INDEPENDENT"]};
+												case WEST 				:{["UAV_BLUFOR","RADIO_LARGE_BLUFOR","DESIGNATOR_BLUFOR","UNIFORM_SNIPER_BLUFOR"]};
+												case EAST					:{["UAV_OPFOR","RADIO_LARGE_OPFOR","DESIGNATOR_OPFOR","UNIFORM_SNIPER_OPFOR"]};
+												case independent	:{["UAV_INDEPENDENT","RADIO_LARGE_INDEPENDENT","DESIGNATOR_INDEPENDENT","UNIFORM_SNIPER_INDEPENDENT"]};
 												default {[]};
 											};
 											_classEquipment append _sideEquipment;		
