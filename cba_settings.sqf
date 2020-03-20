@@ -38,7 +38,7 @@ force ace_artillerytables_disableArtilleryComputer = false;
 force ace_mk6mortar_airResistanceEnabled = false;
 force ace_mk6mortar_allowCompass = true;
 force ace_mk6mortar_allowComputerRangefinder = true;
-force ace_mk6mortar_useAmmoHandling = false;
+force ace_mk6mortar_useAmmoHandling = true;
 
 // ACE Captives
 force ace_captives_allowHandcuffOwnSide = true;
@@ -86,7 +86,7 @@ force ace_frag_spallEnabled = false;
 
 // ACE Goggles
 ace_goggles_effects = 2;
-ace_goggles_showClearGlasses = false;
+ace_goggles_showClearGlasses = true;
 ace_goggles_showInThirdPerson = false;
 
 // ACE Hearing
@@ -184,7 +184,9 @@ force ace_medical_blood_bloodLifetime = 1800;
 force ace_medical_blood_enabledFor = 2;
 force ace_medical_blood_maxBloodObjects = 500;
 force ace_medical_fatalDamageSource = 1;
+ace_medical_feedback_bloodVolumeEffectType = 0;
 force ace_medical_feedback_painEffectType = 1;
+force ace_medical_fractureChance = 0.8;
 force ace_medical_fractures = 1;
 ace_medical_gui_enableActions = 0;
 ace_medical_gui_enableMedicalMenu = 1;
@@ -206,6 +208,7 @@ force ace_medical_treatment_advancedDiagnose = true;
 force ace_medical_treatment_advancedMedication = true;
 force ace_medical_treatment_allowLitterCreation = true;
 force ace_medical_treatment_allowSelfIV = 1;
+force ace_medical_treatment_allowSelfPAK = 0;
 force ace_medical_treatment_allowSelfStitch = 1;
 force ace_medical_treatment_allowSharedEquipment = 0;
 force ace_medical_treatment_clearTraumaAfterBandage = false;
@@ -221,10 +224,10 @@ force ace_medical_treatment_locationsBoostTraining = true;
 force ace_medical_treatment_locationSurgicalKit = 3;
 force ace_medical_treatment_maxLitterObjects = 500;
 force ace_medical_treatment_medicEpinephrine = 0;
+force ace_medical_treatment_medicIV = 1;
 force ace_medical_treatment_medicPAK = 1;
 force ace_medical_treatment_medicSurgicalKit = 1;
-force ace_medical_treatment_timeCoefficientPAK = = 0.2;
-force ace_medical_treatment_woundReopening = true;
+force ace_medical_treatment_timeCoefficientPAK = 0.3;
 
 // ACE Name Tags
 ace_nametags_defaultNametagColor = [0.77,0.51,0.08,1];
