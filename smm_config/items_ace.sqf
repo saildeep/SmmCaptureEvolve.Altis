@@ -107,7 +107,7 @@ allItems append [
 
 	["CfgWeapons","ACE_bloodIV","MEDIC",80,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_bloodIV_500","MEDIC",45,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_bloodIV_250","MEDIC",25,true] call PurchasableItem_create,
+	["CfgWeapons","ACE_bloodIV_250","BASE",25,true] call PurchasableItem_create,
 
 	["CfgWeapons","ACE_salineIV","MEDIC",30,false] call PurchasableItem_create,
 	["CfgWeapons","ACE_salineIV_500","MEDIC",17,false] call PurchasableItem_create,
