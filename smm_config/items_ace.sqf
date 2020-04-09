@@ -45,10 +45,9 @@ allItems append [
 	//["CfgMagazines","ACE_Chemlight_HiYellow","BASE",10,false] call PurchasableItem_create,
 
 	//mines and grenades
-	["CfgWeapons","ACE_M84","BASE",20,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_M14","MINES",8,false] call PurchasableItem_create,
-	["CfgWeapons","ACE_FlareTripMine_Mag","MINES",8,false] call PurchasableItem_create,
-
+	["CfgMagazines","ACE_M84","BASE",20,false] call PurchasableItem_create,
+	["CfgMagazines","ACE_M14","MINES",8,false] call PurchasableItem_create,
+	["CfgMagazines","ACE_FlareTripMine_Mag","MINES",8,false] call PurchasableItem_create,
 
 	//barrel
 	["CfgMagazines","ACE_SpareBarrel","LMG",50,false] call PurchasableItem_create,
@@ -132,6 +131,11 @@ allItems append [
 	["CfgWeapons","ACE_Flashlight_MX991","BASE",60,false] call PurchasableItem_create,
 	//TODO ace explosives and flashlights
 	
+	// grenades
+	["CfgMagazines","ACE_40mm_Flare_white","BASE",5,false] call PurchasableItem_create,
+	["CfgMagazines","ACE_40mm_Flare_red","BASE",5,false] call PurchasableItem_create,
+	["CfgMagazines","ACE_40mm_Flare_green","BASE",5,false] call PurchasableItem_create,
+	["CfgMagazines","ACE_40mm_Flare_ir","BASE",5,false] call PurchasableItem_create,
 
 	//sniper/spotter
 	["CfgWeapons","ACE_SpottingScope","SPOTTER_EQUIPMENT",50,false] call PurchasableItem_create,

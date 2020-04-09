@@ -659,6 +659,33 @@ if(!smm_rhs)then{
 		["CfgVehicles","O_Static_Designator_02_weapon_F","DESIGNATOR_OPFOR",300,true] call PurchasableItem_create 
 		];
 
+// Facewear
+allItems append [
+
+	["CfgGlasses","G_Aviator","BASE",100,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Balaclava_blk","BASE",50,false] call PurchasableItem_create,
+	["CfgGlasses","G_Balaclava_oli","BASE",50,false] call PurchasableItem_create,
+	["CfgGlasses","G_Balaclava_combat","BASE",150,false] call PurchasableItem_create,
+	["CfgGlasses","G_Balaclava_lowprofile","BASE",150,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Bandanna_beast","BASE",100,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Combat","BASE",100,false] call PurchasableItem_create,
+	["CfgGlasses","G_Combat_Goggles_tna_F","BASE",100,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Diving","BASE",100,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Lowprofile","BASE",100,false] call PurchasableItem_create,
+	["CfgGlasses","G_Sport_Red","BASE",540,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Tactical_Black","BASE",250,false] call PurchasableItem_create,
+	["CfgGlasses","G_Tactical_Clear","BASE",250,false] call PurchasableItem_create,
+
+	["CfgGlasses","G_Goggles_VR","BASE",539,false] call PurchasableItem_create
+
+];
+
 //misc items
 allItems append[
 	["CfgWeapons","ItemWatch","BASE",5,true] call PurchasableItem_create,

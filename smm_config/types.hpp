@@ -73,12 +73,12 @@ class SpawnableVehicle:OOType{
 class PurchasableItem:OOType{
     class ConfigFile:OOVar{
         typeName="STRING";
-        typeCheck="_this in ['CfgItems','CfgMagazines','CfgWeapons','CfgVehicles']";
+        typeCheck="_this in ['CfgItems','CfgMagazines','CfgWeapons','CfgVehicles','CfgGlasses']";
     };
 
     class ClassName:OOVar{
         typeName="STRING";
-        typeCheck = "isClass (configFile >> 'CfgItems' >> _this) ||isClass (configFile >> 'CfgMagazines' >> _this) || isClass (configFile >> 'CfgVehicles' >> _this) || isClass (configFile >> 'CfgWeapons' >> _this)";
+        typeCheck = "isClass (configFile >> 'CfgItems' >> _this) ||isClass (configFile >> 'CfgMagazines' >> _this) || isClass (configFile >> 'CfgVehicles' >> _this) || isClass (configFile >> 'CfgWeapons' >> _this) || isClass (configFile >> 'CfgGlasses' >> _this)";
     };
 
     class Perk:OOVar{

@@ -16,5 +16,7 @@ if(_configfile == "CfgVehicles")then{
 	_out = 3;
 };
 
-
+if(_configfile == "CfgGlasses")then{
+	_out = 0;
+};
 _out
