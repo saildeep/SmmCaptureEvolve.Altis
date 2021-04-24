@@ -73,6 +73,9 @@ force ace_csw_handleExtraMagazines = true;
 force ace_csw_progressBarTimeCoefficent = 1;
 
 // ACE Explosives
+ace_explosives_customTimerDefault = 30;
+ace_explosives_customTimerMax = 900;
+ace_explosives_customTimerMin = 5;
 force ace_explosives_explodeOnDefuse = true;
 force ace_explosives_punishNonSpecialists = true;
 force ace_explosives_requireSpecialist = false;
@@ -84,10 +87,17 @@ force ace_frag_maxTrackPerFrame = 10;
 force ace_frag_reflectionsEnabled = false;
 force ace_frag_spallEnabled = false;
 
+// ACE G-Forces
+ace_gforces_coef = 1;
+force ace_gforces_enabledFor = 1;
+
 // ACE Goggles
 ace_goggles_effects = 2;
 ace_goggles_showClearGlasses = true;
 ace_goggles_showInThirdPerson = false;
+
+// ACE Grenades
+ace_grenades_convertExplosives = true;
 
 // ACE Hearing
 force ace_hearing_autoAddEarplugsToUnits = true;
@@ -101,6 +111,7 @@ force ace_hearing_unconsciousnessVolume = 0.293353;
 force ace_interaction_disableNegativeRating = false;
 ace_interaction_enableMagazinePassing = true;
 force ace_interaction_enableTeamManagement = true;
+ace_interaction_enableWeaponAttachments = true;
 
 // ACE Interaction Menu
 ace_gestures_showOnInteractionMenu = 2;
@@ -112,6 +123,7 @@ ace_interact_menu_colorShadowMax = [0,0,0,1];
 ace_interact_menu_colorShadowMin = [0,0,0,0.25];
 ace_interact_menu_colorTextMax = [1,1,1,1];
 ace_interact_menu_colorTextMin = [1,1,1,0.25];
+ace_interact_menu_consolidateSingleChild = false;
 ace_interact_menu_cursorKeepCentered = false;
 ace_interact_menu_cursorKeepCenteredSelfInteraction = false;
 ace_interact_menu_menuAnimationSpeed = 0;
@@ -163,14 +175,22 @@ force ace_map_mapLimitZoom = false;
 force ace_map_mapShake = true;
 force ace_map_mapShowCursorCoordinates = false;
 ace_markers_moveRestriction = 0;
+ace_markers_timestampEnabled = true;
+ace_markers_timestampFormat = "HH:MM";
+ace_markers_timestampHourFormat = 24;
 
 // ACE Map Gestures
+ace_map_gestures_allowCurator = true;
+ace_map_gestures_allowSpectator = true;
+ace_map_gestures_briefingMode = 0;
 ace_map_gestures_defaultColor = [1,0.88,0,0.7];
 ace_map_gestures_defaultLeadColor = [1,0.88,0,0.95];
 force ace_map_gestures_enabled = true;
 force ace_map_gestures_interval = 0.03;
 force ace_map_gestures_maxRange = 7;
+ace_map_gestures_maxRangeCamera = 14;
 ace_map_gestures_nameTextColor = [0.2,0.2,0.2,0.3];
+ace_map_gestures_onlyShowFriendlys = false;
 
 // ACE Map Tools
 ace_maptools_drawStraightLines = true;
@@ -180,32 +200,36 @@ ace_maptools_rotateModifierKey = 1;
 force ace_medical_ai_enabledFor = 2;
 force ace_medical_AIDamageThreshold = 0.5;
 force ace_medical_bleedingCoefficient = 1;
-force ace_medical_blood_bloodLifetime = 1800;
+force ace_medical_blood_bloodLifetime = 600;
 force ace_medical_blood_enabledFor = 2;
 force ace_medical_blood_maxBloodObjects = 500;
 force ace_medical_fatalDamageSource = 1;
-ace_medical_feedback_bloodVolumeEffectType = 0;
+force ace_medical_feedback_bloodVolumeEffectType = 2;
 force ace_medical_feedback_painEffectType = 1;
 force ace_medical_fractureChance = 0.8;
 force ace_medical_fractures = 1;
 ace_medical_gui_enableActions = 0;
 ace_medical_gui_enableMedicalMenu = 1;
 ace_medical_gui_enableSelfActions = true;
+ace_medical_gui_interactionMenuShowTriage = 1;
 force ace_medical_gui_maxDistance = 4.9749;
 ace_medical_gui_openAfterTreatment = true;
 force ace_medical_ivFlowRate = 1;
 force ace_medical_limping = 1;
 force ace_medical_painCoefficient = 1;
-force ace_medical_playerDamageThreshold = 1;
-force ace_medical_spontaneousWakeUpChance = 0.15;
+force ace_medical_painUnconsciousChance = 0.104382;
+force ace_medical_playerDamageThreshold = 1.5;
+force ace_medical_spontaneousWakeUpChance = 0.249655;
 force ace_medical_spontaneousWakeUpEpinephrineBoost = 5;
-force ace_medical_statemachine_AIUnconsciousness = true;
-force ace_medical_statemachine_cardiacArrestTime = 90;
+force ace_medical_statemachine_AIUnconsciousness = false;
+force ace_medical_statemachine_cardiacArrestBleedoutEnabled = true;
+force ace_medical_statemachine_cardiacArrestTime = 60;
 force ace_medical_statemachine_fatalInjuriesAI = 0;
 force ace_medical_statemachine_fatalInjuriesPlayer = 1;
 force ace_medical_treatment_advancedBandages = 2;
 force ace_medical_treatment_advancedDiagnose = true;
 force ace_medical_treatment_advancedMedication = true;
+ace_medical_treatment_allowBodyBagUnconscious = false;
 force ace_medical_treatment_allowLitterCreation = true;
 force ace_medical_treatment_allowSelfIV = 1;
 force ace_medical_treatment_allowSelfPAK = 0;
@@ -219,6 +243,7 @@ force ace_medical_treatment_cprSuccessChance = 0.75;
 force ace_medical_treatment_holsterRequired = 0;
 force ace_medical_treatment_litterCleanupDelay = 600;
 force ace_medical_treatment_locationEpinephrine = 0;
+force ace_medical_treatment_locationIV = 0;
 force ace_medical_treatment_locationPAK = 2;
 force ace_medical_treatment_locationsBoostTraining = true;
 force ace_medical_treatment_locationSurgicalKit = 3;
@@ -228,6 +253,14 @@ force ace_medical_treatment_medicIV = 1;
 force ace_medical_treatment_medicPAK = 1;
 force ace_medical_treatment_medicSurgicalKit = 1;
 force ace_medical_treatment_timeCoefficientPAK = 0.3;
+force ace_medical_treatment_treatmentTimeAutoinjector = 2.005;
+force ace_medical_treatment_treatmentTimeBodyBag = 15;
+force ace_medical_treatment_treatmentTimeCPR = 10;
+force ace_medical_treatment_treatmentTimeIV = 10;
+force ace_medical_treatment_treatmentTimeSplint = 7;
+force ace_medical_treatment_treatmentTimeTourniquet = 4.005;
+force ace_medical_treatment_woundReopenChance = 1;
+force ace_medical_treatment_woundStitchTime = 5;
 
 // ACE Name Tags
 ace_nametags_defaultNametagColor = [0.77,0.51,0.08,1];
@@ -275,7 +308,7 @@ force ace_pylons_enabledFromAmmoTrucks = true;
 force ace_pylons_rearmNewPylons = false;
 force ace_pylons_requireEngineer = false;
 force ace_pylons_requireToolkit = false;
-force ace_pylons_searchDistance = 70;
+ace_pylons_searchDistance = 15;
 force ace_pylons_timePerPylon = 3;
 
 // ACE Quick Mount
@@ -317,9 +350,15 @@ force ace_switchunits_switchToEast = false;
 force ace_switchunits_switchToIndependent = false;
 force ace_switchunits_switchToWest = false;
 
+// ACE Trenches
+ace_trenches_bigEnvelopeDigDuration = 25;
+ace_trenches_bigEnvelopeRemoveDuration = 15;
+ace_trenches_smallEnvelopeDigDuration = 20;
+ace_trenches_smallEnvelopeRemoveDuration = 12;
+
 // ACE Uncategorized
 force ace_fastroping_requireRopeItems = false;
-force ace_gforces_enabledFor = 1;
+ace_gunbag_swapGunbagEnabled = true;
 force ace_hitreactions_minDamageToTrigger = 0.1;
 ace_inventory_inventoryDisplaySize = 0;
 force ace_laser_dispersionCount = 2;
@@ -374,6 +413,7 @@ force ace_vehiclelock_vehicleStartingLockState = -1;
 // ACE Vehicles
 ace_vehicles_hideEjectAction = true;
 force ace_vehicles_keepEngineRunning = false;
+ace_vehicles_speedLimiterStep = 5;
 
 // ACE View Distance Limiter
 force ace_viewdistance_enabled = true;
@@ -411,6 +451,7 @@ force ace_zeus_zeusAscension = false;
 force ace_zeus_zeusBird = false;
 
 // CBA UI
+cba_diagnostic_ConsoleIndentType = -1;
 cba_ui_notifyLifetime = 4;
 cba_ui_StorePasswords = 1;
 
@@ -420,11 +461,5 @@ force cba_disposable_replaceDisposableLauncher = true;
 cba_events_repetitionMode = 1;
 cba_optics_usePipOptics = true;
 
-// Task Force Arrowhead Radio
-TF_default_radioVolume = 9;
-force TF_give_microdagr_to_soldier = true;
-force TF_give_personal_radio_to_regular_soldier = false;
-force TF_no_auto_long_range_radio = true;
-force TF_same_dd_frequencies_for_side = false;
-force TF_same_lr_frequencies_for_side = false;
-force TF_same_sw_frequencies_for_side = false;
+// Community Base Addons - Network
+cba_network_loadoutValidation = 0;
