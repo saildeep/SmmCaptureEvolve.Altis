@@ -432,6 +432,12 @@ if(playerSide == west)then{
 		["B_Truck_01_medical_F",20000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
 		["B_Truck_01_Repair_F",20000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,	
 		["B_Truck_01_transport_F",5000,{},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
+		["B_supplyCrate_F",300,{
+			clearItemCargoGlobal _this;
+			clearWeaponCargoGlobal _this;
+			clearMagazineCargoGlobal _this;
+			clearBackpackCargoGlobal _this;
+		},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
 
 		//Heli logistic
 		["B_Heli_Transport_03_F",20000,{[_this,true] call smm_fnc_clearVehicleAmmo},"LOGISTIC_BLUFOR",""] call PurchasableVehicle_create,
@@ -496,6 +502,12 @@ if(playerSide == independent)then{
 		// box is repair truck 
 		["I_Truck_02_box_F",11000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,	
 		["I_Truck_02_transport_F",7000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
+		["B_supplyCrate_F",300,{
+			clearItemCargoGlobal _this;
+			clearWeaponCargoGlobal _this;
+			clearMagazineCargoGlobal _this;
+			clearBackpackCargoGlobal _this;
+		},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
 
 		//Heli
 		["I_Heli_Transport_02_F",15000,{},"LOGISTIC_INDEPENDENT",""] call PurchasableVehicle_create,
@@ -523,7 +535,6 @@ if(playerSide == independent)then{
 		//Plane
 		["I_Plane_Fighter_03_dynamicLoadout_F",26000,{[_this,true] call smm_fnc_clearVehiclePylons;},"CREWMAN",""] call PurchasableVehicle_create,
 		["I_Plane_Fighter_04_F",28000,{[_this,true] call smm_fnc_clearVehicleAmmo},"CREWMAN",""] call PurchasableVehicle_create
-			
 	];
 };
 if(playerSide == east)then{
@@ -550,6 +561,12 @@ if(playerSide == east)then{
 		["O_Truck_03_medical_F",9000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
 		["O_Truck_03_repair_F",9500,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
 		["O_Truck_03_transport_F",5000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
+		["B_supplyCrate_F",300,{
+			clearItemCargoGlobal _this;
+			clearWeaponCargoGlobal _this;
+			clearMagazineCargoGlobal _this;
+			clearBackpackCargoGlobal _this;
+		},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
 
 		//Heli
 		["O_Heli_Transport_04_F",15000,{},"LOGISTIC_OPFOR",""] call PurchasableVehicle_create,
