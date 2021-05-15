@@ -134,7 +134,10 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _
 
 		private _isAir = [_transportVehicleType] call SpawnableVehicle_fnc_IsHelicopter;
 		private _vehPos = [(_startingZoneCenter select 0) +  (random [-300,0,300]),(_startingZoneCenter select 1) + (random [-300,0,300])];
-		
+		if(_isAir) then{
+			_vehPos = [_zoneCenter,random [7000,10000,12000],(_zoneCenter getDir _startingZoneCenter)] call BIS_fnc_relPos;
+
+		};
 		//spawn vehicle 
 		private _veh = createVehicle [ ([_transportVehicleType] call SpawnableVehicle_get_ClassName),_vehPos,[],100,if(_isAir)then{"FLY"}else{"NONE"}];
 		[_object,_veh] call ZoneState_fnc_InitVehicle;
@@ -152,11 +155,16 @@ if( ((count _nbs) > 0) and ((_last + _cooldown) < serverTime) and (_numUnits < _
 		}forEach ( (fullCrew [_veh,"driver",true]) + (fullCrew [_veh,"commander",true]) + (fullCrew [_veh,"gunner",true]) );
 		
 
+		private _landingSpot = _targetLandingSpots select (_i mod (count _targetLandingSpots) );
+		private _wpMove = _vehGroup addWaypoint [_landingSpot,0];
+		_wpMove setWaypointType "MOVE";
+		_wpMove setWaypointCompletionRadius 500;
+
 		//create drop of and return waypoints 
-		private _wpUnload = _vehGroup addWaypoint [_targetLandingSpots select (_i mod (count _targetLandingSpots) ),0];
+		private _wpUnload = _vehGroup addWaypoint [_landingSpot,1];
 		_wpUnload setWaypointType "TR UNLOAD";
 		_wpUnload setWaypointBehaviour "CARELESS";
-		private _wpReturn = _vehGroup addWaypoint [getPos _veh,1];
+		private _wpReturn = _vehGroup addWaypoint [getPos _veh,2];
 		_wpReturn setWaypointType "MOVE";
 		_wpReturn setWaypointBehaviour "CARELESS";
 		_wpReturn setWaypointStatements ["true","{deleteVehicle(vehicle _x);deleteVehicle _x;}forEach (units (group this) )"];
