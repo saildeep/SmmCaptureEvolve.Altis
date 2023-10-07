@@ -11,7 +11,7 @@ stringConfig = compileFinal preprocessFileLineNumbers "smm_config\strings.sqf";
 unitConfig = compileFinal preprocessFileLineNumbers "smm_config\units.sqf";
 itemConfig = compileFinal preprocessFileLineNumbers "smm_config\items.sqf";
 constantConfig = compileFinal preprocessFileLineNumbers "smm_config\constants.sqf";
-loadConfig = compileFinal preprocessFileLineNumbers "smm_config\load.sqf";
+loadConfigData = compileFinal preprocessFileLineNumbers "smm_config\load.sqf";
 parameterConfig = compileFinal preprocessFileLineNumbers "smm_config\parameters.sqf";
 macrosFunctions = compileFinal preprocessFileLineNumbers "smm_macros\compile.sqf";
 gcFunctions = compileFinal preprocessFileLineNumbers "smm_garbage_collector\compile.sqf";
@@ -32,7 +32,7 @@ call compile preprocessFileLineNumbers "smm_medic\compile.sqf";
 call compile preprocessFileLineNumbers "smm_shop\compile.sqf";
 
 call parameterConfig;
-call loadConfig;
+call loadConfigData;
 
 call unitConfig;
 call itemConfig;
